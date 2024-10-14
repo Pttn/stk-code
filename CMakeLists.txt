@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.4)
 
 # root CMakeLists for the SuperTuxKart project
 project(SuperTuxKart)
-set(PROJECT_VERSION "1.4")
+set(PROJECT_VERSION "1.4TAS")
 
 add_definitions( -DSUPERTUXKART_VERSION="${PROJECT_VERSION}" )
 
@@ -26,7 +26,6 @@ if(WIN32)
 endif()
 
 option(SERVER_ONLY "Create a server only (i.e. no graphics or sound)" OFF)
-option(CHECK_ASSETS "Check if assets are installed in ../stk-assets" ON)
 option(USE_SYSTEM_ANGELSCRIPT "Use system angelscript instead of built-in angelscript. If you enable this option, make sure to use a compatible version." OFF)
 option(USE_SYSTEM_ENET "Use system ENet instead of the built-in version, when available." ON)
 CMAKE_DEPENDENT_OPTION(USE_IPV6 "Allow create or connect to game server with IPv6 address, system enet will not be used." ON
@@ -41,7 +40,7 @@ endif()
 
 CMAKE_DEPENDENT_OPTION(USE_CRYPTO_OPENSSL "Use OpenSSL instead of MbedTLS for cryptography in STK." ON
     "NOT USE_SWITCH;NOT WIN32" OFF)
-CMAKE_DEPENDENT_OPTION(BUILD_RECORDER "Build opengl recorder" ON
+CMAKE_DEPENDENT_OPTION(BUILD_RECORDER "Build opengl recorder" OFF
     "NOT SERVER_ONLY;NOT APPLE;NOT USE_SWITCH" OFF)
 CMAKE_DEPENDENT_OPTION(USE_SYSTEM_SQUISH "Use system Squish library instead of the built-in version, when available." ON
     "NOT SERVER_ONLY" OFF)
@@ -864,32 +863,17 @@ if (NOT APPLE)
     endif()
 endif()
 
-# ==== Checking if data folder exists ====
-if(NOT IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/data)
-  message( FATAL_ERROR "${CMAKE_CURRENT_SOURCE_DIR}/data folder doesn't exist" )
-endif()
-
-# ==== Checking if stk-assets folder exists ====
-if(CHECK_ASSETS)
-  if((IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/data/karts) AND
-       (IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/data/library) AND
-       (IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/data/music) AND
-       (IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/data/sfx) AND
-       (IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/data/textures) AND
-       (IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/data/tracks))
-    message(STATUS "Assets found in data directory")
-  elseif(IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../stk-assets)
-    set(STK_ASSETS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../stk-assets/)
-    message(STATUS "Assets found")
-  elseif(IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../supertuxkart-assets)
-    set(STK_ASSETS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../supertuxkart-assets/)
-    message(STATUS "Assets found")
-  else()
-    set (CUR_DIR ${CMAKE_CURRENT_SOURCE_DIR})
-    get_filename_component(PARENT_DIR ${CUR_DIR} PATH)
-    message( FATAL_ERROR "${PARENT_DIR}/stk-assets folder doesn't exist. "
-      "Please download the stk-assets, or disable this test with -DCHECK_ASSETS=off." )
-  endif()
+# ==== Checking if assets folder exists ====
+if((IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/Build/bin/assets/karts) AND
+     (IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/Build/bin/assets/library) AND
+     (IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/Build/bin/assets/models) AND
+     (IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/Build/bin/assets/music) AND
+     (IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/Build/bin/assets/sfx) AND
+     (IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/Build/bin/assets/textures) AND
+     (IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/Build/bin/assets/tracks))
+  message(STATUS "Assets found in data directory")
+else()
+  message( FATAL_ERROR "${CMAKE_CURRENT_SOURCE_DIR}/Build/bin/assets folder does not exist or is incomplete." )
 endif()
 
 
@@ -900,15 +884,15 @@ if(STK_ASSETS_DIR AND CHECK_ASSETS)
   install(DIRECTORY ${STK_ASSETS_DIR} DESTINATION ${STK_INSTALL_DATA_DIR}/data PATTERN ".svn" EXCLUDE PATTERN ".git" EXCLUDE)
 endif()
 install(FILES ${STK_DATA_DIR}/supertuxkart.desktop DESTINATION share/applications)
-install(FILES data/supertuxkart_16.png DESTINATION share/icons/hicolor/16x16/apps RENAME supertuxkart.png)
-install(FILES data/supertuxkart_32.png DESTINATION share/icons/hicolor/32x32/apps RENAME supertuxkart.png)
-install(FILES data/supertuxkart_48.png DESTINATION share/icons/hicolor/48x48/apps RENAME supertuxkart.png)
-install(FILES data/supertuxkart_64.png DESTINATION share/icons/hicolor/64x64/apps RENAME supertuxkart.png)
-install(FILES data/supertuxkart_128.png DESTINATION share/icons/hicolor/128x128/apps RENAME supertuxkart.png)
-install(FILES data/supertuxkart_256.png DESTINATION share/icons/hicolor/256x256/apps RENAME supertuxkart.png)
-install(FILES data/supertuxkart_512.png DESTINATION share/icons/hicolor/512x512/apps RENAME supertuxkart.png)
-install(FILES data/supertuxkart_1024.png DESTINATION share/icons/hicolor/1024x1024/apps RENAME supertuxkart.png)
-install(FILES data/supertuxkart.appdata.xml DESTINATION share/metainfo)
+install(FILES assets/supertuxkart_16.png DESTINATION share/icons/hicolor/16x16/apps RENAME supertuxkart.png)
+install(FILES assets/supertuxkart_32.png DESTINATION share/icons/hicolor/32x32/apps RENAME supertuxkart.png)
+install(FILES assets/supertuxkart_48.png DESTINATION share/icons/hicolor/48x48/apps RENAME supertuxkart.png)
+install(FILES assets/supertuxkart_64.png DESTINATION share/icons/hicolor/64x64/apps RENAME supertuxkart.png)
+install(FILES assets/supertuxkart_128.png DESTINATION share/icons/hicolor/128x128/apps RENAME supertuxkart.png)
+install(FILES assets/supertuxkart_256.png DESTINATION share/icons/hicolor/256x256/apps RENAME supertuxkart.png)
+install(FILES assets/supertuxkart_512.png DESTINATION share/icons/hicolor/512x512/apps RENAME supertuxkart.png)
+install(FILES assets/supertuxkart_1024.png DESTINATION share/icons/hicolor/1024x1024/apps RENAME supertuxkart.png)
+install(FILES assets/supertuxkart.appdata.xml DESTINATION share/metainfo)
 
 if(MINGW)
     install(DIRECTORY ${CMAKE_BINARY_DIR}/bin/ DESTINATION ${STK_INSTALL_BINARY_DIR}
