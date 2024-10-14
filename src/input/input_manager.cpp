@@ -49,6 +49,7 @@
 #include "states_screens/main_menu_screen.hpp"
 #include "states_screens/online/networking_lobby.hpp"
 #include "states_screens/options/options_screen_device.hpp"
+#include "tas/tas.hpp"
 #ifdef MOBILE_STK
 #include "states_screens/race_gui_multitouch.hpp"
 #endif
@@ -343,6 +344,35 @@ void InputManager::handleStaticAction(int key, int value)
             shift_is_pressed = value != 0;
             break;
         }
+
+        // TAS stuff
+        case IRR_KEY_P: // Pause/unpause
+        {
+            if (value)
+            {
+                if (Tas::get()->getGameStatus() != Tas::GameStatus::PAUSED)
+                {
+                    Tas::get()->pause();
+                    Log::info("TAS", "Pausing.");
+                }
+                else
+                {
+                    Tas::get()->resume();
+                    Log::info("TAS", "Resuming.");
+                }
+            }
+            break;
+        }
+        case IRR_KEY_O: // Tick Advance
+        {
+            if (value)
+            {
+                Tas::get()->tickAdvance();
+                Log::info("TAS", "Tick Advance.");
+            }
+            break;
+        }
+
         case IRR_KEY_SNAPSHOT:
         case IRR_KEY_PRINT:
         {
