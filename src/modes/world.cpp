@@ -72,6 +72,7 @@
 #include "states_screens/race_gui.hpp"
 #include "states_screens/race_result_gui.hpp"
 #include "states_screens/state_manager.hpp"
+#include "tas/tas.hpp"
 #include "tracks/check_manager.hpp"
 #include "tracks/track.hpp"
 #include "tracks/track_manager.hpp"
@@ -429,6 +430,7 @@ void World::reset(bool restart)
         Log::info("World", "Start Recording race.");
         ReplayRecorder::get()->init();
     }
+    Tas::get()->initForRace(RaceManager::get()->isRecordingInputs());
 
     // Reset all data structures that depend on number of karts.
     if (m_process_type == PT_MAIN)
@@ -664,6 +666,9 @@ World::~World()
     RaceManager::get()->setWatchingReplay(false);
     RaceManager::get()->setTimeTarget(0.0f);
     RaceManager::get()->setSpareTireKartNum(0);
+
+    RaceManager::get()->setRecordInputs(false);
+    Tas::get()->reset();
 
     if (!GUIEngine::isNoGraphics())
         Camera::removeAllCameras();
@@ -1201,14 +1206,21 @@ void World::update(int ticks)
     const int kart_amount = (int)m_karts.size();
     for (int i = 0 ; i < kart_amount; ++i)
     {
-        SpareTireAI* sta =
-            dynamic_cast<SpareTireAI*>(m_karts[i]->getController());
-        // Update all karts that are not eliminated
-        if(!m_karts[i]->isEliminated() || (sta && sta->isMoving()))
+        if (Tas::get()->getCurrentKartId() == m_karts[i]->getWorldKartId() && !Tas::get()->isInputReplayFinished())
+        {
+            Tas::get()->applyCurrentInput();
             m_karts[i]->update(ticks);
-        if (isStartPhase())
-            m_karts[i]->makeKartRest();
+        }
+        else
+        {
+            SpareTireAI* sta = dynamic_cast<SpareTireAI*>(m_karts[i]->getController());
+            // Update all karts that are not eliminated
+            if(!m_karts[i]->isEliminated() || (sta && sta->isMoving()))
+                m_karts[i]->update(ticks);
+        }
+        if (isStartPhase()) m_karts[i]->makeKartRest();
     }
+    Tas::get()->update();
     PROFILER_POP_CPU_MARKER();
     if(RaceManager::get()->isRecordingRace()) ReplayRecorder::get()->update(ticks);
 

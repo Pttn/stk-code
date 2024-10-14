@@ -39,6 +39,7 @@
 #include "race/highscore_manager.hpp"
 #include "race/race_manager.hpp"
 #include "states_screens/state_manager.hpp"
+#include "tas/tas.hpp"
 #include "tracks/track.hpp"
 #include "tracks/track_manager.hpp"
 #include "utils/string_utils.hpp"
@@ -76,8 +77,12 @@ void TrackInfoScreen::loadedFromFile()
     m_ai_kart_label         = getWidget<LabelWidget>("ai-text");
     m_option                = getWidget<CheckBoxWidget>("option");
     m_record_race           = getWidget<CheckBoxWidget>("record");
+    m_record_inputs_cb      = getWidget<CheckBoxWidget>("record-inputs");
+    m_input_filename_tb     = getWidget<TextBoxWidget>("inputs-filename");
     m_option->setState(false);
     m_record_race->setState(false);
+    m_record_inputs_cb->setState(false);
+    m_input_filename_tb->setText("");
 
     m_icon_bank = new irr::gui::STKModifiedSpriteBank( GUIEngine::getGUIEnv());
 
@@ -136,6 +141,7 @@ void TrackInfoScreen::setTrack(Track *track)
 void TrackInfoScreen::init()
 {
     m_record_this_race = false;
+    m_record_inputs    = false;
 
     const int max_arena_players = m_track->getMaxArenaPlayers();
     const int local_players     = RaceManager::get()->getNumLocalPlayers();
@@ -273,7 +279,7 @@ void TrackInfoScreen::init()
         m_target_value_spinner->setValue(m_track->getActualNumberOfLap());
         RaceManager::get()->setNumLaps(m_target_value_spinner->getValue());
 
-        m_target_value_label->setText(_("Number of laps"), false);
+        m_target_value_label->setText(_("laps"), false);
     }
 
     if (m_is_lap_trial)
@@ -336,6 +342,7 @@ void TrackInfoScreen::init()
     }
     else
         m_ai_kart_spinner->setActive(true);
+    m_record_inputs_cb->setState(false);
 
     // ---- High Scores
     m_highscore_label->setText(_("High Scores"), false);
@@ -556,6 +563,7 @@ void TrackInfoScreen::updateHighScores()
 void TrackInfoScreen::onEnterPressedInternal()
 {
     RaceManager::get()->setRecordRace(m_record_this_race);
+    RaceManager::get()->setRecordInputs(m_record_inputs);
     // Create a copy of member variables we still need, since they will
     // not be accessible after dismiss:
     const int num_laps = RaceManager::get()->modeHasLaps() ? m_target_value_spinner->getValue()
@@ -625,6 +633,7 @@ void TrackInfoScreen::onEnterPressedInternal()
     PlayerManager::getCurrentPlayer()->setCurrentChallenge("");
 
     RaceManager::get()->setNumKarts(num_ai + local_players);
+    Tas::get()->setInputsFilename(StringUtils::wideToUtf8(m_input_filename_tb->getText()));
     if (m_is_soccer)
     {
         RaceManager::get()->setNumRedAI(m_ai_kart_spinner->getValue());
@@ -726,6 +735,10 @@ void TrackInfoScreen::eventCallback(Widget* widget, const std::string& name,
             RaceManager::get()->setNumKarts(RaceManager::get()->getNumLocalPlayers());
             UserConfigParams::m_num_karts_per_gamemode[RaceManager::get()->getMinorMode()] = RaceManager::get()->getNumLocalPlayers();
         }
+    }
+    else if (name == "record-inputs")
+    {
+        m_record_inputs = m_record_inputs_cb->getState();
     }
     else if (name=="ai-spinner")
     {

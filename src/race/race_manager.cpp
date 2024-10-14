@@ -140,6 +140,7 @@ RaceManager::RaceManager()
     setTimeTarget(0.0f);
     setReverseTrack(false);
     setRecordRace(false);
+    setRecordInputs(false);
     setRaceGhostKarts(false);
     setWatchingReplay(false);
     setTrack("jungle");

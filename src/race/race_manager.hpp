@@ -366,6 +366,8 @@ private:
 
     bool m_is_recording_race;
 
+    bool m_is_recording_inputs;
+
     bool m_has_ghost_karts;
 
     bool m_watching_replay;
@@ -841,6 +843,11 @@ public:
         m_is_recording_race = record;
     }   // setRecordRace
     // ----------------------------------------------------------------------------------------
+    void setRecordInputs(bool record)
+    {
+        m_is_recording_inputs = record;
+    }   // setRecordInputs
+    // ------------------------------------------------------------------------
     void setRaceGhostKarts(bool ghost)
     {
         m_has_ghost_karts = ghost;
@@ -856,6 +863,11 @@ public:
         return m_is_recording_race;
     }   // isRecordingRace
     // ----------------------------------------------------------------------------------------
+    bool isRecordingInputs() const
+    {
+        return m_is_recording_inputs;
+    }   // isRecordingInputs
+    // ------------------------------------------------------------------------
     bool hasGhostKarts() const
     {
         return m_has_ghost_karts;
