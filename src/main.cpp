@@ -1091,12 +1091,11 @@ int handleCmdLine(bool has_server_config, bool has_parent_process)
         UserConfigParams::m_music = false;
     }
 
+    UserConfigParams::m_check_debug = true;
     if (UserConfigParams::m_artist_debug_mode)
     {
         if(CommandLine::has("--physics-debug"))
             UserConfigParams::m_physics_debug=1;
-        if(CommandLine::has("--check-debug"))
-            UserConfigParams::m_check_debug=true;
     }
 
     bool init_user = CommandLine::has("--init-user");
@@ -1777,6 +1776,7 @@ int handleCmdLine(bool has_server_config, bool has_parent_process)
         return 0;
     }
 
+    if(CommandLine::has("--no-checklines")) UserConfigParams::m_check_debug = false;
     CommandLine::reportInvalidParameters();
 
     if (ProfileWorld::isProfileMode() || GUIEngine::isNoGraphics())
