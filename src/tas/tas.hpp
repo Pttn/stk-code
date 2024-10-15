@@ -20,9 +20,11 @@
 #define HEADER_TAS_HPP
 
 #include <cassert>
+#include <iomanip>
 #include <memory>
 
 #include "savestate.hpp"
+#include "stats.hpp"
 
 // Stores an input
 class TasInput
@@ -36,6 +38,7 @@ public:
     TasInput(uint8_t action = 0, int32_t steer = 0, uint16_t accel = 0) : m_action(action), m_steer(steer), m_accel(accel) {}
 
     std::string toString() const;
+    std::string toStringConstSize() const;
     bool parse(std::string);
 
     bool isBraking() const {return (m_action & 1) == 1;}
@@ -89,6 +92,9 @@ private:
     // Save State
     SaveState m_save_state;
 
+    // Some Stats
+    Stats m_stats;
+
     Tas();
     ~Tas();
 public:
@@ -133,6 +139,11 @@ public:
     // Save States
     void saveState();
     void restoreState();
+
+    // Stats
+    Stats getStats() const {return m_stats;}
+    std::string getReadableInfos() const;
+    std::string getReadableSurroundingInputsToPlay() const;
 };
 
 #endif

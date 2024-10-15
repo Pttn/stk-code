@@ -129,7 +129,7 @@ SelectChallengeDialog::SelectChallengeDialog(const float percentWidth,
         getWidget<GUIEngine::RibbonWidget>("difficulty");
     
     if (UserConfigParams::m_difficulty == RaceManager::DIFFICULTY_BEST &&
-        PlayerManager::getCurrentPlayer()->isLocked("difficulty_best"))
+        PlayerManager::getCurrentPlayer()->isLocked("difficulty_best", true))
     {
         difficulty->setSelection(RaceManager::DIFFICULTY_HARD, PLAYER_ID_GAME_MASTER);
     }
@@ -155,7 +155,7 @@ SelectChallengeDialog::SelectChallengeDialog(const float percentWidth,
             break;
         case 3:
             if (UserConfigParams::m_difficulty == RaceManager::DIFFICULTY_BEST &&
-                PlayerManager::getCurrentPlayer()->isLocked("difficulty_best"))
+                PlayerManager::getCurrentPlayer()->isLocked("difficulty_best", true))
             {
                 challenge_info->setText(getLabel(RaceManager::DIFFICULTY_HARD,   c->getData()), false );
             }
@@ -184,7 +184,7 @@ SelectChallengeDialog::SelectChallengeDialog(const float percentWidth,
     }
 
     
-    if (PlayerManager::getCurrentPlayer()->isLocked("difficulty_best"))
+    if (PlayerManager::getCurrentPlayer()->isLocked("difficulty_best", true))
     {
         getWidget<IconButtonWidget>("supertux")->setBadge(LOCKED_BADGE);
         getWidget<IconButtonWidget>("supertux")->setActive(false);
@@ -315,7 +315,7 @@ GUIEngine::EventPropagation SelectChallengeDialog::processEvent(const std::strin
                     break;
                 case 3:
                     if (UserConfigParams::m_difficulty == RaceManager::DIFFICULTY_BEST &&
-                        PlayerManager::getCurrentPlayer()->isLocked("difficulty_best"))
+                        PlayerManager::getCurrentPlayer()->isLocked("difficulty_best", true))
                     {
                         c_data->setRace(RaceManager::DIFFICULTY_HARD);
                     }

@@ -37,7 +37,7 @@ void SaveState::reset()
     m_time = 0.;
 }
 
-void SaveState::create(uint64_t tick, LinearWorld *world, AbstractKart *player_kart)
+void SaveState::create(uint64_t tick, Stats stats, LinearWorld *world, AbstractKart *player_kart)
 {
     if (!world || !dynamic_cast<Kart*>(player_kart))
     {
@@ -51,6 +51,7 @@ void SaveState::create(uint64_t tick, LinearWorld *world, AbstractKart *player_k
     m_tick = tick;
     m_time_ticks = world->m_time_ticks;
     m_time = world->m_time;
+    m_stats = stats;
 
     // SmoothNetworkBody attributes
     kartStartSmoothingPostion = m_player_kart->m_start_smoothing_postion;

@@ -148,7 +148,7 @@ void RegisterScreen::init()
     }
 
     TextBoxWidget* local_username = getWidget<TextBoxWidget>("local_username");
-    local_username->setText(username);
+    local_username->setText(username + " TAS");
 
     m_password_widget->setPasswordBox(true, L'*');
     getWidget<TextBoxWidget>("password_confirm")->setPasswordBox(true, L'*');

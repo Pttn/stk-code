@@ -22,6 +22,7 @@
 using namespace irr;
 
 #include <algorithm>
+#include <iomanip>
 #include <limits>
 
 #include "challenges/story_mode_timer.hpp"
@@ -56,6 +57,7 @@ using namespace irr;
 #include "network/protocols/client_lobby.hpp"
 #include "race/race_manager.hpp"
 #include "states_screens/race_gui_multitouch.hpp"
+#include "tas/tas.hpp"
 #include "tracks/track.hpp"
 #include "tracks/track_object_manager.hpp"
 #include "utils/constants.hpp"
@@ -277,6 +279,8 @@ void RaceGUI::renderGlobal(float dt)
 #ifndef SERVER_ONLY
     RaceGUIBase::renderGlobal(dt);
     cleanupMessages(dt);
+
+    drawTasInfos();
 
     // Special case : when 3 players play, use 4th window to display such
     // stuff (but we must clear it)
@@ -777,7 +781,7 @@ void RaceGUI::drawEnergyMeter(int x, int y, const AbstractKart *kart,
 {
 #ifndef SERVER_ONLY
     float min_ratio        = std::min(scaling.X, scaling.Y);
-    const int GAUGEWIDTH   = 94;//same inner radius as the inner speedometer circle
+    const int GAUGEWIDTH   = 128;
     int gauge_width        = (int)(GAUGEWIDTH*min_ratio);
     int gauge_height       = (int)(GAUGEWIDTH*min_ratio);
 
@@ -787,8 +791,8 @@ void RaceGUI::drawEnergyMeter(int x, int y, const AbstractKart *kart,
     else if (state > 1.0f) state = 1.0f;
 
     core::vector2df offset;
-    offset.X = (float)(x-gauge_width) - 9.5f*scaling.X;
-    offset.Y = (float)y-11.5f*scaling.Y;
+    offset.X = (float)(viewport.LowerRightCorner.X-gauge_width) - 24.0f*scaling.X;
+    offset.Y = viewport.LowerRightCorner.Y-10.0f*scaling.Y;
 
 
     // Background
@@ -806,54 +810,47 @@ void RaceGUI::drawEnergyMeter(int x, int y, const AbstractKart *kart,
     // They are further than the nitrometer farther position because
     // the lines between them would otherwise cut through the outside circle.
     
-    const int vertices_count = 9;
+    const int vertices_count = 10;
 
     core::vector2df position[vertices_count];
-    position[0].X = 0.324f;//A
-    position[0].Y = 0.35f;//A
-    position[1].X = 0.01f;//B1 (margin for gauge goal)
-    position[1].Y = 0.88f;//B1
-    position[2].X = 0.029f;//B2
-    position[2].Y = 0.918f;//B2
-    position[3].X = 0.307f;//C
-    position[3].Y = 0.99f;//C
-    position[4].X = 0.589f;//D
-    position[4].Y = 0.932f;//D
-    position[5].X = 0.818f;//E
-    position[5].Y = 0.755f;//E
-    position[6].X = 0.945f;//F
-    position[6].Y = 0.497f;//F
-    position[7].X = 0.948f;//G1
-    position[7].Y = 0.211f;//G1
-    position[8].X = 0.94f;//G2 (margin for gauge goal)
-    position[8].Y = 0.17f;//G2
+    position[0].X = 0.5f; // Center
+    position[0].Y = 1.f - 0.5f;
+    position[1].X = 0.25f; // 239° - cos(239°)/2 + 1/2
+    position[1].Y = 1.f - 0.066987f; // 239° - sin(239°)/2 + 1/2
+    position[2].X = 0.25f; // 240° - cos(240°)/2 + 1/2
+    position[2].Y = 1.f - 0.066987f; // 240° - sin(240°)/2 + 1/2
+    position[3].X = 0.328990f; // 250° - cos(250°)/2 + 1/2
+    position[3].Y = 1.f - 0.030154f; // 250° - sin(250°)/2 + 1/2
+    position[4].X = 0.413176f; // 260° - cos(260°)/2 + 1/2
+    position[4].Y = 1.f - 0.007596f; // 260° - sin(26°0)/2 + 1/2
+    position[5].X = 0.500000f; // 270° - cos(270°)/2 + 1/2
+    position[5].Y = 1.f - 0.000000f; // 270° - sin(270°)/2 + 1/2
+    position[6].X = 0.586824f; // 280° - cos(280°)/2 + 1/2
+    position[6].Y = 1.f - 0.007596f; // 280° - sin(280°)/2 + 1/2
+    position[7].X = 0.671010f; // 290° - cos(290°)/2 + 1/2
+    position[7].Y = 1.f - 0.030154f; // 290° - sin(290°)/2 + 1/2
+    position[8].X = 0.750000f; // 300° - cos(300°)/2 + 1/2
+    position[8].Y = 1.f - 0.066987f; // -300° - sin(300°)/2 + 1/2
+    position[9].X = 0.757519f; // 301° - cos(301°)/2 + 1/2
+    position[9].Y = 1.f - 0.071416f; // -301° - sin(301°)/2 + 1/2
 
     // The states at which different polygons must be used.
 
     float threshold[vertices_count-2];
-    threshold[0] = 0.0001f; //for gauge drawing
-    threshold[1] = 0.2f;
-    threshold[2] = 0.4f;
-    threshold[3] = 0.6f;
-    threshold[4] = 0.8f;
-    threshold[5] = 0.9999f;
-    threshold[6] = 1.0f;
+    threshold[0] = 0.002778f; //for gauge drawing
+    threshold[1] = 0.166667f;
+    threshold[2] = 0.333333f;
+    threshold[3] = 0.500000f;
+    threshold[4] = 0.666667f;
+    threshold[5] = 0.833333f;
+    threshold[6] = 0.997222f;
+    threshold[7] = 1.000000f;
 
     // Filling (current state)
 
     if (state > 0.0f)
     {
         video::S3DVertex vertices[vertices_count];
-
-        //3D effect : wait for the full border to appear before drawing
-        for (int i=0;i<5;i++)
-        {
-            if ((state-0.2f*i < 0.006f && state-0.2f*i >= 0.0f) || (0.2f*i-state < 0.003f && 0.2f*i-state >= 0.0f) )
-            {
-                state = 0.2f*i-0.003f;
-                break;
-            }
-        }
 
         unsigned int count = computeVerticesForMeter(position, threshold, vertices, vertices_count,
                                                      state, gauge_width, gauge_height, offset);
@@ -890,84 +887,76 @@ void RaceGUI::drawEnergyMeter(int x, int y, const AbstractKart *kart,
  *  \param meter_height Height of the meter (inside which the rank is shown).
  *  \param dt Time step size.
  */
-void RaceGUI::drawRank(const AbstractKart *kart,
-                      const core::vector2df &offset,
-                      float min_ratio, int meter_width,
-                      int meter_height, float dt)
+void RaceGUI::drawRank(const AbstractKart *kart, float min_ratio, float dt)
 {
     static video::SColor color = video::SColor(255, 255, 255, 255);
 
-    // Draw rank
     WorldWithRank *world = dynamic_cast<WorldWithRank*>(World::getWorld());
     if (!world || !world->displayRank())
         return;
 
-    int id = kart->getWorldKartId();
-
-    if (m_animation_states[id] == AS_NONE)
-    {
-        if (m_last_ranks[id] != kart->getPosition())
-        {
-            m_rank_animation_duration[id] = 0.0f;
-            m_animation_states[id] = AS_SMALLER;
-        }
-    }
-    else
-    {
-        m_rank_animation_duration[id] += dt;
-    }
-
-    float scale = 1.0f;
-    int rank = kart->getPosition();
-    const float DURATION = 0.4f;
-    const float MIN_SHRINK = 0.3f;
-    if (m_animation_states[id] == AS_SMALLER)
-    {
-        scale = 1.0f - m_rank_animation_duration[id]/ DURATION;
-        rank = m_last_ranks[id];
-        if (scale < MIN_SHRINK)
-        {
-            m_animation_states[id] = AS_BIGGER;
-            m_rank_animation_duration[id] = 0.0f;
-            // Store the new rank
-            m_last_ranks[id] = kart->getPosition();
-            scale = MIN_SHRINK;
-        }
-    }
-    else if (m_animation_states[id] == AS_BIGGER)
-    {
-        scale = m_rank_animation_duration[id] / DURATION + MIN_SHRINK;
-        rank = m_last_ranks[id];
-        if (scale > 1.0f)
-        {
-            m_animation_states[id] = AS_NONE;
-            scale = 1.0f;
-        }
-
-    }
-    else
-    {
-        m_last_ranks[id] = kart->getPosition();
-    }
-
     gui::ScalableFont* font = GUIEngine::getHighresDigitFont();
     
     int font_height = font->getDimension(L"X").Height;
-    font->setScale((float)meter_height / font_height * 0.4f * scale);
-    std::ostringstream oss;
-    oss << rank; // the current font has no . :(   << ".";
+    
+    int icon_width = irr_driver->getActualScreenSize().Height/20;
 
     core::recti pos;
-    pos.LowerRightCorner = core::vector2di(int(offset.X + 0.64f*meter_width),
-                                           int(offset.Y - 0.49f*meter_height));
-    pos.UpperLeftCorner = core::vector2di(int(offset.X + 0.64f*meter_width),
-                                          int(offset.Y - 0.49f*meter_height));
+    pos.UpperLeftCorner.X   = irr_driver->getActualScreenSize().Width - m_lap_width - icon_width - irr_driver->getActualScreenSize().Width/64;
+    pos.LowerRightCorner.X  = irr_driver->getActualScreenSize().Width - irr_driver->getActualScreenSize().Width/64;
+    pos.UpperLeftCorner.Y   = irr_driver->getActualScreenSize().Height*15/100;
+    pos.LowerRightCorner.Y  = irr_driver->getActualScreenSize().Height*15/100 + font_height;
 
     font->setBlackBorder(true);
-    font->draw(oss.str().c_str(), pos, color, true, true);
+    std::ostringstream ossRank;
+    ossRank << kart->getPosition() << "/" << world->getNumKarts();
+    font->draw(ossRank.str().c_str(), pos, color);
     font->setBlackBorder(false);
-    font->setScale(1.0f);
+
+    core::rect<s32> indicator_pos(irr_driver->getActualScreenSize().Width - icon_width - irr_driver->getActualScreenSize().Width/64,
+                                  pos.UpperLeftCorner.Y,
+                                  irr_driver->getActualScreenSize().Width - irr_driver->getActualScreenSize().Width/64,
+                                  pos.UpperLeftCorner.Y + icon_width);
+    core::rect<s32> source_rect(core::position2d<s32>(0,0), m_rank_icon->getSize());
+    draw2DImage(m_rank_icon, indicator_pos, source_rect, NULL, NULL, true);
 }   // drawRank
+
+// Draws the speed of a player.
+void RaceGUI::drawSpeed(const AbstractKart *kart, const core::vector2df &offset, int meter_width, int meter_height)
+{
+    static video::SColor color = video::SColor(255, 255, 255, 255);
+    gui::ScalableFont* font = GUIEngine::getHighresDigitFont();
+    font->setScale(1.25f);
+    core::recti pos;
+    pos.LowerRightCorner = core::vector2di(int(offset.X + 0.51f*meter_width), int(offset.Y - 0.54f*meter_height));
+    pos.UpperLeftCorner = core::vector2di(int(offset.X + 0.51f*meter_width), int(offset.Y - 0.54f*meter_height));
+    std::ostringstream ossSpeed;
+    ossSpeed << std::fixed << std::setprecision(1) << kart->getSpeed()/KILOMETERS_PER_HOUR;
+    font->draw(ossSpeed.str().c_str(), pos, color, true, true);
+    font->setScale(1.0f);
+}
+
+void RaceGUI::drawTasInfos()
+{
+    gui::ScalableFont* font = GUIEngine::getFont();
+    font->setScale(0.7f);
+    font->setShadow(video::SColor(255, 0, 0, 0));
+    video::SColor color = video::SColor(255, 255, 255, 255);
+    core::rect<s32> pos(irr_driver->getActualScreenSize().Width - m_timer_width,
+                        irr_driver->getActualScreenSize().Height*18/64,
+                        irr_driver->getActualScreenSize().Width,
+                        irr_driver->getActualScreenSize().Height*40/64);
+
+    font->draw(Tas::get()->getReadableInfos().c_str(), pos, color, false, true);
+
+    font->setScale(0.6f);
+    core::rect<s32> pos2(0,
+                         irr_driver->getActualScreenSize().Height*24/64,
+                         320,
+                         irr_driver->getActualScreenSize().Height*40/64);
+    font->draw(Tas::get()->getReadableSurroundingInputsToPlay().c_str(), pos2, color, false, true);
+    font->setScale(1.0f);
+} // drawTasInfos
 
 //-----------------------------------------------------------------------------
 /** Draws the speedometer, the display of available nitro, and
@@ -1011,85 +1000,58 @@ void RaceGUI::drawSpeedEnergyRank(const AbstractKart* kart,
 
     const float speed =  kart->getSpeed();
 
-    drawRank(kart, offset, min_ratio, meter_width, meter_height, dt);
+    drawRank(kart, min_ratio, dt);
+    drawSpeed(kart, offset, meter_width, meter_height);
 
 
     if(speed <=0) return;  // Nothing to do if speed is negative.
 
     // Draw the actual speed bar (if the speed is >0)
     // ----------------------------------------------
-    float speed_ratio = speed/40.0f; //max displayed speed of 40
+    float speed_ratio = speed/60.0f; // max displayed speed of 60 m/s = 216 km/h
     if(speed_ratio>1) speed_ratio = 1;
 
     // see computeVerticesForMeter for the detail of the drawing
     // If increasing this, update drawMeterTexture
 
-    const int vertices_count = 12;
+    const int vertices_count = 10;
 
     video::S3DVertex vertices[vertices_count];
 
     // The positions for A to J2 are defined here.
 
-    // They are calculated from speedometer.png
-    // A is the center of the speedometer's circle
-    // B2, C, D, E, F, G, H, I and J1 are points on the line
-    // from A to their respective 1/8th threshold division
-    // B2 is 36,9° clockwise from the vertical (on bottom-left)
-    // J1 s 70,7° clockwise from the vertical (on upper-right)
-    // B1 and J2 are used for correct display of the 3D effect
-    // They are 1,13* further than the speedometer farther position because
-    // the lines between them would otherwise cut through the outside circle.
-
     core::vector2df position[vertices_count];
-
-    position[0].X = 0.546f;//A
-    position[0].Y = 0.566f;//A
-    position[1].X = 0.216f;//B1
-    position[1].Y = 1.036f;//B1
-    position[2].X = 0.201f;//B2
-    position[2].Y = 1.023f;//B2
-    position[3].X = 0.036f;//C
-    position[3].Y = 0.831f;//C
-    position[4].X = -0.029f;//D
-    position[4].Y = 0.589f;//D
-    position[5].X = 0.018f;//E
-    position[5].Y = 0.337f;//E
-    position[6].X = 0.169f;//F
-    position[6].Y = 0.134f;//F
-    position[7].X = 0.391f;//G
-    position[7].Y = 0.014f;//G
-    position[8].X = 0.642f;//H
-    position[8].Y = 0.0f;//H
-    position[9].X = 0.878f;//I
-    position[9].Y = 0.098f;//I
-    position[10].X = 1.046f;//J1
-    position[10].Y = 0.285f;//J1
-    position[11].X = 1.052f;//J2
-    position[11].Y = 0.297f;//J2
+    position[0].X = 0.5f; // Center
+    position[0].Y = 1.f - 0.5f;
+    position[1].X = 0.146447f; // 225° - cos(225°)/2 + 1/2
+    position[1].Y = 1.f - 0.146447f; // 225° - sin(225°)/2 + 1/2
+    position[2].X = 0.146447f; // 225° - cos(225°)/2 + 1/2
+    position[2].Y = 1.f - 0.146447f; // 225° - sin(225°)/2 + 1/2
+    position[3].X = 0.000000f; // 180° - cos(180°)/2 + 1/2
+    position[3].Y = 1.f - 0.500000f; // 180° - sin(180°)/2 + 1/2
+    position[4].X = 0.146447f; // 135° - cos(135°)/2 + 1/2
+    position[4].Y = 1.f - 0.853553f; // 135° - sin(135°)/2 + 1/2
+    position[5].X = 0.500000f; // 90° - cos(90°)/2 + 1/2
+    position[5].Y = 1.f - 1.000000f; // 90° - sin(90°)/2 + 1/2
+    position[6].X = 0.853553f; // 45° - cos(0°)/2 + 1/2
+    position[6].Y = 1.f - 0.853553f; // 45° - sin(0°)/2 + 1/2
+    position[7].X = 1.000000f; // 0° - cos(0°)/2 + 1/2
+    position[7].Y = 1.f - 0.500000f; // 0° - sin(0°)/2 + 1/2
+    position[8].X = 0.853553f; // -45° - cos(-45°)/2 + 1/2
+    position[8].Y = 1.f - 0.146447f; // -45° - sin(-45°)/2 + 1/2
+    position[9].X = 0.853553f; // "
+    position[9].Y = 1.f - 0.146447f; // "
 
     // The speed ratios at which different triangles must be used.
 
     float threshold[vertices_count-2];
-    threshold[0] = 0.00001f;//for the 3D margin
-    threshold[1] = 0.125f;
-    threshold[2] = 0.25f;
-    threshold[3] = 0.375f;
-    threshold[4] = 0.50f;
-    threshold[5] = 0.625f;
-    threshold[6] = 0.750f;
-    threshold[7] = 0.875f;
-    threshold[8] = 0.99999f;//for the 3D margin
-    threshold[9] = 1.0f;
-
-    //3D effect : wait for the full border to appear before drawing
-    for (int i=0;i<8;i++)
-    {
-        if ((speed_ratio-0.125f*i < 0.00625f && speed_ratio-0.125f*i >= 0.0f) || (0.125f*i-speed_ratio < 0.0045f && 0.125f*i-speed_ratio >= 0.0f) )
-        {
-            speed_ratio = 0.125f*i-0.0045f;
-            break;
-        }
-    }
+    threshold[1] = 0.16667f;
+    threshold[2] = 0.33333f;
+    threshold[3] = 0.50000f;
+    threshold[4] = 0.66667f;
+    threshold[5] = 0.83333f;
+    threshold[6] = 0.99999f;//for the 3D margin
+    threshold[7] = 1.00000f;
 
     unsigned int count = computeVerticesForMeter(position, threshold, vertices, vertices_count, 
                                                      speed_ratio, meter_width, meter_height, offset);
@@ -1355,18 +1317,17 @@ void RaceGUI::drawLap(const AbstractKart* kart,
     // Display lap flag
 
 
-    int icon_width = irr_driver->getActualScreenSize().Height/19;
-    core::rect<s32> indicator_pos(viewport.LowerRightCorner.X - (icon_width+10),
+    int icon_width = irr_driver->getActualScreenSize().Height/20;
+    pos.UpperLeftCorner.X   = irr_driver->getActualScreenSize().Width - m_lap_width - icon_width - irr_driver->getActualScreenSize().Width/64;
+    pos.LowerRightCorner.X  = irr_driver->getActualScreenSize().Width - irr_driver->getActualScreenSize().Width/64;
+    pos.UpperLeftCorner.Y   = irr_driver->getActualScreenSize().Height*10/100;
+    pos.LowerRightCorner.Y  = irr_driver->getActualScreenSize().Height*10/100 + m_font_height;
+    core::rect<s32> indicator_pos(irr_driver->getActualScreenSize().Width - icon_width - irr_driver->getActualScreenSize().Width/64,
                                   pos.UpperLeftCorner.Y,
-                                  viewport.LowerRightCorner.X - 10,
+                                  irr_driver->getActualScreenSize().Width - irr_driver->getActualScreenSize().Width/64,
                                   pos.UpperLeftCorner.Y + icon_width);
-    core::rect<s32> source_rect(core::position2d<s32>(0,0),
-                                               m_lap_flag->getSize());
-    draw2DImage(m_lap_flag,indicator_pos,source_rect,
-        NULL,NULL,true);
-
-    pos.UpperLeftCorner.X -= icon_width;
-    pos.LowerRightCorner.X -= icon_width;
+    core::rect<s32> source_rect(core::position2d<s32>(0,0), m_rank_icon->getSize());
+    draw2DImage(m_lap_flag, indicator_pos, source_rect, NULL, NULL, true);
 
     std::ostringstream out;
     if (world->showLapsTarget())

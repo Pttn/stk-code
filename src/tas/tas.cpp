@@ -23,6 +23,7 @@
 #include "guiengine/message_queue.hpp"
 #include "karts/abstract_kart.hpp"
 #include "karts/controller/player_controller.hpp"
+#include "karts/kart.hpp"
 #include "modes/linear_world.hpp"
 #include "tas.hpp"
 #include "tracks/track.hpp"
@@ -32,6 +33,17 @@ std::string TasInput::toString() const
 {
     std::ostringstream oss;
     oss << (uint16_t) m_action << " " << m_steer << " " << m_accel;
+    return oss.str();
+}
+std::string TasInput::toStringConstSize() const
+{
+    std::ostringstream oss;
+    oss << std::setw(3) << std::setfill('0') << (uint16_t) m_action;
+    if (m_steer < 0)
+        oss << " -" << std::setw(5) << std::setfill('0') << -m_steer;
+    else
+        oss << " +" << std::setw(5) << std::setfill('0') << m_steer;
+    oss << " " << std::setw(5) << std::setfill('0') << m_accel;
     return oss.str();
 }
 
@@ -100,7 +112,6 @@ Tas::~Tas()
 
 void Tas::reset()
 {
-    m_game_status = GameStatus::NORMAL;
     m_inited_for_race = false;
     m_current_tick = 0;
     m_world = NULL;
@@ -113,6 +124,7 @@ void Tas::reset()
     m_inputs_to_play_filename = "";
     m_inputs_to_play.clear();
     m_save_state.reset();
+    m_stats.reset();
 }
 
 void Tas::resetForRace()
@@ -125,6 +137,7 @@ void Tas::resetForRace()
 void Tas::init()
 {
     reset();
+    m_game_status = GameStatus::NORMAL;
     Log::info("TAS", "Inited.");
 }
 
@@ -194,6 +207,7 @@ void Tas::update()
         else
             m_recorded_inputs.push_back(TasInput(m_player_kart->getControls().getButtonsCompressed(), pc->m_steer_val, m_player_kart->getControls().m_accel));
     }
+    if (m_current_tick >= 603) m_stats.addSpeedSample(m_player_kart->getSpeed());
     m_current_tick++;
 }
 
@@ -310,7 +324,7 @@ void Tas::saveState()
         Log::info("TAS", "Cannot save state before start!");
         return;
     }
-    m_save_state.create(m_current_tick, m_world, m_player_kart);
+    m_save_state.create(m_current_tick, m_stats, m_world, m_player_kart);
     if (m_save_state.isValid()) Log::info("TAS", (std::string("State saved for tick ") + std::to_string(m_save_state.getTick())).c_str());
 }
 
@@ -333,6 +347,47 @@ void Tas::restoreState()
     }
     m_save_state.restore(m_world, m_player_kart);
     m_current_tick = m_save_state.getTick();
+    m_stats = m_save_state.getStats();
     loadInputs();
     Log::info("TAS", (std::string("Restored state to tick ") + std::to_string(m_current_tick)).c_str());
+}
+
+std::string Tas::getReadableInfos() const
+{
+    std::ostringstream oss;
+    oss << "Tick: " << m_current_tick << std::endl;
+    PlayerController *pc = dynamic_cast<PlayerController*>(m_player_kart->getController());
+    Kart *kart = dynamic_cast<Kart*>(m_player_kart);
+    if (kart)
+    {
+        oss << std::fixed << std::setprecision(9) << std::showpos << "x: " << kart->getXYZ().getX() << std::endl
+            << "y: " << kart->getXYZ().getY() << std::endl
+            << "z: " << kart->getXYZ().getZ() << std::endl;
+        oss << std::fixed << std::setprecision(3) << "v: " << 3.6*kart->getSpeed() << std::endl
+            << "dv: " << 3.6*m_stats.dv() << std::noshowpos << std::endl
+            << "va: " << 3.6*m_stats.averageSpeed() << std::endl
+            << "Dist: " << m_stats.distance() << std::endl;
+        if (pc)
+        {
+            oss << "Action: " << (uint16_t) kart->getControls().getButtonsCompressed() << std::endl
+                << "Steer:  " << pc->m_steer_val << std::endl
+                << "Accel:  " << kart->getControls().m_accel << std::endl
+                << "Skid:   " << kart->getSkidding()->m_skid_time << std::endl
+                << "Nitro:  " << kart->m_collected_energy << std::endl;
+        }
+    }
+    return oss.str();
+}
+
+std::string Tas::getReadableSurroundingInputsToPlay() const
+{
+    std::ostringstream oss;
+    for (int64_t i = m_current_tick - 4 ; i < (int64_t) m_current_tick + 5 ; i++)
+    {
+        if (i >= 0 && i < (int64_t) m_inputs_to_play.size())
+        {
+            oss << std::setw(6) << std::setfill('0') << i << (i == (int64_t) m_save_state.getTick() ? "S " : "_ ") << m_inputs_to_play[i].toStringConstSize() << (i == (int64_t) m_current_tick ? " <" : "") << std::endl;
+        }
+    }
+    return oss.str();
 }

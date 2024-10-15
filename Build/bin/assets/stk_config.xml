@@ -37,7 +37,6 @@
     url="https://online.supertuxkart.net/dl/xml"
     allow-news-redirects="true"
   />
-
   <!-- Scores are the number of points given when the race ends. -->
   <grand-prix>
   <!-- Establish the distribution of points in GP.
@@ -527,17 +526,8 @@
      </kart-type>
   </general-kart-defaults>
 
-  <!-- Here are the default fonts file names for STK.
-
-  Please DO NOT report bugs if there're crashes when using your custom font.
-  This usually happen because the character map of the font is not in unicode mode
-  (let's take Chinese for example, some fonts of it store the characters in BIG5 mode,
-  which leads to crash with STK), but the fonts are to blame, what's the point of not
-  using industry standard nowadays...
-  -->
-  <fonts-list normal-ttf="Cantarell-Regular.otf wqy-microhei.ttf NotoSansThai-Regular.ttf NotoSansHebrew-Regular.ttf NotoNaskhArabicUI-Regular.ttf NotoSansMalayalam-Regular.ttf"
-              digit-ttf="SigmarOne.otf"
-              color-emoji-ttf="NotoColorEmoji.ttf"/>
+  <!-- Using Fixed Width Font more suitable to display Stats. -->
+  <fonts-list normal-ttf="FreeMonoBold.otf" digit-ttf="SigmarOne.otf" />
 
   <!-- Maximum bones from all animated meshes in each frame to be uploaded for
        hardware skinning, For gles 3.0 the specification guarantees at least 2048, for
