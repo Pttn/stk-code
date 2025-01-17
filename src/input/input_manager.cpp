@@ -68,6 +68,7 @@
 #include <iostream>
 #include <sstream>
 #include <algorithm>
+#include <cinttypes>
 
 #ifndef SERVER_ONLY
 #include <SDL.h>
