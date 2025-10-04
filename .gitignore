@@ -1,5 +1,12 @@
 bld*/
-build*/
+Build/bin/config*
+Build/bin/local*
+Build/bin/tmp*
+Build/bin/supertuxkart
+Build/CMakeCache.txt
+Build/lib*
+Build/cmake_install.cmake
+Build/Makefile
 cmake_build*/
 xcode_build*/
 dependencies*/

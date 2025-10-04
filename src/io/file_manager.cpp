@@ -169,97 +169,29 @@ FileManager::FileManager()
     // This is esp. useful for Visual Studio, since it's not necessary
     // to define the working directory when debugging, it works automatically.
     std::string root_dir;
-    const std::string version = std::string("supertuxkart.") + STK_VERSION;
+    const std::string version = std::string("supertuxkart.SE");
     if (fileExists(CommandLine::getExecName()))
     {
         exe_path = StringUtils::getPath(CommandLine::getExecName());
     }
     if(exe_path.size()==0 || exe_path[exe_path.size()-1]!='/')
         exe_path += "/";
-    if ( getenv ( "SUPERTUXKART_DATADIR" ) != NULL )
-        root_dir = std::string(getenv("SUPERTUXKART_DATADIR"))+"/data/" ;
-#ifdef __APPLE__
-    else if( macSetBundlePathIfRelevant( root_dir ) ) { root_dir = root_dir + "data/"; }
-#endif
-#ifdef __SWITCH__
-    else if(fileExists("sdmc:/stk-data/", version))
-        root_dir = "sdmc:/stk-data/";
-    else if(fileExists("romfs:/data/", version))
-        root_dir = "romfs:/data/";
-#endif
-    else if(fileExists("./data/", version))
-        root_dir = "./data/" ;
-    else if(fileExists("../data/", version))
-        root_dir = "../data/" ;
-    else if(fileExists("../../data/", version))
-        root_dir = "../../data/" ;
-    // Test for old style build environment, with executable in root of stk
-    else if(fileExists(exe_path+"data/"+version))
-        root_dir = (exe_path+"data/").c_str();
-    // Check for windows cmake style: bld/Debug/bin/supertuxkart.exe
-    else if (fileExists(exe_path + "../../../data/"+version))
-        root_dir = exe_path + "../../../data/";
-    else if (fileExists(exe_path + "../data/"+version))
-    {
-        root_dir = exe_path.c_str();
-        root_dir += "../data/";
-    }
-    else
-    {
+    if (fileExists("assets/", version))
+        root_dir = "assets/";
 #ifdef SUPERTUXKART_DATADIR
+    else
         root_dir = SUPERTUXKART_DATADIR"/data/";
-#else
-        root_dir = "/usr/local/share/games/supertuxkart/";
 #endif
-    }
 
     if (!m_file_system->existFile((root_dir + version).c_str()))
     {
-        Log::error("FileManager", "Could not find file '%s'in any "
-                   "standard location (esp. ../data).", version.c_str());
-        Log::error("FileManager",
-                   "Last location checked '%s'.", root_dir.c_str());
-        Log::fatal("FileManager",
-                   "Set $SUPERTUXKART_DATADIR to point to the data directory.");
+        Log::error("FileManager", "Could not find file '%s'! Make sure that everything is next to the STK binary!", version.c_str());
+        Log::error("FileManager", "Last location checked '%s'.", root_dir.c_str());
+        Log::fatal("FileManager", "Alternatively, set $SUPERTUXKART_DATADIR to point to the data directory.");
         // fatal will exit the application
     }
 
     addRootDirs(root_dir);
-
-    std::string assets_dir;
-#ifdef MOBILE_STK
-    m_stk_assets_download_dir = getenv("HOME");
-#ifdef IOS_STK
-    m_stk_assets_download_dir += "/Library/Application Support/SuperTuxKart/stk-assets/";
-#elif defined (ANDROID)
-    m_stk_assets_download_dir += "/stk-assets/";
-#else
-#error You must set m_stk_assets_download_dir to appropriate place for your platform
-#endif
-
-#else
-    if (getenv("SUPERTUXKART_ASSETS_DIR") != NULL)
-    {
-        assets_dir = std::string(getenv("SUPERTUXKART_ASSETS_DIR"));
-    }
-    else if (fileExists(root_dir + "../../stk-assets"))
-    {
-        assets_dir = root_dir + "../../stk-assets";
-    }
-    else if (fileExists(root_dir + "../../supertuxkart-assets"))
-    {
-        assets_dir = root_dir + "../../supertuxkart-assets";
-    }
-    else if (getenv("SUPERTUXKART_ROOT_PATH") != NULL)
-    {
-        //is this needed?
-        assets_dir = std::string(getenv("SUPERTUXKART_ROOT_PATH"));
-    }
-#endif
-    if (!assets_dir.empty() && assets_dir != root_dir)
-    {
-        addRootDirs(assets_dir);
-    }
 
     checkAndCreateConfigDir();
     checkAndCreateAddonsDir();
@@ -971,110 +903,7 @@ bool FileManager::checkAndCreateDirectoryP(const std::string &path)
  */
 void FileManager::checkAndCreateConfigDir()
 {
-    if(getenv("SUPERTUXKART_SAVEDIR") &&
-        checkAndCreateDirectory(getenv("SUPERTUXKART_SAVEDIR")) )
-    {
-        m_user_config_dir = getenv("SUPERTUXKART_SAVEDIR");
-    }
-    else
-    {
-
-#if defined(WIN32)
-
-        // Try to use the APPDATA directory to store config files and highscore
-        // lists. If not defined, used the current directory.
-        std::vector<wchar_t> env;
-        // An environment variable has a maximum size limit of 32,767 characters
-        env.resize(32767, 0);
-        DWORD length = GetEnvironmentVariable(L"APPDATA", env.data(), 32767);
-        if (length != 0)
-        {
-            m_user_config_dir = StringUtils::wideToUtf8(env.data());
-            if (!checkAndCreateDirectory(m_user_config_dir))
-            {
-                Log::error("[FileManager]", "Can't create config dir '%s"
-                            ", falling back to '.'.", m_user_config_dir.c_str());
-                m_user_config_dir = ".";
-            }
-        }
-        else
-            m_user_config_dir = ".";
-
-        m_user_config_dir += "/supertuxkart";
-
-#elif defined(__APPLE__)
-
-        if (getenv("HOME") != NULL)
-        {
-            m_user_config_dir = getenv("HOME");
-        }
-        else
-        {
-            Log::error("[FileManager]",
-                        "No home directory, this should NOT happen!");
-            // Fall back to system-wide app data (rather than
-            // user-specific data), but should not happen anyway.
-            m_user_config_dir = "";
-        }
-        m_user_config_dir += "/Library/Application Support/";
-        const std::string CONFIGDIR("SuperTuxKart");
-        m_user_config_dir += CONFIGDIR;
-
-#elif defined(__HAIKU__)
-
-        BPath settings_dir;
-        if (find_directory(B_USER_SETTINGS_DIRECTORY, &settings_dir, true, NULL) == B_OK)
-        {
-            m_user_config_dir = std::string(settings_dir.Path());
-        }
-        else if (getenv("HOME") != NULL)
-        {
-            m_user_config_dir = getenv("HOME");
-            m_user_config_dir += "/config/settings";
-        }
-        m_user_config_dir += "/SuperTuxKart";
-
-#else
-
-        // Remaining unix variants. Use the new standards for config directory
-        // i.e. either XDG_CONFIG_HOME or $HOME/.config
-        if (getenv("XDG_CONFIG_HOME") !=NULL)
-        {
-            m_user_config_dir = getenv("XDG_CONFIG_HOME");
-            checkAndCreateDirectory(m_user_config_dir);
-        }
-        else if (!getenv("HOME"))
-        {
-            Log::error("[FileManager]",
-                        "No home directory, this should NOT happen "
-                        "- trying '.' for config files!");
-            m_user_config_dir = ".";
-        }
-        else
-        {
-            m_user_config_dir  = getenv("HOME");
-            checkAndCreateDirectory(m_user_config_dir);
-
-            m_user_config_dir += "/.config";
-            if(!checkAndCreateDirectory(m_user_config_dir))
-            {
-                // If $HOME/.config can not be created:
-                Log::error("[FileManager]",
-                            "Cannot create directory '%s', falling back to use '%s'",
-                            m_user_config_dir.c_str(), getenv("HOME"));
-                m_user_config_dir = getenv("HOME");
-            }
-        }
-        m_user_config_dir += "/supertuxkart";
-
-#endif
-
-    }   // if(getenv("SUPERTUXKART_SAVEDIR") && checkAndCreateDirectory(...))
-
-    if(m_user_config_dir.size()>0 && *m_user_config_dir.rbegin()!='/')
-        m_user_config_dir += "/";
-
-    m_user_config_dir += "config-0.10/";
+    m_user_config_dir = "config-1.SE/";
     if(!checkAndCreateDirectoryP(m_user_config_dir))
     {
         Log::warn("FileManager", "Can not  create config dir '%s', "
@@ -1097,22 +926,8 @@ void FileManager::checkAndCreateConfigDir()
  */
 void FileManager::checkAndCreateAddonsDir()
 {
-#if defined(WIN32)
-    m_addons_dir  = m_user_config_dir+"../addons/";
-#elif defined(__HAIKU__)
-    m_addons_dir  = m_user_config_dir+"addons/";
-#elif defined(__APPLE__)
-    m_addons_dir  = getenv("HOME");
-    m_addons_dir += "/Library/Application Support/SuperTuxKart/Addons/";
-#elif defined(__HAIKU__)
-    m_addons_dir  = m_user_config_dir+"addons/";
-#else
-    m_addons_dir = checkAndCreateLinuxDir("XDG_DATA_HOME", "supertuxkart",
-                                          ".local/share", ".stkaddons");
-    m_addons_dir += "addons/";
-#endif
-
-    if(!checkAndCreateDirectory(m_addons_dir))
+    m_addons_dir = "local/addons/";
+    if(!checkAndCreateDirectoryP(m_addons_dir))
     {
         Log::error("FileManager", "Can not create add-ons dir '%s', "
                    "falling back to '.'.", m_addons_dir.c_str());
@@ -1138,18 +953,8 @@ void FileManager::checkAndCreateAddonsDir()
  */
 void FileManager::checkAndCreateScreenshotDir()
 {
-#if defined(WIN32) || defined(__HAIKU__)
-    m_screenshot_dir  = m_user_config_dir+"screenshots/";
-#elif defined(__APPLE__)
-    m_screenshot_dir  = getenv("HOME");
-    m_screenshot_dir += "/Library/Application Support/SuperTuxKart/Screenshots/";
-#else
-    m_screenshot_dir  = checkAndCreateLinuxDir("XDG_DATA_HOME", "supertuxkart",
-                                          ".local/share", ".stkscreenshots");
-    m_screenshot_dir += "screenshots/";
-#endif
-
-    if(!checkAndCreateDirectory(m_screenshot_dir))
+    m_screenshot_dir = "local/screenshots/";
+    if (!checkAndCreateDirectoryP(m_screenshot_dir))
     {
         Log::error("FileManager", "Can not create screenshot directory '%s', "
                    "falling back to '.'.", m_screenshot_dir.c_str());
@@ -1164,18 +969,8 @@ void FileManager::checkAndCreateScreenshotDir()
  */
 void FileManager::checkAndCreateReplayDir()
 {
-#if defined(WIN32) || defined(__HAIKU__)
-    m_replay_dir = m_user_config_dir + "replay/";
-#elif defined(__APPLE__)
-    m_replay_dir  = getenv("HOME");
-    m_replay_dir += "/Library/Application Support/SuperTuxKart/replay/";
-#else
-    m_replay_dir = checkAndCreateLinuxDir("XDG_DATA_HOME", "supertuxkart",
-                                          ".local/share", ".supertuxkart");
-    m_replay_dir += "replay/";
-#endif
-
-    if(!checkAndCreateDirectory(m_replay_dir))
+    m_replay_dir = "local/replay/";
+    if (!checkAndCreateDirectoryP(m_replay_dir))
     {
         Log::error("FileManager", "Can not create replay directory '%s', "
                    "falling back to '.'.", m_replay_dir.c_str());
@@ -1190,17 +985,8 @@ void FileManager::checkAndCreateReplayDir()
 */
 void FileManager::checkAndCreateCachedTexturesDir()
 {
-#if defined(WIN32) || defined(__HAIKU__)
-    m_cached_textures_dir = m_user_config_dir + "cached-textures/";
-#elif defined(__APPLE__)
-    m_cached_textures_dir = getenv("HOME");
-    m_cached_textures_dir += "/Library/Application Support/SuperTuxKart/CachedTextures/";
-#else
-    m_cached_textures_dir = checkAndCreateLinuxDir("XDG_CACHE_HOME", "supertuxkart", ".cache/", ".");
-    m_cached_textures_dir += "cached-textures/";
-#endif
-
-    if (!checkAndCreateDirectory(m_cached_textures_dir))
+    m_cached_textures_dir = "tmp/cached-textures/";
+    if (!checkAndCreateDirectoryP(m_cached_textures_dir))
     {
         Log::error("FileManager", "Can not create cached textures directory '%s', "
             "falling back to '.'.", m_cached_textures_dir.c_str());
@@ -1215,18 +1001,8 @@ void FileManager::checkAndCreateCachedTexturesDir()
  */
 void FileManager::checkAndCreateGPDir()
 {
-#if defined(WIN32) || defined(__HAIKU__)
-    m_gp_dir = m_user_config_dir + "grandprix/";
-#elif defined(__APPLE__)
-    m_gp_dir  = getenv("HOME");
-    m_gp_dir += "/Library/Application Support/SuperTuxKart/grandprix/";
-#else
-    m_gp_dir = checkAndCreateLinuxDir("XDG_DATA_HOME", "supertuxkart",
-                                          ".local/share", ".supertuxkart");
-    m_gp_dir += "grandprix/";
-#endif
-
-    if(!checkAndCreateDirectory(m_gp_dir))
+    m_gp_dir = "local/grandprix/";
+    if (!checkAndCreateDirectoryP(m_gp_dir))
     {
         Log::error("FileManager", "Can not create user-defined grand prix directory '%s', "
                    "falling back to '.'.", m_gp_dir.c_str());
