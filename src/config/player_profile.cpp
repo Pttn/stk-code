@@ -134,8 +134,7 @@ PlayerProfile::~PlayerProfile()
 void PlayerProfile::loadRemainingData(const XMLNode *node)
 {
     assert(m_story_mode_status == NULL);
-    const XMLNode *xml_story_mode = node->getNode("story-mode");
-    m_story_mode_status = unlock_manager->createStoryModeStatus(xml_story_mode);
+    m_story_mode_status = unlock_manager->createStoryModeStatus();
 
     assert(m_achievements_status == NULL);
     const XMLNode *xml_achievements = node->getNode("achievements");
@@ -247,15 +246,6 @@ void PlayerProfile::save(UTFWriter &out)
     out << "            remember-password=\""         << m_remember_password << "\"\n";
     out << "            default-kart-color=\""        << m_default_kart_color << "\">\n";
     {
-        bool is_current_player = false;
-        PlayerProfile *player = PlayerManager::getCurrentPlayer();
-
-        if (player != NULL && (getName() == player->getName()))
-            is_current_player = true;
-
-        if (m_story_mode_status)
-            m_story_mode_status->save(out, is_current_player);
-
         if (m_achievements_status)
             m_achievements_status->save(out);
         

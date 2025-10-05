@@ -483,7 +483,4 @@ void PlayerManager::setCurrentPlayer(PlayerProfile *player)
     {
         m_current_player->computeActive();
     }
-
-    if (player_has_changed)
-        story_mode_timer->playerHasChanged();
 }   // setCurrentPlayer

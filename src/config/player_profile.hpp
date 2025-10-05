@@ -232,10 +232,6 @@ public:
     // ----------------------------------------------------------------------------------------
     unsigned int getNextUnlockPoints() const { return m_story_mode_status->getNextUnlockPoints(); }
     // ----------------------------------------------------------------------------------------
-    void setFirstTime(bool b) { m_story_mode_status->setFirstTime(b); }
-    // ----------------------------------------------------------------------------------------
-    bool isFirstTime() const { return m_story_mode_status->isFirstTime(); }
-    // ----------------------------------------------------------------------------------------
     void setFinished() { m_story_mode_status->setFinished(); }
     // ----------------------------------------------------------------------------------------
     bool isFinished() const { return m_story_mode_status->isFinished(); }
@@ -243,10 +239,6 @@ public:
     void setSpeedrunFinished() { m_story_mode_status->setSpeedrunFinished(); }
     // ----------------------------------------------------------------------------------------
     bool isSpeedrunFinished() { return m_story_mode_status->isSpeedrunFinished(); }
-    // ----------------------------------------------------------------------------------------
-    void setStoryModeTimer(int ms)  {  m_story_mode_status->setStoryModeTimer(ms); }
-    // ----------------------------------------------------------------------------------------
-    int getStoryModeTimer()  {  return m_story_mode_status->getStoryModeTimer(); }
     // ----------------------------------------------------------------------------------------
     void setSpeedrunTimer(int ms)  {  m_story_mode_status->setSpeedrunTimer(ms); }
     // ----------------------------------------------------------------------------------------

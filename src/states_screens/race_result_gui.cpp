@@ -482,7 +482,6 @@ void RaceResultGUI::eventCallback(GUIEngine::Widget* widget,
                         gameCompleted = true;
                         story_mode_timer->stopTimer();
                         player->setFinished();
-                        player->setStoryModeTimer(story_mode_timer->getStoryModeTime());
                         if (story_mode_timer->speedrunIsFinished())
                         {
                             player->setSpeedrunTimer(story_mode_timer->getSpeedrunTime());

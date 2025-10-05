@@ -208,19 +208,16 @@ const ChallengeData* UnlockManager::getChallengeData(const std::string& id)
  *  states for a player.
  *  \param node The XML game-slots node with all data for a player.
  */
-StoryModeStatus* UnlockManager::createStoryModeStatus(const XMLNode *node)
+StoryModeStatus* UnlockManager::createStoryModeStatus()
 {
 
-    StoryModeStatus *status = new StoryModeStatus(node);
+    StoryModeStatus *status = new StoryModeStatus();
 
     for(AllChallengesType::iterator i = m_all_challenges.begin();
                                     i!=m_all_challenges.end();  i++)
     {
         ChallengeData* cd = i->second;
-        ChallengeStatus *challenge_status = new ChallengeStatus(cd);
-        if(node)
-            challenge_status->load(node);
-        status->addStatus(challenge_status);
+        status->addStatus(new ChallengeStatus(cd));
     }
 
     status->computeActive(/* first call*/ true);
