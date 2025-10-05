@@ -200,9 +200,9 @@ public:
     unsigned int getUniqueID() const { return m_unique_id; }
     // ----------------------------------------------------------------------------------------
     /** Returnes if the feature (kart, track) is locked. */
-    bool isLocked(const std::string &feature) const
+    bool isLocked(const std::string &feature, bool for_story_mode = false) const
     {
-        return m_story_mode_status->isLocked(feature);
+        return m_story_mode_status->isLocked(feature) && for_story_mode;
     }   // isLocked
     // ----------------------------------------------------------------------------------------
     /** Returns all active challenges. */
