@@ -1895,18 +1895,22 @@ void IrrDriver::displayFPS()
 {
 #ifndef SERVER_ONLY
     gui::ScalableFont* font = GUIEngine::getSmallFont();
-    font->setScale(0.7f);
+    font->setScale(0.6f);
     core::rect<s32> position;
 
     const int fheight = font->getHeightPerLine();
     const int rwidth = irr_driver->getActualScreenSize().Width / 6;
     const int swidth = irr_driver->getActualScreenSize().Width / 3;
 
-    if (UserConfigParams::m_artist_debug_mode)
-        position = core::rect<s32>(rwidth - 20, 0, int(rwidth * 4.25), 2 * fheight + (fheight / 5));
-    else
-        position = core::rect<s32>(swidth, 0, swidth * 2, fheight + (fheight / 5));
-    GL32_draw2DRectangle(video::SColor(150, 96, 74, 196), position, NULL);
+    if (UserConfigParams::m_artist_debug_mode) {
+        position = core::rect<s32>(rwidth - 20, 0, int(rwidth * 4.25), 3*fheight);
+        GL32_draw2DRectangle(video::SColor(96, 255, 0, 0), position, NULL);
+    }
+    else {
+        position = core::rect<s32>(swidth, 0, swidth * 2, 2*fheight);
+        GL32_draw2DRectangle(video::SColor(96, 0, 0, 0), position, NULL);
+    }
+
     // We will let pass some time to let things settle before trusting FPS counter
     // even if we also ignore fps = 1, which tends to happen in first checks
     const int NO_TRUST_COUNT = 200;
@@ -1932,18 +1936,29 @@ void IrrDriver::displayFPS()
         prev_state = current_state;
     }
 
-    uint32_t ping = 0;
-    if (STKHost::existHost())
-        ping = STKHost::get()->getClientPingToServer();
-
     core::stringw fps_string;
+    fps_string = _("STK 1.SE - ");
+    if (World::getWorld() == nullptr)
+        fps_string += _("menu");
+    else if (RaceManager::get() != nullptr) {
+        fps_string += _("%s %s", RaceManager::get()->getTrackName().c_str(), RaceManager::getDifficultyAsString(RaceManager::get()->getDifficulty()).c_str());
+        if (World::getWorld()->getCurrentNumKarts() > 1 && !RaceManager::get()->hasGhostKarts())
+            fps_string += _(", %d AI", World::getWorld()->getCurrentNumKarts() - World::getWorld()->getCurrentNumPlayers());
+    }
+    fps_string += _("\n");
+
     if (no_trust)
     {
         no_trust--;
 
         static video::SColor fpsColor = video::SColor(255, 255, 255, 255);
-        fps_string = _("FPS: %d/%d/%d - %d KTris, Ping: %dms", "-", "-",
-            "-", SP::sp_solid_poly_count / 1000, ping);
+        fps_string += _("FPS: %d/%d/%d - %d KTris", "-", "-", "-", SP::sp_solid_poly_count / 1000);
+        if (World::getWorld() != nullptr && RaceManager::get() != nullptr) {
+            if (RaceManager::get()->isRecordingRace())
+                fps_string += " - Ghost";
+            else if (World::getWorld()->getCurrentNumPlayers() == 1 && (RaceManager::get()->isTimeTrialMode() || RaceManager::get()->isEggHuntMode()))
+                fps_string += " - NO Ghost!";
+        }
 
         font->setBlackBorder(true);
         font->setThinBorder(true);
@@ -1968,34 +1983,35 @@ void IrrDriver::displayFPS()
     {
         if (CVS->isGLSL())
         {
-            fps_string = StringUtils::insertValues
-                        (L"FPS: %d/%d/%d - PolyCount: %d Solid, %d Shadows - LightDist: %d\n"
-                          "Complexity %d, Total skinning joints: %d, Ping: %dms",
+            fps_string += StringUtils::insertValues
+                        (L"FPS: %d/%d/%d - Polys: %d Solid, %d Shadows - LightDist: %d\n"
+                          "Complexity %d, Total skinning joints: %d",
                         min, fps, max, SP::sp_solid_poly_count,
                         SP::sp_shadow_poly_count, m_last_light_bucket_distance, irr_driver->getSceneComplexity(),
-                        m_skinning_joint, ping);
+                        m_skinning_joint);
         }
         else
         {
-            fps_string = StringUtils::insertValues(L"FPS: %d/%d/%d - PolyCount: %d Solid, Ping: %dms", min, fps,
-                max, m_video_driver->getPrimitiveCountDrawn(0), ping);
+            fps_string += StringUtils::insertValues(L"FPS: %d/%d/%d - Polys: %d Solid", min, fps,
+                max, m_video_driver->getPrimitiveCountDrawn(0));
         }
     }
     else
     {
         if (CVS->isGLSL())
-        {
-            fps_string = _("FPS: %d/%d/%d - %d KTris, Ping: %dms", min, fps,
-                max, SP::sp_solid_poly_count / 1000, ping);
-        }
+            fps_string += _("FPS: %d/%d/%d - %d kTris", min, fps, max, SP::sp_solid_poly_count / 1000);
         else
-        {
-            fps_string = _("FPS: %d/%d/%d - %d KTris, Ping: %dms", min, fps,
-                max, (int)roundf(kilotris), ping);
-        }
+            fps_string += _("FPS: %d/%d/%d - kd KTris", min, fps, max, (int)roundf(kilotris));
     }
 
     static video::SColor fpsColor = video::SColor(255, 255, 255, 255);
+
+    if (World::getWorld() != nullptr && RaceManager::get() != nullptr) {
+        if (RaceManager::get()->isRecordingRace())
+            fps_string += " - Ghost";
+        else if (World::getWorld()->getCurrentNumPlayers() == 1 && (RaceManager::get()->isTimeTrialMode() || RaceManager::get()->isEggHuntMode()))
+            fps_string += " - NO Ghost!";
+    }
 
     font->setBlackBorder(true);
     font->setThinBorder(true);

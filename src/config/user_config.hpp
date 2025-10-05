@@ -649,7 +649,7 @@ namespace UserConfigParams
                             &m_video_group,"If remember_window_location is true") );
 
     PARAM_PREFIX BoolUserConfigParam        m_display_fps
-            PARAM_DEFAULT(  BoolUserConfigParam(false, "show_fps",
+            PARAM_DEFAULT(  BoolUserConfigParam(true, "show_fps",
                             &m_video_group, "Display frame per seconds") );
     PARAM_PREFIX BoolUserConfigParam        m_speedrun_mode
             PARAM_DEFAULT(  BoolUserConfigParam(true, "show_speedrun_timer",
