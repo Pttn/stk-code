@@ -122,6 +122,7 @@ RaceGUIBase::RaceGUIBase()
     m_gauge_empty           = irr_driver->getTexture(FileManager::GUI_ICON, "gauge_empty.png");
     m_gauge_goal            = irr_driver->getTexture(FileManager::GUI_ICON, "gauge_goal.png");
     m_lap_flag              = irr_driver->getTexture(FileManager::GUI_ICON, "lap_flag.png");
+    m_rank_icon             = irr_driver->getTexture(FileManager::GUI_ICON, "challenge.png");
     m_dist_show_overlap     = 2;
     m_icons_inertia         = 2;
 
@@ -443,15 +444,15 @@ void RaceGUIBase::drawPowerupIcons(const AbstractKart* kart,
                                                   NULL, true);
     }   // for i
 
+    gui::ScalableFont* font = GUIEngine::getHighresDigitFont();
+    font->setScale(scale / (float)font->getDimension(L"X").Height * 64.0f);
     if (many_powerups > 0)
     {
-        gui::ScalableFont* font = GUIEngine::getHighresDigitFont();
         core::rect<s32> pos(x2+nSize, y1, x2+nSize+nSize, y1+nSize);
-        font->setScale(scale / (float)font->getDimension(L"X").Height * 64.0f);
         font->draw(core::stringw(L"x")+StringUtils::toWString(many_powerups),
             pos, video::SColor(255, 255, 255, 255));
-        font->setScale(1.0f);
     }
+    font->setScale(1.0f);
 #endif
 }   // drawPowerupIcons
 
