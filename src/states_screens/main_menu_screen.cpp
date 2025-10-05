@@ -474,6 +474,7 @@ void MainMenuScreen::eventCallback(Widget* widget, const std::string& name,
     else if (selection == "story")
     {
         NetworkConfig::get()->unsetNetworking();
+        PlayerManager::getCurrentPlayer()->resetStoryModeStatus();
 
         // Start the speedrun timer
         story_mode_timer->reset();
@@ -481,6 +482,7 @@ void MainMenuScreen::eventCallback(Widget* widget, const std::string& name,
         story_mode_timer->startTimer();
         CutsceneWorld::setUseDuration(true);
         StateManager::get()->enterGameState();
+        RaceManager::get()->clearKartLastPositionOnOverworld();
         RaceManager::get()->setMinorMode(RaceManager::MINOR_MODE_CUTSCENE);
         RaceManager::get()->setNumKarts( 0 );
         RaceManager::get()->setNumPlayers(0);

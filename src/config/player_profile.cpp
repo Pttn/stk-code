@@ -160,6 +160,7 @@ void PlayerProfile::loadRemainingData(const XMLNode *node)
  */
 void PlayerProfile::initRemainingData()
 {
+    assert(m_story_mode_status == NULL);
     m_story_mode_status = unlock_manager->createStoryModeStatus();
     m_achievements_status =
         AchievementsManager::get()->createAchievementsStatus();
@@ -313,4 +314,10 @@ bool PlayerProfile::operator<(const PlayerProfile &other)
 }   // operator<
 
 // -----------------------------------------------------------------------------
-
+/** Reset Story Mode Status. */
+void PlayerProfile::resetStoryModeStatus() {
+    if (m_story_mode_status) {
+        delete m_story_mode_status;
+        m_story_mode_status = unlock_manager->createStoryModeStatus();
+    }
+}

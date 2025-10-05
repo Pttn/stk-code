@@ -31,40 +31,6 @@
 #include "utils/string_utils.hpp"
 
 //-----------------------------------------------------------------------------
-/** Loads the state for a challenge object (esp. m_state)
- */
-void ChallengeStatus::load(const XMLNode* challenges_node)
-{
-    const XMLNode* node = challenges_node->getNode( m_data->getChallengeId() );
-    if(node == NULL)
-    {
-        Log::info("ChallengeStatus", "Couldn't find node <%s> in challenge list."
-                "(If this is the first time you play this is normal)\n",
-                m_data->getChallengeId().c_str());
-        return;
-    }
-
-    m_active = 0;
-    m_solved = 0;
-
-    std::string solved;
-    if (node->get("solved", &solved))
-    {
-        // Solving at a difficulty also marks lower difficulties as solved
-        if (solved == "easy")
-            m_solved = 0x01;
-        else if (solved == "medium")
-            m_solved = 0x03;
-        else if (solved == "hard")
-            m_solved = 0x07;
-        else if (solved == "best")
-            m_solved = 0x0F;
-    }   // if has 'solved' attribute
-    if (!node->get("best_while_slower", &m_max_req_in_lower_diff))
-        m_max_req_in_lower_diff = false;
-}   // load
-
-//-----------------------------------------------------------------------------
 // Solve not only the current difficulty but all those before
 // e.g. if you solved hard then you also get easy.
 // Also resets active flag.
@@ -88,22 +54,3 @@ bool ChallengeStatus::isGrandPrix()
 {
     return m_data->isGrandPrix();
 } // isUnlockList
-
-//-----------------------------------------------------------------------------
-
-void ChallengeStatus::save(UTFWriter& writer)
-{
-    writer << "        <" << m_data->getChallengeId();
-    if (isSolved(RaceManager::DIFFICULTY_BEST))
-        writer << " solved=\"best\"";
-    else if (isSolved(RaceManager::DIFFICULTY_HARD))
-        writer << " solved=\"hard\"";
-    else if (isSolved(RaceManager::DIFFICULTY_MEDIUM))
-        writer << " solved=\"medium\"";
-    else if (isSolved(RaceManager::DIFFICULTY_EASY))
-        writer << " solved=\"easy\"";
-    else
-        writer << " solved=\"none\"";
-
-    writer << " best_while_slower=\"" << m_max_req_in_lower_diff << "\"/>\n";
-}   // save

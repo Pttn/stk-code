@@ -470,10 +470,8 @@ PlayerProfile *PlayerManager::getPlayer(const irr::core::stringw &name)
  */
 void PlayerManager::setCurrentPlayer(PlayerProfile *player)
 {
-    bool player_has_changed = false;
     if (m_current_player != player)
     {
-        player_has_changed = true;
         save();
         RaceManager::get()->clearKartLastPositionOnOverworld();
     }

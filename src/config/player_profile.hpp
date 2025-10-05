@@ -289,6 +289,8 @@ public:
     // ----------------------------------------------------------------------------------------
     StoryModeStatus* getStoryModeStatus() { return m_story_mode_status; }
     // ----------------------------------------------------------------------------------------
+    void resetStoryModeStatus();
+    // ----------------------------------------------------------------------------------------
     FavoriteStatus* getFavoriteTrackStatus() { return m_favorite_track_status; }
     // ----------------------------------------------------------------------------------------
     FavoriteStatus* getFavoriteKartStatus() { return m_favorite_kart_status; }
