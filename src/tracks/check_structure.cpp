@@ -119,7 +119,7 @@ void CheckStructure::update(float dt)
         // Only check active checklines.
         if(m_is_active[i] && isTriggered(m_previous_position[i], xyz, i))
         {
-            if(UserConfigParams::m_check_debug)
+            if(RaceManager::get()->isWatchingReplay() || UserConfigParams::m_check_debug)
                 Log::info("CheckStructure",
                           "Check structure %d triggered for kart %s at %f.",
                           m_index, world->getKart(i)->getIdent().c_str(),
@@ -148,7 +148,7 @@ void CheckStructure::changeStatus(const std::vector<int> &indices,
     if (World::getWorld()->getPlayerKart(0))
         player_kart_index = World::getWorld()->getPlayerKart(0)->getWorldKartId();
     bool update_debug_colors =
-        UserConfigParams::m_check_debug && RaceManager::get()->getNumPlayers()>0 &&
+        (RaceManager::get()->isWatchingReplay() || UserConfigParams::m_check_debug) && RaceManager::get()->getNumPlayers()>0 &&
         kart_index == player_kart_index;
 
     CheckManager* cm = Track::getCurrentTrack()->getCheckManager();
@@ -161,7 +161,7 @@ void CheckStructure::changeStatus(const std::vector<int> &indices,
         {
         case CS_DEACTIVATE:
             cs->m_is_active[kart_index] = false;
-            if(UserConfigParams::m_check_debug)
+            if(RaceManager::get()->isWatchingReplay() || UserConfigParams::m_check_debug)
             {
                 Log::info("CheckStructure", "Deactivating %d for %s.",
                           indices[i],
@@ -170,7 +170,7 @@ void CheckStructure::changeStatus(const std::vector<int> &indices,
             break;
         case CS_ACTIVATE:
             cs->m_is_active[kart_index] = true;
-            if(UserConfigParams::m_check_debug)
+            if(RaceManager::get()->isWatchingReplay() || UserConfigParams::m_check_debug)
             {
                 Log::info("CheckStructure", "Activating %d for %s.",
                           indices[i],
@@ -178,7 +178,7 @@ void CheckStructure::changeStatus(const std::vector<int> &indices,
             }
             break;
         case CS_TOGGLE:
-            if(UserConfigParams::m_check_debug)
+            if(RaceManager::get()->isWatchingReplay() || UserConfigParams::m_check_debug)
             {
                 // At least on gcc 4.3.2 we can't simply print
                 // cs->m_is_active[kart_index] ("cannot pass objects of
@@ -223,7 +223,7 @@ void CheckStructure::trigger(unsigned int kart_index)
     {
     case CT_NEW_LAP :
         World::getWorld()->newLap(kart_index);
-        if(UserConfigParams::m_check_debug)
+        if(RaceManager::get()->isWatchingReplay() || UserConfigParams::m_check_debug)
         {
             Log::info("CheckStructure", "%s new lap %d triggered",
                       World::getWorld()->getKart(kart_index)->getIdent().c_str(),

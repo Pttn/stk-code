@@ -78,7 +78,7 @@ bool CheckLap::isTriggered(const Vec3 &old_pos, const Vec3 &new_pos,
     float threshold = 0.1f * track_length;
     bool result = current_distance < threshold && lin_world->isOnRoad(kart_index);
 
-    if (UserConfigParams::m_check_debug && result)
+    if ((RaceManager::get()->isWatchingReplay() || UserConfigParams::m_check_debug) && result)
     {
         Log::info("CheckLap", "Kart %s crossed start line from %f to %f.",
             World::getWorld()->getKart(kart_index)->getIdent().c_str(),

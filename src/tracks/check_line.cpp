@@ -119,7 +119,7 @@ CheckLine::CheckLine(const XMLNode &node,  unsigned int index)
     m_check_plane[3].pointC = Vec3(m_right_point + (normal *
         over_min_height)).toIrrVector();
 
-    if(UserConfigParams::m_check_debug && !GUIEngine::isNoGraphics())
+    if((RaceManager::get()->isWatchingReplay() || UserConfigParams::m_check_debug) && !GUIEngine::isNoGraphics())
     {
 #ifndef SERVER_ONLY
         m_debug_dy_dc = std::make_shared<SP::SPDynamicDrawCall>
@@ -224,7 +224,7 @@ start:
     if (check_plane[0].getIntersectionWithLimitedLine(test, intersect) ||
         check_plane[1].getIntersectionWithLimitedLine(test, intersect))
     {
-        if (UserConfigParams::m_check_debug && check_line_debug)
+        if ((RaceManager::get()->isWatchingReplay() || UserConfigParams::m_check_debug) && check_line_debug)
         {
             if (kart_index >= 0)
             {
@@ -239,7 +239,7 @@ start:
         else
             result = true;
     }
-    else if (UserConfigParams::m_check_debug && !ignore_height &&
+    else if ((RaceManager::get()->isWatchingReplay() || UserConfigParams::m_check_debug) && !ignore_height &&
         !check_line_debug)
     {
         check_line_debug = true;
