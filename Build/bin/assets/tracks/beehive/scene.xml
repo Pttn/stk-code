@@ -1,0 +1,404 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 15937 -->
+<scene>
+  <lod>
+   <group name="mush_3">
+    <static-object lod_distance="70" lod_group="mush_3" model="mush_3_high.b3d" xyz="293.64 -0.02 6.47" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="120" lod_group="mush_3" model="mush_3_mid.b3d" xyz="294.64 -0.02 26.47" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+   </group>
+   <group name="mush_2">
+    <static-object lod_distance="70" lod_group="mush_2" model="mush_2_high.b3d" xyz="289.64 -0.02 6.47" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="120" lod_group="mush_2" model="mush_2_mid.b3d" xyz="289.64 -0.02 26.47" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+   </group>
+   <group name="mush_1b">
+    <static-object lod_distance="70" lod_group="mush_1b" model="mush_1b_high.b3d" xyz="270.64 0.40 6.47" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="120" lod_group="mush_1b" model="mush_1b_mid.b3d" xyz="270.64 0.40 26.47" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+   </group>
+   <group name="mush_5">
+    <static-object lod_distance="70" lod_group="mush_5" model="mush_5_high.b3d" xyz="304.54 0.40 6.47" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="120" lod_group="mush_5" model="mush_5_mid.b3d" xyz="305.34 0.40 27.07" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+   </group>
+   <group name="mush_2b">
+    <static-object lod_distance="70" lod_group="mush_2b" model="mush_2b_high.b3d" xyz="275.64 -0.02 6.47" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="120" lod_group="mush_2b" model="mush_2b_mid.b3d" xyz="275.64 -0.02 26.47" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+   </group>
+   <group name="mush_1">
+    <static-object lod_distance="70" lod_group="mush_1" model="mush_1_high.b3d" xyz="284.64 0.40 6.47" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="120" lod_group="mush_1" model="mush_1_mid.b3d" xyz="284.64 0.40 26.47" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+   </group>
+   <group name="mush_3b">
+    <static-object lod_distance="70" lod_group="mush_3b" model="mush_3b_high.b3d" xyz="279.64 -0.02 6.47" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="120" lod_group="mush_3b" model="mush_3b_mid.b3d" xyz="280.64 -0.02 26.47" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+   </group>
+   <group name="mush_4">
+    <static-object lod_distance="70" lod_group="mush_4" model="mush_4_high.b3d" xyz="299.54 0.40 6.47" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+    <static-object lod_distance="120" lod_group="mush_4" model="mush_4_mid.b3d" xyz="299.54 0.40 26.47" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="static" skeletal-animation="false"/>
+   </group>
+  </lod>
+  <track model="beehive_track.b3d" x="0" y="0" z="0">
+    <static-object lod_instance="true" lod_group="mush_1b" xyz="100.16 -18.64 200.83" hpr="-4.5 -1.3 8.9" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="mush_1" xyz="86.64 -17.72 223.08" hpr="7.2 152.9 2.7" scale="1.00 0.73 1.00"/>
+    <static-object lod_instance="true" lod_group="mush_1" xyz="84.99 -17.52 225.81" hpr="-2.0 -23.7 2.6" scale="0.71 1.39 0.72"/>
+    <static-object lod_instance="true" lod_group="mush_1" xyz="63.26 -20.28 217.77" hpr="18.4 -19.7 -22.8" scale="0.84 0.89 0.97"/>
+    <static-object lod_instance="true" lod_group="mush_1b" xyz="72.73 -19.72 209.76" hpr="-0.1 -36.4 -16.3" scale="0.80 1.06 0.81"/>
+    <static-object lod_instance="true" lod_group="mush_1b" xyz="68.34 -19.81 211.07" hpr="25.2 -22.7 -7.9" scale="0.90 1.20 0.92"/>
+    <static-object lod_instance="true" lod_group="mush_1b" xyz="-59.15 -27.95 190.53" hpr="18.3 -32.9 -7.1" scale="0.80 1.06 0.81"/>
+    <static-object lod_instance="true" lod_group="mush_1" xyz="-125.09 -27.23 205.51" hpr="-89.2 -64.0 96.1" scale="0.84 1.66 0.86"/>
+    <static-object lod_instance="true" lod_group="mush_1" xyz="-121.69 -27.64 205.10" hpr="-27.6 29.3 -23.1" scale="1.02 0.84 1.01"/>
+    <static-object lod_instance="true" lod_group="mush_1b" xyz="-122.66 -28.13 181.91" hpr="30.5 -51.6 -39.4" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="mush_1" xyz="-147.39 -29.37 179.06" hpr="-31.6 -105.7 23.6" scale="0.84 1.66 0.86"/>
+    <static-object lod_instance="true" lod_group="mush_1" xyz="-104.06 -30.47 204.53" hpr="-18.7 33.8 -22.8" scale="1.29 2.44 1.20"/>
+    <static-object lod_instance="true" lod_group="mush_1" xyz="-99.42 -29.48 206.66" hpr="-33.5 22.3 -24.8" scale="1.01 2.35 0.91"/>
+    <static-object lod_instance="true" lod_group="mush_1b" xyz="-205.01 -25.65 176.20" hpr="-93.8 -29.2 76.0" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="mush_1b" xyz="-199.55 -27.61 177.53" hpr="-61.7 -53.1 63.4" scale="0.86 2.43 0.78"/>
+    <static-object lod_instance="true" lod_group="mush_2b" xyz="107.31 -14.86 197.65" hpr="-36.2 -42.1 54.6" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="mush_2" xyz="79.97 -20.04 200.67" hpr="8.5 143.3 -4.3" scale="0.85 1.02 0.85"/>
+    <static-object lod_instance="true" lod_group="mush_3b" xyz="98.37 -18.75 211.29" hpr="-5.5 -6.5 21.3" scale="1.59 1.18 1.65"/>
+    <static-object lod_instance="true" lod_group="mush_3" xyz="55.19 -21.53 222.58" hpr="13.6 -0.1 -11.2" scale="1.40 1.40 1.40"/>
+    <static-object lod_instance="true" lod_group="mush_3" xyz="98.50 -18.95 203.14" hpr="-1.0 -27.6 8.2" scale="1.30 1.30 1.30"/>
+    <static-object lod_instance="true" lod_group="mush_3b" xyz="68.25 -20.32 214.60" hpr="-20.6 -80.3 34.4" scale="1.06 0.79 1.10"/>
+    <static-object lod_instance="true" lod_group="mush_3b" xyz="70.93 -20.07 211.42" hpr="31.6 -55.4 -42.4" scale="0.85 0.69 0.94"/>
+    <static-object lod_instance="true" lod_group="mush_3" xyz="-139.17 -29.79 182.19" hpr="72.3 -67.6 -83.1" scale="1.30 1.30 1.30"/>
+    <static-object lod_instance="true" lod_group="mush_3" xyz="-143.06 -29.87 180.21" hpr="76.8 -61.9 -77.2" scale="1.80 1.80 1.80"/>
+    <static-object lod_instance="true" lod_group="mush_3" xyz="-139.51 -28.38 179.90" hpr="76.8 -61.9 -77.2" scale="1.91 1.85 1.80"/>
+    <static-object lod_instance="true" lod_group="mush_3" xyz="-219.78 -20.77 151.70" hpr="-30.5 -65.2 -5.4" scale="1.17 1.17 1.17"/>
+    <static-object lod_instance="true" lod_group="mush_4" xyz="74.00 -14.24 236.18" hpr="-24.5 25.0 -9.2" scale="1.97 1.32 1.32"/>
+    <static-object lod_instance="true" lod_group="mush_4" xyz="70.42 -15.29 206.87" hpr="-8.9 -152.1 14.3" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="mush_4" xyz="75.86 -12.68 234.84" hpr="-8.1 16.8 8.5" scale="1.32 1.32 1.23"/>
+    <static-object lod_instance="true" lod_group="mush_4" xyz="-77.08 -25.90 206.72" hpr="-19.2 -9.6 -8.5" scale="1.52 1.31 1.32"/>
+    <static-object lod_instance="true" lod_group="mush_4" xyz="-169.12 -25.32 192.35" hpr="-6.3 -23.7 -13.6" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="mush_5" xyz="81.11 -15.21 231.04" hpr="-10.2 24.4 3.7" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="mush_5" xyz="-91.26 -28.59 184.55" hpr="-12.2 171.6 -3.4" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="mush_5" xyz="-89.60 -28.21 183.96" hpr="-7.3 167.6 -6.7" scale="0.98 0.84 0.84"/>
+    <static-object lod_instance="true" lod_group="mush_5" xyz="-197.33 -26.61 154.64" hpr="-10.6 136.9 -15.3" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="mush_5" xyz="-214.69 -20.16 162.66" hpr="-18.6 -35.8 -3.3" scale="1.00 1.00 1.00"/>
+    <static-object lod_instance="true" lod_group="mush_5" xyz="-212.97 -21.82 163.63" hpr="-7.7 -78.1 -13.1" scale="0.75 0.75 0.75"/>
+    <static-object lod_instance="true" lod_group="mush_5" xyz="-212.97 -21.82 163.63" hpr="-7.7 -78.1 -13.1" scale="0.75 0.75 0.75"/>
+    <animated-texture name="stkflag_greenCheckBorard_a.png" dx="0.080"  dy="0.2000" />
+    <animated-texture name="stktex_honeyfall_a.png" dy="-0.5000" />
+    <animated-texture name="stktex_honeyfall_a.png" dy="-0.5000" />
+    <animated-texture name="stktex_honeyfall_a.png" dy="-0.5000" />
+    <animated-texture name="stktex_honeyfall_a.png" dy="-0.5000" />
+  </track>
+  <object id="Circle.004" type="animation" xyz="-183.85 -0.00 -98.26" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" looped="y" interaction="static" shape="box" model="bee_obj.b3d" skeletal-animation="true">
+    <curve channel="LocX" interpolation="bezier" extend="cyclic">
+      <p c="0.000 -183.847" h1="-3.904 -183.847" h2="3.904 -183.847"/>
+      <p c="10.000 -183.847" h1="6.096 -183.847" h2="17.808 -183.847"/>
+      <p c="30.000 -103.654" h1="22.192 -129.680" h2="37.027 -80.230"/>
+      <p c="48.000 -55.831" h1="40.973 -70.445" h2="56.979 -37.158"/>
+      <p c="71.000 -21.281" h1="62.021 -42.949" h2="78.418 -3.381"/>
+      <p c="90.000 41.874" h1="82.582 20.659" h2="95.856 58.623"/>
+      <p c="105.000 77.817" h1="99.144 67.871" h2="111.637 89.088"/>
+      <p c="122.000 94.824" h1="115.363 89.330" h2="127.075 99.025"/>
+      <p c="135.000 103.340" h1="129.925 97.944" h2="140.075 108.735"/>
+      <p c="148.000 122.463" h1="142.925 114.809" h2="154.637 132.471"/>
+      <p c="165.000 148.726" h1="158.363 148.726" h2="173.199 148.726"/>
+      <p c="186.000 145.425" h1="177.801 145.425" h2="194.199 145.425"/>
+    </curve>
+    <curve channel="LocZ" interpolation="bezier" extend="cyclic">
+      <p c="0.000 -98.263" h1="-3.904 -98.263" h2="3.904 -98.263"/>
+      <p c="10.000 -98.263" h1="6.096 -98.263" h2="17.808 -98.263"/>
+      <p c="30.000 -30.653" h1="22.192 -30.653" h2="37.027 -30.653"/>
+      <p c="48.000 -47.995" h1="40.973 -44.485" h2="56.979 -52.480"/>
+      <p c="71.000 -52.480" h1="62.021 -52.480" h2="78.418 -52.480"/>
+      <p c="90.000 -45.209" h1="82.582 -52.480" h2="95.856 -39.468"/>
+      <p c="105.000 -16.562" h1="99.144 -30.085" h2="111.637 -1.235"/>
+      <p c="122.000 29.488" h1="115.363 17.522" h2="127.075 38.639"/>
+      <p c="135.000 41.150" h1="129.925 40.370" h2="140.075 41.930"/>
+      <p c="148.000 41.930" h1="142.925 41.930" h2="154.637 41.930"/>
+      <p c="165.000 13.717" h1="158.363 25.701" h2="173.199 -1.088"/>
+      <p c="186.000 -27.271" h1="177.801 -27.271" h2="194.199 -27.271"/>
+    </curve>
+    <curve channel="LocY" interpolation="bezier" extend="cyclic">
+      <p c="0.000 -0.000" h1="-3.904 -0.000" h2="3.904 -0.000"/>
+      <p c="10.000 -0.000" h1="6.096 -0.000" h2="17.808 -0.000"/>
+      <p c="30.000 -35.983" h1="22.192 -35.983" h2="37.027 -35.983"/>
+      <p c="48.000 -31.078" h1="40.973 -33.823" h2="56.979 -27.570"/>
+      <p c="71.000 -19.377" h1="62.021 -24.869" h2="78.418 -14.841"/>
+      <p c="90.000 -5.803" h1="82.582 -5.803" h2="95.856 -5.803"/>
+      <p c="105.000 -5.803" h1="99.144 -5.803" h2="111.637 -5.803"/>
+      <p c="122.000 1.506" h1="115.363 1.506" h2="127.075 1.506"/>
+      <p c="135.000 1.253" h1="129.925 1.267" h2="140.075 1.239"/>
+      <p c="148.000 1.239" h1="142.925 1.239" h2="154.637 1.239"/>
+      <p c="165.000 6.008" h1="158.363 1.239" h2="173.199 11.899"/>
+      <p c="186.000 34.381" h1="177.801 34.381" h2="194.199 34.381"/>
+    </curve>
+    <curve channel="RotX" interpolation="bezier" extend="cyclic">
+      <p c="0.000 -0.000" h1="-3.904 -0.000" h2="3.904 -0.000"/>
+      <p c="10.000 -0.000" h1="6.096 -0.000" h2="17.808 -0.000"/>
+      <p c="30.000 -5.920" h1="22.192 -3.073" h2="37.027 -8.483"/>
+      <p c="48.000 -13.719" h1="40.973 -13.719" h2="56.979 -13.719"/>
+      <p c="71.000 -13.719" h1="62.021 -13.719" h2="78.418 -13.719"/>
+      <p c="90.000 -13.719" h1="82.582 -13.719" h2="95.856 -13.719"/>
+      <p c="105.000 -13.719" h1="99.144 -13.719" h2="111.637 -13.719"/>
+      <p c="122.000 -13.048" h1="115.363 -13.719" h2="127.075 -12.535"/>
+      <p c="135.000 -2.911" h1="129.925 -2.911" h2="140.075 -2.911"/>
+      <p c="148.000 -2.911" h1="142.925 -2.911" h2="154.637 -2.911"/>
+      <p c="165.000 -18.425" h1="158.363 -18.425" h2="173.199 -18.425"/>
+      <p c="186.000 -18.425" h1="177.801 -18.425" h2="194.199 -18.425"/>
+    </curve>
+    <curve channel="RotZ" interpolation="bezier" extend="cyclic">
+      <p c="0.000 -0.000" h1="-3.904 -0.000" h2="3.904 -0.000"/>
+      <p c="10.000 0.000" h1="6.096 0.000" h2="17.808 0.000"/>
+      <p c="30.000 -17.633" h1="22.192 -17.633" h2="37.027 -17.633"/>
+      <p c="48.000 22.131" h1="40.973 22.131" h2="56.979 22.131"/>
+      <p c="71.000 22.131" h1="62.021 22.131" h2="78.418 22.131"/>
+      <p c="90.000 22.131" h1="82.582 22.131" h2="95.856 22.131"/>
+      <p c="105.000 22.131" h1="99.144 22.131" h2="111.637 22.131"/>
+      <p c="122.000 -30.382" h1="115.363 -30.382" h2="127.075 -30.382"/>
+      <p c="135.000 -18.682" h1="129.925 -18.682" h2="140.075 -18.682"/>
+      <p c="148.000 -18.682" h1="142.925 -18.682" h2="154.637 -18.682"/>
+      <p c="165.000 -33.741" h1="158.363 -33.741" h2="173.199 -33.741"/>
+      <p c="186.000 -33.741" h1="177.801 -33.741" h2="194.199 -33.741"/>
+    </curve>
+    <curve channel="RotY" interpolation="bezier" extend="cyclic">
+      <p c="0.000 -0.000" h1="-3.904 -0.000" h2="3.904 -0.000"/>
+      <p c="10.000 -0.000" h1="6.096 -0.000" h2="17.808 -0.000"/>
+      <p c="30.000 85.101" h1="22.192 57.562" h2="37.027 109.885"/>
+      <p c="48.000 135.476" h1="40.973 135.476" h2="56.979 135.476"/>
+      <p c="71.000 116.862" h1="62.021 135.476" h2="78.418 101.484"/>
+      <p c="90.000 49.708" h1="82.582 69.186" h2="95.856 34.331"/>
+      <p c="105.000 23.951" h1="99.144 23.951" h2="111.637 23.951"/>
+      <p c="122.000 30.607" h1="115.363 23.951" h2="127.075 35.698"/>
+      <p c="135.000 75.879" h1="129.925 60.363" h2="140.075 91.395"/>
+      <p c="148.000 110.094" h1="142.925 97.911" h2="154.637 126.025"/>
+      <p c="165.000 146.963" h1="158.363 129.652" h2="173.199 168.347"/>
+      <p c="186.000 210.964" h1="177.801 210.964" h2="194.199 210.964"/>
+    </curve>
+  </object>
+  <object id="Plane.001" type="animation" xyz="-184.05 -26.18 89.19" hpr="1.0 -0.3 0.5" scale="1.00 1.00 1.00" interaction="ghost" model="speedy_effect.b3d" forcedbloom="true" glow="117 107 27" skeletal-animation="false">
+    <animated-texture name="stktex_generic_lavaEffectA.png" dx="0.220" />
+  </object>
+  <object id="Plane.009" type="animation" xyz="-184.05 -26.18 89.19" hpr="1.0 -0.3 0.5" scale="1.00 1.00 1.00" interaction="ghost" model="speedy.b3d" forcedbloom="true" glow="117 107 27" skeletal-animation="false">
+  </object>
+  <object id="Plane.015" type="animation" xyz="-27.37 -43.75 9.08" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="honey_lake_big.b3d" displacing="true" skeletal-animation="false">
+  </object>
+  <object id="Plane.016" type="animation" xyz="-184.05 -26.18 89.19" hpr="1.0 -0.3 0.5" scale="1.00 1.00 1.00" interaction="ghost" model="speedy.b3d" forcedbloom="true" glow="117 107 27" skeletal-animation="false">
+    <animated-texture name="stktex_generic_lavaA.png" dx="0.200"  dy="0.2000" />
+  </object>
+  <object id="resetplane" type="animation" xyz="-47.84 -68.76 201.48" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="reset" shape="exact" model="reset.b3d" reset="y" skeletal-animation="false">
+  </object>
+  <object id="stklib_bugslight_hive2_a_main.001" type="animation" xyz="128.52 -3.07 9.75" hpr="10.8 9.0 26.2" scale="1.11 1.11 1.11" interaction="static" shape="box" model="stklib_bugslight_hive2_a_main.b3d" forcedbloom="true" skeletal-animation="false">
+  </object>
+  <object id="stklib_bugslight_hive2_a_main.002" type="animation" xyz="-69.16 -11.28 -86.70" hpr="19.7 168.2 -35.8" scale="1.11 1.11 1.11" interaction="static" shape="box" model="stklib_bugslight_hive2_a_main.b3d" forcedbloom="true" skeletal-animation="false">
+  </object>
+  <object id="stklib_bugslight_hive2_a_main.003" type="animation" xyz="38.53 2.16 -59.61" hpr="-16.5 63.3 12.2" scale="1.11 1.11 1.11" interaction="static" shape="box" model="stklib_bugslight_hive2_a_main.b3d" forcedbloom="true" skeletal-animation="false">
+  </object>
+  <object id="stklib_bugslight_hive2_a_main.004" type="animation" xyz="3.24 -14.53 6.70" hpr="0.0 16.0 0.0" scale="1.00 1.00 1.00" interaction="static" shape="box" model="stklib_bugslight_hive2_a_main.b3d" forcedbloom="true" skeletal-animation="false">
+  </object>
+  <object id="stklib_bugslight_hive2_a_main.005" type="animation" xyz="129.81 11.99 39.29" hpr="49.0 1.1 45.6" scale="1.00 1.00 1.00" interaction="static" shape="box" model="stklib_bugslight_hive2_a_main.b3d" forcedbloom="true" skeletal-animation="false">
+  </object>
+  <object id="stklib_bugslight_hive2_a_main.006" type="animation" xyz="60.13 -4.65 57.34" hpr="-4.8 -167.4 -1.9" scale="1.11 1.11 1.11" interaction="static" shape="box" model="stklib_bugslight_hive2_a_main.b3d" forcedbloom="true" skeletal-animation="false">
+  </object>
+  <object id="stklib_bugslight_hive2_a_main.007" type="animation" xyz="86.35 1.73 99.22" hpr="-4.2 -152.8 -23.3" scale="1.41 1.41 1.41" interaction="static" shape="box" model="stklib_bugslight_hive2_a_main.b3d" forcedbloom="true" skeletal-animation="false">
+  </object>
+  <object id="stklib_bugslight_hive2_a_main.008" type="animation" xyz="-86.74 -44.18 -15.34" hpr="69.4 -53.8 -50.5" scale="1.79 1.79 1.79" interaction="static" shape="box" model="stklib_bugslight_hive2_a_main.b3d" forcedbloom="true" skeletal-animation="false">
+  </object>
+  <object id="stklib_bugslight_hive3_a_main.001" type="animation" xyz="141.09 3.11 48.66" hpr="23.4 12.3 46.8" scale="1.00 1.00 1.00" interaction="static" shape="box" model="stklib_bugslight_hive3_a_main.b3d" forcedbloom="true" skeletal-animation="false">
+  </object>
+  <object id="stklib_bugslight_hive3_a_main.002" type="animation" xyz="-107.65 -12.71 8.39" hpr="-20.3 75.0 -32.6" scale="1.00 1.00 1.00" interaction="static" shape="box" model="stklib_bugslight_hive3_a_main.b3d" forcedbloom="true" skeletal-animation="false">
+  </object>
+  <object id="stklib_bugslight_hive3_a_main.003" type="animation" xyz="52.40 1.75 39.07" hpr="-19.5 -176.2 -30.7" scale="1.55 1.27 1.30" interaction="static" shape="box" model="stklib_bugslight_hive3_a_main.b3d" forcedbloom="true" skeletal-animation="false">
+  </object>
+  <object id="stklib_bugslight_hive3_a_main.004" type="animation" xyz="111.94 -2.86 -19.34" hpr="-0.2 29.2 -1.9" scale="1.28 1.34 1.56" interaction="static" shape="box" model="stklib_bugslight_hive3_a_main.b3d" forcedbloom="true" skeletal-animation="false">
+  </object>
+  <object id="stklib_bugslight_hive3_a_main.005" type="animation" xyz="135.75 -5.69 77.91" hpr="-1.5 -40.5 0.8" scale="1.00 1.00 1.00" interaction="static" shape="box" model="stklib_bugslight_hive3_a_main.b3d" forcedbloom="true" skeletal-animation="false">
+  </object>
+  <object id="stklib_bugslight_hive3_a_main.006" type="animation" xyz="80.03 -5.08 93.07" hpr="5.5 -142.2 -3.1" scale="1.55 1.61 1.31" interaction="static" shape="box" model="stklib_bugslight_hive3_a_main.b3d" forcedbloom="true" skeletal-animation="false">
+  </object>
+  <object id="stklib_bugslight_hive3_a_main.007" type="animation" xyz="-119.88 -38.21 -51.62" hpr="34.3 41.5 34.4" scale="1.80 1.48 1.51" interaction="static" shape="box" model="stklib_bugslight_hive3_a_main.b3d" forcedbloom="true" skeletal-animation="false">
+  </object>
+  <object id="stklib_bugslight_hive_a_main.001" type="animation" xyz="-67.58 -26.93 -72.53" hpr="18.0 177.3 28.9" scale="1.23 1.23 1.23" interaction="static" shape="box" model="stklib_bugslight_hive_a_main.b3d" forcedbloom="true" skeletal-animation="false">
+  </object>
+  <object id="stklib_bugslight_hive_a_main.002" type="animation" xyz="-6.30 -18.28 -67.15" hpr="18.6 91.1 2.6" scale="1.23 1.34 2.04" interaction="static" shape="box" model="stklib_bugslight_hive_a_main.b3d" forcedbloom="true" skeletal-animation="false">
+  </object>
+  <object id="stklib_bugslight_hive_a_main.003" type="animation" xyz="89.91 -40.64 -33.63" hpr="3.5 -44.4 -5.2" scale="1.00 1.00 1.00" interaction="static" shape="box" model="stklib_bugslight_hive_a_main.b3d" forcedbloom="true" skeletal-animation="false">
+  </object>
+  <object id="stklib_bugslight_hive_a_main.004" type="animation" xyz="141.38 -8.10 70.62" hpr="0.0 -26.6 23.2" scale="1.75 1.33 1.35" interaction="static" shape="box" model="stklib_bugslight_hive_a_main.b3d" forcedbloom="true" skeletal-animation="false">
+  </object>
+  <object id="stklib_bugslight_hive_a_main.005" type="animation" xyz="128.29 1.39 13.36" hpr="8.6 12.3 17.4" scale="1.00 1.00 1.00" interaction="static" shape="box" model="stklib_bugslight_hive_a_main.b3d" forcedbloom="true" skeletal-animation="false">
+  </object>
+  <object id="stklib_bugslight_hive_a_main.006" type="animation" xyz="96.74 8.10 -46.28" hpr="-0.0 5.0 -11.6" scale="1.00 1.00 1.00" interaction="static" shape="box" model="stklib_bugslight_hive_a_main.b3d" forcedbloom="true" skeletal-animation="false">
+  </object>
+  <object id="stklib_bugslight_hive_a_main.007" type="animation" xyz="137.74 -11.59 22.45" hpr="32.6 14.7 29.2" scale="0.70 0.70 0.70" interaction="static" shape="box" model="stklib_bugslight_hive_a_main.b3d" forcedbloom="true" skeletal-animation="false">
+  </object>
+  <object id="stklib_bugslight_hive_a_main.008" type="animation" xyz="66.96 -6.44 6.55" hpr="22.2 164.7 30.0" scale="1.18 1.18 1.18" interaction="static" shape="box" model="stklib_bugslight_hive_a_main.b3d" forcedbloom="true" skeletal-animation="false">
+  </object>
+  <object id="stklib_bugslight_hive_a_main.009" type="animation" xyz="63.96 0.14 64.64" hpr="31.8 -170.6 -21.3" scale="1.32 1.32 1.32" interaction="static" shape="box" model="stklib_bugslight_hive_a_main.b3d" forcedbloom="true" skeletal-animation="false">
+  </object>
+  <object id="stklib_bugslight_hive_a_main.010" type="animation" xyz="-86.46 -42.53 -40.10" hpr="10.1 69.6 -8.3" scale="1.00 1.00 1.00" interaction="static" shape="box" model="stklib_bugslight_hive_a_main.b3d" forcedbloom="true" skeletal-animation="false">
+  </object>
+  <object id="stklib_bugslight_hive_a_main.011" type="animation" xyz="-105.24 -49.72 -14.25" hpr="-58.9 -130.2 71.4" scale="1.00 1.00 1.00" interaction="static" shape="box" model="stklib_bugslight_hive_a_main.b3d" forcedbloom="true" skeletal-animation="false">
+  </object>
+  <sun  fog="true" fog-color="35 35 18" fog-max="0.8999999761581421" fog-start="10.00" fog-end="80.00" xyz="-84.53 73.26 330.05" sun-specular="162 147 140" sun-diffuse="149 141 135" ambient="67 49 38"/>
+  <sky-color rgb="77 104 255"/>
+  <sky-box texture="genericskybox_top.jpg genericskybox_bottom.jpg genericskybox_east.jpg genericskybox_west.jpg genericskybox_south.jpg genericskybox_north.jpg" />
+  <camera far="1000.0"/>
+  <checks>
+    <check-lap kind="lap" same-group="0" other-ids="1"/>
+    <check-line kind="activate" other-ids="2" p1="10.71 233.35" p2="8.69 247.28" min-height="-26.25" same-group="1"/>
+    <check-line kind="activate" other-ids="3" p1="-182 104" p2="-197 95" min-height="-30" same-group="2"/>
+    <check-line kind="activate" other-ids="0" p1="0 -133" p2="10 -114" min-height="-33" same-group="3"/>
+  </checks>
+  <banana id="BaNaNa_01" x="-22.91" y="-21.39" z="58.95" />
+  <banana id="BaNaNa_01.001" x="69.65" y="-9.91" z="-26.90" />
+  <banana id="BaNaNa_01.002" x="57.46" y="-11.23" z="-23.05" />
+  <banana id="BaNaNa_01.003" x="90.62" y="-19.03" z="195.48" />
+  <banana id="BaNaNa_01.004" x="50.09" y="-42.06" z="-122.23" />
+  <banana id="BaNaNa_01.005" x="12.78" y="-34.11" z="-130.24" />
+  <item id="Box_01" x="74.38" y="-11.30" z="36.40" h="8.43" />
+  <item id="Box_01.001" x="67.10" y="-11.41" z="33.99" h="8.43" />
+  <item id="Box_01.002" x="-1.79" y="-25.40" z="233.09" h="14.06" />
+  <item id="Box_01.003" x="-35.95" y="-29.72" z="209.54" />
+  <item id="Box_01.004" x="54.09" y="-46.55" z="-32.43" h="15.54" />
+  <item id="Box_01.005" x="60.81" y="-46.47" z="-26.81" h="15.86" />
+  <item id="Box_01.006" x="-43.68" y="-30.32" z="-81.81" h="14.35" />
+  <item id="Box_01.007" x="-74.75" y="-22.59" z="44.11" h="14.66" />
+  <item id="Box_01.008" x="-50.07" y="-31.37" z="-87.11" h="14.35" />
+  <banana id="Box_01.009" x="70.75" y="-11.56" z="34.97" h="8.43" />
+  <item id="Box_01.010" x="-177.00" y="-29.10" z="175.51" h="-0.22" />
+  <item id="Box_01.011" x="-179.96" y="-27.89" z="181.01" h="-0.22" />
+  <item id="Box_01.012" x="14.14" y="-33.88" z="-126.49" h="8.43" />
+  <item id="Box_01.013" x="-2.67" y="-25.58" z="236.30" h="14.06" />
+  <item id="Box_01.014" x="57.42" y="-46.54" z="-29.69" h="15.86" />
+  <small-nitro id="Nitro" x="133.59" y="-14.00" z="40.31" />
+  <big-nitro id="nitro big" x="-218.12" y="-22.40" z="139.81" />
+  <small-nitro id="Nitro.001" x="126.60" y="-13.92" z="41.18" />
+  <small-nitro id="Nitro.002" x="-35.17" y="-28.74" z="205.77" h="140.25" />
+  <small-nitro id="Nitro.003" x="-35.70" y="-29.23" z="217.54" h="140.25" />
+  <small-nitro id="Nitro.004" x="-216.09" y="-21.17" z="150.51" h="187.42" />
+  <small-nitro id="Nitro.005" x="-64.45" y="-21.25" z="39.77" h="314.10" />
+  <small-nitro id="Nitro.006" x="-28.65" y="-21.59" z="58.28" h="277.05" />
+  <small-nitro id="Nitro.007" x="-18.17" y="-21.29" z="57.86" h="260.05" />
+  <small-nitro id="Nitro.008" x="126.12" y="-13.92" z="48.66" />
+  <small-nitro id="Nitro.009" x="76.99" y="-42.04" z="-82.86" h="155.16" />
+  <small-nitro id="Nitro.010" x="82.26" y="-41.07" z="-86.06" h="155.16" />
+  <default-start karts-per-row     ="2"
+                 forwards-distance ="1.10"
+                 sidewards-distance="1.10"
+                 upwards-distance  ="1.10"/>
+  <library name="stklib_branch_a" id="stklib_branch_a_main_proxy.000" xyz="71.86 23.24 276.42" hpr="36.5 -120.0 -16.9" scale="18.81 18.81 18.81">
+  </library>
+  <library name="stklib_branch_a" id="stklib_branch_a_main_proxy.001" xyz="66.90 20.79 291.95" hpr="-104.4 -127.4 2.5" scale="18.81 18.81 18.81">
+  </library>
+  <library name="stklib_branch_a" id="stklib_branch_a_main_proxy.002" xyz="133.25 122.32 181.18" hpr="16.9 2.7 -57.4" scale="23.36 23.36 23.36">
+  </library>
+  <library name="stklib_branch_a" id="stklib_branch_a_main_proxy.003" xyz="93.63 35.35 240.34" hpr="-159.0 -7.2 71.2" scale="27.83 27.83 27.83">
+  </library>
+  <library name="stklib_branch_a" id="stklib_branch_a_main_proxy.004" xyz="50.90 -25.22 209.34" hpr="-70.3 4.6 175.2" scale="22.49 22.49 22.49">
+  </library>
+  <library name="stklib_branch_a" id="stklib_branch_a_main_proxy.005" xyz="59.28 -73.43 217.60" hpr="7.6 33.9 86.8" scale="18.94 18.94 18.94">
+  </library>
+  <library name="stklib_branch_a" id="stklib_branch_a_main_proxy.006" xyz="116.03 -24.91 210.66" hpr="-81.5 1.4 42.6" scale="23.36 23.36 23.36">
+  </library>
+  <library name="stklib_branch_a" id="stklib_branch_a_main_proxy.007" xyz="-200.92 109.61 219.62" hpr="126.7 -36.0 73.3" scale="18.81 18.81 18.81">
+  </library>
+  <library name="stklib_branch_a" id="stklib_branch_a_main_proxy.008" xyz="-179.44 32.54 163.23" hpr="-160.3 -23.7 66.8" scale="21.70 21.70 21.70">
+  </library>
+  <library name="stklib_branch_a" id="stklib_branch_a_main_proxy.009" xyz="-179.20 -1.03 121.65" hpr="-135.8 17.2 82.1" scale="19.47 19.47 19.47">
+  </library>
+  <library name="stklib_branch_a" id="stklib_branch_a_main_proxy.010" xyz="-250.51 -113.64 138.58" hpr="79.9 16.2 113.4" scale="35.33 35.33 35.33">
+  </library>
+  <library name="stklib_branch_a" id="stklib_branch_a_main_proxy.011" xyz="-220.37 115.65 133.55" hpr="-36.6 22.1 179.3" scale="28.36 28.36 28.36">
+  </library>
+  <library name="stklib_branch_a" id="stklib_branch_a_main_proxy.012" xyz="-206.33 101.37 206.40" hpr="-99.9 -33.1 57.9" scale="18.81 18.81 18.81">
+  </library>
+  <library name="stklib_branch_a" id="stklib_branch_a_main_proxy.013" xyz="29.92 77.48 235.42" hpr="17.8 8.3 108.4" scale="19.35 19.35 19.35">
+  </library>
+  <library name="stklib_branch_a" id="stklib_branch_a_main_proxy.014" xyz="-0.59 -49.86 269.32" hpr="-45.0 -40.1 153.9" scale="10.52 10.52 10.52">
+  </library>
+  <library name="stklib_branch_a" id="stklib_branch_a_main_proxy.015" xyz="34.94 -51.28 258.56" hpr="-61.2 -148.7 -33.8" scale="14.77 14.77 14.77">
+  </library>
+  <library name="stklib_branch_a" id="stklib_branch_a_main_proxy.016" xyz="-250.51 -47.17 138.58" hpr="33.5 -122.6 -24.9" scale="43.24 43.24 43.24">
+  </library>
+  <library name="stklib_branch_a" id="stklib_branch_a_main_proxy.017" xyz="-350.86 -47.17 455.78" hpr="37.7 61.6 28.5" scale="43.24 43.24 43.24">
+  </library>
+  <library name="stklib_branch_a" id="stklib_branch_a_main_proxy.018" xyz="-350.86 -113.64 455.78" hpr="-95.6 -14.3 65.4" scale="35.33 35.33 35.33">
+  </library>
+  <library name="stklib_branch_a" id="stklib_branch_a_main_proxy.019" xyz="36.73 5.72 448.69" hpr="-4.9 5.9 11.1" scale="39.77 39.77 39.77">
+  </library>
+  <library name="stklib_branch_a" id="stklib_branch_a_main_proxy.020" xyz="45.18 -42.99 452.19" hpr="4.5 150.2 -15.2" scale="48.68 48.68 48.68">
+  </library>
+  <library name="stklib_branch_a" id="stklib_branch_a_main_proxy.021" xyz="54.11 109.26 445.24" hpr="-21.7 99.1 -32.4" scale="48.68 48.68 48.68">
+  </library>
+  <library name="stklib_branch_a" id="stklib_branch_a_main_proxy.022" xyz="57.77 35.24 455.56" hpr="-69.6 7.7 64.4" scale="39.77 39.77 39.77">
+  </library>
+  <library name="stklib_branch_a" id="stklib_branch_a_main_proxy.023" xyz="-352.68 -106.96 451.57" hpr="-11.4 25.8 82.8" scale="39.77 39.77 39.77">
+  </library>
+  <library name="stklib_branch_a" id="stklib_branch_a_main_proxy.024" xyz="-363.38 -32.93 449.23" hpr="8.2 156.0 -5.4" scale="48.68 48.68 48.68">
+  </library>
+  <library name="stklib_branch_a" id="stklib_branch_a_main_proxy.025" xyz="-552.78 -32.93 -139.20" hpr="7.0 -34.4 5.9" scale="48.68 48.68 48.68">
+  </library>
+  <library name="stklib_branch_a" id="stklib_branch_a_main_proxy.026" xyz="-562.87 -106.96 -143.43" hpr="-22.7 -156.0 -78.0" scale="39.77 39.77 39.77">
+  </library>
+  <library name="stklib_bugslight_a" id="stklib_bugslight_a_main_proxy" xyz="-37.41 -16.10 47.56" hpr="90.0 121.5 39.2" scale="1.47 1.47 1.47">
+  </library>
+  <library name="stklib_bugslight_a" id="stklib_bugslight_a_main_proxy.001" xyz="89.02 -32.77 -63.33" hpr="107.6 135.5 -17.6" scale="1.98 1.98 1.98">
+  </library>
+  <library name="stklib_bugslight_a" id="stklib_bugslight_a_main_proxy.002" xyz="79.46 -4.23 37.62" hpr="-72.3 28.2 122.2" scale="2.07 2.07 2.07">
+  </library>
+  <library name="stklib_bugslight_a" id="stklib_bugslight_a_main_proxy.003" xyz="136.77 -8.02 53.19" hpr="-49.5 -27.4 -113.3" scale="2.07 2.07 2.07">
+  </library>
+  <library name="stklib_bugslight_a" id="stklib_bugslight_a_main_proxy.004" xyz="-102.17 -10.03 24.01" hpr="-105.4 -30.5 124.8" scale="2.36 2.36 2.36">
+  </library>
+  <library name="stklib_bugslight_a" id="stklib_bugslight_a_main_proxy.005" xyz="-208.62 -13.00 153.62" hpr="49.3 -122.4 98.0" scale="1.48 1.48 1.48">
+  </library>
+  <library name="stklib_bugslight_bright_a" id="stklib_bugslight_bright_a_main_proxy" xyz="93.69 2.94 2.21" hpr="-103.5 22.2 44.8" scale="2.14 2.14 2.14">
+  </library>
+  <library name="stklib_bugslight_bright_a" id="stklib_bugslight_bright_a_main_proxy.001" xyz="92.00 0.49 77.75" hpr="-103.5 22.2 44.8" scale="2.71 2.71 2.71">
+  </library>
+  <library name="stklib_bugslight_bright_a" id="stklib_bugslight_bright_a_main_proxy.002" xyz="-38.01 -22.08 -66.97" hpr="-33.1 -57.1 -61.9" scale="2.13 2.13 2.13">
+  </library>
+  <library name="stklib_bugslight_bright_a" id="stklib_bugslight_bright_a_main_proxy.003" xyz="31.70 -29.60 -125.96" hpr="-44.4 25.3 -36.4" scale="1.77 1.77 1.77">
+  </library>
+  <library name="stklib_bugslight_bright_a" id="stklib_bugslight_bright_a_main_proxy.004" xyz="85.08 -11.33 139.73" hpr="-103.5 22.2 44.8" scale="2.71 2.71 2.71">
+  </library>
+  <library name="stklib_flowerPot_red_a" id="stklib_flowerPot_red_a_proxy" xyz="-128.68 -35.58 43.27" hpr="0.0 -0.0 0.0" scale="1.67 1.67 1.67">
+  </library>
+  <library name="stklib_flowerPot_red_a" id="stklib_flowerPot_red_a_proxy.001" xyz="48.42 -43.67 -129.22" hpr="0.0 -0.0 0.0" scale="1.67 1.67 1.67">
+  </library>
+  <library name="stklib_flowerPot_red_a" id="stklib_flowerPot_red_a_proxy.002" xyz="7.89 -34.62 -131.98" hpr="0.0 -0.0 0.0" scale="1.67 1.67 1.67">
+  </library>
+  <library name="stklib_flowerPot_yellow_a" id="stklib_flowerPot_yellow_a_proxy" xyz="-123.22 -35.59 43.27" hpr="0.0 -0.0 0.0" scale="1.67 1.67 1.67">
+  </library>
+  <library name="stklib_flowerPot_yellow_a" id="stklib_flowerPot_yellow_a_proxy.001" xyz="-124.18 -35.65 48.63" hpr="-0.0 -134.6 -0.0" scale="1.67 1.67 1.67">
+  </library>
+  <library name="stklib_flowerPot_yellow_a" id="stklib_flowerPot_yellow_a_proxy.002" xyz="53.30 -44.23 -128.76" hpr="0.0 -0.0 0.0" scale="1.67 1.67 1.67">
+  </library>
+  <library name="stklib_mushroom_a" id="stklib_mushroom_a_main_proxy" xyz="102.34 -11.06 205.31" hpr="0.0 60.4 0.0" scale="1.57 1.57 1.57">
+  </library>
+  <library name="stklib_mushroom_a" id="stklib_mushroom_a_main_proxy.001" xyz="67.27 -14.40 209.52" hpr="11.5 -135.9 -11.2" scale="2.03 2.01 2.04">
+  </library>
+  <library name="stklib_mushroom_a" id="stklib_mushroom_a_main_proxy.002" xyz="-108.33 -24.36 180.79" hpr="-8.2 180.0 5.6" scale="3.42 3.56 3.62">
+  </library>
+  <library name="stklib_mushroom_a" id="stklib_mushroom_a_main_proxy.003" xyz="91.27 -10.71 217.98" hpr="0.0 60.4 0.0" scale="1.37 1.37 1.37">
+  </library>
+  <library name="stklib_mushroom_a" id="stklib_mushroom_a_main_proxy.004" xyz="66.43 -13.47 240.13" hpr="21.7 32.6 12.6" scale="1.98 1.98 1.98">
+  </library>
+  <library name="stklib_mushroom_a" id="stklib_mushroom_a_main_proxy.005" xyz="-183.60 -26.15 184.45" hpr="11.7 -16.3 11.1" scale="1.98 1.98 1.98">
+  </library>
+  <library name="stklib_mushroom_a" id="stklib_mushroom_a_main_proxy.006" xyz="-166.06 -28.86 193.36" hpr="14.2 -37.3 -15.3" scale="2.03 2.01 2.04">
+  </library>
+  <library name="stklib_mushroom_a" id="stklib_mushroom_a_main_proxy.007" xyz="-199.75 -26.79 145.56" hpr="-26.2 98.2 -28.5" scale="3.42 3.56 3.62">
+  </library>
+  <library name="stklib_mushroom_a" id="stklib_mushroom_a_main_proxy.008" xyz="-216.92 -22.78 121.12" hpr="4.6 -126.9 -7.9" scale="2.60 2.71 2.75">
+  </library>
+  <library name="stklib_mushroom_a" id="stklib_mushroom_a_main_proxy.009" xyz="-224.44 -18.40 140.88" hpr="28.2 -74.6 -33.2" scale="2.04 2.14 2.64">
+  </library>
+  <library name="stklib_roots_a" id="stklib_roots_a_main_proxy" xyz="-104.57 -2.72 198.10" hpr="24.5 31.1 7.6" scale="2.06 2.79 2.01">
+  </library>
+  <library name="stklib_roots_a" id="stklib_roots_a_main_proxy.001" xyz="-206.20 7.08 134.59" hpr="-15.8 158.8 -32.2" scale="1.57 2.13 1.53">
+  </library>
+  <library name="stklib_roots_a" id="stklib_roots_a_main_proxy.002" xyz="-128.49 -2.87 185.02" hpr="-41.4 21.3 -24.5" scale="2.69 3.27 2.46">
+  </library>
+  <library name="stklib_roots_a" id="stklib_roots_a_main_proxy.003" xyz="-128.93 2.11 189.99" hpr="-62.1 82.3 -47.9" scale="2.69 3.27 2.46">
+  </library>
+  <library name="stklib_stkVertical_a" id="stklib_stkVertical_a_main_proxy" xyz="92.49 0.59 145.76" hpr="0.0 -11.9 0.0" scale="1.41 1.41 1.41">
+  </library>
+  <library name="stklib_stkVertical_a" id="stklib_stkVertical_a_main_proxy.001" xyz="118.24 0.59 151.00" hpr="0.0 -11.9 0.0" scale="1.41 1.41 1.41">
+  </library>
+  <library name="stklib_stkVertical_a" id="stklib_stkVertical_a_main_proxy.002" xyz="118.31 4.39 156.80" hpr="1.8 168.1 -0.0" scale="1.89 1.89 1.89">
+  </library>
+  <library name="stklib_stkVertical_a" id="stklib_stkVertical_a_main_proxy.003" xyz="90.36 4.39 150.81" hpr="1.8 168.1 -0.0" scale="1.89 1.89 1.89">
+  </library>
+</scene>

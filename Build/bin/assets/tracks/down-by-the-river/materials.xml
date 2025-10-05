@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev Unknown -->
+<materials>
+  <material name="chain.png" shader="alphatest" backface-culling="N"/>
+  <material name="gfx_grass.png" shader="alphatest"/>
+  <material name="grass_dark.jpg" normal-map="grass_dark_nm.jpg" slowdown-time="0.50" max-speed="0.70"/>
+  <material name="island_water.png" shader="alphablend" falling-effect="Y" reset="Y" disable-z-write="Y">
+    <sfx filename="splash.ogg" min_speed="5.00" max_speed="15.00" min_pitch="0.80" max_pitch="1.20" positional="true" rolloff="0.10"/>
+    <particles base="splash.xml" condition="skid drive"/>
+  </material>
+  <material name="rainbow.jpg" shader="alphablend" backface-culling="N" disable-z-write="Y"/>
+  <material name="rainbow.png" shader="alphablend" backface-culling="N" disable-z-write="Y"/>
+  <material name="rainbow_b.png" shader="alphablend" backface-culling="N"/>
+  <material name="stk_generic_dirtRoad_b.png" normal-map="stk_generic_dirtRoad_b_nm.jpg"/>
+  <material name="stk_generic_dirtRoad_b_grass_dark.jpg" normal-map="stk_generic_dirtRoad_b_grass_dark_nm.jpg"/>
+  <material name="TexturesCom_NaturePlants0070_1_alphamasked_S.png" shader="alphatest" backface-culling="N" disable-z-write="Y"/>
+</materials>

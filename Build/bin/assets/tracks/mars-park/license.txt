@@ -1,0 +1,26 @@
+released under CC-BY 4.0
+
+Textures and environment models taken from XR591, map idea by kimden
+
+v2: 
+- probably removed the forced traction on the loop, not on the first gravity part, maybe need more tests
+- added eggs
+
+v3:
+- road rework
+- smooth road
+- new zipper
+- different zipper speed boost
+- removed rails
+- more background stuff (houses, lake and towers)
+- items, bananas, nitros are closer
+- probably more improvements that I forgot
+
+v4:
+- less MB usage
+- solved shadows
+- removed invisible objects
+- removed tube 1.spm
+- removed kimden_track.spm
+- changed alien.music to blien.music (collision with Asteroid Soccer)
+- better material.xml

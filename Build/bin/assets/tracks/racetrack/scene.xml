@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 8296 -->
+<scene>
+  <track model="racetrack_track.b3d" x="0" y="0" z="0">
+    <animated-texture name="zipper.png" dy="-2" />
+    <animated-texture name="zipper.png" dy="-2" />
+    <animated-texture name="zipper.png" dy="-2" />
+    <animated-texture name="zipper.png" dy="-2" />
+  </track>
+  <sun  xyz="11.6460514069 8.17629051208 2.2424955368"/>
+  <banana x="-56.106964" y="0.607615" z="4.290233" />
+  <banana x="-27.828262" y="0.607615" z="60.378288" />
+  <banana x="-68.910233" y="-2.109318" z="74.455124" />
+  <banana x="-70.550888" y="0.607615" z="53.130657" h="-180.080263" />
+  <item x="-88.838615" y="7.162101" z="-16.245987" />
+  <item x="-82.084938" y="0.271534" z="-19.44157" />
+  <item x="-82.263885" y="7.162101" z="-16.245987" />
+  <big-nitro x="-16.651987" y="1.118643" z="-29.881416" h="-28.038875" />
+  <big-nitro x="-16.138344" y="1.118643" z="-16.758713" h="-28.038875" />
+  <small-nitro x="-60.057198" y="0.346181" z="-1.145562" />
+  <small-nitro x="-82.084938" y="0.271534" z="-16.460274" />
+  <item x="-82.084938" y="0.271534" z="-12.959011" />
+  <small-nitro x="-52.341965" y="0.346181" z="-1.145562" />
+  <small-nitro x="-24.063255" y="0.346181" z="54.94249" />
+  <small-nitro x="-31.778484" y="0.346181" z="54.94249" />
+  <small-nitro x="-66.593063" y="0.346181" z="58.560917" h="-180.000008" />
+  <small-nitro x="-74.308273" y="0.346181" z="58.57172" h="-180.080263" />
+  <small-nitro x="-85.293777" y="7.095397" z="-16.239292" />
+  <small-nitro x="-17.276928" y="1.118643" z="-32.741344" h="-28.038875" />
+  <small-nitro x="-18.3521" y="1.118643" z="-35.938793" h="-28.038875" />
+  <small-nitro x="-16.206223" y="1.118643" z="-20.160645" h="-7.75381" />
+  <small-nitro x="-16.25592" y="1.118643" z="-23.581806" h="-7.75381" />
+  <small-nitro x="-16.426813" y="1.118643" z="-26.964195" h="-7.75381" />
+  <small-nitro x="-19.622849" y="1.118643" z="-38.452011" h="-28.038875" />
+  <checks>
+    <check-lap kind="lap" same-group="0" other-ids="1" />
+    <check-line kind="activate" other-ids="2" p1="-81 -10" p2="-81 -22"
+                min-height="0" same-group="1"/>
+    <check-line kind="activate" other-ids="3" p1="-80 -15.8" p2="-91 -15.8"
+                min-height="7" same-group="2"/>
+    <check-line kind="activate" other-ids="0" p1="18.683336 -6.033896" p2="-1.553446 -6.033896"
+                min-height="0.213641" same-group="3"/>
+  </checks>
+
+  <sky-dome texture="racetrack_sky.png"
+            horizontal="16" vertical="16" 
+            texture-percent="0.5" sphere-percent="1.3"
+            speed-x="0" speed-y="0" />
+  <default-start karts-per-row     ="3"
+                 forwards-distance ="1.5"
+                 sidewards-distance="3"
+                 upwards-distance  ="0.1"/>
+  <end-cameras>
+    <camera type="ahead_of_kart" xyz="16.436348 7.388156 -8.327587" distance="5"/>
+  </end-cameras>
+</scene>

@@ -1,0 +1,128 @@
+  ------
+  Music
+  ------
+
+anthem_intro.ogg
+anthem_loop.ogg
+  excerpt of Anthem by Adhesive Wombat
+  Check out their music at soundcloud.com/adhesivewombat
+  Excerpts licensed under CC BY-NC-SA 4.0
+  (Made and licensed with permission)
+
+TeddyBearWaltz.ogg
+  Teddy Bear Waltz - Kevin MacLeod (incompetech.com)
+  Licensed under Creative Commons: By Attribution 3.0 License
+  http://creativecommons.org/licenses/by/3.0/
+
+  (Trimmed, amplified and compressed, derivative under same license and attribution)
+
+drums.ogg
+  This is is derived from `dialog-question.wav`,   https://packages.ubuntu.com/xenial/ubuntu-sounds
+  The original sound was composed and recorded by Nathaniel McCallum <npmccallum@canonical.com>. It appears to be released under Creative Commons Attribution-ShareAlike 2.0.
+  The version used is a derivative (pitch-shifted, reverberated, bass-boosted, amplified and made stereo, if I remember correctly) released under Creative Commons Attribution-ShareAlike 4.0 International.
+
+empty.ogg
+  Original - CC-Zero Public Domain
+
+
+  -----------------------
+  tracks/starship textures
+  -----------------------
+
+base1c.jpg
+basictrim1a.jpg
+ribs1a.jpg
+trim4b.jpg
+wall1b.jpg
+  By Georges "TRaK" Grondin
+  drognin@gmail.com
+  http://www.mercenariesguild.net/trak/
+  MIT license
+
+  ---
+
+bomber_metal1b.jpg
+brushedbarrel.jpg
+cromwatertower2.jpg
+  golgotha_useful
+  from Crack.com, Submitted to http://opengameart.org by bart
+  CC0
+
+  ---
+
+marsrobot5.jpg
+  Derived from tracks/xr by STK Enterprise creator, "dual-licensed under both GPL and CC-BY-SA"
+
+  ---
+
+metal_rusted.jpg
+  Derived from tracks/mines by STK Enterprise creator, CC BY-SA 3.0
+
+  ---
+
+trak3_base1.png
+trak3_light1a.png
+trak3_panel3d.png
+  By Georges "TRaK" Grondin
+  drognin@gmail.com
+  http://www.mercenariesguild.net/trak/
+  GPL
+
+
+  -----------------------------
+  Other STK models and textures
+  -----------------------------
+crate.png (tracks/hacienda)
+  by Luke.RUSTLTD
+  released under public domain
+  http://opengameart.org/content/3-crate-textures-w-bump-normal
+
+transparence.png (tracks/snowmountain)
+tree.spm (tracks/snowmountain)
+  (could not find license for these 2)
+
+stklib_blueRadioTower_a_main.spm
+stklib_pallet_a.spm
+stklib_woodLodge_a_main.spm
+stklib_woodLodge_a_main_limit.spm
+stk_generic_gridA.png (aka stk_generic_gridA_zipper.png)
+  (could not find license for these 5)
+stk_plasticBarrier_a_custom.png
+  (this is a modified version of stk_plasticBarrier_a.png, only change is an added orange 20% opaque background)
+
+
+  -----
+  Other
+  -----
+
+guardrail.jpg
+guardrail_snow.jpg
+  From https://www.outworldz.com/cgi/free-seamless-textures.plx (https://www.outworldz.com/SeamlessTextures/master/Road/guardrail.jpg) - "This content is licensed CC-Zero Public Domain."
+
+icecream_strawberry.png
+icecream_vanilla.png
+  Theses are derivates of `stktex_generic_WoodB.png`. Couldn't figure out license of original, keep derivatives under same license.
+
+no_line-stktex_generic_roadSnow_a.png
+  This is a derivative of `stktex_generic_roadSnow_a.png`. Couldn't figure out license of original, keep derivatives under same license.
+
+frozen-drive_track.spm
+quads.xml
+scene.xml
+scripting.as
+track.xml
+  Original - CC BY-SA 4.0 International (attr. "GumballForAPenny")
+
+black.png
+Cube.spm
+graph.xml
+materials.xml
+portal_blue.png
+screenshot.jpg
+SomeModel.spm
+transparent-to-black-gradient.png
+TunnelReverseBlock.spm
+  Original - CC-Zero Public Domain, attribution appreciated.
+
+
+Portal technology developed by Maj. Dr. Andedonia J. Ghastly

@@ -10,9 +10,9 @@
             <icon-button id="new" width="128" height="128"
                          icon="gui/icons/menu_race.png" focus_icon="gui/icons/menu_race_focus.png"
                          I18N="Main menu button" text="Singleplayer" word_wrap="true"/>
-            <icon-button id="multiplayer" width="128" height="128"
-                         icon="gui/icons/menu_multi.png" focus_icon="gui/icons/menu_multi_focus.png"
-                         I18N="Main menu button" text="Splitscreen Multiplayer" word_wrap="true"/>
+            <icon-button id="storyao" width="128" height="128"
+                         icon="gui/icons/menu_story.png" focus_icon="gui/icons/menu_story_focus.png"
+                         I18N="Main menu button" text="Addons Story Mode (Coming Soon)" word_wrap="true"/>
             <icon-button id="online" width="128" height="128"
                          icon="gui/icons/menu_online.png" focus_icon="gui/icons/menu_online_focus.png"
                          I18N="Main menu button" text="Online" word_wrap="true"/>

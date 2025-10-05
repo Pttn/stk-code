@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev Unknown -->
+<materials>
+  <material name="FG.png" shader="alphablend"/>
+  <material name="MT.png" shader="alphablend"/>
+  <material name="Rsd.png" falling-effect="Y" shader="alphablend"/>
+  <material name="SH.png" ignore="Y" shader="alphablend"/>
+  <material name="Sm.jpg" falling-effect="Y"/>
+  <material name="Spsp.png" ignore="Y" shader="alphablend"/>
+  <material name="Ss.png" ignore="Y" shader="alphablend"/>
+  <material name="Ss02.png" ignore="Y" shader="alphablend"/>
+  <material name="Toxicx02.png" shader="alphablend"/>
+  <material name="TRPO.png" shader="alphablend"/>
+  <material name="UU.png" shader="alphablend"/>
+  <material name="Vigue.png" shader="alphablend"/>
+  <material name="Win.png" shader="alphablend"/>
+</materials>

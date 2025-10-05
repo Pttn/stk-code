@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 17016 -->
+<scene>
+  <track model="beamrunner_track.spm" x="0" y="0" z="0"/>
+  <object id="Cube" type="animation" xyz="-156.88 42.48 112.84" hpr="0.0 -0.0 0.0" scale="1.00 1.00 1.00" interaction="ghost" model="b5.spm" shadow-pass="false" skeletal-animation="false">
+  </object>
+  <object id="Cube.001" type="animation" xyz="-42.78 4.72 239.83" hpr="1.6 143.6 -0.0" scale="0.72 0.07 0.06" interaction="ghost" model="b6.spm" shadow-pass="false" skeletal-animation="false">
+  </object>
+  <object id="Cube.003" type="animation" xyz="27.28 1.97 138.85" hpr="-1.0 -31.6 0.0" scale="0.72 0.07 0.06" interaction="ghost" model="b6.spm" shadow-pass="false" skeletal-animation="false">
+  </object>
+  <object id="Cylinder.001" type="animation" xyz="-112.59 -6.93 11.73" hpr="-0.0 87.1 -0.0" scale="0.56 7.65 0.56" interaction="ghost" model="b0.spm" shadow-pass="false" skeletal-animation="false">
+  </object>
+  <object id="Cylinder.002" type="animation" xyz="-501.33 -11.32 99.96" hpr="-0.0 87.1 -0.0" scale="0.94 12.91 0.94" interaction="ghost" model="b0.spm" shadow-pass="false" skeletal-animation="false">
+  </object>
+  <object id="Cylinder.003" type="animation" xyz="-309.83 -15.82 152.86" hpr="0.0 -52.5 -0.0" scale="0.56 7.65 0.56" interaction="ghost" model="b2.spm" shadow-pass="false" skeletal-animation="false">
+  </object>
+  <object id="Cylinder.004" type="animation" xyz="-116.13 -15.82 192.72" hpr="0.0 -2.4 0.0" scale="0.56 7.65 0.56" interaction="ghost" model="b2.spm" shadow-pass="false" skeletal-animation="false">
+  </object>
+  <object id="Cylinder.005" type="animation" xyz="-284.92 91.43 368.25" hpr="-0.0 143.2 -0.0" scale="2.80 38.25 2.80" interaction="ghost" model="b3.spm" shadow-pass="false" skeletal-animation="false">
+  </object>
+  <object id="Cylinder.006" type="animation" xyz="-125.89 -15.82 80.94" hpr="0.0 -2.4 0.0" scale="0.56 7.65 0.56" interaction="ghost" model="b2.spm" shadow-pass="false" skeletal-animation="false">
+  </object>
+  <object id="Cylinder.007" type="animation" xyz="-117.65 91.43 470.44" hpr="-0.0 123.3 -0.0" scale="2.80 38.25 2.80" interaction="ghost" model="b3.spm" shadow-pass="false" skeletal-animation="false">
+  </object>
+  <object id="Cylinder.008" type="animation" xyz="-63.91 -11.32 495.10" hpr="-0.0 87.1 -0.0" scale="0.94 12.91 0.94" interaction="ghost" model="b0.spm" shadow-pass="false" skeletal-animation="false">
+  </object>
+  <object id="Cylinder.009" type="animation" xyz="19.85 -46.02 359.04" hpr="-0.0 -116.5 -0.0" scale="2.85 38.92 2.85" interaction="ghost" model="b4.spm" skeletal-animation="false">
+  </object>
+  <object id="Cylinder.010" type="animation" xyz="129.01 -46.02 424.23" hpr="-0.0 -90.0 0.0" scale="2.85 38.92 2.85" interaction="ghost" model="b4.spm" shadow-pass="false" skeletal-animation="false">
+  </object>
+  <object id="Cylinder.011" type="animation" xyz="111.76 -15.82 128.87" hpr="0.0 127.3 0.0" scale="0.56 7.65 0.56" interaction="ghost" model="b2.spm" shadow-pass="false" skeletal-animation="false">
+  </object>
+  <object id="Cylinder.012" type="animation" xyz="-645.01 -46.02 321.50" hpr="0.0 -38.9 0.0" scale="2.85 38.92 2.85" interaction="ghost" model="b4.spm" shadow-pass="false" skeletal-animation="false">
+  </object>
+  <object id="Cylinder.013" type="animation" xyz="-588.14 -46.02 476.97" hpr="-0.0 -90.0 0.0" scale="2.85 38.92 2.85" interaction="ghost" model="b4.spm" shadow-pass="false" skeletal-animation="false">
+  </object>
+  <object id="Cylinder.014" type="animation" xyz="-185.22 -15.82 741.75" hpr="0.0 126.3 0.0" scale="1.20 15.00 1.20" interaction="ghost" model="b2.spm" shadow-pass="false" skeletal-animation="false">
+  </object>
+  <object id="Cylinder.015" type="animation" xyz="-352.61 -15.82 647.04" hpr="0.0 126.3 0.0" scale="0.60 8.00 0.60" interaction="ghost" model="b2.spm" shadow-pass="false" skeletal-animation="false">
+  </object>
+  <object id="Cylinder.016" type="animation" xyz="-659.75 -15.82 299.92" hpr="0.0 -23.1 0.0" scale="0.80 8.00 0.80" interaction="ghost" model="b2.spm" shadow-pass="false" skeletal-animation="false">
+  </object>
+  <object id="Cylinder.017" type="animation" xyz="358.93 -51.39 490.01" hpr="0.0 -8.8 0.0" scale="2.85 38.92 2.85" interaction="ghost" model="b4.spm" shadow-pass="false" skeletal-animation="false">
+  </object>
+  <object id="Cylinder.018" type="animation" xyz="261.69 -113.20 584.88" hpr="-0.0 55.0 -0.0" scale="2.85 38.92 2.85" interaction="ghost" model="b4.spm" shadow-pass="false" skeletal-animation="false">
+  </object>
+  <object id="Cylinder.019" type="animation" xyz="-406.04 -46.02 795.69" hpr="0.0 -0.0 -0.1" scale="2.85 38.92 2.85" interaction="ghost" model="b4.spm" shadow-pass="false" skeletal-animation="false">
+  </object>
+  <object id="Cylinder.020" type="animation" xyz="-517.17 -11.32 663.60" hpr="-0.0 87.1 -0.0" scale="0.94 12.91 0.94" interaction="ghost" model="b0.spm" shadow-pass="false" skeletal-animation="false">
+  </object>
+  <object id="Cylinder.021" type="animation" xyz="-418.68 -45.14 450.58" hpr="0.0 -70.9 -0.0" scale="1.20 7.65 1.20" interaction="ghost" model="b2.spm" shadow-pass="false" skeletal-animation="false">
+  </object>
+  <object id="Cylinder.022" type="animation" xyz="-334.64 -45.18 217.66" hpr="0.0 -51.0 -0.0" scale="0.60 7.65 0.60" interaction="ghost" model="b2.spm" shadow-pass="false" skeletal-animation="false">
+  </object>
+  <object id="Cylinder.023" type="animation" xyz="-206.36 -21.03 460.41" hpr="0.0 -51.0 -0.0" scale="0.60 7.65 0.60" interaction="ghost" model="b2.spm" shadow-pass="false" skeletal-animation="false">
+  </object>
+  <object id="Cylinder.024" type="animation" xyz="-138.29 -46.77 280.20" hpr="0.0 -2.4 0.0" scale="0.56 7.65 0.56" interaction="ghost" model="b0.spm" shadow-pass="false" skeletal-animation="false">
+  </object>
+  <object id="Cylinder.025" type="animation" xyz="-129.09 -22.19 219.02" hpr="0.0 -2.4 0.0" scale="0.56 7.65 0.56" interaction="ghost" model="b0.spm" shadow-pass="false" skeletal-animation="false">
+  </object>
+  <object id="Cylinder.026" type="animation" xyz="-67.62 -6.93 104.64" hpr="0.0 -2.4 0.0" scale="0.56 7.65 0.56" interaction="ghost" model="b0.spm" shadow-pass="false" skeletal-animation="false">
+  </object>
+  <object id="Cylinder.027" type="animation" xyz="-203.41 -165.96 306.65" hpr="-0.0 -165.4 -0.0" scale="2.85 38.92 2.85" interaction="ghost" model="b4.spm" shadow-pass="false" skeletal-animation="false">
+  </object>
+  <object id="Cylinder.028" type="animation" xyz="-313.39 -58.56 328.79" hpr="0.0 -70.9 -0.0" scale="0.80 7.65 0.80" interaction="ghost" model="b2.spm" shadow-pass="false" skeletal-animation="false">
+  </object>
+  <object id="Cylinder.029" type="animation" xyz="-573.96 -21.85 680.15" hpr="0.0 -70.9 -0.0" scale="1.20 13.00 1.20" interaction="ghost" model="b2.spm" shadow-pass="false" skeletal-animation="false">
+  </object>
+  <object id="Cylinder.082" type="animation" xyz="-207.15 91.43 -65.61" hpr="-0.0 124.7 -0.0" scale="2.80 38.25 2.80" interaction="ghost" model="b3.spm" shadow-pass="false" skeletal-animation="false">
+  </object>
+  <object id="Cylinder.083" type="animation" xyz="-253.46 -46.02 -6.40" hpr="-0.0 -116.5 -0.0" scale="2.85 38.92 2.85" interaction="ghost" model="b4.spm" shadow-pass="false" skeletal-animation="false">
+  </object>
+  <sun  xyz="-71.26 541.25 193.07" ambient="121 121 121"/>
+  <sky-color rgb="0 0 0"/>
+  <sky-box texture="Skybox1.jpg Skybox1.jpg Skybox0.jpg Skybox0.jpg Skybox0.jpg Skybox0.jpg" />
+  <camera far="1000.0"/>
+  <checks>
+    <check-lap kind="lap" same-group="0" other-ids="1" />
+    <check-line kind="activate" other-ids="2" p1="-66.39 63.29" p2="-55.31 88.63"
+                min-height="0.77" same-group="1"/>
+    <check-line kind="activate" other-ids="0" p1="-210.90 252.49" p2="-216.82 270.25"
+                min-height="6.70" same-group="2"/>
+  </checks>
+  <item id="Empty" x="-31.24" y="1.08" z="12.06" />
+  <big-nitro id="Empty.001" x="-27.90" y="1.08" z="12.05" />
+  <item id="Empty.002" x="-27.61" y="1.08" z="22.64" />
+  <big-nitro id="Empty.003" x="-30.86" y="1.08" z="22.65" />
+  <banana id="Empty.004" x="-241.19" y="18.70" z="245.32" />
+  <banana id="Empty.005" x="-241.19" y="18.70" z="249.09" />
+  <banana id="Empty.006" x="-241.19" y="18.70" z="253.57" />
+  <banana id="Empty.007" x="-241.19" y="18.70" z="257.21" />
+  <big-nitro id="Empty.008" x="-93.37" y="8.11" z="316.88" />
+  <big-nitro id="Empty.009" x="-96.39" y="8.11" z="314.99" />
+  <big-nitro id="Empty.010" x="-99.74" y="8.11" z="313.07" />
+  <big-nitro id="Empty.011" x="-102.66" y="8.11" z="311.30" />
+  <small-nitro id="Empty.012" x="-87.13" y="4.90" z="78.60" />
+  <small-nitro id="Empty.013" x="-82.88" y="4.90" z="90.70" />
+  <small-nitro id="Empty.014" x="-105.90" y="8.59" z="98.51" />
+  <small-nitro id="Empty.015" x="-110.16" y="8.59" z="86.40" />
+  <small-nitro id="Empty.016" x="-155.41" y="13.98" z="103.44" />
+  <small-nitro id="Empty.017" x="-150.44" y="13.98" z="114.91" />
+  <small-nitro id="Empty.018" x="-128.36" y="10.30" z="106.18" />
+  <small-nitro id="Empty.019" x="-132.61" y="10.30" z="94.08" />
+  <item id="Empty.020" x="-165.31" y="4.50" z="293.12" />
+  <item id="Empty.021" x="-156.26" y="7.20" z="368.69" />
+  <banana id="Empty.022" x="-11.40" y="2.96" z="196.99" />
+  <banana id="Empty.024" x="-0.18" y="2.96" z="188.85" />
+  <banana id="Empty.025" x="-7.57" y="2.96" z="183.93" />
+  <banana id="Empty.027" x="-8.98" y="2.96" z="196.99" />
+  <banana id="Empty.028" x="-12.15" y="2.96" z="194.76" />
+  <item id="Empty.029" x="-178.78" y="7.20" z="354.18" />
+  <big-nitro id="Empty.030" x="-38.21" y="1.08" z="22.65" />
+  <item id="Empty.031" x="-34.91" y="1.08" z="22.64" />
+  <big-nitro id="Empty.032" x="-35.22" y="1.08" z="12.05" />
+  <item id="Empty.033" x="-38.55" y="1.08" z="12.06" />
+  <banana id="Empty.034" x="-10.13" y="2.96" z="184.79" />
+  <banana id="Empty.035" x="-0.23" y="2.96" z="191.79" />
+  <light xyz="46.99 3.84 106.81" id="Point" distance="25.00" energy="10.00" color="0 99 255">
+  </light>
+  <light xyz="-65.03 9.38 270.23" id="Point.001" distance="25.00" energy="10.00" color="0 99 255">
+  </light>
+  <light xyz="7.62 5.29 170.17" id="Point.002" distance="25.00" energy="10.00" color="0 99 255">
+  </light>
+  <light xyz="-19.53 8.03 209.02" id="Point.003" distance="25.00" energy="10.00" color="0 99 255">
+  </light>
+  <default-start karts-per-row     ="4"
+                 forwards-distance ="1.00"
+                 sidewards-distance="3.00"
+                 upwards-distance  ="1.10"/>
+</scene>

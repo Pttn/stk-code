@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev Unknown -->
+<materials>
+  <material name="container001-grey.png" normal-map="container001-nm.png"/>
+  <material name="container002-grey.png" normal-map="container002-nm.png"/>
+  <material name="container004-grey.png" normal-map="container004-nm.png"/>
+  <material name="racetrack_asphalt.jpg" high-adhesion="Y" has-gravity="Y"/>
+  <material name="stk_corrugMetal_a.png" high-adhesion="Y" has-gravity="Y"/>
+  <material name="stk_generic_borderBluePinkA.png" high-adhesion="Y" has-gravity="Y" slowdown-time="3.00" max-speed="0.50"/>
+  <material name="stk_glassPanel_a.png" shader="alphablend"/>
+  <material name="stkflag_jumpRamp_a.png" mirror-axis="V"/>
+  <material name="stkflag_redBooster_a.png" shader="alphatest" mirror-axis="V"/>
+  <material name="stkflag_stkVertical_a.png" shader="solid"/>
+  <material name="tarmac.jpg" high-adhesion="Y"/>
+</materials>

@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev Unknown -->
+<materials>
+  <material name="stk_generic_carpet_a.png" slowdown-time="0.5" max-speed="0.25"/>
+  <material name="stkflag_orangeBooster_a.png" shader="alphatest" mirror-axis="V"/>
+</materials>

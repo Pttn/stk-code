@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev Unknown -->
+<materials>
+  <material name="approx_diagonals.png" ignore="Y"/>
+  <material name="black.png" shader="alphablend" ignore="Y"/>
+  <material name="no_line-stktex_generic_roadSnow_a.png" high-adhesion="Y"/>
+  <material name="portal_blue.png" shader="alphablend" ignore="Y"/>
+  <material name="stk_generic_gridA.png" shader="alphablend" high-adhesion="Y"/>
+  <material name="stk_generic_gridA_zipper.png" shader="alphablend">
+    <zipper duration="2.0" max-speed-increase="15.0" fade-out-time="2.0" speed-gain="2.0" min-speed="-1.0"/>
+  </material>
+  <material name="stk_plasticBarrier_a_custom.png" shader="alphablend"/>
+  <material name="trak3_light1a.png" shader="alphablend"/>
+  <material name="transparence.png" shader="alphablend" collision-detect="Y" falling-effect="Y" has-gravity="Y" reset="Y" collision-reaction="reset"/>
+  <material name="transparent-to-black-gradient.png" shader="alphablend" ignore="Y"/>
+  <material name="zipper_stk_generic_ice_a.png" shader="alphatest">
+    <zipper duration="2.0" max-speed-increase="15.0" fade-out-time="3.0" speed-gain="10.0" min-speed="99.0"/>
+  </material>
+</materials>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev Unknown -->
+<materials>
+  <material name="barrel.png" normal-map="barrel_oil_02_N.png"/>
+  <material name="concrete_barrier_diffuse.png" normal-map="concrete_barrier_normal.png"/>
+  <material name="gfx_whiteBeam_a.png" shader="additive" ignore="Y"/>
+  <material name="ground_rocks.png" normal-map="ground_rocks_norm.png" slowdown-time="0.50" max-speed="0.70"/>
+  <material name="jungleWater.png" shader="alphablend"/>
+  <material name="pattern_camo_alpha.png" shader="alphatest"/>
+  <material name="reset.png" reset="Y"/>
+  <material name="road.png" shader="alphatest" has-gravity="Y"/>
+  <material name="rock_mesh.png" normal-map="rock_mesh_norm.png"/>
+  <material name="stk_blueMetal_a.png" gloss-map="stk_lightGreyMetal_a_gloss.png" normal-map="stk_greyMetal_a_nm.png"/>
+  <material name="stk_generic_rockStrata_b_edit.png" normal-map="stk_generic_rockStrata_b_edit_norm.png" slowdown-time="0.50" max-speed="0.70"/>
+  <material name="tank_1_diff.png" normal-map="tank_1_norm_edit.jpg"/>
+  <material name="terminal_graphic.png" shader="alphatest"/>
+  <material name="transp.png" shader="alphatest" reset="Y"/>
+  <material name="willy's_jeep_diffuse.png" normal-map="willy's_jeep_filtered_normal_1.png"/>
+  <material name="window.png" shader="alphablend"/>
+  <material name="window_tent.png" shader="alphablend"/>
+</materials>

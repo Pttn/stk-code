@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev Unknown -->
+<materials>
+  <material name="BI.png" high-adhesion="Y" has-gravity="Y"/>
+  <material name="gfx_electricArc_a.png" shader="alphablend" ignore="Y"/>
+  <material name="Lines.png" shader="alphablend"/>
+  <material name="ribbed_steel.jpg" high-adhesion="Y" has-gravity="Y"/>
+  <material name="Rule.png" shader="additive"/>
+  <material name="stk_electronicalPattern_a.png" high-adhesion="Y" has-gravity="Y"/>
+  <material name="stk_generic_borderA.png" high-adhesion="Y" has-gravity="Y" slowdown-time="2.00" max-speed="0.40"/>
+  <material name="stk_redMetal_a.png" high-adhesion="Y" has-gravity="Y" shader="decal" uv-two-tex="stk_electronicalPattern_a.png"/>
+  <material name="stkflag_jumpRamp_a.png" mirror-axis="V"/>
+</materials>

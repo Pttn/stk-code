@@ -1,0 +1,26 @@
+<supertuxkart_grand_prix name="The Alternate GP">
+    <track id="racetrack"            laps="3" reverse="false" />
+    <track id="beehive"              laps="3" reverse="false" />
+    <track id="beam-runner_1"        laps="3" reverse="false" />
+    <track id="on-an-iceberg"        laps="2" reverse="false" />
+    <track id="down-by-the-river"    laps="4" reverse="false" />
+    <track id="green-hill"           laps="3" reverse="false" />
+    <track id="voxel-village"        laps="2" reverse="false" />
+    <track id="secret-garden"        laps="4" reverse="false" />
+    <track id="paradise-peaks"       laps="3" reverse="false" />
+    <track id="lake-ikeal"           laps="3" reverse="false" />
+    <track id="sea-race"             laps="3" reverse="false" />
+    <track id="china"                laps="3" reverse="false" />
+    <track id="kapman-island-resort" laps="3" reverse="false" />
+    <track id="blackhill-mansion"    laps="4" reverse="false" />
+    <track id="the-island"           laps="3" reverse="false" />
+    <track id="bovine-barnyard"      laps="4" reverse="false" />
+    <track id="tux-tollway"          laps="3" reverse="false" />
+    <track id="green-valley"         laps="3" reverse="false" />
+    <track id="canyon42"             laps="3" reverse="false" />
+    <track id="lost-chasm"           laps="3" reverse="false" />
+    <track id="high-in-the-sky"      laps="3" reverse="false" />
+    <track id="origami-animosity"    laps="3" reverse="false" />
+    <track id="terabite"             laps="3" reverse="false" />
+    <track id="extreme-dimension"    laps="2" reverse="false" />
+</supertuxkart_grand_prix>

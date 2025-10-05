@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 17016 -->
+<graph>
+  <!-- First define all nodes of the graph, and what quads they represent -->
+  <node-list from-quad="0" to-quad="488"/>  <!-- map each quad to a node  -->
+  <!-- Define the main loop -->
+  <edge-loop from="0" to="260"/>
+  <!-- Shortcut road_expert_driveline1 -->
+  <edge from="61" to="261"/>
+  <edge-line from="261" to="449"/>
+  <edge from="449" to="214"/>
+  <!-- Shortcut revShortcutBaked.003 -->
+  <edge from="5" to="450"/>
+  <edge-line from="450" to="458"/>
+  <edge from="458" to="50"/>
+  <!-- Shortcut revShortcutBaked.002 -->
+  <edge from="8" to="459"/>
+  <edge-line from="459" to="471"/>
+  <edge from="471" to="47"/>
+  <!-- Shortcut revShortcutBaked.000 -->
+  <edge from="7" to="472"/>
+  <edge-line from="472" to="479"/>
+  <edge from="479" to="488"/>
+  <!-- Shortcut revShortcutBaked.001 -->
+  <edge from="6" to="480"/>
+  <edge-line from="480" to="488"/>
+  <edge from="488" to="458"/>
+</graph>
