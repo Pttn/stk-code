@@ -433,6 +433,8 @@ void World::reset(bool restart)
     RaceManager::get()->reset();
     // Make sure to overwrite the data from the previous race.
     if(!history->replayHistory()) history->initRecording();
+    if (!RaceManager::get()->isWatchingReplay() && World::getWorld()->getCurrentNumPlayers() == 1 && RaceManager::get()->getNumberOfAIKarts() == 0 && (RaceManager::get()->isTimeTrialMode() || RaceManager::get()->isEggHuntMode()))
+        RaceManager::get()->setRecordRace(true);
     if(RaceManager::get()->isRecordingRace())
     {
         Log::info("World", "Start Recording race.");
