@@ -663,7 +663,7 @@ void Profiler::startBenchmark()
 {
     // TODO - Add the possibility to benchmark more tracks and define replay benchmarks in
     //        a config file
-    const std::string bf_bench("benchmark_black_forest.replay");
+    const std::string bf_bench("black_forest_20191027_1_126_872.replay");
     const bool result = ReplayPlay::get()->addReplayFile(file_manager
         ->getAsset(FileManager::REPLAY, bf_bench), true/*custom_replay*/);
 
