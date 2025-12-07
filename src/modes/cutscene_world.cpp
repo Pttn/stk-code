@@ -559,22 +559,13 @@ void CutsceneWorld::enterRaceOverState()
                  RaceManager::get()->getTrackName() == "introcutscene2")
         {
             PlayerProfile *player = PlayerManager::getCurrentPlayer();
-            if (player->isFirstTime())
-            {
-                RaceManager::get()->exitRace();
-                StateManager::get()->resetAndGoToScreen(MainMenuScreen::getInstance());
-                player->setFirstTime(false);
-                PlayerManager::get()->save();
-                KartSelectionScreen* s = OfflineKartSelectionScreen::getInstance();
-                s->setMultiplayer(false);
-                s->setGoToOverworldNext();
-                s->push();
-            } else
-            {
-                RaceManager::get()->exitRace();
-                StateManager::get()->resetAndGoToScreen(MainMenuScreen::getInstance());
-                OverWorld::enterOverWorld();
-            }
+            RaceManager::get()->exitRace();
+            StateManager::get()->resetAndGoToScreen(MainMenuScreen::getInstance());
+            PlayerManager::get()->save();
+            KartSelectionScreen* s = OfflineKartSelectionScreen::getInstance();
+            s->setMultiplayer(false);
+            s->setGoToOverworldNext();
+            s->push();
         }
         // TODO: remove hardcoded knowledge of cutscenes, replace with scripting probably
         else if (m_parts.size() == 1 && m_parts[0] == "featunlocked")

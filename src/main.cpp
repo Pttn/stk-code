@@ -2521,6 +2521,7 @@ int main(int argc, char *argv[])
         }
 #endif
 
+        UserConfigParams::m_speedrun_mode = false; // Prevent the Timer from appearing if previously quit while it was shown.
         if (STKHost::existHost())
         {
             if (!GUIEngine::isNoGraphics())

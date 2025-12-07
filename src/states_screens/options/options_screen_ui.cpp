@@ -240,37 +240,12 @@ void OptionsScreenUI::init()
 
     CheckBoxWidget* story_timer = getWidget<CheckBoxWidget>("story-mode-timer");
     assert( story_timer != NULL );
-    story_timer->setState( UserConfigParams::m_display_story_mode_timer );
+    story_timer->setState(false);
+    story_timer->setActive(false);
     CheckBoxWidget* speedrun_timer = getWidget<CheckBoxWidget>("speedrun-timer");
     assert( speedrun_timer != NULL );
-    if (story_mode_timer->getStoryModeTime() < 0)
-    {
-        story_timer->setActive(false);
-        speedrun_timer->setActive(false);
-    }
-    else
-    {
-        story_timer->setActive(true);
-
-        speedrun_timer->setActive(UserConfigParams::m_display_story_mode_timer);
-        getWidget<LabelWidget>("speedrun-timer-text")
-            ->setActive(UserConfigParams::m_display_story_mode_timer);
-    }
-    if (UserConfigParams::m_speedrun_mode)
-    {
-        if (!story_mode_timer->playerCanRun())
-        {
-            UserConfigParams::m_speedrun_mode = false;
-            new MessageDialog(_("Speedrun mode disabled. It can only be enabled if the game"
-                                " has not been closed since the launch of the story mode.\n\n"
-                                "Closing the game before the story mode's"
-                                " completion invalidates the timer.\n\n"
-                                "To use the speedrun mode, please use a new profile."),
-                                MessageDialog::MESSAGE_DIALOG_OK,
-                                NULL, false, false, 0.6f, 0.7f);
-        }
-    }
-    speedrun_timer->setState( UserConfigParams::m_speedrun_mode );
+    speedrun_timer->setState(true);
+    speedrun_timer->setActive(false);
 }   // init
 
 // -----------------------------------------------------------------------------
@@ -463,46 +438,6 @@ void OptionsScreenUI::eventCallback(Widget* widget, const std::string& name, con
         CheckBoxWidget* fps = getWidget<CheckBoxWidget>("showfps");
         assert( fps != NULL );
         UserConfigParams::m_display_fps = fps->getState();
-    }
-    else if (name == "story-mode-timer")
-    {
-        CheckBoxWidget* story_timer = getWidget<CheckBoxWidget>("story-mode-timer");
-        assert( story_timer != NULL );
-        UserConfigParams::m_display_story_mode_timer = story_timer->getState();
-
-        CheckBoxWidget* speedrun_timer = getWidget<CheckBoxWidget>("speedrun-timer");
-        assert( speedrun_timer != NULL );
-        speedrun_timer->setActive( UserConfigParams::m_display_story_mode_timer );
-        getWidget<LabelWidget>("speedrun-timer-text")
-            ->setActive(UserConfigParams::m_display_story_mode_timer);
-
-        // Disable speedrun mode if the story mode timer is disabled
-        if (!UserConfigParams::m_display_story_mode_timer)
-        {
-            UserConfigParams::m_speedrun_mode = false;
-            speedrun_timer->setState(false);
-        }
-
-    }
-    else if (name == "speedrun-timer")
-    {
-        CheckBoxWidget* speedrun_timer = getWidget<CheckBoxWidget>("speedrun-timer");
-        assert( speedrun_timer != NULL );
-        if (speedrun_timer->getState())
-        {
-            if (!story_mode_timer->playerCanRun())
-            {
-                speedrun_timer->setState(false);
-                new MessageDialog(_("Speedrun mode can only be enabled if the game has not"
-                                    " been closed since the launch of the story mode.\n\n"
-                                    "Closing the game before the story mode's"
-                                    " completion invalidates the timer.\n\n"
-                                    "To use the speedrun mode, please use a new profile."),
-                                    MessageDialog::MESSAGE_DIALOG_OK,
-                                    NULL, false, false, 0.6f, 0.7f);
-            }
-        }
-        UserConfigParams::m_speedrun_mode = speedrun_timer->getState();
     }
 }   // eventCallback
 

@@ -651,9 +651,6 @@ namespace UserConfigParams
     PARAM_PREFIX BoolUserConfigParam        m_display_fps
             PARAM_DEFAULT(  BoolUserConfigParam(false, "show_fps",
                             &m_video_group, "Display frame per seconds") );
-    PARAM_PREFIX BoolUserConfigParam        m_display_story_mode_timer
-            PARAM_DEFAULT(  BoolUserConfigParam(false, "show_story_mode_timer",
-                            &m_video_group, "Display the story mode timer") );
     PARAM_PREFIX BoolUserConfigParam        m_speedrun_mode
             PARAM_DEFAULT(  BoolUserConfigParam(true, "show_speedrun_timer",
                             &m_video_group, "Display the speedrun timer") );

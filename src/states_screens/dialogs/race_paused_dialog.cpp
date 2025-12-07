@@ -355,9 +355,11 @@ GUIEngine::EventPropagation
             {
                 StateManager::get()->resetAndGoToScreen(MainMenuScreen::getInstance());
 
-                // Pause story mode timer when quitting story mode
-                if (from_overworld)
-                    story_mode_timer->pauseTimer(/*loading screen*/ false);
+                // Reset and remove story mode timer when quitting story mode
+                if (from_overworld) {
+                    UserConfigParams::m_speedrun_mode = false;
+                    story_mode_timer->reset();
+                }
 
                 if (RaceManager::get()->raceWasStartedFromOverworld())
                 {

@@ -72,8 +72,6 @@ public:
         m_max_req_in_lower_diff = false;
     }
     virtual ~ChallengeStatus() {};
-    void load(const XMLNode* config);
-    void save(UTFWriter& writer);
     void setSolved(RaceManager::Difficulty d);
 
     // ------------------------------------------------------------------------

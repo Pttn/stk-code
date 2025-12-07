@@ -2014,9 +2014,6 @@ void IrrDriver::displayFPS()
 void IrrDriver::displayStoryModeTimer()
 {
 #ifndef SERVER_ONLY
-    if (story_mode_timer->getStoryModeTime() < 0)
-        return;
-
     gui::ScalableFont* font = GUIEngine::getHighresDigitFont();
 
     core::stringw timer_string;
