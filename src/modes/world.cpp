@@ -969,9 +969,7 @@ void World::updateTimeTargetSound()
     if (RaceManager::get()->hasTimeTarget())
     {
         float time_target = RaceManager::get()->getTimeTarget();
-        // In linear mode, the internal time still counts up even when displayed down.
-        if (RaceManager::get()->isLinearRaceMode())
-            time_left = time_target - time_left;
+        time_left = time_target - time_left;
     }
     else if (!RaceManager::get()->isFollowMode())
     {

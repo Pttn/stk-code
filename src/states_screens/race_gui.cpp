@@ -420,10 +420,7 @@ void RaceGUI::drawGlobalTimer()
     bool use_digit_font = true;
 
     float elapsed_time = World::getWorld()->getTime();
-    // In linear mode with a time target, the internal time
-    // still counts up but needs to be displayed down.
-    if (RaceManager::get()->hasTimeTarget() &&
-        RaceManager::get()->isLinearRaceMode())
+    if (RaceManager::get()->hasTimeTarget())
     {
         float time_target = RaceManager::get()->getTimeTarget();
         elapsed_time = time_target - elapsed_time;
