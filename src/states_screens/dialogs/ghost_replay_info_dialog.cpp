@@ -47,7 +47,7 @@ GhostReplayInfoDialog::GhostReplayInfoDialog(unsigned int replay_id,
                       : ModalDialog(0.95f,0.9f), m_replay_id(replay_id)
 {
     m_self_destroy         = false;
-    m_record_race          = false;
+    m_record_race          = true;
     m_watch_only           = false;
 
     m_compare_ghost        = compare_ghost;
@@ -126,9 +126,10 @@ GhostReplayInfoDialog::GhostReplayInfoDialog(unsigned int replay_id,
         m_watch_widget->setActive(false);
         m_record_race = false;
         m_record_widget->setState(false);
-        m_record_widget->setVisible(false);
-        getWidget<LabelWidget>("record-race-text")->setVisible(false);
     }
+
+    m_record_widget->setActive(false);
+    m_record_widget->setState(m_record_race);
 
     // Display this checkbox only if there is another replay file to compare with
     getWidget<LabelWidget>("compare-ghost-text")->setVisible(m_compare_ghost);
@@ -315,22 +316,11 @@ GUIEngine::EventPropagation
             return GUIEngine::EVENT_BLOCK;
         }
     }
-
-    if (event_source == "record-race")
-    {
-        m_record_race = m_record_widget->getState();
-    }
     else if (event_source == "watch-only")
     {
         m_watch_only = m_watch_widget->getState();
-        m_record_race = false;
-        m_record_widget->setState(false);
-        m_record_widget->setVisible(!m_watch_only);
-        getWidget<LabelWidget>("record-race-text")->setVisible(!m_watch_only);
         if (!m_watch_only && m_compare_ghost)
         {
-            m_compare_ghost = false;
-            m_compare_widget->setState(false);
             refreshMainScreen();
 
             m_replay_id = ReplayPlay::get()->getReplayIdByUID(m_rd.m_replay_uid);
@@ -340,8 +330,6 @@ GUIEngine::EventPropagation
     else if (event_source == "compare-ghost")
     {
         m_compare_ghost = m_compare_widget->getState();
-        m_record_race = false;
-        m_record_widget->setState(false);
         if (m_compare_ghost)
         {
             m_watch_only = true;
@@ -352,14 +340,14 @@ GUIEngine::EventPropagation
         {
             m_watch_widget->setActive(true);
         }
-        m_record_widget->setVisible(!m_watch_only);
-        getWidget<LabelWidget>("record-race-text")->setVisible(!m_watch_only);
 
         refreshMainScreen();
 
         m_replay_id = ReplayPlay::get()->getReplayIdByUID(m_rd.m_replay_uid);
         updateReplayDisplayedInfo();
     }
+    m_record_race = !m_watch_only && !m_compare_ghost;
+    m_record_widget->setState(m_record_race);
 
     return GUIEngine::EVENT_LET;
 }   // processEvent

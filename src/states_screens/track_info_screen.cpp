@@ -313,10 +313,8 @@ void TrackInfoScreen::init()
     const bool record_available = (RaceManager::get()->isTimeTrialMode() || RaceManager::get()->isEggHuntMode());
     m_record_race->setVisible(record_available);
     getWidget<LabelWidget>("record-race-text")->setVisible(record_available);
-    if (RaceManager::get()->isRecordingRace())
+    if (record_available)
     {
-        // isRecordingRace() is true when it's pre-set by ghost replay selection
-        // which force record this race
         m_record_this_race = true;
         m_record_race->setState(true);
         m_record_race->setActive(false);
@@ -325,12 +323,6 @@ void TrackInfoScreen::init()
         RaceManager::get()->setNumKarts(RaceManager::get()->getNumLocalPlayers());
         
         UserConfigParams::m_num_karts_per_gamemode[RaceManager::get()->getMinorMode()] = RaceManager::get()->getNumLocalPlayers();
-    }
-    else if (record_available)
-    {
-        m_record_race->setActive(true);
-        m_record_race->setState(false);
-        m_ai_kart_spinner->setActive(true);
     }
     else
         m_ai_kart_spinner->setActive(true);
