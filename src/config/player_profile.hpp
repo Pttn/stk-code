@@ -20,6 +20,7 @@
 #define HEADER_PLAYER_PROFILE_HPP
 
 #include "challenges/story_mode_status.hpp"
+#include "challenges/story_mode_timer.hpp"
 #include "config/favorite_status.hpp"
 #include "network/remote_kart_info.hpp"
 #include "utils/leak_check.hpp"
@@ -202,7 +203,7 @@ public:
     /** Returnes if the feature (kart, track) is locked. */
     bool isLocked(const std::string &feature) const
     {
-        return m_story_mode_status->isLocked(feature);
+        return m_story_mode_status->isLocked(feature) && story_mode_timer->isSpeedrunning() && !story_mode_timer->speedrunIsFinished();
     }   // isLocked
     // ----------------------------------------------------------------------------------------
     /** Returns all active challenges. */
