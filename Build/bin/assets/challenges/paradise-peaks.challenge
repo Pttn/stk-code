@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<challenge version="3">
+    <unlock_list list="false"/>
+    <track id="paradise-peaks" laps="3" reverse="false"/>
+    <mode major="single" minor="quickrace"/>
+    <requirements trophies="20"/>
+    
+    <best>
+        <karts number="6"/>
+        <requirements position="1" time="155"/>
+    </best>
+    <hard>
+        <karts number="5"/>
+        <requirements position="1" time="192"/>
+    </hard>
+    <medium>
+        <karts number="4"/>
+        <requirements position="1" time="224"/>
+    </medium>
+    <easy>
+        <karts number="4"/>
+        <requirements position="1" time="256"/>
+    </easy>
+</challenge>

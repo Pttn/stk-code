@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev Unknown -->
+<materials>
+  <material name="road_sand.jpg">
+    <particles base="smoke_yellow.xml" condition="skid"/>
+  </material>
+  <material name="road_sand_side.jpg">
+    <particles base="smoke.xml" condition="skid drive"/>
+  </material>
+  <material name="sand2.jpg" max-speed="0.60">
+    <particles base="smoke_yellow.xml" condition="skid drive"/>
+  </material>
+  <material name="seabed.jpg" falling-effect="Y" water-splash="Y"/>
+  <material name="transparence.png" fog="N" collision-detect="Y" reset="Y" shader="alphablend" collision-reaction="reset"/>
+  <material name="sea2.jpg" collision-detect="Y" collision-reaction="reset" collision-particles="splash.xml">
+    <sfx filename="splash.ogg" min_speed="5.00" max_speed="15.00" min_pitch="0.80" max_pitch="1.20" positional="true" rolloff="0.10"/>
+    <particles base="splash.xml" condition="skid drive"/>
+  </material>
+</materials>

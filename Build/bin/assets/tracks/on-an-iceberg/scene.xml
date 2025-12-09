@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 7732 -->
+<scene>
+  <track model="on-an-iceberg_track.b3d" x="0" y="0" z="0">
+    <animated-texture name="water_dark.png" dx="0.05" />
+    <animated-texture name="water_light-transp.png" dx="0.1" />
+    <animated-texture name="zipper-inverted.png" dy="4." />
+    <animated-texture name="Aurore-Boreale.png" dx="0.15" />
+  </track>
+  <weather particles="snow.xml" />
+  <item x="-0.709503" y="0.978402" z="97.943207" />
+  <item x="-4.385627" y="0.978402" z="98.122528" />
+  <item x="-7.965182" y="0.978402" z="98.395256" />
+  <item x="-11.544738" y="0.978402" z="98.5998" />
+  <item x="-185.314774" y="0.978402" z="-31.154507" />
+  <item x="-188.178421" y="0.978402" z="-33.438606" />
+  <item x="-190.973877" y="0.978402" z="-35.722702" />
+  <item x="-193.796616" y="0.978402" z="-37.996571" />
+  <item x="-266.800385" y="0.978402" z="-20.219196" />
+  <item x="-270.001434" y="0.978402" z="-21.84227" />
+  <item x="-273.202484" y="0.978402" z="-23.420258" />
+  <item x="-276.583893" y="0.978402" z="-25.088417" />
+  <item x="-192.239563" y="0.978402" z="-262.502014" />
+  <item x="-189.243088" y="0.978402" z="-264.236816" />
+  <item x="-185.852341" y="0.978402" z="-265.892761" />
+  <item x="-182.777008" y="0.978402" z="-267.548706" />
+  <item x="-201.541183" y="0.978402" z="166.213898" />
+  <item x="-198.024521" y="0.978402" z="165.131851" />
+  <item x="-194.643112" y="0.978402" z="164.094879" />
+  <item x="-191.216614" y="0.978402" z="163.102997" />
+  <item x="-106.33271" y="-18.225372" z="286.662811" />
+  <item x="-105.623016" y="-18.225372" z="283.114349" />
+  <item x="-104.676758" y="-18.225372" z="279.565887" />
+  <item x="-103.967064" y="-18.225372" z="275.938568" />
+  <small-nitro x="8.404217" y="0.978402" z="201.011917" />
+  <small-nitro x="9.759927" y="0.978402" z="207.894745" />
+  <small-nitro x="11.219923" y="0.978402" z="215.194717" />
+  <small-nitro x="9.2385" y="0.978402" z="204.76619" />
+  <small-nitro x="10.698496" y="0.978402" z="211.961868" />
+  <small-nitro x="-8.988229" y="0.9784" z="-75.46521" h="-94.315741" />
+  <small-nitro x="-16.053635" y="0.9784" z="-73.467857" h="-94.315741" />
+  <small-nitro x="-5.803786" y="0.978401" z="-76.228439" h="-94.315741" />
+  <small-nitro x="-12.973189" y="0.9784" z="-74.223236" h="-94.315741" />
+  <small-nitro x="-19.734478" y="0.9784" z="-72.353416" h="-94.315741" />
+  <banana x="-283.560211" y="0.978402" z="34.195145" />
+  <banana x="-327.759888" y="0.978402" z="-280.989105" />
+  <banana x="-338.671356" y="0.978402" z="-280.929474" />
+  <banana x="-322.121277" y="0.978402" z="-307.433594" />
+  <banana x="-288.421478" y="0.978402" z="-316.787994" />
+  <banana x="-290.939972" y="0.978402" z="-327.701447" />
+  <banana x="-111.756592" y="0.978402" z="-287.285797" />
+  <banana x="-102.325569" y="0.978402" z="-281.663452" />
+  <banana x="-88.600266" y="0.978402" z="-304.097931" />
+  <banana x="-64.968124" y="0.978402" z="-297.277924" />
+  <banana x="-57.672295" y="0.978402" z="-305.84259" />
+  <banana x="-288.345673" y="0.978402" z="50.074158" />
+  <banana x="-306.399902" y="0.978402" z="50.509201" />
+  <banana x="-252.019699" y="0.978402" z="57.252342" />
+  <banana x="-260.285492" y="0.978402" z="73.348877" />
+  <banana x="-265.94104" y="0.978402" z="87.052689" />
+  <checks>
+    <check-lap kind="lap" same-group="0" other-ids="1" />
+    <check-line kind="activate" other-ids="2" p1="-213.842911 161.639297" p2="-188.726883 149.249298"
+                min-height="0.131958" same-group="1"/>
+    <check-line kind="activate" other-ids="0" p1="-315 -252" p2="-334 -245"
+                min-height="-1" same-group="2"/>
+  </checks>
+  <default-start karts-per-row     ="2"
+                 forwards-distance ="1.5"
+                 sidewards-distance="3"
+                 upwards-distance  ="0.1"/>
+  <end-cameras>
+    <camera type="static_follow_kart" xyz="68.904999 21.948399 99.964920" distance="80"/>
+    <camera type="ahead_of_kart" xyz="25.078594 7.151703 208.453232" distance="60"/>
+    <camera type="static_follow_kart" xyz="-270.048218 21.948400 161.801727" distance="70"/>
+    <camera type="static_follow_kart" xyz="-136.450470 21.948402 1.315994" distance="80"/>
+    <camera type="static_follow_kart" xyz="-290.321747 11.462925 24.399582" distance="60"/>
+    <camera type="static_follow_kart" xyz="-253.419830 4.125196 -115.495583" distance="80"/>
+    <camera type="static_follow_kart" xyz="-237.767944 5.942099 -204.483902" distance="80"/>
+    <camera type="ahead_of_kart" xyz="-313.740112 7.293016 -235.441544" distance="40"/>
+    <camera type="static_follow_kart" xyz="-54.021980 21.948399 -157.956161" distance="80"/>
+    <camera type="static_follow_kart" xyz="39.447895 21.948399 -35.106667" distance="70"/>
+  </end-cameras>
+</scene>

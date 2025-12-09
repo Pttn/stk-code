@@ -1,0 +1,16 @@
+City Skyway
+Created by TuxThePenguin#1
+Licensed under the GPL version 3.0
+
+Files: textures/tunnel_road.jpg
+Source: https://opengameart.org/content/golgotha-textures-tunnelroadjpg
+Copyright: Crack.com
+License: CC0
+
+Files: random-race.ogg
+Source: https://opengameart.org/content/arcade-racing-tune
+Copyright: rezoner
+License: CC BY 3.0+
+
+Building models from https://opengameart.org/content/voxel-buildings, made by mehrasaur and licensed under CC0.
+Some car models are derived from https://opengameart.org/content/voxel-vehicle-starter-pack. Made by JohnM25 and licensed under CC BY 3.0+.

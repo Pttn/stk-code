@@ -163,7 +163,7 @@ public:
 
                   PowerupManager  ();
                  ~PowerupManager  ();
-    void          loadPowerupsModels ();
+    void          loadPowerupsModels (const std::string& = "powerup.xml");
     void          loadWeights(const XMLNode *node, const std::string &category);
     void          unloadPowerups  ();
     void          computeWeightsForRace(int num_karts);

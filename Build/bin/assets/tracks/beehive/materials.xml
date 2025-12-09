@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev Unknown -->
+<materials>
+  <material name="honeyFluid.png" shader="alphatest" disable-z-write="Y"/>
+  <material name="spiderweb_512.png" shader="alphablend" backface-culling="N" disable-z-write="Y"/>
+  <material name="stk_beehive_road.png" has-gravity="Y"/>
+  <material name="stk_mushroom_a.png" disable-z-write="Y"/>
+  <material name="stkflag_orangeBooster_a.png" shader="alphablend" disable-z-write="Y">
+    <zipper duration="6.199999809265137" max-speed-increase="19.0" fade-out-time="7.5" speed-gain="9.5" min-speed="40.0"/>
+  </material>
+  <material name="stktex_cocoaBeam_a.png" disable-z-write="Y"/>
+  <material name="stktex_generic_concrete_road.png" has-gravity="Y"/>
+  <material name="stktex_generic_lavaA.png" shader="additive" ignore="Y" disable-z-write="Y"/>
+  <material name="stktex_generic_lavaEffectA.png" shader="alphablend" backface-culling="N" ignore="Y" disable-z-write="Y"/>
+  <material name="stktex_honeyfall_a.png" shader="alphatest" disable-z-write="Y"/>
+</materials>

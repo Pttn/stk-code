@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 7732 -->
+<materials>
+  <material name="greenice-transp.png" alpha="Y"/>
+  <material name="Aurore-Boreale.png" alpha="Y"/>
+  <material name="ice_dark_transp.png" alpha="Y"/>
+  <material name="Ice-transp.png" alpha="Y"/>
+
+
+  <material name="water_dark-Transp.png"  alpha="Y"  reset="Y" falling-effect="Y">
+    <sfx filename="splash.ogg" name="splash" rolloff="0.10000000149"/></material>
+
+  <material name="water_light-transp.png" alpha="Y"  reset="Y" falling-effect="Y">
+    <sfx filename="splash.ogg" name="splash" rolloff="0.10000000149"/>
+    <particles base="splash.xml" condition="skid drive"/></material>
+
+  <material name="water_light.png"  reset="Y" falling-effect="Y">
+    <sfx filename="splash.ogg" name="splash" rolloff="0.10000000149"/>
+    <particles base="splash.xml" condition="skid drive"/></material>
+
+  <material name="water_dark"  reset="Y" falling-effect="Y">
+    <sfx filename="splash.ogg" name="splash" rolloff="0.10000000149"/>
+    <particles base="splash.xml" condition="skid drive"/></material>
+
+  <material name="snow2-ignore.png" ignore="Y"/>
+  <material name="snow2.png" slowdown-time="0.3" max-speed="0.15" sphere="N"/>
+
+  <material name="zipper-inverted.png" alpha="Y">
+    <zipper max-speed-increase="10.0" speed-gain="3.0"/>
+  </material>
+
+</materials>
+

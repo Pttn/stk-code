@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<challenge version="3">
+    <unlock_list list="false"/>
+    <track id="terabite" laps="2" reverse="false"/>
+    <mode major="single" minor="timetrial"/>
+    <requirements trophies="140"/>
+    
+    <best>
+        <karts number="1"/>
+        <requirements energy="20" time="105"/>
+    </best>
+    <hard>
+        <karts number="1"/>
+        <requirements energy="18" time="126"/>
+    </hard>
+    <medium>
+        <karts number="1"/>
+        <requirements energy="15" time="147"/>
+    </medium>
+    <easy>
+        <karts number="1"/>
+        <requirements energy="12" time="168"/>
+    </easy>
+</challenge>

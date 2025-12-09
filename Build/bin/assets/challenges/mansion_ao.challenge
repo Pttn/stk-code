@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<challenge version="3">
+    <unlock_list list="false"/>
+    <track id="blackhill-mansion" laps="0" reverse="false"/>
+    <mode major="single" minor="egghunt"/>
+		<requirements trophies="0"/>
+
+    <best>
+        <karts number="1"/>
+        <requirements position="1" time="40"/>
+    </best>
+    <hard>
+        <karts number="1"/>
+        <requirements position="1" time="48"/>
+    </hard>
+    <medium>
+        <karts number="1"/>
+        <requirements position="1" time="56"/>
+    </medium>
+    <easy>
+        <karts number="1"/>
+        <requirements position="1" time="64"/>
+    </easy>
+</challenge>

@@ -95,12 +95,13 @@ void MainMenuScreen::loadedFromFile()
     RibbonWidget* rw_top = getWidget<RibbonWidget>("menu_toprow");
     assert(rw_top != NULL);
     
-    if (track_manager->getTrack("overworld") == NULL ||
-        track_manager->getTrack("introcutscene") == NULL ||
-        track_manager->getTrack("introcutscene2") == NULL)
-    {
-        rw_top->removeChildNamed("story");
-    }
+    assert(track_manager->getTrack("overworld"));
+    assert(track_manager->getTrack("overworld_ao"));
+    assert(track_manager->getTrack("introcutscene"));
+    assert(track_manager->getTrack("introcutscene2"));
+
+    rw_top->removeChildNamed("online");
+    rw_top->removeChildNamed("addons");
 
 #if DEBUG_MENU_ITEM != 1
     RibbonWidget* rw = getWidget<RibbonWidget>("menu_bottomrow");
@@ -467,10 +468,11 @@ void MainMenuScreen::eventCallback(Widget* widget, const std::string& name,
     {
         TutorialUtils::startTutorial();
     }
-    else if (selection == "story")
+    else if (selection == "story" || selection == "storyao")
     {
         NetworkConfig::get()->unsetNetworking();
         PlayerManager::getCurrentPlayer()->resetStoryModeStatus();
+        PlayerManager::getCurrentPlayer()->getStoryModeStatus()->setOverworld(selection == "storyao" ? "overworld_ao" : "overworld");
 
         // Start the speedrun timer
         story_mode_timer->reset();

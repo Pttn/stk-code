@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev Unknown -->
+<materials>
+  <material name="bush3.png" compositing="blend"/>
+  <material name="coniferous_tree.png" compositing="blend"/>
+  <material name="grass.jpg" max-speed="0.50"/>
+  <material name="grass2.jpg" max-speed="0.50"/>
+  <material name="palmtree3.png" compositing="blend"/>
+  <material name="water_dark.png" falling-effect="Y" graphical-effect="water" ignore="Y">
+    <sfx filename="splash.ogg" min_speed="0.00" max_speed="1.00" min_pitch="0.80" max_pitch="1.20" positional="Y" rolloff="0.10"/>
+    <particles base="splash.xml" condition="skid"/>
+  </material>
+  <material name="water_ground.png" fog="N" light="N" backface-culling="N" falling-effect="Y" reset="Y" crash-reset="Y" crash-reset-particles="starparticle.PNG"/>
+</materials>

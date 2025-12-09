@@ -68,7 +68,7 @@ void OverWorld::enterOverWorld()
     RaceManager::get()->setMajorMode (RaceManager::MAJOR_MODE_SINGLE);
     RaceManager::get()->setMinorMode (RaceManager::MINOR_MODE_OVERWORLD);
     RaceManager::get()->setNumKarts( 1 );
-    RaceManager::get()->setTrack( "overworld" );
+    RaceManager::get()->setTrack(PlayerManager::getCurrentPlayer()->getStoryModeStatus()->getOverworld());
 
     if (PlayerManager::getCurrentPlayer()->isLocked("difficulty_best"))
     {

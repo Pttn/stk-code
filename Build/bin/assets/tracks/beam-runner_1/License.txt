@@ -1,0 +1,22 @@
+skyscraper8.jpg is a derivative of "skyscraper8.jpg" from www.outworldz.com @ https://www.outworldz.com/SeamlessTextures/master/Texture%20set%20skyscrapers/
+This derivative is released under same CC0 license.
+
+"Exit the Premises" is by Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+The following files are original and licensed CC0:
+BuildingBase.png
+FFFFFF.png
+Skybox0.jpg
+Skybox1.jpg
+TrackBase.png
+TrackGlow.png
+TunnelGlow.png
+
+All other assets are from turnpike101 or were derived from them. These are given under CC-BY license, as described in "LICENSE(original_model).txt"
+^
+Email : contact.equal.opposite@gmail.com
+Web : patricksworkjournal.blogspot.co.uk
+
+Ported to STK by GumballForAPenny

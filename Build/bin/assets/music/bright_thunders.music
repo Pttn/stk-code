@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<music title    = "Bright Thunders (SuperTux)"
+       composer = "Chris Leutwyler"
+       file     = "bright_thunders.ogg"
+       gain     = "1"/>

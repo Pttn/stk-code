@@ -1,0 +1,13 @@
+---Terabite-----------------------------------------
+--authors:  David Herrera, Richard Qian (Worldblender)
+-<dav10her@hotmail.com>- -
+. This work is released under the Gnu General Public License (GPL) 3 or later
+
+Files: Cerclevicieux.ogg
+Copyright: DJ Helium (Music originally composed specifically for the track The Cube)
+License: CC-BY-SA 4.0
+
+Files: 000*.png
+Source: https://opengameart.org/content/space-skyboxes, blue1 collection
+Copyright: arikel
+License: CC0

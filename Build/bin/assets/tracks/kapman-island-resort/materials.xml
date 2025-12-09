@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev Unknown -->
+<materials>
+  <material name="brick_wall_06.jpg" normal-map="brick_wall_06_nm.jpg"/>
+  <material name="cactus.png" shader="alphatest"/>
+  <material name="canyon_water.png" shader="unlit"/>
+  <material name="stk_generic_colorfabricA.png" shader="solid"/>
+  <material name="stk_generic_sand_b.png" falling-effect="Y"/>
+  <material name="stktex_churchRosetteGlass_a.png" shader="alphatest"/>
+</materials>

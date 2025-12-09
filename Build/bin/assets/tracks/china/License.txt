@@ -1,0 +1,51 @@
+Reused with different colors from supertuxkart/data/textures:
+
+-water_dark.png           (water_light.rgb is the original)
+-rock_grey.png            (rock.rgb is the original)
+-rock_darkgrey.png            (rock.rgb is the original)
+-city_brick_1.png            (from stk0.6)
+-bush3.png                      (bush2.png)
+-wood_planks6.png            (wood_planks.png)
+-grass2.png                             (from stk0.6)
+-grass4.png                             (from grass2.png)
+-roof_green.png         (from roof.png)
+
+Selfmade parts and under and CC-BY-SA 3)
+
+-china.blend
+.china_house_blue.png
+.china_house_blue2.png
+.china_house_brown.png
+.china_house_brown2.png
+.china_house_Green.png
+.china_house_Green2.png
+-china_house_gray.png
+-china_house_gray2.png
+-china_blowfish.png
+-china_faster.png
+.china_elefant.png
+-china_linux.png
+-china_kart.png
+-china_tux.png
+-china_mozilla.png
+-china_kart.png
+-sign_goodbey.pmg
+-panda.png
+-Latern.png
+-ming.png
+-ricefield.png
+                         
+
+
+pictures used from wikipedia under CC:
+
+Fuits.jpg  from Wikipedia Barcelona Market.jpg under GNU
+Aquariumsimple.jpg from Wikipedia under GNU
+Vegetables.jpg Thai market vegetables 01.jpg (CC BY-SA 3.0) 
+
+
+music: Disen_Gage_Chinagroove.ogg from Disen_Gage is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 2.0 Germany License.
+see:  http://freemusicarchive.org/music/Disen_Gage/none_given_1476/Chinagroove_17
+Add-Ons By xedgarx For STK.
+
+

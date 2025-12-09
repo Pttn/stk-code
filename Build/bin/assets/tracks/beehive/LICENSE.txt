@@ -1,0 +1,5 @@
+flower and leaf-texture cc0
+based on http://opengameart.org/content/paramecijs-vegetation-base-texture-pack 
+from para / paramecij
+
+stkflag_asianPaperLantern_a.png and stk_generic_colorfabricA_nonmoving.png from stk

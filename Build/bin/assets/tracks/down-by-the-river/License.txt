@@ -1,0 +1,66 @@
+Down by the River STK Track by Sven Andreas Belting
+Released under CC BY-SA 3.0
+Report bugs, problems and suggestions at sven_andreas_belting@web.de
+
+List of reused textures from stk/data/textures:
+brick.png, city_bricks.png, city_rock.jpg, concrete_plain.png,
+grass_dark.jpg, lantern.jpg, rock_mountain.jpg, roof.png,
+stk_generic_dirtRoad_b.png, stk_grassAlpha.png, stkflag_stkVertical_a.png,
+stklib_conifer_a_low.png, stktex_generic_waterRockA.png, 
+stktex_jungleLeaf_a.png, stktex_rope_a.png, wood_planks1.jpg, wooden.png
+
+rock_grey.png from stk/data/tracks/zengarden
+
+island_water.png from stk/data/tracks/gran_paradiso_island
+
+cavrern-rock.png from stk/data/tracks/mines
+    released under CC-BY-SA 3.0
+
+stk_generic_dirtRoad_b_grass_dark.jpg
+STK testures modified by Sven Andreas belting
+
+chain.png 
+based on work by wagner51
+    released under CC-BY-SA 3.0
+
+genericskybox_b.jpg, genericskybox_e.jpg, genericskybox_n.jpg, 
+genericskybox_s.jpg, genericskybox_t.jpg, genericskybox_w.jpg
+based on images from stk/data/textures modified by Sven Andreas Belting
+    Released under CC-BY-SA 3.0
+
+l_lampsglass0.png by Jean-Manuel Clémoeçon
+    based on http://www.publicdomainpictures.net/ and http://www.burningwell.org/
+    public domain images
+    Released under CC-BY-SA 3.0
+
+rock_gray.jpg
+	Modification by Wolfs of a picture by jean-manuel clemençon (SamUncle)
+	which is based on an image from BurningWell and has been released
+	to public domain
+	Licensed under CC0 1.0
+
+water_light3.png
+	By Marianne Gagnon and Samuncle, based on public images from Bruningwell
+    Released under CC-BY-SA 3.0
+
+Woodpile.png
+	From dims_arboretum (http://opengameart.org/content/dims-arboretum)
+	Created by Dim
+	Licensed under Creative Commons Attribution (CC-BY) 3.0	
+
+woodPost.png by Jean-Manuel Clémoeçon
+    based on http://www.publicdomainpictures.net/ and http://www.burningwell.org/
+    public domain images
+    Released under CC-BY-SA 3.0
+
+waterfall3.ogg
+	From http://opengameart.org/content/stream-sounds
+	Created by kurt
+	Licensed under Creative Commons Atrribution (CC-BY) 3.0
+
+
+List of library used:
+
+stklib_animGrass_a_main,
+stklib_logBarrier_a_main,
+stklib_stkVertical_a_main

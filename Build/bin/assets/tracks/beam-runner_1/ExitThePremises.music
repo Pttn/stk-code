@@ -1,0 +1,13 @@
+<!--
+
+"Exit the Premises" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+  
+-->
+
+<?xml version="1.0"?>
+<music title = "Exit the Premises"
+    composer = "Kevin MacLeod"
+        gain = "1.0"
+        file = "Exit the Premises.ogg"/>

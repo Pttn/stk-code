@@ -1,0 +1,12 @@
+ExtremeDimension_ by Davh10 <dav10her@hotmail.com>
+Refinements and bugfixes by QwertyChouskie
+
+--<  This work is released under the Gnu General Public License (GPL)  >--
+
+Form_QC* by QwertyChouskie, CC0
+
+purplenebula_* by Marianne Gagnon (Auria), release under CC-BY-SA 3.0
+
+blueZipper.png based on zipper.png by Dakal, released under CC-BY-SA 3.0
+
+Exported by Ludsky for STK 1.0

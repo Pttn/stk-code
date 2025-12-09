@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<challenge version="3">
+    <unlock_list list="false"/>
+    <track id="lost-chasm" laps="3" reverse="false"/>
+    <mode major="single" minor="timetrial"/>
+    <requirements trophies="50"/>
+
+    <best>
+        <karts number="1"/>
+        <requirements time="105"/>
+    </best>
+    <hard>
+        <karts number="1"/>
+        <requirements time="126"/>
+    </hard>
+    <medium>
+        <karts number="1"/>
+        <requirements time="147"/>
+    </medium>
+    <easy>
+        <karts number="1"/>
+        <requirements time="168"/>
+    </easy>
+</challenge>
