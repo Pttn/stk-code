@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <challenge version="3">
     <unlock_list list="false"/>
-    <grandprix id="1_penguinplayground"/>
+    <grandprix id="o1_penguinplayground"/>
     <mode major="grandprix" minor="quickrace"/>
     <requirements trophies="30"/>
     

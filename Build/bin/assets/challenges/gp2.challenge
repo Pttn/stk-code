@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <challenge version="3">
     <unlock_list list="false"/>
-    <grandprix id="2_offthebeatentrack"/>
+    <grandprix id="o2_offthebeatentrack"/>
     <mode major="grandprix" minor="quickrace"/>
     <requirements trophies="70"/>
     

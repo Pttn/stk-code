@@ -1,0 +1,10 @@
+
+<supertuxkart_grand_prix name="Penguin Playground 1.4">
+
+    <track id="sandtrack"          laps="3" reverse="false" />
+    <track id="scotland"           laps="3" reverse="false" />
+    <track id="abyss"              laps="3" reverse="false" />
+    <track id="volcano_island_1.4"     laps="2" reverse="false" />
+    <track id="hacienda_1.4"           laps="3" reverse="false" />
+ 
+</supertuxkart_grand_prix>
