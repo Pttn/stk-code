@@ -1,0 +1,39 @@
+SuperTux Island Resort
+Created by TuxThePenguin#1
+Licensed under the GPL version 3.0
+
+Skybox textures copied from built-in track Gran Paradiso Island.
+Church model appended from built-in track Black Forest.
+Fort/castle model and goat skull model copied from built-in Overworld track.
+Pac-Man-like model copied from https://opengameart.org/content/marbleman-gobbler-with-animation, modified to include an armature and different animations; made by Phani29 and licensed under CC0.
+Apple model copied from https://gitlab.com/VanessaE/dreambuilder_modpack/blob/master/dreambuilder_mp_extras/models/default_apple.obj; made by VanessaE and licensed under CC BY-SA 4.0+.
+Cactus model and texture from https://opengameart.org/content/freebies-mundo-commissions; made by yughues and licensed under CC0. Converted to library node by rubberduck, and are licensed under CC-BY-SA 4.0+.
+Some building models are derived from https://opengameart.org/content/houses-pack-low-poly-v02, modified to include textures. Made by MrCraft Animation and licensed under CC0.
+
+Files: pacman-background-music.ogg
+Copyright: remaxim (Commissioned by mcarter)
+License: CC BY-SA 3.0+
+
+Files: roof_3.jpg
+Copyright: Public Domain ???? by ????
+License: CC0
+Comment: Source no longer available but cited as http://tellim.com/texture_cd/texture/building/roof/roof04.jpg
+
+Files:
+ roof_3_nm.jpg
+Copyright:
+ Public Domain ???? by ????
+ Copyright 2018 by Sven Andreas Belting
+License: CC-BY-SA 4.0
+Comment: Source no longer available but cited as http://tellim.com/texture_cd/texture/building/roof/roof04.jpg
+
+Files: gray_bricks.png
+Source: Grayscale version of sand_stone.png from https://opengameart.org/content/textures-stk
+Copyright: Dakal
+License: CC By_SA 3.0+
+
+Files:
+ brick_wall_06.jpg
+ brick_wall_06_nm.jpg
+Copyright: Copyright ???? Duion
+License: CC-BY-SA 3.0

@@ -1,0 +1,67 @@
+Sea Race STK Track by Sven Andreas Belting
+Released under CC BY-SA 3.0
+Report bugs, problems and suggestions at sven_andreas_belting@web.de
+
+
+
+Textures:
+
+List of reused textures from stk/data/textures:
+brick.png, gfx_distord_AlphaTested.png, grass2.jpg, stk_generic_borderBluePinkA.png, 
+stk_generic_rock_a.png, stk_generic_sand_a.png, stk_generic_sandRoad_a.png,
+stkflag_goldCupVertical_a.png, stkflag_saraVertical_a.png, 
+stktex_beachball_a.png, stktex_generic_waterRockA.png, stktex_generic_WoodA.png 
+
+
+
+invisible.png           by sven andreas belting released under CC0
+
+invisible2.png          by sven andreas belting released under CC0
+
+mountain_top.png        by sven andreas belting released under CC0
+
+Pigeon-1-subsea.jpg		by Greg Getten released under CC0				modified publicdomainpictures.net
+
+Pigeon-2-subsea			by Greg Getten released under CC0				modified publicdomainpictures.net
+
+Pigeon-3-subsea			by Rudy Phelippeau (STKRudy85)released under CC0 , GPL
+
+tex-subsea.jpg          by Joey Fleischman released under CC0
+
+reset.png               by sven andreas belting released under CC0
+
+sea.png                 by Fabio Ponzi (aka Ponzino) released under CC BY-SA 3.0
+
+waterfall.png           by Auria released under CC BY-SA 3.0
+
+skybox_bottom.jpg, skybox_east.jpg, skybox_north.jpg,
+skybox_south.jpg, skybox_top.jpg, skybox_west.jpg
+by Ursula Belting, incorporating genericskybox from stk/data/tetures and skybox_side from gran paradiso island
+                        relesead under CC BY-SA 3.0
+
+
+Models:
+
+killer_whale            by Joey Fleischman released under CC0
+
+seagull                 from stk_media_repo_090/tracks/subsea2
+
+
+
+List of library used:
+
+stklib_aztekGirlCheering_a_main, stklib_accacia_a_main,
+stklib_agave_a_main, stklib_animGrass_a_main, stklib_armchair_a_main,
+stklib_aztecHut_a_main, stklib_cattail_a_main, stklib_cocoaTree_a_main,
+stklib_fern_a_main, stklib_gnuMeditation_a_main, stklib_liana_a_main, 
+stklib_metalPostLamp_a_main, stklib_palmTree_a_main, stklib_partyFlags_a_main, 
+stklib_pinetree_a_main, stklib_piranha_a_main, stklib_ReedBoat_a_main, 
+stklib_reef_a_main, stklib_sandCastle_a_main, stklib_seaweed_a_main, 
+stklib_tropicalPlant_a_main, stklib_oldLantern_a_main, 
+stklib_umbrellaBeach_a_main stklib_woodLittleBridge_a_main
+
+
+
+Music:
+
+theGreatFair            by Chris Leutwyler & Max Freeman

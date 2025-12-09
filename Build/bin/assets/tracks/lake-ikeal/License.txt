@@ -1,0 +1,9 @@
+Released under CC-BY 3.0 by Hero except for:
+
+zipper.png under GNU GPL (modified by Hero).
+
+Files: water_light2.png, water_light3.png
+Source: Built-in Zen Garden track
+Copyright: Marianne Gagnon, Jean-Manuel Clémençon
+License: CC-BY-SA 3.0
+Comment: Based on public images from Bruningwell

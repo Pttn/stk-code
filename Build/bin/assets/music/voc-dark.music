@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<music title    = "Voc Dark (SuperTux)"
+       composer = "(Unknown)"
+       file     = "voc-dark.ogg"
+       gain     = "1"/>

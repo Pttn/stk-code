@@ -119,9 +119,9 @@ PowerupManager::PowerupType
 //-----------------------------------------------------------------------------
 /** Loads powerups models and icons from the powerup.xml file.
  */
-void PowerupManager::loadPowerupsModels()
+void PowerupManager::loadPowerupsModels(const std::string &powerUpXml)
 {
-    const std::string file_name = file_manager->getAsset("powerup.xml");
+    const std::string file_name = file_manager->getAsset(powerUpXml);
     XMLNode *root               = file_manager->createXMLTree(file_name);
     for(unsigned int i=0; i<root->getNumNodes(); i++)
     {

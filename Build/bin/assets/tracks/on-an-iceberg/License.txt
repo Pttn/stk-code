@@ -1,0 +1,52 @@
+== TRACK ==
+
+License GNU_GPL / CCbySA
+Author STKRudy85 (Rudy Phelippeau)
+
+
+
+== MODELS ==
+
+STONE AXE ( Textures: axe_d.png , axe_n.png )
+Artist:Clint Bellanger (OpenGameArt.org user)
+License(s):
+GNU GPL 2.0
+GNU GPL 3.0
+CC-BY-SA 3.0
+
+OGRE ( Textures: Tete.png , Jambes.png , Corps.png )
+Artist:nubux (OpenGameArt.org user)
+License(s):
+CC-BY 3.0
+
+TROUT (Texture: Rainbow20trout.jpg)
+Artist:Lamoot (OpenGameArt.org user)
+License(s):
+CC-BY 3.0
+
+
+== TEXTURES ==
+
+Textures license can be find :
+http://supertuxkart.svn.sourceforge.net/viewvc/supertuxkart/main/trunk/data/textures/License.txt
+
+turn_sharp_24med.png by Pixel (Wayne Dennis), released under Creative Commons Attribution - Share Alike 3.0
+
+Aurore-Boreale.png
+balai_Cylinder.png
+baniere.png
+chek.png
+full_moon.png based on (http://bzflag.org/   moon.png )
+Ours.png
+Phoque_Plane.png
+Pingouin_Plane.010.png
+Poils-Mammouth-2.png
+Mammouth_Plane-2.png
+Signal.png 
+  Are from STKRudy85 GNU_GPL public domain CC0
+
+== SOUNDS ==
+
+Waterfall-SoundBible.com-1597727655.ogg
+CC-BY 3.0
+Recorded by Mike Koenig 

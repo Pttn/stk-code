@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev Unknown -->
+<scene>
+  <track model="china_track.b3d" x="0" y="0" z="0">
+    <static-object model="Bambus.b3d" xyz="148.282318 2.299299 -52.074287" hpr="-86.129362 72.828292 -1.036231" scale="0.401842 0.401842 0.401842"/>
+    <static-object model="Bambus.001.b3d" xyz="153.976593 1.081885 -56.050823" hpr="-86.129362 72.828292 -1.036231" scale="0.372048 0.372306 0.428487"/>
+    <static-object model="Bambus.002.b3d" xyz="141.559708 0.801468 -45.534882" hpr="-86.129362 49.014028 -1.036231" scale="0.372048 0.372306 0.428487"/>
+    <static-object model="Bambus.003.b3d" xyz="134.768814 2.559901 -45.278481" hpr="-86.129362 49.014028 -1.036231" scale="0.317625 0.317625 0.317625"/>
+    <static-object model="Cone.024.b3d" xyz="155.580856 1.993162 -62.585831" hpr="-86.129362 156.652711 -1.036232" scale="0.298716 0.298716 0.298716"/>
+    <static-object model="Cone.033.b3d" xyz="133.130142 0.160966 -43.351234" hpr="-86.129362 211.279457 -1.036232" scale="0.298731 0.298926 0.315559"/>
+  </track>
+  <water model="water.b3d" xyz="96.546875 -15.146943 79.864822" hpr="-0.000000 0.341205 0.000000" scale="1.000000 1.000000 1.000000" height="0.20" speed="200.00" length="1.00">
+    <animated-texture name="water_dark.png" dx="0.010"  dy="0.010" />
+  </water>
+  <object type="movable" xyz="2.317133 -12.377911 36.918690" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"
+          model="Sphere.057.b3d" shape="cylinderZ" mass="150.0"/>
+  <object type="movable" xyz="-4.023927 -12.366517 51.814991" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"
+          model="Sphere.058.b3d" shape="cylinderZ" mass="50.0"/>
+  <object type="movable" xyz="-3.150401 -12.358922 73.636818" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"
+          model="Sphere.059.b3d" shape="cylinderZ" mass="50.0"/>
+  <object type="movable" xyz="13.848101 -12.245199 78.460388" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"
+          model="Sphere.060.b3d" shape="cylinderZ" mass="50.0"/>
+  <object type="movable" xyz="5.322694 -11.542339 20.121826" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"
+          model="Sphere.061.b3d" shape="sphere" mass="150.0"/>
+  <object type="movable" xyz="-2.252456 -11.370575 19.716984" hpr="-0.000000 -5.424111 0.000000" scale="1.000000 1.000000 1.000000"
+          model="Sphere.062.b3d" shape="cylinderZ" mass="50.0"/>
+  <object type="movable" xyz="-7.820013 -12.379622 35.960133" hpr="-0.000000 -5.424111 0.000000" scale="1.000000 1.000000 1.000000"
+          model="Sphere.064.b3d" shape="cylinderZ" mass="50.0"/>
+  <object type="movable" xyz="2.959256 -12.373565 65.687866" hpr="-0.000000 -0.000000 -0.000000" scale="1.000000 1.000000 1.000000"
+          model="Sphere.066.b3d" shape="cylinderZ" mass="50.0"/>
+  <weather particles="none.xml" />
+  <item x="0" y="15.264944" z="0" />
+  <item x="46.587746" y="31.357311" z="-125.283257" />
+  <item x="71.140747" y="31.357311" z="-113.321541" />
+  <item x="93.175491" y="31.357311" z="-132.838028" />
+  <item x="138.623154" y="33.752251" z="16.900627" />
+  <item x="3.621228" y="0" z="33.410019" />
+  <item x="-8.813894" y="0" z="61.067726" />
+  <big-nitro x="43.763798" y="20.845198" z="126.277489" />
+  <small-nitro x="149.40477" y="32.78249" z="126.055977" />
+  <small-nitro x="170.914215" y="20.845366" z="100.365677" />
+  <banana x="169.676941" y="0.000154" z="83.167648" />
+  <small-nitro x="162.995697" y="20.845366" z="116.326431" />
+  <banana x="165.346573" y="0.000154" z="85.023521" />
+  <banana x="160.768753" y="0.000154" z="86.755669" />
+  <banana x="128.246872" y="23.103367" z="11.38658" h="-21.464623" />
+  <banana x="131.873352" y="23.103367" z="8.099423" h="-21.464623" />
+  <banana x="135.224274" y="30.764519" z="4.787669" h="-21.464623" />
+  <small-nitro x="125.510201" y="35.644279" z="-52.906555" />
+  <small-nitro x="141.322876" y="35.644279" z="-55.220604" />
+  <small-nitro x="152.12178" y="35.644279" z="-65.633827" />
+  <small-nitro x="154.050156" y="35.644279" z="-84.146225" />
+  <item x="134.83876" y="41.379742" z="57.107971" />
+  <item x="101.815125" y="13.012098" z="-60.502663" />
+  <item x="6.780199" y="-4.48111" z="-42.05114" />
+  <item x="30.68202" y="-4.48111" z="-68.487686" />
+  <big-nitro x="133.463898" y="3.999327" z="41.094666" />
+  <checks>
+    <check-lap kind="lap" same-group="0" other-ids="1" />
+    <check-line kind="activate" other-ids="2" p1="31.474791 92.526665" p2="18.061604 88.202705"
+                min-height="-13.143717" same-group="1"/>
+    <check-line kind="activate" other-ids="3" p1="120.888489 56.100670" p2="142.084610 51.337315"
+                min-height="3.999551" same-group="2"/>
+    <check-line kind="activate" other-ids="0" p1="98.492798 -125.065300" p2="99.476997 -139.044357"
+                min-height="6.312212" same-group="3"/>
+  </checks>
+  <sky-box texture="genericskybox_top.jpg genericskybox_bottom.jpg genericskybox_east.jpg genericskybox_west.jpg genericskybox_south.jpg genericskybox_north.jpg"
+            horizontal="10" vertical="10" 
+            texture-percent="1.0" sphere-percent="2.0"
+            speed-x="0.004999999888241291" speed-y="0.0" />
+  <camera far="1000.0"/>
+  <default-start karts-per-row     ="2"
+                 forwards-distance ="1.10"
+                 sidewards-distance="1.10"
+                 upwards-distance  ="1.10"/>
+  <end-cameras>
+    <camera type="ahead_of_kart" xyz="378.008301 232.602722 322.713226" distance="5"/>
+  </end-cameras>
+</scene>

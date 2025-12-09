@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!-- Generated with script from SVN rev 8296 -->
+<materials>
+  <material name="city_metal.png" backface-culling="Y"/>
+  <material name="empty.png" compositing="test" disable-z-write="Y" light="N" backface-culling="N"/>
+  <material name="race_checker.png" clampV="N" clampU="N" anisotropic="N" compositing="none" disable-z-write="N" ignore="N" reset="N" sphere="N" surface="N" below-surface="N" falling-effect="N"/>
+  <material name="racetrack_crowd.png" disable-z-write="Y" backface-culling="N" compositing="test" light="N"/>
+  <material name="zipper.png">
+    <zipper/>
+  </material>
+</materials>

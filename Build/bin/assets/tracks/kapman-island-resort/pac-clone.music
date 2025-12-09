@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<music title      = "Pacman-clone"
+       composer   = "remaxim (Commissioned by mcarter)"
+       file       = "pacman-background-music.ogg"
+       gain       = "2.0"
+       fast       = "true"
+       loop-start = "74.666"/>

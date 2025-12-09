@@ -1,0 +1,10 @@
+Origami Animosity
+Created by TuxThePenguin#1
+Licensed under the GPL version 3.0
+
+Uses a bridge mesh from the built-in Zen Garden track, with all textures replaced with built-in ones.
+
+Files: lined_paper.png
+Source: https://opengameart.org/content/paper-airplane
+Copyright: Clint Bellanger
+License: CC0

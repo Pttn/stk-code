@@ -48,6 +48,9 @@ const int GP_FACTOR = 3;
 class StoryModeStatus
 {
 private:
+    /** Which Overworld is being Run (Standard overworld or Addon overworld_ao) */
+    std::string m_overworld;
+
     /** Contains whether each feature of the challenge is locked or unlocked */
     std::map<std::string, bool>   m_locked_features;
 
@@ -132,6 +135,12 @@ public:
     // ----------------------------------------------------------------------------------------
     /** Returns the number of fulfilled challenges at best level. */
     int getNumBestTrophies  () const { return m_best_challenges;   }
+    // ----------------------------------------------------------------------------------------
+    /** Sets which Overworld to Run. */
+    void setOverworld(const std::string &overworld)  {m_overworld = overworld;}
+    // ----------------------------------------------------------------------------------------
+    /** Returns which Overworld is being Run. */
+    std::string getOverworld() const   {return m_overworld;}
     // ----------------------------------------------------------------------------------------
     /** Sets if the player has beaten Nolock */
     void setFinished()  { m_story_mode_finished = true; }

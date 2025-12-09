@@ -1,0 +1,7 @@
+<supertuxkart_grand_prix name="Distant Worlds">
+    <track id="canyon42"             laps="3" reverse="false" />
+    <track id="lost-chasm"           laps="3" reverse="false" />
+    <track id="high-in-the-sky"      laps="3" reverse="false" />
+    <track id="origami-animosity"    laps="3" reverse="false" />
+    <track id="terabite"             laps="3" reverse="false" />
+</supertuxkart_grand_prix>

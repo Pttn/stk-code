@@ -1,0 +1,7 @@
+<supertuxkart_grand_prix name="The Good Old Times">
+    <track id="blackhill-mansion"    laps="4" reverse="false" />
+    <track id="the-island"           laps="3" reverse="false" />
+    <track id="bovine-barnyard"      laps="4" reverse="false" />
+    <track id="tux-tollway"          laps="3" reverse="false" />
+    <track id="green-valley"         laps="3" reverse="false" />
+</supertuxkart_grand_prix>

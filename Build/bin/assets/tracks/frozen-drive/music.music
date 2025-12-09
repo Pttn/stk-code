@@ -1,0 +1,21 @@
+<!--
+  I make the music play as SFX as a hack to get two songs to play.
+  
+  The main song is:
+
+Teddy Bear Waltz Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 3.0 License
+http://creativecommons.org/licenses/by/3.0/
+
+  The alternate route song is:
+
+Frozen in Motion 2 - jobromedia
+GPL 3
+  
+-->
+
+<?xml version="1.0"?>
+<music title = "Teddy Bear Waltz/Frozen in Motion 2"
+    composer = "Kevin MacLeod (CC-BY 3)/jobromedia (GPL 3)"
+        gain = "1.0"
+        file = "empty.ogg"/>

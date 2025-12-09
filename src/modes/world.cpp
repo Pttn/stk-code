@@ -278,8 +278,18 @@ void World::init()
     if (m_race_gui)
         m_race_gui->init();
 
-    if (m_process_type == PT_MAIN)
-        powerup_manager->computeWeightsForRace(RaceManager::get()->getNumberOfKarts());
+    delete powerup_manager;
+    powerup_manager = new PowerupManager();
+    if (track_manager->getTrack(RaceManager::get()->getTrackName())->isInGroup("Addons")) {
+        Log::info("World", "Using Addons Powrup Probabilities.");
+        powerup_manager->loadPowerupsModels("powerup_ao.xml");
+    }
+    else {
+        Log::info("World", "Using Regular Powrup Probabilities.");
+        powerup_manager->loadPowerupsModels("powerup.xml");
+    }
+    powerup_manager->computeWeightsForRace(RaceManager::get()->getNumberOfKarts());
+
     main_loop->renderGUI(7200);
     if (m_process_type == PT_MAIN && UserConfigParams::m_particles_effects > 1)
     {

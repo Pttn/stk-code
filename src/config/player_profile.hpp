@@ -203,7 +203,7 @@ public:
     /** Returnes if the feature (kart, track) is locked. */
     bool isLocked(const std::string &feature) const
     {
-        return m_story_mode_status->isLocked(feature) && story_mode_timer->isSpeedrunning() && !story_mode_timer->speedrunIsFinished();
+        return m_story_mode_status->isLocked(feature) && story_mode_timer->isSpeedrunning() && !story_mode_timer->speedrunIsFinished() && m_story_mode_status->getOverworld() == "overworld";
     }   // isLocked
     // ----------------------------------------------------------------------------------------
     /** Returns all active challenges. */
