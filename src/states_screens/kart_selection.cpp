@@ -313,13 +313,6 @@ void KartSelectionScreen::beforeAddingWidget()
         kart_properties_manager->getAllGroups();
     const int group_amount = (int)groups.size();
 
-    // Add "All" group first
-    if (group_amount > 1)
-    {
-        //I18N: name of the tab that will show karts from all groups
-        tabs->addTextChild( _("All") , ALL_KART_GROUPS_ID);
-    }
-
     // Make group names being picked up by gettext
 #define FOR_GETTEXT_ONLY(x)
     //I18N: kart group/class name
