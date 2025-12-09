@@ -1,0 +1,10 @@
+
+<supertuxkart_grand_prix name="Off the Beaten Track 1.3">
+
+    <track id="cornfield_crossing"   laps="3" reverse="false" />
+    <track id="snowtuxpeak_1.4"          laps="3" reverse="false" />
+    <track id="ravenbridge_mansion"  laps="3" reverse="false" />
+    <track id="zengarden_1.3"            laps="4" reverse="false" />
+    <track id="cocoa_temple"         laps="3" reverse="false" />
+    
+</supertuxkart_grand_prix>
