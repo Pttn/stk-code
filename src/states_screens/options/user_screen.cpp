@@ -52,6 +52,8 @@ void BaseUserScreen::loadedFromFile()
 {
     m_online_cb = getWidget<CheckBoxWidget>("online");
     assert(m_online_cb);
+    m_online_cb->setState(false);
+    m_online_cb->setActive(false);
     m_username_tb = getWidget<TextBoxWidget >("username");
     assert(m_username_tb);
     m_password_tb = getWidget<TextBoxWidget >("password");

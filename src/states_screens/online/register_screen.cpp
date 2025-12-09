@@ -498,7 +498,7 @@ void RegisterScreen::eventCallback(Widget* widget, const std::string& name,
             && (UserConfigParams::m_internet_status == Online::RequestManager::IPERM_NOT_ALLOWED) )
         {
             m_info_widget->setErrorColor();
-            m_info_widget->setText(_("Internet access is disabled, please enable it in the options"), false);
+            m_info_widget->setText(_("Internet access is disabled"), false);
             return;
         }
         if (selection == "tab_new_online")

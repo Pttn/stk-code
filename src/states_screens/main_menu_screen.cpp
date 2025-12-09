@@ -164,14 +164,6 @@ void MainMenuScreen::init()
     input_manager->getDeviceManager()->clearLatestUsedDevice();
 
 #ifndef SERVER_ONLY
-    if (addons_manager && addons_manager->isLoading())
-    {
-        IconButtonWidget* w = getWidget<IconButtonWidget>("addons");
-        w->setActive(false);
-        w->resetAllBadges();
-        w->setBadge(LOADING_BADGE);
-    }
-
     // Initialize news iteration, show dialog when there's important news
     NewsManager::get()->resetNewsPtr(NewsManager::NTYPE_MAINMENU);
 
@@ -209,25 +201,7 @@ void MainMenuScreen::init()
 
     IconButtonWidget* online_icon = getWidget<IconButtonWidget>("online");
     if (online_icon != NULL)
-    {
-        NewsManager::get()->resetNewsPtr(NewsManager::NTYPE_LIST);
-        online_icon->resetAllBadges();
-
-        int news_list_len = NewsManager::get()->getNewsCount(NewsManager::NTYPE_LIST);
-
-        while (news_list_len--)
-        {
-            int id = NewsManager::get()->getNextNewsID(NewsManager::NTYPE_LIST);
-
-            if (UserConfigParams::m_news_list_shown_id < id)
-            {
-                online_icon->setBadge(REDDOT_BADGE);
-            }
-        }
-        
-        // Back to the first news
-        NewsManager::get()->getNextNewsID(NewsManager::NTYPE_LIST);
-    }
+        online_icon->setActive(false);
 
     m_news_text = L"";
     LabelWidget* w = getWidget<LabelWidget>("info_addons");
@@ -262,30 +236,7 @@ void MainMenuScreen::onUpdate(float delta)
 
     IconButtonWidget* addons_icon = getWidget<IconButtonWidget>("addons");
     if (addons_icon != NULL)
-    {
-        if (addons_manager->wasError())
-        {
-            addons_icon->setActive(true);
-            addons_icon->resetAllBadges();
-            addons_icon->setBadge(BAD_BADGE);
-        }
-        else if (addons_manager->isLoading() && UserConfigParams::m_internet_status
-            == Online::RequestManager::IPERM_ALLOWED)
-        {
-            // Addons manager is still initialising/downloading.
-            addons_icon->setActive(false);
-            addons_icon->resetAllBadges();
-            addons_icon->setBadge(LOADING_BADGE);
-        }
-        else
-        {
-            addons_icon->setActive(true);
-            addons_icon->resetAllBadges();
-            if (addons_manager->hasNewAddons())
-                addons_icon->setBadge(DOWN_BADGE);
-        }
-        // maybe add a new badge when not allowed to access the net
-    }
+        addons_icon->setActive(false);
 
     LabelWidget* w = getWidget<LabelWidget>("info_addons");
     
@@ -543,14 +494,6 @@ void MainMenuScreen::eventCallback(Widget* widget, const std::string& name,
         s->setFromOverworld(false);
         s->push();
     }
-    else if (selection == "multiplayer")
-    {
-        KartSelectionScreen* s = OfflineKartSelectionScreen::getInstance();
-        NetworkConfig::get()->unsetNetworking();
-        s->setMultiplayer(true);
-        s->setFromOverworld(false);
-        s->push();
-    }
     else if (selection == "options")
     {
         OptionsScreenGeneral::getInstance()->push();
@@ -616,42 +559,6 @@ void MainMenuScreen::eventCallback(Widget* widget, const std::string& name,
             OverWorld::enterOverWorld();
         }
     }
-    else if (selection == "online")
-    {
-        if(UserConfigParams::m_internet_status!=RequestManager::IPERM_ALLOWED)
-        {
-            new MessageDialog(_("You can not play online without internet access. "
-                                "If you want to play online, go in the options menu, "
-                                "and check \"Connect to the Internet\"."));
-            return;
-        }
-        OnlineScreen::getInstance()->push();
-    }
-    else if (selection == "addons")
-    {
-        // Don't go to addons if there is no internet, unless some addons are
-        // already installed (so that you can delete addons without being online).
-        if(UserConfigParams::m_internet_status!=RequestManager::IPERM_ALLOWED)
-        {
-            if (!addons_manager->anyAddonsInstalled())
-            {
-                new MessageDialog(_("You can not download addons without internet access. "
-                                    "If you want to download addons, go in the options menu, "
-                                    "and check \"Connect to the Internet\"."));
-                return;
-            }
-            else
-            {
-                AddonsScreen::getInstance()->push();
-                new MessageDialog(_("You can not download addons without internet access. "
-                                    "If you want to download addons, go in the options menu, "
-                                    "and check \"Connect to the Internet\".\n\n"
-                                    "You can however delete already downloaded addons."));
-                return;
-            }
-        }
-        AddonsScreen::getInstance()->push();
-    }
     else if (selection == "gpEditor")
     {
         GrandPrixEditorScreen::getInstance()->push();
@@ -680,22 +587,7 @@ void MainMenuScreen::onDisabledItemClicked(const std::string& item)
 #ifndef SERVER_ONLY
     if (item == "addons")
     {
-        if (UserConfigParams::m_internet_status != RequestManager::IPERM_ALLOWED)
-        {
-            new MessageDialog( _("The add-ons module is currently disabled in "
-                                 "the Options screen") );
-        }
-        else if (addons_manager->wasError())
-        {
-            new MessageDialog( _("Sorry, an error occurred while contacting "
-                                 "the add-ons website. Make sure you are "
-                                 "connected to the Internet and that "
-                                 "SuperTuxKart is not blocked by a firewall"));
-        }
-        else if (addons_manager->isLoading())
-        {
-            new MessageDialog( _("Please wait while the add-ons are loading"));
-        }
+        new MessageDialog( _("Runs for Addons not included in the Mod or with Addon Karts are not Validated on Speedrun.com. If you really want to add some then download them using a Vanilla Game and manually put them in the Addons Folder."));
     }
 #endif
 }   // onDisabledItemClicked

@@ -2096,62 +2096,6 @@ void initRest()
 }   // initRest
 
 //=============================================================================
-void askForInternetPermission()
-{
-    if (UserConfigParams::m_internet_status !=
-        Online::RequestManager::IPERM_NOT_ASKED)
-        return;
-
-    class ConfirmServer :
-          public MessageDialog::IConfirmDialogListener
-    {
-    public:
-        virtual void onConfirm()
-        {
-            // Typically internet is disabled here (just better safe
-            // than sorry). If internet should be allowed, the news
-            // manager needs to be started (which in turn activates
-            // the add-ons manager).
-#ifndef SERVER_ONLY
-            bool need_to_start_news_manager =
-                UserConfigParams::m_internet_status !=
-                Online::RequestManager::IPERM_ALLOWED &&
-                !GUIEngine::isNoGraphics();
-            UserConfigParams::m_internet_status =
-                                  Online::RequestManager::IPERM_ALLOWED;
-            if (need_to_start_news_manager)
-                NewsManager::get()->init(false);
-#endif
-            user_config->saveConfig();
-            GUIEngine::ModalDialog::dismiss();
-        }   // onConfirm
-        // --------------------------------------------------------
-        virtual void onCancel()
-        {
-            UserConfigParams::m_internet_status =
-                Online::RequestManager::IPERM_NOT_ALLOWED;
-            GUIEngine::ModalDialog::dismiss();
-        }   // onCancel
-    };   // ConfirmServer
-
-    MessageDialog *dialog =
-    new MessageDialog(_("SuperTuxKart may connect to a server "
-        "to download add-ons and notify you of updates. "
-        "Please read our privacy policy at https://supertuxkart.net/Privacy. "
-        "Would you like this feature to be enabled? (To change this setting "
-        "at a later time, go to options, select tab "
-        "'General', and edit \"Connect to the "
-        "Internet\")."),
-        MessageDialog::MESSAGE_DIALOG_YESNO,
-        new ConfirmServer(), true, true, 0.85f, 0.85f);
-
-    // Changes the default focus to be 'cancel' ('ok' as default is not
-    // GDPR compliant, see #3378).
-    dialog->setFocusCancel();
-    GUIEngine::DialogQueue::get()->pushDialog(dialog, false);
-}   // askForInternetPermission
-
-//=============================================================================
 
 #if defined(WIN32) && defined(_MSC_VER)
     #ifdef DEBUG
@@ -2447,6 +2391,7 @@ int main(int argc, char *argv[])
         if (!handleCmdLine(!server_config.empty(), has_parent_process))
             exit(0);
 
+        UserConfigParams::m_internet_status = Online::RequestManager::IPERM_NOT_ALLOWED;
 #ifndef SERVER_ONLY
         if (!GUIEngine::isNoGraphics())
         {
@@ -2573,13 +2518,6 @@ int main(int argc, char *argv[])
                 #endif
                 Log::warn("OpenGL", "OpenGL version is too old!");
             }
-
-            // Note that on the very first run of STK internet status is set to
-            // "not asked", so the report will only be sent in the next run.
-            if(UserConfigParams::m_internet_status==Online::RequestManager::IPERM_ALLOWED)
-            {
-                HardwareStats::reportHardwareStats();
-            }
         }
 #endif
 
@@ -2625,7 +2563,6 @@ int main(int argc, char *argv[])
                 wiimote_manager->askUserToConnectWiimotes();
             }
 #endif
-            askForInternetPermission();
         }
         else
         {
