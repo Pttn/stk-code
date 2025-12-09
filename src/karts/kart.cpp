@@ -1083,18 +1083,14 @@ void Kart::setRaceResult()
                 else
                     m_race_result = false;
             }
-            else if (this->getPosition() <= 0.5f *
-                World::getWorld()->getCurrentNumKarts() ||
-                this->getPosition() == 1)
+            else if (this->getPosition() == 1)
                 m_race_result = true;
             else
                 m_race_result = false;
         }
         else
         {
-            if (this->getPosition() <= 0.5f *
-                World::getWorld()->getCurrentNumKarts() ||
-                this->getPosition() == 1)
+            if (this->getPosition() == 1)
                 m_race_result = true;
             else
                 m_race_result = false;
