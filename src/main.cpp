@@ -595,6 +595,7 @@ void cmdLineHelp()
                               "./data/stk_config.xml\n"
     "  -k,  --numkarts=NUM     Set number of karts on the racetrack.\n"
     "       --kart=NAME        Use kart NAME.\n"
+    "       --ghost=file       Race against given Ghost File.\n"
     "       --ai=a,b,...       Use the karts a, b, ... for the AI, and additional player kart.\n"
     "       --aiNP=a,b,...     Use the karts a, b, ... for the AI, no additional player kart.\n"
     "       --laps=N           Define number of laps to N, if used in a server all races will use this value.\n"
@@ -1654,6 +1655,12 @@ int handleCmdLine(bool has_server_config, bool has_parent_process)
                       s.c_str());
         }
     }   // if --kart
+
+    if(CommandLine::has("--ghost", &s))
+    {
+        ReplayPlay::get()->addReplayFile(s);
+        RaceManager::get()->setRaceGhostKarts(true);
+    }   // if --ghost
 
     if(CommandLine::has("--ai", &s))
     {
