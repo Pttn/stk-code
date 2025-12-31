@@ -41,3 +41,32 @@ cd bin
 	* If `MSBuild.exe` is not found then try instead something like `&"C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\amd64\MSBuild.exe" SuperTuxKart.sln`. You may need to look yourself for the `MSBuild.exe` file and adjust the path.
 	* Append ` /t:Build /p:Configuration=Release` for a Release Build.
 * Go to the `bin` folder: a `Debug` (or `Release`) one was created inside. Move the `assets` one inside that Folder. Now, you can run `supertuxkart.exe`.
+
+## TAS
+
+The Speedrunner Edition also includes TAS Tools for IL TASes. You can also already get started with the following instructions.
+
+You need to use Command Line:
+
+```bash
+./supertuxkart --tas --no-start-screen --track=volcano_island_1.4 --numkarts=1 --kart=pidgin --mode=1 --tas-inputs=inputs --ghost=volcano_island_1.4_202618_1_99_7501.replay
+```
+
+This will start a Volcan Island 1.4 IL with Pidgin and replay the Inputs in the `inputs.stktas` file next to the Binary. Additionally (optional), this will race against the Ghost from File `volcano_island_1.4_202618_1_99_7501.replay`.
+
+### Inputs
+
+The TAS Tools simulates Keyboard Inputs, which each line corresponding to one Tick. The following letters have the following interpretation, and their presence or not meaens whether the key was pressed or not.
+
+* `a` : **a**ccelerate
+* `d` : slow **d**own
+* `l`/`r` : steer **l**eft/**r**ight
+* `s` : **s**kid
+* `n` : **n**itro
+* `f` : **f**ire
+* `b` : look **b**ack
+* `t` : **T**hunderbird
+
+### Commands
+
+Press `P` to Pause, `O` to Tick Advance, `Ctrl + Z` to set a Checkpoint (works similarly to Save States) and `Z` to return to the Checkpoint.

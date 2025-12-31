@@ -9,6 +9,8 @@
 #include "IMeshBuffer.h"
 #include "S3DVertex.h"
 
+#include "../../../src/tas/tas.hpp"
+
 #include <algorithm>
 #include <chrono>
 #include <memory>
@@ -79,6 +81,8 @@ void deinit()
 
 uint64_t getMonoTimeMs()
 {
+    if (Tas::get()->isEnabled())
+        return Tas::get()->currentTimeMs();
     auto duration = std::chrono::steady_clock::now() - g_mono_start;
     auto value =
         std::chrono::duration_cast<std::chrono::milliseconds>(duration);

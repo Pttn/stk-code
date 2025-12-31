@@ -79,6 +79,7 @@
 #include "states_screens/dialogs/message_dialog.hpp"
 #include "states_screens/options/options_screen_video.hpp"
 #include "states_screens/state_manager.hpp"
+#include "tas/tas.hpp"
 #include "tracks/track_manager.hpp"
 #include "tracks/track.hpp"
 #include "utils/command_line.hpp"
@@ -2120,6 +2121,27 @@ void IrrDriver::doScreenShot()
 }   // doScreenShot
 
 // ----------------------------------------------------------------------------
+/** Saves the current frame in a file. */
+void IrrDriver::doFrameShot(const uint64_t frameNumber)
+{
+    char frameNumberStr[7];
+    sprintf(frameNumberStr, "%06" PRIu64, frameNumber);
+    video::IImage* image = m_video_driver->createScreenShot();
+    if (!image) {
+        Log::error("IrrDriver", (std::string("Could not create frame ") + std::string(frameNumberStr) + std::string("! Stopping frame recording.")).c_str());
+        Tas::get()->stopRecordingFrames();
+        return;
+    }
+
+    std::string path(std::string(file_manager->getScreenshotDir()) + std::string(frameNumberStr) + std::string(".jpg"));
+    if (!irr_driver->getVideoDriver()->writeImageToFile(image, path.c_str(), 0)) {
+        Log::error("IrrDriver", (std::string("Unable to save frame ") + std::string(frameNumberStr) + std::string("! Stopping frame recording.")).c_str());
+        Tas::get()->stopRecordingFrames();
+    }
+    image->drop();
+}   // doFrameShot
+
+// ----------------------------------------------------------------------------
 void IrrDriver::handleWindowResize()
 {
     // This will allow main menu auto resize if missed a resize event
@@ -2589,6 +2611,8 @@ const core::dimension2d<u32>& IrrDriver::getFrameSize() const
 // ----------------------------------------------------------------------------
 unsigned int IrrDriver::getRealTime()
 {
+    if (Tas::get()->isEnabled())
+        return Tas::get()->currentTimeMs();
     return m_device->getTimer()->getRealTime();
 }
 

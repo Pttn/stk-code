@@ -43,6 +43,7 @@ using namespace std::chrono_literals;
 
 class StkTime
 {
+friend class Tas;
 private:
     /** This objects keeps a copy of irrlicht's null-device timer. This is
     *  important otherwise we can't get the time when resolution is switched
@@ -112,13 +113,7 @@ public:
     /** Returns a time based since the starting of stk (monotonic clock).
      *  The value is a 64bit unsigned integer in milliseconds.
      */
-    static uint64_t getMonoTimeMs()
-    {
-        auto duration = std::chrono::steady_clock::now() - m_mono_start;
-        auto value =
-            std::chrono::duration_cast<std::chrono::milliseconds>(duration);
-        return value.count();
-    }
+    static uint64_t getMonoTimeMs();
     // ------------------------------------------------------------------------
     /**
      * \brief Compare two different times.

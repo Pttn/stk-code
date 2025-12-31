@@ -53,6 +53,7 @@
 #include "states_screens/race_gui_multitouch.hpp"
 #endif
 #include "states_screens/state_manager.hpp"
+#include "tas/tas.hpp"
 #include "utils/debug.hpp"
 #include "utils/string_utils.hpp"
 #include "utils/translation.hpp"
@@ -343,6 +344,43 @@ void InputManager::handleStaticAction(int key, int value)
         case IRR_KEY_SHIFT:
         {
             shift_is_pressed = value != 0;
+            break;
+        }
+        // TAS Commands + Race Instant Reset.
+        case IRR_KEY_P: // Pause/Unpause.
+        {
+            if (Tas::get()->isEnabled() && value) {
+                if (!Tas::get()->isPaused())
+                    Tas::get()->pause();
+                else
+                    Tas::get()->resume();
+            }
+            break;
+        }
+        case IRR_KEY_O: // Tick Advance.
+        {
+            if (Tas::get()->isEnabled() && value)
+                Tas::get()->tickAdvance();
+            break;
+        }
+        case IRR_KEY_L: // Record Frames.
+        {
+            if (Tas::get()->isEnabled() && value) {
+                if (!Tas::get()->isRecordingFrames())
+                    Tas::get()->startRecordingFrames();
+                else
+                    Tas::get()->stopRecordingFrames();
+            }
+            break;
+        }
+        case IRR_KEY_Z: // Checkpoints.
+        {
+            if (value) {
+                if (Tas::get()->isEnabled() && control_is_pressed)
+                    Tas::get()->setCheckpoint();
+                else // Also used in Non Tas, instantly Resets a Race.
+                    Tas::get()->requestReturnToCheckpoint();
+            }
             break;
         }
         case IRR_KEY_SNAPSHOT:

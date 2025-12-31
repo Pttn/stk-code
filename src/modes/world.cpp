@@ -74,6 +74,7 @@
 #include "states_screens/race_gui.hpp"
 #include "states_screens/race_result_gui.hpp"
 #include "states_screens/state_manager.hpp"
+#include "tas/tas.hpp"
 #include "tracks/check_manager.hpp"
 #include "tracks/track.hpp"
 #include "tracks/track_manager.hpp"
@@ -444,7 +445,7 @@ void World::reset(bool restart)
     // Make sure to overwrite the data from the previous race.
     if(!history->replayHistory()) history->initRecording();
     if (!RaceManager::get()->isWatchingReplay() && World::getWorld()->getCurrentNumPlayers() == 1 && RaceManager::get()->getNumberOfAIKarts() == 0 && (RaceManager::get()->isTimeTrialMode() || RaceManager::get()->isEggHuntMode()))
-        RaceManager::get()->setRecordRace(true);
+        RaceManager::get()->setRecordRace(!Tas::get()->isBruteForcing());
     if(RaceManager::get()->isRecordingRace())
     {
         Log::info("World", "Start Recording race.");

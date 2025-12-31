@@ -278,6 +278,7 @@ extern "C" {
 #include "states_screens/options/user_screen.hpp"
 #include "states_screens/dialogs/init_android_dialog.hpp"
 #include "states_screens/dialogs/message_dialog.hpp"
+#include "tas/tas.hpp"
 #include "tips/tips_manager.hpp"
 #include "tracks/arena_graph.hpp"
 #include "tracks/track.hpp"
@@ -586,6 +587,9 @@ void cmdLineHelp()
                               " keyboard. Is zero indexed.\n"
     "       --use-gamepad=N    Used in conjunction with the -N or -R option, will assign the player to the specified"
                               " gamepad. Is zero indexed.\n"
+    "       --tas              Run the game in TAS Mode.\n"
+    "       --tas-inputs=file  In TAS Mode, set the Inputs File.\n"
+    "       --bruteforce=name  In TAS Mode, do Brute Force for the given Algorithm (implement/adjust it yourself in tas.cpp).\n"
     "  -t,  --track=NAME       Start track NAME.\n"
     "       --gp=NAME          Start the specified Grand Prix.\n"
     "       --add-gp-dir=DIR   Load Grand Prix files in DIR. Setting will be saved"
@@ -2220,6 +2224,7 @@ int main(int argc, char *argv[])
     // Init the graphical presets
     GraphicalPresets::initPresets();
 
+    Tas::create();
     try
     {
         std::string s, server_config;
@@ -2264,6 +2269,18 @@ int main(int argc, char *argv[])
         // Client port depends on user config file and stk_config
         NetworkConfig::get()->initClientPort();
         bool no_graphics = !CommandLine::has("--graphical-server");
+
+        if (CommandLine::has( "--tas")) {
+            UserConfigParams::m_check_debug = true;
+            stk_config->m_normal_ttf = {"FreeMonoBold.otf"};
+            Tas::get()->enable();
+            if (CommandLine::has( "--tas-inputs", &s))
+                Tas::get()->loadInputs(s);
+            if (CommandLine::has( "--bruteforce", &s)) {
+                Tas::get()->doBruteForceFor(s);
+                Log::setLogLevel(3);
+            }
+        }
 
 #ifndef SERVER_ONLY
         TipsManager::create();

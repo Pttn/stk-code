@@ -35,6 +35,8 @@
 #include "guiengine/modaldialog.hpp"
 #include "guiengine/screen_keyboard.hpp"
 #include "input/input_manager.hpp"
+#include "karts/abstract_kart.hpp"
+#include "karts/controller/player_controller.hpp"
 #include "modes/world.hpp"
 #include "modes/profile_world.hpp"
 #include "network/network_config.hpp"
@@ -53,6 +55,7 @@
 #include "states_screens/online/server_selection.hpp"
 #include "states_screens/main_menu_screen.hpp"
 #include "states_screens/state_manager.hpp"
+#include "tas/tas.hpp"
 #include "utils/profiler.hpp"
 #include "utils/string_utils.hpp"
 #include "utils/time.hpp"
@@ -419,6 +422,13 @@ void MainLoop::run()
 
     while (!m_abort)
     {
+      if (Tas::get()->isPaused()) {
+          irr_driver->getDevice()->run(); // to allow resuming by pressing P again or Tick Advance with O.
+          std::this_thread::sleep_for(10ms); // to prevent high Cpu Usage.
+          continue;
+      }
+      else if (Tas::get()->isTickAdvancing())
+          Tas::get()->pause();
 #ifdef __SWITCH__
       // This feeds us messages (like when the Switch sleeps or requests an exit)
       m_abort = !appletMainLoop();
@@ -461,6 +471,11 @@ void MainLoop::run()
         int num_steps   = stk_config->time2Ticks(left_over_time);
         float dt = stk_config->ticks2Time(1);
         left_over_time -= num_steps * dt;
+
+        if (Tas::get()->isEnabled()) {
+            left_over_time = 0.;
+            num_steps = 1;
+        }
 
         // Shutdown next frame if shutdown request is sent while loading the
         // world
@@ -569,20 +584,46 @@ void MainLoop::run()
                     World::getWorld()->updateGraphics(frame_duration);
                 PROFILER_POP_CPU_MARKER();
 
-                // Render the previous frame, and also handle all user input.
-                PROFILER_PUSH_CPU_MARKER("IrrDriver update", 0x00, 0x00, 0x7F);
-                irr_driver->update(frame_duration);
-                PROFILER_POP_CPU_MARKER();
+                if (Tas::get()->isEnabled()) {
+                    std::shared_ptr<AbstractKart> kart(nullptr);
+                    if (World::getWorld()) {
+                        auto karts(World::getWorld()->getKarts());
+                        for (const auto &k : karts) {
+                            if (k && k->getController()->isLocalPlayerController()) {
+                                kart = k;
+                                break;
+                            }
+                        }
+                    }
+                    if (kart) // Update Kart Position for TAS Algorithms.
+                        Tas::get()->update(kart->getXYZ().getX(), kart->getXYZ().getY(), kart->getXYZ().getZ(), 3.6*kart->getSpeed());
+                    else
+                        Tas::get()->update(0., 0., 0., 0.);
+                }
+                if (!Tas::get()->isEnabled() || Tas::get()->currentTick() + 20 >= Tas::get()->checkpoint()) {
+                    if (!Tas::get()->isBruteForcing() || Tas::get()->isCandidate()) {
+                        // Render the previous frame, and also handle all user input.
+                        PROFILER_PUSH_CPU_MARKER("IrrDriver update", 0x00, 0x00, 0x7F);
+                        irr_driver->update(frame_duration);
+                        PROFILER_POP_CPU_MARKER();
 
-                PROFILER_PUSH_CPU_MARKER("Input/GUI", 0x7F, 0x00, 0x00);
-                input_manager->update(frame_duration);
-                GUIEngine::update(frame_duration);
-                PROFILER_POP_CPU_MARKER();
-                if (!m_download_assets)
-                {
-                    PROFILER_PUSH_CPU_MARKER("Music", 0x7F, 0x00, 0x00);
-                    SFXManager::get()->update();
-                    PROFILER_POP_CPU_MARKER();
+                        PROFILER_PUSH_CPU_MARKER("Input/GUI", 0x7F, 0x00, 0x00);
+                        input_manager->update(frame_duration);
+                        GUIEngine::update(frame_duration);
+                        PROFILER_POP_CPU_MARKER();
+                        if (!m_download_assets)
+                        {
+                            PROFILER_PUSH_CPU_MARKER("Music", 0x7F, 0x00, 0x00);
+                            SFXManager::get()->update();
+                            PROFILER_POP_CPU_MARKER();
+                        }
+                        if (Tas::get()->isRecordingFrames())
+                            Tas::get()->saveFrame();
+                        if (Tas::get()->isCandidate()) {
+                            std::this_thread::sleep_for(500ms);
+                            Tas::get()->saveFrame();
+                        }
+                    }
                 }
             }
             // Some protocols in network will use RequestManager
@@ -708,7 +749,7 @@ void MainLoop::run()
             }
         }
 
-        if (!UserConfigParams::m_benchmark)
+        if (!UserConfigParams::m_benchmark && (!Tas::get()->isEnabled() || (!Tas::get()->isBruteForcing() && (Tas::get()->currentTick() >= Tas::get()->checkpoint()))))
         {
             TimePoint frame_end = std::chrono::steady_clock::now();
             double frame_time = convertToTime(frame_end, frame_start) * 0.001;
@@ -737,6 +778,10 @@ void MainLoop::run()
 
         PROFILER_POP_CPU_MARKER();   // MainLoop pop
         PROFILER_SYNC_FRAME();
+        if (World::getWorld() && (Tas::get()->restartRequested() || (Tas::get()->isBruteForcing() && Tas::get()->currentTick() >= Tas::get()->checkpoint()))) { // Reset Race.
+            RaceManager::get()->rerunRace();
+            Tas::get()->restartRequestProcessed();
+        }
     }  // while !m_abort
 
 #ifdef WIN32
