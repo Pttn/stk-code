@@ -21,6 +21,7 @@
 #define HEADER_RACE_GUI_HPP
 
 #include <map>
+#include <memory>
 #include <string>
 #include <vector>
 
@@ -133,7 +134,7 @@ private:
     void drawSpeed             (const AbstractKart *kart,
                                 const core::vector2df &offset,
                                 int meter_width, int meter_height);
-    void drawTasInfos          ();
+    void drawTasInfos          (const std::shared_ptr<AbstractKart>);
 
     /* Helper functions for drawing meters */
 
