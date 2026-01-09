@@ -132,8 +132,61 @@ bool Tas::updateInputs() {
 	if (m_bfname == "")
 		return loadInputs(m_inputs_filename);
 
-	Log::warn("TAS", "Unknown Brute Force!");
-	return false;
+	m_inputs = m_file_inputs;
+	if (m_bfname == "volcanoJump1" || m_bfname == "volcanoJump2") {
+		for (int i(0) ; i < m_bfv[1] ; i++) {
+			TasInput steerLeft;
+			steerLeft.a = true;
+			steerLeft.l = true;
+			m_inputs.push_back(steerLeft);
+		}
+		for (int i(0) ; i < m_bfv[0] - m_bfv[1] - m_bfv[2] ; i++) {
+			TasInput accelerate;
+			accelerate.a = true;
+			m_inputs.push_back(accelerate);
+		}
+		for (int i(0) ; i < m_bfv[2] ; i++) {
+			TasInput steerRight;
+			steerRight.a = true;
+			steerRight.r = true;
+			m_inputs.push_back(steerRight);
+		}
+		for (int i(0) ; i < 1 ; i++) {
+			TasInput skidLeft;
+			skidLeft.a = true;
+			skidLeft.l = true;
+			skidLeft.s = true;
+			m_inputs.push_back(skidLeft);
+		}
+		for (int i(0) ; i < 270 ; i++) {
+			TasInput skidLeft;
+			skidLeft.a = true;
+			skidLeft.l = true;
+			skidLeft.s = true;
+			m_inputs.push_back(skidLeft);
+		}
+		for (int i(0) ; i < 180 ; i++) {
+			TasInput goLeft;
+			goLeft.a = true;
+			goLeft.l = true;
+			m_inputs.push_back(goLeft);
+		}
+		
+		m_bfv[2]++;
+		if (m_bfv[2] + m_bfv[1] > m_bfv[0]) {
+			m_bfv[2] = 0;
+			m_bfv[1]++;
+			Log::warn("TAS", (std::string("alr = ") + std::to_string(m_bfv[0]) + std::string(" ") + std::to_string(m_bfv[1]) + std::string(" ") + std::to_string(m_bfv[2])).c_str());
+		}
+		if (m_bfv[1] > m_bfv[0]) {
+			m_bfv[1] = 0;
+			m_bfv[0]++;
+		}
+		m_checkpoint = m_file_inputs.size() + (m_bfname == "volcanoJump1" ? 505 : 535);
+	}
+	else
+		Log::warn("TAS", "Unknown Brute Force!");
+	return true;
 }
 
 void Tas::update(const double x, const double y, const double z, const double v) {
@@ -146,6 +199,26 @@ void Tas::update(const double x, const double y, const double z, const double v)
 	m_y = y;
 	m_z = z;
 	m_v = v;
+	
+	if (m_bfname == "volcanoJump1" || m_bfname == "volcanoJump2") {
+		if (m_current_tick > m_file_inputs.size() + (m_bfname == "volcanoJump1" ? 55 : 85) &&
+		    m_current_tick < m_file_inputs.size() + (m_bfname == "volcanoJump1" ? 130 : 160) &&
+		    m_v - m_prevv < -0.1) { // Turns too far right just after Skid.
+			m_bfv[2] = m_bfv[0];
+			updateInputs();
+			requestReturnToCheckpoint();
+			return;
+		}
+		if (m_current_tick > m_file_inputs.size() + (m_bfname == "volcanoJump1" ? 100 : 130) &&
+		    m_current_tick < m_file_inputs.size() + (m_bfname == "volcanoJump1" ? 135 : 165) &&
+		    m_v - m_prevv < -0.5) { // Turns too far Left just after Skid, detectable if hit the Banana.
+			m_bfv[2] = m_bfv[0];
+			m_bfv[1] = m_bfv[0];
+			updateInputs();
+			requestReturnToCheckpoint();
+			return;
+		}
+	}
 	
 	if (!m_is_enabled) return;
 	if (m_is_paused) {
@@ -219,7 +292,14 @@ void Tas::restartRequestProcessed() {
 
 void Tas::doBruteForceFor(const std::string &bfname) {
 	m_bfname = bfname;
-	if (m_bfname != "")
+	if (m_bfname == "volcanoJump1" || m_bfname == "volcanoJump2") {
+		// Brute Forcing the Bounce on Rock to Skip a portion of the Track.
+		// Starts just after the Skid ending after the Big Nitro.
+		m_bfv[0] = m_bfname == "volcanoJump1" ? 155 : 185; // How many Ticks before starting the next Skid
+		m_bfv[1] = 0; // How many Steer Left Ticks just after the previous Skid
+		m_bfv[2] = 0; // How many Steer Right Ticks just before the next Skid
+	}
+	else if (m_bfname != "")
 		Log::warn("TAS", "Unknown Brute Force!");
 	loadInputs(m_inputs_filename);
 	updateInputs();
