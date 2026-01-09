@@ -60,6 +60,7 @@ class TerrainInfo;
  */
 class AbstractKart : public Moveable
 {
+friend class RaceGUI;
 private:
     /** Length of the kart, copy of the data from KartModel. */
     float m_kart_length;

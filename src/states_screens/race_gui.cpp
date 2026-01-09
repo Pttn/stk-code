@@ -45,9 +45,11 @@ using namespace irr;
 #include "items/projectile_manager.hpp"
 #include "karts/abstract_kart.hpp"
 #include "karts/controller/controller.hpp"
+#include "karts/controller/player_controller.hpp"
 #include "karts/controller/spare_tire_ai.hpp"
 #include "karts/kart_properties.hpp"
 #include "karts/kart_properties_manager.hpp"
+#include "karts/skidding.hpp"
 #include "modes/capture_the_flag.hpp"
 #include "modes/follow_the_leader.hpp"
 #include "modes/linear_world.hpp"
@@ -56,6 +58,7 @@ using namespace irr;
 #include "network/protocols/client_lobby.hpp"
 #include "race/race_manager.hpp"
 #include "states_screens/race_gui_multitouch.hpp"
+#include "tas/tas.hpp"
 #include "tracks/track.hpp"
 #include "tracks/track_object_manager.hpp"
 #include "utils/constants.hpp"
@@ -296,6 +299,14 @@ void RaceGUI::renderGlobal(float dt)
     }
     else if (world->isGoalPhase())
         drawGlobalGoal();
+
+    auto karts(world->getKarts());
+    for (const auto &kart : karts) {
+        if (kart && kart->getController()->isLocalPlayerController()) {
+            drawTasInfos(kart);
+            break;
+        }
+    }
 
     if (!m_enabled) return;
 
@@ -938,6 +949,93 @@ void RaceGUI::drawSpeed(const AbstractKart *kart, const core::vector2df &offset,
     font->draw(ossSpeed.str().c_str(), pos, color, true, true);
     font->setScale(1.0f);
 }
+
+void RaceGUI::drawTasInfos(const std::shared_ptr<AbstractKart> kart)
+{
+    if (!Tas::get()->isEnabled()) return;
+    if (!kart) return;
+
+    gui::ScalableFont* font = GUIEngine::getFont();
+    font->setScale(0.7f);
+    font->setShadow(video::SColor(255, 0, 0, 0));
+    video::SColor color = video::SColor(255, 255, 255, 255);
+    core::rect<s32> pos(irr_driver->getActualScreenSize().Width - m_timer_width,
+                        irr_driver->getActualScreenSize().Height*11/64,
+                        irr_driver->getActualScreenSize().Width,
+                        irr_driver->getActualScreenSize().Height*36/64);
+
+    std::ostringstream oss;
+    oss << std::fixed << std::setprecision(9) << std::showpos;
+    oss << "Tick " << Tas::get()->currentTick();
+    font->draw(oss.str().c_str(), pos, color, false, true);
+    pos.UpperLeftCorner.Y += irr_driver->getActualScreenSize().Height*3/64;
+    oss.str("");
+    oss << "x  " << kart->getXYZ().getX();
+    font->draw(oss.str().c_str(), pos, color, false, true);
+    pos.UpperLeftCorner.Y += irr_driver->getActualScreenSize().Height*3/64;
+    oss.str("");
+    oss << "y  " << kart->getXYZ().getY();
+    font->draw(oss.str().c_str(), pos, color, false, true);
+    pos.UpperLeftCorner.Y += irr_driver->getActualScreenSize().Height*3/64;
+    oss.str("");
+    oss << "z  " << kart->getXYZ().getZ();
+    font->draw(oss.str().c_str(), pos, color, false, true);
+    pos.UpperLeftCorner.Y += irr_driver->getActualScreenSize().Height*3/64;
+    static double vprev(0.);
+    const double v(3.6*kart->getSpeed()), dv(v - vprev);
+    oss.str("");
+    oss << "v  " << std::setprecision(3) << v;
+    font->draw(oss.str().c_str(), pos, color, false, true);
+    vprev = v;
+    pos.UpperLeftCorner.Y += irr_driver->getActualScreenSize().Height*3/64;
+    oss.str("");
+    oss << "dv ";
+    font->draw(oss.str().c_str(), pos, color, false, true);
+    oss.str("");
+    oss << "   " << dv;
+    font->draw(oss.str().c_str(), pos, dv < -0.07 ? video::SColor(255, 255, 0, 0) : (dv < -0.001 ? video::SColor(255, 255, 128, 128) : color), false, true);
+
+    PlayerController *pc(dynamic_cast<PlayerController*>(kart->getController()));
+    if (pc) {
+        pos.UpperLeftCorner.Y += irr_driver->getActualScreenSize().Height*3/64;
+        oss.str("");
+        oss << "Inputs " << Tas::get()->getCurrentInput().toStringConstSize();
+        font->draw(oss.str().c_str(), pos, color, false, true);
+        pos.UpperLeftCorner.Y += irr_driver->getActualScreenSize().Height*3/64;
+        oss.str("");
+        oss << "Action " << static_cast<uint16_t>(kart->getControls().getButtonsCompressed());
+        font->draw(oss.str().c_str(), pos, color, false, true);
+        pos.UpperLeftCorner.Y += irr_driver->getActualScreenSize().Height*3/64;
+        oss.str("");
+        oss << "Steer  " << pc->m_steer_val;
+        font->draw(oss.str().c_str(), pos, color, false, true);
+        pos.UpperLeftCorner.Y += irr_driver->getActualScreenSize().Height*3/64;
+        oss.str("");
+        oss << "Accel  " << kart->getControls().getAccel();
+        font->draw(oss.str().c_str(), pos, color, false, true);
+        pos.UpperLeftCorner.Y += irr_driver->getActualScreenSize().Height*3/64;
+        oss.str("");
+        oss << "Skid   ";
+        font->draw(oss.str().c_str(), pos, color, false, true);
+        oss.str("");
+        int st(kart->getSkidding()->m_skid_time);
+        oss << "       " << kart->getSkidding()->m_skid_time;
+        font->draw(oss.str().c_str(), pos, st >= 360 ? video::SColor(255, 255, 0, 0) : (st >= 120 ? video::SColor(255, 255, 192, 0) : color), false, true);
+        pos.UpperLeftCorner.Y += irr_driver->getActualScreenSize().Height*3/64;
+        oss.str("");
+        oss << "Nitro  " << kart->getEnergy();
+        font->draw(oss.str().c_str(), pos, color, false, true);
+        pos.UpperLeftCorner.Y += irr_driver->getActualScreenSize().Height*3/64;
+    }
+
+    /*font->setScale(0.6f);
+    core::rect<s32> pos2(0,
+                         irr_driver->getActualScreenSize().Height*24/64,
+                         320,
+                         irr_driver->getActualScreenSize().Height*40/64);
+    font->draw(Tas::get()->getReadableSurroundingInputsToPlay().c_str(), pos2, color, false, true);*/
+    font->setScale(1.0f);
+} // drawTasInfos
 
 //-----------------------------------------------------------------------------
 /** Draws the speedometer, the display of available nitro, and
