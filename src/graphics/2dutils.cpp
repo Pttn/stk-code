@@ -24,7 +24,6 @@
 #include "graphics/shader.hpp"
 #include "graphics/shared_gpu_objects.hpp"
 #include "graphics/texture_shader.hpp"
-#include "utils/cpp2011.hpp"
 
 #include <IVideoDriver.h>
 #include <cmath>

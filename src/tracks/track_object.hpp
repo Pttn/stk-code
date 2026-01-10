@@ -24,7 +24,6 @@
 #include "physics/physical_object.hpp"
 #include "scriptengine/scriptvec3.hpp"
 #include "tracks/track_object_presentation.hpp"
-#include "utils/cpp2011.hpp"
 #include "utils/vec3.hpp"
 #include <string>
 #include "animations/three_d_animation.hpp"

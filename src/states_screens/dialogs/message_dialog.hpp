@@ -20,7 +20,6 @@
 #define HEADER_CONFIRM_DIALOG_HPP
 
 #include "guiengine/modaldialog.hpp"
-#include "utils/cpp2011.hpp"
 #include "utils/leak_check.hpp"
 
 /**
@@ -101,18 +100,18 @@ public:
 
     ~MessageDialog();
     
-    virtual void onEnterPressedInternal() OVERRIDE;
-    virtual void onUpdate(float dt) OVERRIDE;
-    virtual void load() OVERRIDE;
+    virtual void onEnterPressedInternal() override;
+    virtual void onUpdate(float dt) override;
+    virtual void load() override;
 
-    GUIEngine::EventPropagation processEvent(const std::string& eventSource) OVERRIDE;
+    GUIEngine::EventPropagation processEvent(const std::string& eventSource) override;
 
-    virtual void loadedFromFile() OVERRIDE;
+    virtual void loadedFromFile() override;
 
     /** Calling this will make sure that the focus is set on the 'cancel' or
      * 'no'. */
     void setFocusCancel() {m_focus_on_cancel = true; }
-    virtual void init() OVERRIDE;
+    virtual void init() override;
 };
 
 

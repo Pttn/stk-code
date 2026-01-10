@@ -21,7 +21,6 @@
 #define HEADER_DUMMY_SFX_HPP
 
 #include "audio/sfx_base.hpp"
-#include "utils/cpp2011.hpp"
 
 /**
  * \brief Dummy sound when ogg or openal aren't available
@@ -35,38 +34,38 @@ public:
     virtual           ~DummySFX() {}
 
     /** Late creation, if SFX was initially disabled */
-    virtual bool       init() OVERRIDE { return true;  }
-    virtual bool       isLooped() OVERRIDE { return false; }
-    virtual void       updatePlayingSFX(float dt) OVERRIDE {}
-    virtual void       setLoop(bool status) OVERRIDE {}
-    virtual void       reallySetLoop(bool status) OVERRIDE {}
-    virtual void       setPosition(const Vec3 &p) OVERRIDE {}
-    virtual void       reallySetPosition(const Vec3 &p) OVERRIDE {}
+    virtual bool       init() override { return true;  }
+    virtual bool       isLooped() override { return false; }
+    virtual void       updatePlayingSFX(float dt) override {}
+    virtual void       setLoop(bool status) override {}
+    virtual void       reallySetLoop(bool status) override {}
+    virtual void       setPosition(const Vec3 &p) override {}
+    virtual void       reallySetPosition(const Vec3 &p) override {}
     virtual void       setSpeedPosition(float factor,
-                                        const Vec3 &p) OVERRIDE {}
+                                        const Vec3 &p) override {}
     virtual void       reallySetSpeedPosition(float f,
-                                         const Vec3 &p) OVERRIDE {}
-    virtual void       play() OVERRIDE {}
-    virtual void       reallyPlayNow(SFXBuffer* buffer = NULL) OVERRIDE {}
-    virtual void       play(const Vec3 &xyz, SFXBuffer* buffer = NULL) OVERRIDE {}
-    virtual void       reallyPlayNow(const Vec3 &xyz, SFXBuffer* buffer = NULL) OVERRIDE {}
-    virtual void       stop() OVERRIDE {}
-    virtual void       reallyStopNow() OVERRIDE {}
-    virtual void       pause() OVERRIDE {}
-    virtual void       reallyPauseNow() OVERRIDE {}
-    virtual void       resume() OVERRIDE {}
-    virtual void       reallyResumeNow() OVERRIDE {}
-    virtual void       deleteSFX() OVERRIDE {}
-    virtual void       setSpeed(float factor) OVERRIDE {}
-    virtual void       reallySetSpeed(float factor) OVERRIDE {}
-    virtual void       setVolume(float gain) OVERRIDE {}
-    virtual void       reallySetVolume(float gain) OVERRIDE {}
-    virtual void       setMasterVolume(float gain) OVERRIDE {}
-    virtual void       reallySetMasterVolumeNow(float gain) OVERRIDE {}
-    virtual SFXStatus  getStatus() OVERRIDE { return SFX_STOPPED; }
-    virtual void       onSoundEnabledBack(bool resume_later) OVERRIDE {}
-    virtual void       setRolloff(float rolloff) OVERRIDE {}
-    virtual SFXBuffer* getBuffer() const OVERRIDE { return NULL; }
+                                         const Vec3 &p) override {}
+    virtual void       play() override {}
+    virtual void       reallyPlayNow(SFXBuffer* buffer = NULL) override {}
+    virtual void       play(const Vec3 &xyz, SFXBuffer* buffer = NULL) override {}
+    virtual void       reallyPlayNow(const Vec3 &xyz, SFXBuffer* buffer = NULL) override {}
+    virtual void       stop() override {}
+    virtual void       reallyStopNow() override {}
+    virtual void       pause() override {}
+    virtual void       reallyPauseNow() override {}
+    virtual void       resume() override {}
+    virtual void       reallyResumeNow() override {}
+    virtual void       deleteSFX() override {}
+    virtual void       setSpeed(float factor) override {}
+    virtual void       reallySetSpeed(float factor) override {}
+    virtual void       setVolume(float gain) override {}
+    virtual void       reallySetVolume(float gain) override {}
+    virtual void       setMasterVolume(float gain) override {}
+    virtual void       reallySetMasterVolumeNow(float gain) override {}
+    virtual SFXStatus  getStatus() override { return SFX_STOPPED; }
+    virtual void       onSoundEnabledBack(bool resume_later) override {}
+    virtual void       setRolloff(float rolloff) override {}
+    virtual SFXBuffer* getBuffer() const override { return NULL; }
 
 };   // DummySFX
 

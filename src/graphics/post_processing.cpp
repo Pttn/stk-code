@@ -44,7 +44,6 @@
 #include "tracks/track.hpp"
 #include "utils/log.hpp"
 #include "utils/profiler.hpp"
-#include "utils/cpp2011.hpp"
 
 #include <IrrlichtDevice.h>
 #include <IFileSystem.h>

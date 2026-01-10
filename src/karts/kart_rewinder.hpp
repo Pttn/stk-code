@@ -21,7 +21,6 @@
 
 #include "karts/kart.hpp"
 #include "network/rewinder.hpp"
-#include "utils/cpp2011.hpp"
 
 class Kart;
 class BareNetworkString;
@@ -38,16 +37,16 @@ public:
                  HandicapLevel handicap,
                  std::shared_ptr<GE::GERenderInfo> ri);
     ~KartRewinder() {}
-    virtual void saveTransform() OVERRIDE;
-    virtual void computeError() OVERRIDE;
+    virtual void saveTransform() override;
+    virtual void computeError() override;
     virtual BareNetworkString* saveState(std::vector<std::string>* ru)
-        OVERRIDE;
-    void reset() OVERRIDE;
-    virtual void restoreState(BareNetworkString *p, int count) OVERRIDE;
-    virtual void rewindToEvent(BareNetworkString *p) OVERRIDE {}
-    virtual void update(int ticks) OVERRIDE;
+        override;
+    void reset() override;
+    virtual void restoreState(BareNetworkString *p, int count) override;
+    virtual void rewindToEvent(BareNetworkString *p) override {}
+    virtual void update(int ticks) override;
     // -------------------------------------------------------------------------
-    virtual float getSteerPercent() const OVERRIDE
+    virtual float getSteerPercent() const override
     {
         if (m_steering_smoothing_dt >= 0.0f)
         {
@@ -57,7 +56,7 @@ public:
         return Kart::getSteerPercent();
     }
     // -------------------------------------------------------------------------
-    virtual void updateGraphics(float dt) OVERRIDE
+    virtual void updateGraphics(float dt) override
     {
         if (m_steering_smoothing_dt >= 0.0f)
         {
@@ -68,11 +67,11 @@ public:
         Kart::updateGraphics(dt);
     }
     // -------------------------------------------------------------------------
-    virtual void undoState(BareNetworkString *p) OVERRIDE {}
+    virtual void undoState(BareNetworkString *p) override {}
     // -------------------------------------------------------------------------
-    virtual void undoEvent(BareNetworkString *p) OVERRIDE {}
+    virtual void undoEvent(BareNetworkString *p) override {}
     // ------------------------------------------------------------------------
-    virtual std::function<void()> getLocalStateRestoreFunction() OVERRIDE;
+    virtual std::function<void()> getLocalStateRestoreFunction() override;
 
 
 };   // Rewinder

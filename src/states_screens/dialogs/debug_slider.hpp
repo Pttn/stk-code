@@ -20,7 +20,6 @@
 #define HEADER_DEBUG_SLIDER_DIALOG_HPP
 
 #include "guiengine/modaldialog.hpp"
-#include "utils/cpp2011.hpp"
 #include "utils/leak_check.hpp"
 #include <functional>
 
@@ -43,10 +42,10 @@ public:
     void changeLabel(std::string id, std::string new_label);
     void toggleSlider(std::string id, bool option);
 
-    virtual void onEnterPressedInternal() OVERRIDE;
-    virtual void onUpdate(float dt) OVERRIDE;
+    virtual void onEnterPressedInternal() override;
+    virtual void onUpdate(float dt) override;
 
-    GUIEngine::EventPropagation processEvent(const std::string& eventSource) OVERRIDE;
+    GUIEngine::EventPropagation processEvent(const std::string& eventSource) override;
 };
 
 

@@ -103,15 +103,15 @@ public:
 
     void onEnterPressedInternal();
     virtual void eventCallback(GUIEngine::Widget *, const std::string &name,
-                               const int player_id) OVERRIDE;
-    virtual void loadedFromFile() OVERRIDE;
-    virtual void init() OVERRIDE;
-    virtual void beforeAddingWidget() OVERRIDE;
+                               const int player_id) override;
+    virtual void loadedFromFile() override;
+    virtual void init() override;
+    virtual void beforeAddingWidget() override;
 
-    virtual void onUpdate(float dt) OVERRIDE;
+    virtual void onUpdate(float dt) override;
 
     void setGP(const std::string &gp_ident);
-    virtual void unloaded() OVERRIDE;
+    virtual void unloaded() override;
 };   // GPInfoScreen
 
 #endif

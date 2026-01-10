@@ -21,7 +21,6 @@
 
 #include "modes/linear_world.hpp"
 #include "states_screens/race_gui_base.hpp"
-#include "utils/cpp2011.hpp"
 
 #include <string>
 #include <vector>
@@ -51,22 +50,22 @@ public:
              EasterEggHunt();
     virtual ~EasterEggHunt();
 
-    virtual void init() OVERRIDE;
+    virtual void init() override;
 
-    virtual bool isRaceOver() OVERRIDE;
+    virtual bool isRaceOver() override;
 
     // overriding World methods
-    virtual void reset(bool restart=false) OVERRIDE;
+    virtual void reset(bool restart=false) override;
 
-    virtual bool raceHasLaps() OVERRIDE { return false; }
+    virtual bool raceHasLaps() override { return false; }
 
-    virtual const std::string& getIdent() const OVERRIDE;
-    virtual void terminateRace() OVERRIDE;
-    virtual void update(int ticks) OVERRIDE;
+    virtual const std::string& getIdent() const override;
+    virtual void terminateRace() override;
+    virtual void update(int ticks) override;
     virtual void getKartsDisplayInfo(
-                 std::vector<RaceGUIBase::KartIconDisplayInfo> *info) OVERRIDE;
+                 std::vector<RaceGUIBase::KartIconDisplayInfo> *info) override;
     virtual void collectedItem(const Kart *kart,
-                               const ItemState *item     ) OVERRIDE;
+                               const ItemState *item     ) override;
     void collectedEasterEggGhost(int world_id);
 
     const int  numberOfEggsFound() { return m_eggs_found; }
@@ -74,8 +73,8 @@ public:
 
     void readData(const std::string &filename);
 
-    virtual void checkForWrongDirection(unsigned int i, float dt) OVERRIDE;
-    virtual float estimateFinishTimeForKart(Kart* kart) OVERRIDE;
+    virtual void checkForWrongDirection(unsigned int i, float dt) override;
+    virtual float estimateFinishTimeForKart(Kart* kart) override;
 
 };   // EasterEggHunt
 

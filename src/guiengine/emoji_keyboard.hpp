@@ -20,7 +20,6 @@
 #define HEADER_EMOJI_KEYBOARD_HPP
 
 #include "guiengine/screen_keyboard.hpp"
-#include "utils/cpp2011.hpp"
 
 /**
  * \ingroup guiengine
@@ -33,9 +32,9 @@ namespace GUIEngine
         LEAK_CHECK()
         EmojiKeyboard(float percent_width, float percent_height, CGUIEditBox* edit_box)
             : ScreenKeyboard(percent_width, percent_height, edit_box) {}
-        virtual KeyboardLayoutProportions getKeyboardLayoutProportions() const OVERRIDE;
-        virtual KeyboardLayout* getKeyboardLayout(ButtonsType bt) const OVERRIDE;
-        virtual ButtonsType getDefaultButtonsType() const OVERRIDE { return BUTTONS_EMOJI; }
+        virtual KeyboardLayoutProportions getKeyboardLayoutProportions() const override;
+        virtual KeyboardLayout* getKeyboardLayout(ButtonsType bt) const override;
+        virtual ButtonsType getDefaultButtonsType() const override { return BUTTONS_EMOJI; }
     };
 }
 

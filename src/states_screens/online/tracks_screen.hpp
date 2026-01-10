@@ -110,30 +110,30 @@ public:
     void setResult(uint32_t winner_host, const PeerVote& winner_vote);
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void loadedFromFile() OVERRIDE;
+    virtual void loadedFromFile() override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
     virtual void eventCallback(GUIEngine::Widget* widget,
                                const std::string& name,
-                               const int playerID) OVERRIDE;
+                               const int playerID) override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void init() OVERRIDE;
+    virtual void init() override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void beforeAddingWidget() OVERRIDE;
+    virtual void beforeAddingWidget() override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void tearDown() OVERRIDE;
+    virtual void tearDown() override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual bool onEscapePressed() OVERRIDE;
+    virtual bool onEscapePressed() override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void onUpdate(float dt) OVERRIDE;
+    virtual void onUpdate(float dt) override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void unloaded() OVERRIDE;
+    virtual void unloaded() override;
     // ------------------------------------------------------------------------
     void setFocusOnTrack(const std::string& trackName);
     // ------------------------------------------------------------------------
@@ -151,7 +151,7 @@ public:
     // ------------------------------------------------------------------------
     void updatePlayerVotes();
     // ------------------------------------------------------------------------
-    virtual void onTextUpdated() OVERRIDE
+    virtual void onTextUpdated() override
     {
         eventCallback(m_search_track, "trackgroups", 0);
     }

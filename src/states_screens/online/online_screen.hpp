@@ -76,29 +76,29 @@ private:
 
 public:
 
-    virtual void onUpdate(float delta) OVERRIDE;
+    virtual void onUpdate(float delta) override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void loadedFromFile() OVERRIDE;
+    virtual void loadedFromFile() override;
 
-    virtual void unloaded() OVERRIDE;
+    virtual void unloaded() override;
     
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void beforeAddingWidget() OVERRIDE;
+    virtual void beforeAddingWidget() override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
     virtual void eventCallback(GUIEngine::Widget* widget, const std::string& name,
-                               const int playerID) OVERRIDE;
+                               const int playerID) override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void init() OVERRIDE;
+    virtual void init() override;
 
     void loadList();
 
-    virtual void onColumnClicked(int column_id, bool sort_desc, bool sort_default) OVERRIDE;
+    virtual void onColumnClicked(int column_id, bool sort_desc, bool sort_default) override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual bool onEscapePressed() OVERRIDE;
+    virtual bool onEscapePressed() override;
 
     void setEnteredServerName(const core::stringw& name)
                                               { m_entered_server_name = name; }

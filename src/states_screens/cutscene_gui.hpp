@@ -26,7 +26,6 @@
 using namespace irr;
 
 #include "states_screens/race_gui_base.hpp"
-#include "utils/cpp2011.hpp"
 
 class Kart;
 class InputMap;
@@ -52,10 +51,10 @@ public:
     void setFadeLevel(float level) { m_fade_level = level; }
     void setSubtitle(const core::stringw& subtitle) { m_subtitle = subtitle; }
 
-    virtual void renderGlobal(float dt) OVERRIDE;
-    virtual void renderPlayerView(const Camera *camera, float dt) OVERRIDE {}
+    virtual void renderGlobal(float dt) override;
+    virtual void renderPlayerView(const Camera *camera, float dt) override {}
 
-    virtual const core::dimension2du getMiniMapSize() const OVERRIDE
+    virtual const core::dimension2du getMiniMapSize() const override
     {
         return core::dimension2du(1,1);
     }

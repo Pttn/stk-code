@@ -181,7 +181,7 @@ void OptionsScreenGeneral::eventCallback(Widget* widget, const std::string& name
             class AssetsDialogListener : public MessageDialog::IConfirmDialogListener
             {
             public:
-                virtual void onConfirm() OVERRIDE
+                virtual void onConfirm() override
                 {
                     ModalDialog::dismiss();
                     ExtractMobileAssets::uninstall();

@@ -26,7 +26,6 @@
 #include "graphics/shaders.hpp"
 #include "graphics/sp/sp_base.hpp"
 #include "utils/profiler.hpp"
-#include "utils/cpp2011.hpp"
 #include "utils/string_utils.hpp"
 
 #include <fstream>

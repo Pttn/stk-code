@@ -82,27 +82,27 @@ public:
     void loadList();
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void loadedFromFile() OVERRIDE;
+    virtual void loadedFromFile() override;
 
-    virtual void unloaded() OVERRIDE;
+    virtual void unloaded() override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
     virtual void eventCallback(GUIEngine::Widget* widget, const std::string& name,
-                               const int playerID) OVERRIDE;
+                               const int playerID) override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void beforeAddingWidget() OVERRIDE;
+    virtual void beforeAddingWidget() override;
 
-    virtual void onColumnClicked(int column_id, bool sort_desc, bool sort_default) OVERRIDE;
+    virtual void onColumnClicked(int column_id, bool sort_desc, bool sort_default) override;
 
-    virtual void init() OVERRIDE;
-    virtual void tearDown() OVERRIDE;
+    virtual void init() override;
+    virtual void tearDown() override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void onUpdate(float dt) OVERRIDE;
+    virtual void onUpdate(float dt) override;
 
     /** \brief rebuild the list based on search text */
-    virtual void onTextUpdated() OVERRIDE
+    virtual void onTextUpdated() override
     {
         loadList();
     }

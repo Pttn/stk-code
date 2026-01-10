@@ -52,7 +52,7 @@ class AddonsPackRequest : public HTTPRequest
 private:
     bool m_extraction_error;
     bool m_background_download;
-    virtual void afterOperation() OVERRIDE
+    virtual void afterOperation() override
     {
         Online::HTTPRequest::afterOperation();
         if (isCancelled())
@@ -99,7 +99,7 @@ public:
             file_manager->getAddonsFile("tmp_extract"));
     }
     void backgroundDownload()                 { m_background_download = true; }
-    virtual bool hadDownloadError() const OVERRIDE
+    virtual bool hadDownloadError() const override
               { return HTTPRequest::hadDownloadError() || m_extraction_error; }
 };   // DownloadAssetsRequest
 

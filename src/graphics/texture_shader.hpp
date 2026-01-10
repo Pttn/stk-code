@@ -23,7 +23,6 @@
 #include "graphics/central_settings.hpp"
 #include "graphics/gl_headers.hpp"
 #include "graphics/shader.hpp"
-#include "utils/cpp2011.hpp"
 
 #include <assert.h>
 #include <functional>

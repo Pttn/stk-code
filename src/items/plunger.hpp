@@ -52,12 +52,12 @@ public:
                  Plunger(Kart *kart);
                 ~Plunger();
     static  void init(const XMLNode &node, scene::IMesh* missile);
-    virtual bool updateAndDelete(int ticks) OVERRIDE;
-    virtual void hitTrack () OVERRIDE;
+    virtual bool updateAndDelete(int ticks) override;
+    virtual void hitTrack () override;
     virtual bool hit      (Kart *kart, PhysicalObject *obj=NULL)
-        OVERRIDE;
+        override;
     // ------------------------------------------------------------------------
-    void         updateGraphics(float dt) OVERRIDE;
+    void         updateGraphics(float dt) override;
     // ------------------------------------------------------------------------
     /** Sets the keep-alive value. Setting it to 0 will remove the plunger
      *  at the next update - which is used if the rubber band snaps.
@@ -65,16 +65,16 @@ public:
     void setKeepAlive(int16_t ticks)                  { m_keep_alive = ticks; }
     // ------------------------------------------------------------------------
     /** No hit effect when it ends. */
-    virtual HitEffect *getHitEffect() const OVERRIDE           { return NULL; }
+    virtual HitEffect *getHitEffect() const override           { return NULL; }
     // ------------------------------------------------------------------------
     virtual BareNetworkString* saveState(std::vector<std::string>* ru)
-        OVERRIDE;
+        override;
     // ------------------------------------------------------------------------
-    virtual void restoreState(BareNetworkString *buffer, int count) OVERRIDE;
+    virtual void restoreState(BareNetworkString *buffer, int count) override;
     // ------------------------------------------------------------------------
-    virtual void onFireFlyable() OVERRIDE;
+    virtual void onFireFlyable() override;
     // ------------------------------------------------------------------------
-    virtual void onDeleteFlyable() OVERRIDE;
+    virtual void onDeleteFlyable() override;
 
 };   // Plunger
 

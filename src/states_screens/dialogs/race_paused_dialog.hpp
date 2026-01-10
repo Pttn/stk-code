@@ -20,7 +20,6 @@
 
 #include "guiengine/modaldialog.hpp"
 #include "guiengine/widgets/text_box_widget.hpp"
-#include "utils/cpp2011.hpp"
 
 namespace GE
 {
@@ -50,14 +49,14 @@ private:
     GUIEngine::TextBoxWidget* m_text_box;
     GE::GEVulkanDriver* m_vk_pbr_toggle;
 
-    virtual void onTextUpdated() OVERRIDE {}
+    virtual void onTextUpdated() override {}
     void handleChat(const irr::core::stringw& text);
-    virtual bool onEnterPressed(const irr::core::stringw& text) OVERRIDE;
+    virtual bool onEnterPressed(const irr::core::stringw& text) override;
     
     void updateTouchDeviceIcon();
 
 protected:
-    virtual void loadedFromFile() OVERRIDE;
+    virtual void loadedFromFile() override;
 
 public:
     /**
@@ -65,13 +64,13 @@ public:
      */
     RacePausedDialog(const float percentWidth, const float percentHeight);
     virtual ~RacePausedDialog();
-    virtual void onEnterPressedInternal() OVERRIDE;
+    virtual void onEnterPressedInternal() override;
     GUIEngine::EventPropagation processEvent(const std::string& eventSource)
-        OVERRIDE;
-    virtual void beforeAddingWidgets() OVERRIDE;
-    virtual void init() OVERRIDE;
+        override;
+    virtual void beforeAddingWidgets() override;
+    virtual void init() override;
     // ------------------------------------------------------------------------
-    virtual void onUpdate(float dt) OVERRIDE
+    virtual void onUpdate(float dt) override
     {
         // It's unsafe to delete from inside the event handler so we do it here
         if (m_self_destroy)

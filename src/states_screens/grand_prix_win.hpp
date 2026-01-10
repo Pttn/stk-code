@@ -71,11 +71,11 @@ class GrandPrixWin :
 
 public:
     // implement callbacks from parent class GUIEngine::Screen
-    void init() OVERRIDE;
-    void loadedFromFile() OVERRIDE {};
-    void onCutsceneEnd() OVERRIDE;
-    void onUpdate(float dt) OVERRIDE;
-    MusicInformation* getInGameMenuMusic() const OVERRIDE;
+    void init() override;
+    void loadedFromFile() override {};
+    void onCutsceneEnd() override;
+    void onUpdate(float dt) override;
+    MusicInformation* getInGameMenuMusic() const override;
 
     /** \pre must be called after pushing the screen, but before onUpdate had the chance to be invoked */
     void setNumGPKarts(int num_gp_karts);

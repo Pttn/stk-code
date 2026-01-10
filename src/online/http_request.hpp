@@ -20,7 +20,6 @@
 #define HEADER_HTTP_REQUEST_HPP
 
 #include "online/request.hpp"
-#include "utils/cpp2011.hpp"
 #include "utils/string_utils.hpp"
 
 #include <cassert>
@@ -83,14 +82,14 @@ namespace Online
          * it's just a GET request. */
         bool m_download_assets_request;
 
-        virtual void operation() OVERRIDE;
+        virtual void operation() override;
 
         void init();
     public:
         HTTPRequest(int priority = 1);
         HTTPRequest(const std::string &filename, int priority = 1);
         HTTPRequest(const char * const filename, int priority = 1);
-        virtual bool       isAllowedToAdd() const OVERRIDE;
+        virtual bool       isAllowedToAdd() const override;
         void               setApiURL(const std::string& url, const std::string &action);
         void               setAddonsURL(const std::string& path);
 

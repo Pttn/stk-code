@@ -99,27 +99,27 @@ private:
     void deletePlayer();
     void doDeletePlayer();
     PlayerProfile* getSelectedPlayer();
-    virtual void onUpdate(float dt) OVERRIDE;
+    virtual void onUpdate(float dt) override;
 
 public:
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void loadedFromFile() OVERRIDE;
+    virtual void loadedFromFile() override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
     virtual void eventCallback(GUIEngine::Widget* widget,
-                               const std::string& name, const int playerID) OVERRIDE;
+                               const std::string& name, const int playerID) override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void beforeAddingWidget() OVERRIDE;
+    virtual void beforeAddingWidget() override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void init() OVERRIDE;
+    virtual void init() override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void tearDown() OVERRIDE;
+    virtual void tearDown() override;
 
     /** \brief implement optional callback from parent class GUIEngine::Screen */
-    virtual void unloaded() OVERRIDE;
+    virtual void unloaded() override;
 
     void setNewAccountData(bool online, bool auto_login,
                            const core::stringw &online_name="",
@@ -133,7 +133,7 @@ public:
         int deviceID,
         const unsigned int value,
         Input::InputType type,
-        int playerId) OVERRIDE;
+        int playerId) override;
 };   // class BaseUserScreen
 
 // ============================================================================
@@ -158,9 +158,9 @@ private:
 public:
     friend class GUIEngine::ScreenSingleton<TabbedUserScreen>;
 
-    virtual void init() OVERRIDE;
+    virtual void init() override;
     virtual void eventCallback(GUIEngine::Widget* widget,
-                               const std::string& name, const int playerID) OVERRIDE;
+                               const std::string& name, const int playerID) override;
 };   // class TabbedUserScreen
 
 #endif

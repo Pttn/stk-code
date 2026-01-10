@@ -22,7 +22,6 @@
 #include "addons/addon.hpp"
 #include "addons/addons_manager.hpp"
 #include "guiengine/modaldialog.hpp"
-#include "utils/cpp2011.hpp"
 #include "utils/synchronised.hpp"
 
 namespace GUIEngine { class IconButtonWidget; class ProgressBarWidget; }
@@ -64,18 +63,18 @@ public:
 
    ~AddonsLoading();
 
-    virtual GUIEngine::EventPropagation processEvent(const std::string& event_source) OVERRIDE;
-    virtual void beforeAddingWidgets() OVERRIDE;
-    virtual void init() OVERRIDE;
+    virtual GUIEngine::EventPropagation processEvent(const std::string& event_source) override;
+    virtual void beforeAddingWidgets() override;
+    virtual void init() override;
     
     /** This function is called by the GUI, all the frame (or somthing like
      * that). It checks the flags (m_can_load_icon and
      *  and do the necessary.
      * */
-    void onUpdate(float delta) OVERRIDE;
+    void onUpdate(float delta) override;
     void voteClicked();
     void tryInstall();
-    virtual bool onEscapePressed() OVERRIDE;
+    virtual bool onEscapePressed() override;
     
 };   // AddonsLoading
 

@@ -129,33 +129,33 @@ public:
     SoccerWorld();
     virtual ~SoccerWorld();
 
-    virtual void init() OVERRIDE;
-    virtual void onGo() OVERRIDE;
+    virtual void init() override;
+    virtual void onGo() override;
 
     // clock events
-    virtual bool isRaceOver() OVERRIDE;
-    virtual void countdownReachedZero() OVERRIDE;
-    virtual void terminateRace() OVERRIDE;
+    virtual bool isRaceOver() override;
+    virtual void countdownReachedZero() override;
+    virtual void terminateRace() override;
 
     // overriding World methods
-    virtual void reset(bool restart=false) OVERRIDE;
+    virtual void reset(bool restart=false) override;
 
-    virtual unsigned int getRescuePositionIndex(Kart *kart) OVERRIDE;
+    virtual unsigned int getRescuePositionIndex(Kart *kart) override;
     virtual btTransform getRescueTransform(unsigned int rescue_pos) const
-        OVERRIDE;
-    virtual bool useFastMusicNearEnd() const OVERRIDE { return false; }
+        override;
+    virtual bool useFastMusicNearEnd() const override { return false; }
     virtual void getKartsDisplayInfo(
-               std::vector<RaceGUIBase::KartIconDisplayInfo> *info) OVERRIDE;
+               std::vector<RaceGUIBase::KartIconDisplayInfo> *info) override;
 
-    virtual bool raceHasLaps() OVERRIDE { return false; }
+    virtual bool raceHasLaps() override { return false; }
 
-    virtual void enterRaceOverState() OVERRIDE;
+    virtual void enterRaceOverState() override;
 
-    virtual const std::string& getIdent() const OVERRIDE;
+    virtual const std::string& getIdent() const override;
 
-    virtual void update(int ticks) OVERRIDE;
+    virtual void update(int ticks) override;
 
-    bool shouldDrawTimer() const OVERRIDE { return !isStartPhase(); }
+    bool shouldDrawTimer() const override { return !isStartPhase(); }
     // ------------------------------------------------------------------------
     void onCheckGoalTriggered(bool first_goal);
     // ------------------------------------------------------------------------
@@ -210,10 +210,10 @@ public:
     // ------------------------------------------------------------------------
     void handleResetBallFromServer(const NetworkString& ns);
     // ------------------------------------------------------------------------
-    virtual bool hasTeam() const OVERRIDE                      { return true; }
+    virtual bool hasTeam() const override                      { return true; }
     // ------------------------------------------------------------------------
     virtual std::pair<uint32_t, uint32_t> getGameStartedProgress() const
-        OVERRIDE
+        override
     {
         std::pair<uint32_t, uint32_t> progress(
             std::numeric_limits<uint32_t>::max(),
@@ -236,17 +236,17 @@ public:
     }
     // ------------------------------------------------------------------------
     virtual void saveCompleteState(BareNetworkString* bns,
-                                   STKPeer* peer) OVERRIDE;
+                                   STKPeer* peer) override;
     // ------------------------------------------------------------------------
-    virtual void restoreCompleteState(const BareNetworkString& b) OVERRIDE;
+    virtual void restoreCompleteState(const BareNetworkString& b) override;
     // ------------------------------------------------------------------------
-    virtual bool isGoalPhase() const OVERRIDE
+    virtual bool isGoalPhase() const override
     {
         int diff = m_ticks_back_to_own_goal - getTicksSinceStart();
         return diff > 0 && diff < stk_config->time2Ticks(3.0f);
     }
     // ------------------------------------------------------------------------
-    Kart* getKartAtDrawingPosition(unsigned int p) const OVERRIDE
+    Kart* getKartAtDrawingPosition(unsigned int p) const override
                                 { return getKart(m_team_icon_draw_id[p - 1]); }
     // ------------------------------------------------------------------------
     TrackObject* getBall() const { return m_ball; }

@@ -34,25 +34,25 @@ class CutSceneGeneral : public GUIEngine::CutsceneScreen,
 
 public:
 
-    virtual void onCutsceneEnd() OVERRIDE {};
+    virtual void onCutsceneEnd() override {};
 
     /** \brief implement optional callback from parent class GUIEngine::Screen */
-    void onUpdate(float dt) OVERRIDE {};
+    void onUpdate(float dt) override {};
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void loadedFromFile() OVERRIDE;
+    virtual void loadedFromFile() override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    void init() OVERRIDE;
+    void init() override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    void tearDown() OVERRIDE;
+    void tearDown() override;
 
     void eventCallback(GUIEngine::Widget* widget, const std::string& name,
-                       const int playerID) OVERRIDE;
+                       const int playerID) override;
 
     /** override from base class to handle escape press */
-    virtual bool onEscapePressed() OVERRIDE;
+    virtual bool onEscapePressed() override;
 };
 
 #endif

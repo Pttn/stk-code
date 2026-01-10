@@ -20,7 +20,6 @@
 #define HEADER_TUTORIAL_DIALOG_HPP
 
 #include "guiengine/modaldialog.hpp"
-#include "utils/cpp2011.hpp"
 #include "utils/leak_check.hpp"
 
 /**
@@ -40,11 +39,11 @@ public:
     
     ~TutorialMessageDialog();
     
-    virtual void onEnterPressedInternal() OVERRIDE;
-    virtual void onUpdate(float dt) OVERRIDE;
+    virtual void onEnterPressedInternal() override;
+    virtual void onUpdate(float dt) override;
 
     
-    GUIEngine::EventPropagation processEvent(const std::string& eventSource) OVERRIDE;
+    GUIEngine::EventPropagation processEvent(const std::string& eventSource) override;
 };
 
 

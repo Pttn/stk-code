@@ -123,22 +123,22 @@ class FeatureUnlockedCutScene : public GUIEngine::CutsceneScreen,
 
 public:
 
-    virtual void onCutsceneEnd() OVERRIDE;
+    virtual void onCutsceneEnd() override;
 
     /** \brief implement optional callback from parent class GUIEngine::Screen */
-    void onUpdate(float dt) OVERRIDE;
+    void onUpdate(float dt) override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void loadedFromFile() OVERRIDE;
+    virtual void loadedFromFile() override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    void init() OVERRIDE;
+    void init() override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    void tearDown() OVERRIDE;
+    void tearDown() override;
 
     void eventCallback(GUIEngine::Widget* widget, const std::string& name,
-                       const int playerID) OVERRIDE;
+                       const int playerID) override;
 
     void findWhatWasUnlocked(RaceManager::Difficulty difficulty, 
                              std::vector<const ChallengeData*>& unlocked);
@@ -173,9 +173,9 @@ public:
     void addTrophy(RaceManager::Difficulty difficulty, bool is_grandprix);
 
     /** override from base class to handle escape press */
-    virtual bool onEscapePressed() OVERRIDE;
+    virtual bool onEscapePressed() override;
 
-    virtual MusicInformation* getInGameMenuMusic() const OVERRIDE;
+    virtual MusicInformation* getInGameMenuMusic() const override;
 };
 
 #endif

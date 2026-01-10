@@ -71,21 +71,21 @@ private:
 public:
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void loadedFromFile() OVERRIDE;
+    virtual void loadedFromFile() override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
     virtual void eventCallback(GUIEngine::Widget* widget, const std::string& name,
-                               const int playerID) OVERRIDE;
+                               const int playerID) override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void beforeAddingWidget() OVERRIDE;
+    virtual void beforeAddingWidget() override;
 
-    virtual void init() OVERRIDE;
+    virtual void init() override;
 
-    virtual void tearDown() OVERRIDE;
+    virtual void tearDown() override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void onUpdate(float dt) OVERRIDE;
+    virtual void onUpdate(float dt) override;
 
     /** Sets the search string to an initial value. */
     void setSearchString(const irr::core::stringw & search_string)

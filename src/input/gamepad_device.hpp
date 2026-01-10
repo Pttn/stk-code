@@ -20,7 +20,6 @@
 #define HEADER_GAMEPAD_DEVICE_HPP
 
 #include "input/input_device.hpp"
-#include "utils/cpp2011.hpp"
 
 #include <vector>
 class GamepadConfig;
@@ -51,7 +50,7 @@ public:
     virtual bool processAndMapInput(Input::InputType type,  const int id,
                                     InputManager::InputDriverMode mode,
                                     PlayerAction *action, int* value = NULL
-                                    ) OVERRIDE;
+                                    ) override;
     int getNumberOfButtons() const;
     bool moved(int value) const;
 

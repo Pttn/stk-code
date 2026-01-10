@@ -64,18 +64,18 @@ public:
     friend class GUIEngine::ScreenSingleton<BaseOnlineProfileAchievements>;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void loadedFromFile() OVERRIDE;
+    virtual void loadedFromFile() override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void eventCallback(GUIEngine::Widget* widget, const std::string& name, const int playerID) OVERRIDE;
+    virtual void eventCallback(GUIEngine::Widget* widget, const std::string& name, const int playerID) override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void init() OVERRIDE;
+    virtual void init() override;
 
-    virtual void onUpdate(float delta) OVERRIDE;
+    virtual void onUpdate(float delta) override;
 
-    virtual void beforeAddingWidget() OVERRIDE;
-    virtual void onColumnClicked(int column_id, bool sort_desc, bool sort_default) OVERRIDE;
+    virtual void beforeAddingWidget() override;
+    virtual void onColumnClicked(int column_id, bool sort_desc, bool sort_default) override;
 
     // ------------------------------------------------------------------------
     virtual void refreshAchievementsList()

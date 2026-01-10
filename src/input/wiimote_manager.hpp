@@ -23,7 +23,6 @@
 
 #include "input/wiimote.hpp"
 #include "states_screens/dialogs/message_dialog.hpp"
-#include "utils/cpp2011.hpp"
 
 #include <thread>
 
@@ -92,7 +91,7 @@ public:
     class WiimoteDialogListener : public MessageDialog::IConfirmDialogListener
     {
     public:
-        virtual void onConfirm() OVERRIDE;
+        virtual void onConfirm() override;
     };   // class WiimoteDialoListener
 
     /** Shows a dialog allowing the user to connect wiimotes.

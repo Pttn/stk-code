@@ -106,38 +106,38 @@ public:
     // ------------------------------------------------------------------------
     virtual ~ThreeStrikesBattle();
     // ------------------------------------------------------------------------
-    virtual void init() OVERRIDE;
+    virtual void init() override;
     // ------------------------------------------------------------------------
     // clock events
-    virtual bool isRaceOver() OVERRIDE;
+    virtual bool isRaceOver() override;
     // ------------------------------------------------------------------------
-    virtual void terminateRace() OVERRIDE;
+    virtual void terminateRace() override;
     // ------------------------------------------------------------------------
     // overriding World methods
-    virtual void reset(bool restart=false) OVERRIDE;
+    virtual void reset(bool restart=false) override;
     // ------------------------------------------------------------------------
     virtual void getKartsDisplayInfo(
-                 std::vector<RaceGUIBase::KartIconDisplayInfo> *info) OVERRIDE;
+                 std::vector<RaceGUIBase::KartIconDisplayInfo> *info) override;
     // ------------------------------------------------------------------------
-    virtual bool raceHasLaps() OVERRIDE                       { return false; }
+    virtual bool raceHasLaps() override                       { return false; }
     // ------------------------------------------------------------------------
-    virtual bool shouldDrawSpeedometerDigit() const OVERRIDE   { return true; }
+    virtual bool shouldDrawSpeedometerDigit() const override   { return true; }
     // ------------------------------------------------------------------------
     virtual std::pair<int, video::SColor> 
-                getSpeedometerDigit(const Kart *kart) const OVERRIDE; 
+                getSpeedometerDigit(const Kart *kart) const override; 
     // ------------------------------------------------------------------------
-    virtual const std::string& getIdent() const OVERRIDE;
+    virtual const std::string& getIdent() const override;
     // ------------------------------------------------------------------------
-    virtual bool kartHit(int kart_id, int hitter = -1) OVERRIDE;
+    virtual bool kartHit(int kart_id, int hitter = -1) override;
     // ------------------------------------------------------------------------
-    virtual void update(int ticks) OVERRIDE;
+    virtual void update(int ticks) override;
     // ------------------------------------------------------------------------
     virtual void kartAdded(Kart* kart, scene::ISceneNode* node)
-                                                                      OVERRIDE;
+                                                                      override;
     // ------------------------------------------------------------------------
-    virtual void enterRaceOverState() OVERRIDE;
+    virtual void enterRaceOverState() override;
     // ------------------------------------------------------------------------
-    virtual void loadCustomModels() OVERRIDE;
+    virtual void loadCustomModels() override;
     // ------------------------------------------------------------------------
     void updateKartRanks();
     // ------------------------------------------------------------------------

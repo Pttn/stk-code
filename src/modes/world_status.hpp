@@ -18,7 +18,6 @@
 #ifndef HEADER_WORLD_STATUS_HPP
 #define HEADER_WORLD_STATUS_HPP
 
-#include "utils/cpp2011.hpp"
 #include <atomic>
 
 enum ProcessType : unsigned int;

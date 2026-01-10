@@ -30,16 +30,16 @@ class FaceTTF;
 class BoldFace : public FontWithFace
 {
 private:
-    virtual unsigned int getGlyphPageSize() const OVERRIDE      { return 512; }
+    virtual unsigned int getGlyphPageSize() const override      { return 512; }
     // ------------------------------------------------------------------------
-    virtual float getScalingFactorOne() const OVERRIDE         { return 0.3f; }
+    virtual float getScalingFactorOne() const override         { return 0.3f; }
     // ------------------------------------------------------------------------
-    virtual unsigned int getScalingFactorTwo() const OVERRIDE   { return 120; }
+    virtual unsigned int getScalingFactorTwo() const override   { return 120; }
     // ------------------------------------------------------------------------
-    virtual bool isBold() const OVERRIDE                       { return true; }
+    virtual bool isBold() const override                       { return true; }
     // ------------------------------------------------------------------------
 #ifndef SERVER_ONLY
-    virtual int shapeOutline(FT_Outline* outline) const OVERRIDE;
+    virtual int shapeOutline(FT_Outline* outline) const override;
 #endif
 
 public:
@@ -47,9 +47,9 @@ public:
     // ------------------------------------------------------------------------
     BoldFace();
     // ------------------------------------------------------------------------
-    virtual void init() OVERRIDE;
+    virtual void init() override;
     // ------------------------------------------------------------------------
-    virtual void reset() OVERRIDE;
+    virtual void reset() override;
 
 };   // BoldFace
 

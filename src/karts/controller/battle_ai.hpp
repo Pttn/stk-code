@@ -38,19 +38,19 @@ protected:
 
     // ------------------------------------------------------------------------
     virtual void  findClosestKart(bool consider_difficulty,
-                                  bool find_sta) OVERRIDE;
+                                  bool find_sta) override;
     // ------------------------------------------------------------------------
-    virtual int   getCurrentNode() const OVERRIDE;
+    virtual int   getCurrentNode() const override;
 
 private:
     // ------------------------------------------------------------------------
-    virtual void  findTarget() OVERRIDE;
+    virtual void  findTarget() override;
     // ------------------------------------------------------------------------
-    virtual float getKartDistance(const Kart* kart) const OVERRIDE;
+    virtual float getKartDistance(const Kart* kart) const override;
     // ------------------------------------------------------------------------
-    virtual bool  isKartOnRoad() const OVERRIDE;
+    virtual bool  isKartOnRoad() const override;
     // ------------------------------------------------------------------------
-    virtual bool  isWaiting() const OVERRIDE;
+    virtual bool  isWaiting() const override;
 
 public:
                   BattleAI(Kart *kart);

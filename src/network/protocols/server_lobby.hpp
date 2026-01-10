@@ -20,7 +20,6 @@
 #define SERVER_LOBBY_HPP
 
 #include "network/protocols/lobby_protocol.hpp"
-#include "utils/cpp2011.hpp"
 #include "utils/time.hpp"
 
 #include "irrString.h"
@@ -314,21 +313,21 @@ public:
              ServerLobby();
     virtual ~ServerLobby();
 
-    virtual bool notifyEventAsynchronous(Event* event) OVERRIDE;
-    virtual bool notifyEvent(Event* event) OVERRIDE;
-    virtual void setup() OVERRIDE;
-    virtual void update(int ticks) OVERRIDE;
-    virtual void asynchronousUpdate() OVERRIDE;
+    virtual bool notifyEventAsynchronous(Event* event) override;
+    virtual bool notifyEvent(Event* event) override;
+    virtual void setup() override;
+    virtual void update(int ticks) override;
+    virtual void asynchronousUpdate() override;
 
     void startSelection(const Event *event=NULL);
     void checkIncomingConnectionRequests();
-    void finishedLoadingWorld() OVERRIDE;
+    void finishedLoadingWorld() override;
     ServerState getCurrentState() const { return m_state.load(); }
     void updateBanList();
     bool waitingForPlayers() const;
-    virtual bool allPlayersReady() const OVERRIDE
+    virtual bool allPlayersReady() const override
                             { return m_state.load() >= WAIT_FOR_RACE_STARTED; }
-    virtual bool isRacing() const OVERRIDE { return m_state.load() == RACING; }
+    virtual bool isRacing() const override { return m_state.load() == RACING; }
     bool allowJoinedPlayersWaiting() const;
     void setSaveServerConfig(bool val)          { m_save_server_config = val; }
     uint8_t getStartupBoostOrPenaltyForKart(uint32_t ping, unsigned kart_id);

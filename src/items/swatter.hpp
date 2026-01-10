@@ -21,7 +21,6 @@
 
 #include "config/stk_config.hpp"
 #include "items/attachment_plugin.hpp"
-#include "utils/cpp2011.hpp"
 #include "utils/no_copy.hpp"
 
 #include <limits>
@@ -97,8 +96,8 @@ public:
              Swatter(Kart *kart, int16_t bomb_ticks, int ticks,
                      Attachment* attachment);
     virtual ~Swatter();
-    void     updateGraphics(float dt) OVERRIDE;
-    bool     updateAndTestFinished() OVERRIDE;
+    void     updateGraphics(float dt) override;
+    bool     updateAndTestFinished() override;
 
     // ------------------------------------------------------------------------
     /** Returns if the swatter is currently aiming, i.e. can be used to
@@ -108,9 +107,9 @@ public:
         return m_animation_phase == SWATTER_AIMING;
     }   // isSwatterReady
     // ------------------------------------------------------------------------
-    virtual void restoreState(BareNetworkString *buffer) OVERRIDE;
+    virtual void restoreState(BareNetworkString *buffer) override;
     // ------------------------------------------------------------------------
-    virtual void saveState(BareNetworkString *buffer) const OVERRIDE;
+    virtual void saveState(BareNetworkString *buffer) const override;
 
 private:
     /** Determine the nearest kart or item and update the current target accordingly */

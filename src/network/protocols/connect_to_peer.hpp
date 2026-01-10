@@ -21,7 +21,6 @@
 
 #include "network/protocol.hpp"
 #include "network/socket_address.hpp"
-#include "utils/cpp2011.hpp"
 
 /** One instance of this is started for every peer who tries to
  *  connect to this server.
@@ -47,9 +46,9 @@ protected:
 public:
              ConnectToPeer(const SocketAddress &address);
     virtual ~ConnectToPeer() {}
-    virtual void setup() OVERRIDE {}
-    virtual void update(int ticks) OVERRIDE {}
-    virtual void asynchronousUpdate() OVERRIDE;
+    virtual void setup() override {}
+    virtual void update(int ticks) override {}
+    virtual void asynchronousUpdate() override;
 };   // class ConnectToPeer
 
 #endif // CONNECT_TO_SERVER_HPP

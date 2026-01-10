@@ -23,7 +23,6 @@
 #include "input/device_config.hpp"
 #include "input/input.hpp"
 #include "utils/no_copy.hpp"
-#include "utils/cpp2011.hpp"
 
 #include <iosfwd>
 

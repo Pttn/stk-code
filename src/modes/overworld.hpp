@@ -36,7 +36,7 @@ class OverWorld : public World
 protected:
 
     /** Override from base class */
-    virtual void  createRaceGUI() OVERRIDE;
+    virtual void  createRaceGUI() override;
 
     bool m_return_to_garage;
 
@@ -46,33 +46,33 @@ public:
 
     static void enterOverWorld();
 
-    virtual void  update(int ticks) OVERRIDE;
-    unsigned int  getRescuePositionIndex(Kart *kart) OVERRIDE;
+    virtual void  update(int ticks) override;
+    unsigned int  getRescuePositionIndex(Kart *kart) override;
     virtual void  getKartsDisplayInfo(
-                 std::vector<RaceGUIBase::KartIconDisplayInfo> *info) OVERRIDE;
+                 std::vector<RaceGUIBase::KartIconDisplayInfo> *info) override;
     // ------------------------------------------------------------------------
     /** Returns if this race mode has laps. */
-    virtual bool  raceHasLaps() OVERRIDE { return false; }
+    virtual bool  raceHasLaps() override { return false; }
     // ------------------------------------------------------------------------
     /** The overworld is not a race per se so it's never over */
-    virtual bool    isRaceOver() OVERRIDE { return false; }
+    virtual bool    isRaceOver() override { return false; }
     // ------------------------------------------------------------------------
     /** Implement base class method */
     virtual const std::string&
-                    getIdent() const OVERRIDE { return IDENT_OVERWORLD; }
+                    getIdent() const override { return IDENT_OVERWORLD; }
     // ------------------------------------------------------------------------
     /** Override base class method */
-    virtual bool shouldDrawTimer() const OVERRIDE { return false; }
+    virtual bool shouldDrawTimer() const override { return false; }
     // ------------------------------------------------------------------------
     /** Override base class method */
-    virtual void onFirePressed(Controller* who) OVERRIDE;
+    virtual void onFirePressed(Controller* who) override;
     // ------------------------------------------------------------------------
     /** Override settings from base class */
-    virtual bool useChecklineRequirements() const OVERRIDE { return false; }
+    virtual bool useChecklineRequirements() const override { return false; }
     // ------------------------------------------------------------------------
     void scheduleSelectKart() { m_return_to_garage = true; }
     // ------------------------------------------------------------------------
-    virtual void onMouseClick(int x, int y) OVERRIDE;
+    virtual void onMouseClick(int x, int y) override;
 };
 
 #endif

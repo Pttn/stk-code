@@ -23,7 +23,6 @@
 
 #include "items/flyable.hpp"
 #include "tracks/track_sector.hpp"
-#include "utils/cpp2011.hpp"
 
 class Kart;
 class SFXBase;
@@ -217,20 +216,20 @@ public:
                  RubberBall  (Kart* kart);
     virtual     ~RubberBall();
     static  void init(const XMLNode &node, scene::IMesh *rubberball);
-    virtual bool updateAndDelete(int ticks) OVERRIDE;
-    virtual bool hit(Kart* kart, PhysicalObject* obj=NULL) OVERRIDE;
-    virtual void setAnimation(AbstractKartAnimation *animation) OVERRIDE;
+    virtual bool updateAndDelete(int ticks) override;
+    virtual bool hit(Kart* kart, PhysicalObject* obj=NULL) override;
+    virtual void setAnimation(AbstractKartAnimation *animation) override;
     // ------------------------------------------------------------------------
     /** This object does not create an explosion, all affects on
      *  karts are handled by this hit() function. */
     //virtual HitEffect *getHitEffect() const {return NULL; }
     // ------------------------------------------------------------------------
     virtual BareNetworkString* saveState(std::vector<std::string>* ru)
-        OVERRIDE;
+        override;
     // ------------------------------------------------------------------------
-    virtual void restoreState(BareNetworkString *buffer, int count) OVERRIDE;
+    virtual void restoreState(BareNetworkString *buffer, int count) override;
     // ------------------------------------------------------------------------
-    virtual void onFireFlyable() OVERRIDE;
+    virtual void onFireFlyable() override;
 
 };   // RubberBall
 

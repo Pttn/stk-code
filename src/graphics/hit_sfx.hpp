@@ -20,7 +20,6 @@
 #define HEADER_HIT_SFX_HPP
 
 #include "graphics/hit_effect.hpp"
-#include "utils/cpp2011.hpp"
 
 class SFXBase;
 
@@ -36,8 +35,8 @@ private:
 public:
          HitSFX(const Vec3& coord, const char* explosion_sound);
         ~HitSFX();
-    virtual bool updateAndDelete(int ticks) OVERRIDE;
-    virtual void setLocalPlayerKartHit() OVERRIDE;
+    virtual bool updateAndDelete(int ticks) override;
+    virtual void setLocalPlayerKartHit() override;
 
 };   // HitSFX
 

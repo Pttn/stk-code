@@ -57,13 +57,13 @@ class GrandPrixLose :
 
 public:
     // implement callbacks from parent class GUIEngine::Screen
-    void init() OVERRIDE;
-    void loadedFromFile() OVERRIDE;
-    void onCutsceneEnd() OVERRIDE;
-    void onUpdate(float dt) OVERRIDE;
+    void init() override;
+    void loadedFromFile() override;
+    void onCutsceneEnd() override;
+    void onUpdate(float dt) override;
     /** \brief set which karts lost this GP */
     void setKarts(std::vector<std::pair<std::string, float> > ident);
-    MusicInformation* getInGameMenuMusic() const OVERRIDE;
+    MusicInformation* getInGameMenuMusic() const override;
 };
 
 #endif

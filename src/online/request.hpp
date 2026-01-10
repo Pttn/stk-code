@@ -19,7 +19,6 @@
 #ifndef HEADER_ONLINE_REQUEST_HPP
 #define HEADER_ONLINE_REQUEST_HPP
 
-#include "utils/cpp2011.hpp"
 #include "utils/no_copy.hpp"
 #include "utils/synchronised.hpp"
 

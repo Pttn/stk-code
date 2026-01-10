@@ -112,13 +112,13 @@ public:
     TrackInfoScreen();
     virtual ~TrackInfoScreen();
 
-    virtual void init() OVERRIDE;
-    virtual void beforeAddingWidget() OVERRIDE;
-    virtual void loadedFromFile() OVERRIDE;
-    virtual void tearDown() OVERRIDE;
-    virtual void unloaded() OVERRIDE;
+    virtual void init() override;
+    virtual void beforeAddingWidget() override;
+    virtual void loadedFromFile() override;
+    virtual void tearDown() override;
+    virtual void unloaded() override;
     virtual void eventCallback(GUIEngine::Widget *,const std::string &name ,
-                               const int player_id) OVERRIDE;
+                               const int player_id) override;
 
     void onEnterPressedInternal();
     void setTrack(Track *track);

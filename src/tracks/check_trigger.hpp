@@ -19,7 +19,6 @@
 #define HEADER_CHECK_TRIGGER_HPP
 
 #include "tracks/check_structure.hpp"
-#include "utils/cpp2011.hpp"
 #include "utils/types.hpp"
 
 #include <functional>
@@ -51,16 +50,16 @@ public:
     virtual ~CheckTrigger() {}
     // ------------------------------------------------------------------------
     virtual bool isTriggered(const Vec3 &old_pos, const Vec3 &new_pos,
-                             int kart_id) OVERRIDE;
+                             int kart_id) override;
     // ------------------------------------------------------------------------
-    virtual void trigger(unsigned int kart_index) OVERRIDE
+    virtual void trigger(unsigned int kart_index) override
     {
         if (!m_triggering_function) return;
         m_triggering_function(kart_index);
         CheckStructure::trigger(kart_index);
     }
     // ------------------------------------------------------------------------
-    virtual CheckStructure* clone() OVERRIDE
+    virtual CheckStructure* clone() override
     {
         CheckTrigger* ct = new CheckTrigger(*this);
         // Drop unneeded stuff ( trigger function is not supported in server,

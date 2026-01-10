@@ -36,10 +36,10 @@ public:
                  NetworkAIController(Kart *kart, int local_player_id,
                                      AIBaseController* ai);
     virtual     ~NetworkAIController();
-    virtual void update(int ticks) OVERRIDE;
-    virtual void reset() OVERRIDE;
+    virtual void update(int ticks) override;
+    virtual void reset() override;
     // ------------------------------------------------------------------------
-    virtual bool isLocalPlayerController() const OVERRIDE;
+    virtual bool isLocalPlayerController() const override;
     // ------------------------------------------------------------------------
     static void setAIFrequency(int freq) { m_ai_frequency = freq; }
 };   // class NetworkAIController

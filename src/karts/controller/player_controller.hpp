@@ -40,57 +40,57 @@ protected:
 public:
                  PlayerController(Kart *kart);
     virtual     ~PlayerController  ();
-    virtual void update            (int ticks) OVERRIDE;
+    virtual void update            (int ticks) override;
     virtual bool action            (PlayerAction action, int value,
-                                    bool dry_run = false           ) OVERRIDE;
+                                    bool dry_run = false           ) override;
     virtual void actionFromNetwork(PlayerAction action, int value,
                                    int value_l, int value_r);
-    virtual void skidBonusTriggered() OVERRIDE;
-    virtual void reset             () OVERRIDE;
-    virtual void handleZipper(bool play_sound) OVERRIDE;
+    virtual void skidBonusTriggered() override;
+    virtual void reset             () override;
+    virtual void handleZipper(bool play_sound) override;
     virtual void resetInputState();
-    virtual bool saveState(BareNetworkString *buffer) const OVERRIDE;
-    virtual void rewindTo(BareNetworkString *buffer) OVERRIDE;
+    virtual bool saveState(BareNetworkString *buffer) const override;
+    virtual void rewindTo(BareNetworkString *buffer) override;
     // ------------------------------------------------------------------------
     virtual void  collectedItem(const ItemState &item,
-                                float previous_energy=0 ) OVERRIDE { };
+                                float previous_energy=0 ) override { };
     // ------------------------------------------------------------------------
-    virtual bool isPlayerController() const OVERRIDE { return true; }
+    virtual bool isPlayerController() const override { return true; }
     // ------------------------------------------------------------------------
-    virtual bool isLocalPlayerController() const OVERRIDE { return true; }
+    virtual bool isLocalPlayerController() const override { return true; }
     // ------------------------------------------------------------------------
     /** Called just before the position of the kart is changed. */
-    virtual void setPosition(int p) OVERRIDE
+    virtual void setPosition(int p) override
     {
     }   // setPosition
     // ------------------------------------------------------------------------
-    virtual void crashed(const Kart *k) OVERRIDE
+    virtual void crashed(const Kart *k) override
     {
     }   // crashed(Kart)
     // ------------------------------------------------------------------------
-    virtual void crashed(const Material *m) OVERRIDE
+    virtual void crashed(const Material *m) override
     {
     }   // crashed(Material)
     // ------------------------------------------------------------------------
     /** Callback whenever a new lap is triggered. Used by the AI
      *  to trigger a recomputation of the way to use, not used for players. */
-    virtual void  newLap(int lap) OVERRIDE
+    virtual void  newLap(int lap) override
     {
     }
     // ------------------------------------------------------------------------
     /** Player will always be able to get a slipstream bonus. */
-    virtual bool  disableSlipstreamBonus() const OVERRIDE
+    virtual bool  disableSlipstreamBonus() const override
     {
         return false; 
     }
     // ------------------------------------------------------------------------
     /** Called when a race is finished. */
-    virtual void finishedRace(float time) OVERRIDE
+    virtual void finishedRace(float time) override
     {
     }   // finishedRace
     // ------------------------------------------------------------------------
     /** Returns the name of the player profile. */
-    core::stringw getName(bool include_handicap_string = true) const OVERRIDE;
+    core::stringw getName(bool include_handicap_string = true) const override;
     // ------------------------------------------------------------------------
     /** Called when this kart started too early and got a start penalty. */
     virtual void  displayPenaltyWarning();

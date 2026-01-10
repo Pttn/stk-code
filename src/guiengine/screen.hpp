@@ -22,7 +22,6 @@
 #include <map>
 #include <string>
 #include <typeinfo>
-#include "utils/cpp2011.hpp"
 
 #include <irrString.h>
 #include <IXMLReader.h>

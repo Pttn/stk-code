@@ -133,18 +133,18 @@ protected:
     std::vector<KartInfo> m_kart_info;
 
     virtual void  checkForWrongDirection(unsigned int i, float dt);
-    virtual float estimateFinishTimeForKart(Kart* kart) OVERRIDE;
+    virtual float estimateFinishTimeForKart(Kart* kart) override;
 
 public:
                   LinearWorld();
    /** call just after instanciating. can't be moved to the contructor as child
        classes must be instanciated, otherwise polymorphism will fail and the
        results will be incorrect */
-    virtual void  init() OVERRIDE;
+    virtual void  init() override;
     virtual      ~LinearWorld();
 
-    virtual void  update(int ticks) OVERRIDE;
-    virtual void  updateGraphics(float dt) OVERRIDE;
+    virtual void  update(int ticks) override;
+    virtual void  updateGraphics(float dt) override;
     float         getDistanceDownTrackForKart(const int kart_id,
                                             bool account_for_checklines) const;
     void          updateTrackSectors();
@@ -157,27 +157,27 @@ public:
     bool          hasValidTimeDifference() const { return m_valid_reference_time; }
 
     virtual  void getKartsDisplayInfo(
-                  std::vector<RaceGUIBase::KartIconDisplayInfo> *info) OVERRIDE;
+                  std::vector<RaceGUIBase::KartIconDisplayInfo> *info) override;
 
-    virtual unsigned int getNumberOfRescuePositions() const OVERRIDE;
-    virtual unsigned int getRescuePositionIndex(Kart *kart) OVERRIDE;
-    virtual btTransform getRescueTransform(unsigned int index) const OVERRIDE;
-    virtual void  reset(bool restart=false) OVERRIDE;
-    virtual void  newLap(unsigned int kart_index) OVERRIDE;
+    virtual unsigned int getNumberOfRescuePositions() const override;
+    virtual unsigned int getRescuePositionIndex(Kart *kart) override;
+    virtual btTransform getRescueTransform(unsigned int index) const override;
+    virtual void  reset(bool restart=false) override;
+    virtual void  newLap(unsigned int kart_index) override;
 
     // ------------------------------------------------------------------------
     /** Returns if this race mode has laps. */
-    virtual bool  raceHasLaps() OVERRIDE { return true; }
+    virtual bool  raceHasLaps() override { return true; }
     // ------------------------------------------------------------------------
     /** Returns if this race mode has bonus items. */
-    virtual bool  haveBonusBoxes() OVERRIDE { return true; }
+    virtual bool  haveBonusBoxes() override { return true; }
     // ------------------------------------------------------------------------
     /** Override settings from base class */
-    virtual bool useChecklineRequirements() const OVERRIDE { return true; }
+    virtual bool useChecklineRequirements() const override { return true; }
     // ------------------------------------------------------------------------
     /** Returns the number of laps a kart has completed.
      *  \param kart_index World index of the kart. */
-    int getFinishedLapsOfKart(unsigned int kart_index) const OVERRIDE
+    int getFinishedLapsOfKart(unsigned int kart_index) const override
     {
         assert(kart_index < m_kart_info.size());
         return m_kart_info[kart_index].m_finished_laps;
@@ -224,12 +224,12 @@ public:
     }
     // ------------------------------------------------------------------------
     virtual std::pair<uint32_t, uint32_t> getGameStartedProgress() const
-        OVERRIDE;
+        override;
     // ------------------------------------------------------------------------
     virtual void saveCompleteState(BareNetworkString* bns,
-                                   STKPeer* peer) OVERRIDE;
+                                   STKPeer* peer) override;
     // ------------------------------------------------------------------------
-    virtual void restoreCompleteState(const BareNetworkString& b) OVERRIDE;
+    virtual void restoreCompleteState(const BareNetworkString& b) override;
     // ------------------------------------------------------------------------
     void updateCheckLinesServer(int check_id, int kart_id);
     // ------------------------------------------------------------------------
@@ -237,7 +237,7 @@ public:
     // ------------------------------------------------------------------------
     void handleServerCheckStructureCount(unsigned count);
     // ------------------------------------------------------------------------
-    virtual bool showLapsTarget() OVERRIDE { return true; }
+    virtual bool showLapsTarget() override { return true; }
 };   // LinearWorld
 
 #endif

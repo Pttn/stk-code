@@ -20,7 +20,6 @@
 #define HEADER_ARENA_GRAPH_HPP
 
 #include "tracks/graph.hpp"
-#include "utils/cpp2011.hpp"
 
 #include <cstdint>
 #include <set>
@@ -62,9 +61,9 @@ private:
     static std::vector<int16_t> getPathFromTo(int from, int to,
                      const std::vector< std::vector< int16_t > >& parent_node);
     // ------------------------------------------------------------------------
-    virtual bool hasLapLine() const OVERRIDE                  { return false; }
+    virtual bool hasLapLine() const override                  { return false; }
     // ------------------------------------------------------------------------
-    virtual void differentNodeColor(int n, video::SColor* c) const OVERRIDE;
+    virtual void differentNodeColor(int n, video::SColor* c) const override;
 
 public:
     static ArenaGraph* get()     { return dynamic_cast<ArenaGraph*>(m_graph); }

@@ -67,51 +67,51 @@ public:
     CutsceneWorld();
     virtual ~CutsceneWorld();
 
-    virtual void init() OVERRIDE;
+    virtual void init() override;
 
-    virtual void reset(bool restart=false) OVERRIDE;
+    virtual void reset(bool restart=false) override;
 
     // clock events
-    virtual bool isRaceOver() OVERRIDE;
+    virtual bool isRaceOver() override;
 
-    virtual const std::string& getIdent() const OVERRIDE;
+    virtual const std::string& getIdent() const override;
 
-    virtual void update(int ticks) OVERRIDE;
+    virtual void update(int ticks) override;
 
-    virtual void createRaceGUI() OVERRIDE;
+    virtual void createRaceGUI() override;
 
-    virtual void enterRaceOverState() OVERRIDE;
+    virtual void enterRaceOverState() override;
 
     // ------------------------------------------------------------------------
-    virtual bool raceHasLaps() OVERRIDE { return false; }
+    virtual bool raceHasLaps() override { return false; }
     // ------------------------------------------------------------------------
-    virtual unsigned int getNumberOfRescuePositions() const OVERRIDE
+    virtual unsigned int getNumberOfRescuePositions() const override
     {
         return 0;
     }   // getNumberOfRescuePositions
     // ------------------------------------------------------------------------
-    virtual unsigned int getRescuePositionIndex(Kart *kart) OVERRIDE
+    virtual unsigned int getRescuePositionIndex(Kart *kart) override
     {
         return 0;
     }   // getRescuePositionIndex
     // ------------------------------------------------------------------------
-    virtual btTransform  getRescueTransform(unsigned int index) const OVERRIDE
+    virtual btTransform  getRescueTransform(unsigned int index) const override
     {
         return btTransform();
     }   // getRescueTransform
     // ------------------------------------------------------------------------
-    virtual void onFirePressed(Controller* who) OVERRIDE { abortCutscene(); }
+    virtual void onFirePressed(Controller* who) override { abortCutscene(); }
     // ------------------------------------------------------------------------
     void setParts(std::vector<std::string> parts) { m_parts = parts; }
     // ------------------------------------------------------------------------
     /** Returns the data to display in the race gui.
      */
     virtual void getKartsDisplayInfo(
-                  std::vector<RaceGUIBase::KartIconDisplayInfo> *info) OVERRIDE
+                  std::vector<RaceGUIBase::KartIconDisplayInfo> *info) override
     {
     };
     // ------------------------------------------------------------------------
-    virtual void escapePressed() OVERRIDE { abortCutscene(); }
+    virtual void escapePressed() override { abortCutscene(); }
     // ------------------------------------------------------------------------
     static void setUseDuration(bool use_duration) { s_use_duration = use_duration; }
     // ------------------------------------------------------------------------

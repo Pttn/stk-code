@@ -20,7 +20,6 @@
 #define CONNECT_TO_SERVER_HPP
 
 #include "network/protocol.hpp"
-#include "utils/cpp2011.hpp"
 #include <atomic>
 #include <memory>
 #include <string>
@@ -64,9 +63,9 @@ private:
 public:
              ConnectToServer(std::shared_ptr<Server> server);
     virtual ~ConnectToServer();
-    virtual void setup() OVERRIDE;
-    virtual void asynchronousUpdate() OVERRIDE;
-    virtual void update(int ticks) OVERRIDE;
+    virtual void setup() override;
+    virtual void asynchronousUpdate() override;
+    virtual void update(int ticks) override;
 };   // class ConnectToServer
 
 #endif // CONNECT_TO_SERVER_HPP

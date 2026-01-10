@@ -91,27 +91,27 @@ public:
     const bool isActiveModeLinear() { return m_active_mode_is_linear; }
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void loadedFromFile() OVERRIDE;
+    virtual void loadedFromFile() override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
     virtual void eventCallback(GUIEngine::Widget* widget, const std::string& name,
-                               const int playerID) OVERRIDE;
+                               const int playerID) override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void beforeAddingWidget() OVERRIDE;
+    virtual void beforeAddingWidget() override;
 
-    virtual void onColumnClicked(int column_id, bool sort_desc, bool sort_default) OVERRIDE;
+    virtual void onColumnClicked(int column_id, bool sort_desc, bool sort_default) override;
 
-    virtual void init() OVERRIDE;
+    virtual void init() override;
 
-    virtual void tearDown() OVERRIDE;
+    virtual void tearDown() override;
     
-    virtual void unloaded() OVERRIDE;
+    virtual void unloaded() override;
 
-    virtual bool onEscapePressed() OVERRIDE;
+    virtual bool onEscapePressed() override;
 
     /** \brief Implement IConfirmDialogListener callback */
-    virtual void onConfirm() OVERRIDE;
+    virtual void onConfirm() override;
 
 };   // GhostReplaySelection
 

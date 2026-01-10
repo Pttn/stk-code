@@ -21,7 +21,6 @@
 #define HEADER_TRACK_OBJECT_PRESENTATION_HPP
 
 #include "graphics/lod_node.hpp"
-#include "utils/cpp2011.hpp"
 #include "utils/no_copy.hpp"
 #include "utils/log.hpp"
 #include "utils/leak_check.hpp"
@@ -155,15 +154,15 @@ public:
     }   // TrackObjectPresentationSceneNode
 
     // ------------------------------------------------------------------------
-    virtual const core::vector3df& getPosition() const OVERRIDE;
-    virtual const core::vector3df  getAbsolutePosition() const OVERRIDE;
-    virtual const core::vector3df getAbsoluteCenterPosition() const OVERRIDE;
-    virtual const core::vector3df& getRotation() const OVERRIDE;
-    virtual const core::vector3df& getScale() const OVERRIDE;
+    virtual const core::vector3df& getPosition() const override;
+    virtual const core::vector3df  getAbsolutePosition() const override;
+    virtual const core::vector3df getAbsoluteCenterPosition() const override;
+    virtual const core::vector3df& getRotation() const override;
+    virtual const core::vector3df& getScale() const override;
     virtual void move(const core::vector3df& xyz, const core::vector3df& hpr,
-        const core::vector3df& scale, bool isAbsoluteCoord) OVERRIDE;
-    virtual void setEnable(bool enabled) OVERRIDE;
-    virtual void reset() OVERRIDE;
+        const core::vector3df& scale, bool isAbsoluteCoord) override;
+    virtual void setEnable(bool enabled) override;
+    virtual void reset() override;
 
     // ------------------------------------------------------------------------
     /** Returns a pointer to the scene node. */
@@ -202,14 +201,14 @@ public:
         const XMLNode& xml_node,
         ModelDefinitionLoader& model_def_loader);
     virtual ~TrackObjectPresentationLibraryNode();
-    virtual void update(float dt) OVERRIDE;
-    virtual void reset() OVERRIDE
+    virtual void update(float dt) override;
+    virtual void reset() override
     {
         m_reset_executed = false;
         TrackObjectPresentationSceneNode::reset();
     }
     virtual void move(const core::vector3df& xyz, const core::vector3df& hpr,
-        const core::vector3df& scale, bool isAbsoluteCoord) OVERRIDE;
+        const core::vector3df& scale, bool isAbsoluteCoord) override;
 };   // TrackObjectPresentationLibraryNode
 
 // ============================================================================
@@ -225,7 +224,7 @@ public:
                                ModelDefinitionLoader& model_def_loader,
                                std::shared_ptr<GE::GERenderInfo> ri);
     virtual ~TrackObjectPresentationLOD();
-    virtual void reset() OVERRIDE;
+    virtual void reset() override;
 };
 
 // ============================================================================
@@ -265,7 +264,7 @@ public:
                                 const core::vector3df& hpr,
                                 const core::vector3df& scale);
     virtual ~TrackObjectPresentationMesh();
-    virtual void reset() OVERRIDE;
+    virtual void reset() override;
     // ------------------------------------------------------------------------
     /** Returns the mode file name. */
     const std::string& getModelFile() const { return m_model_file; }
@@ -297,13 +296,13 @@ public:
                                  bool disable_for_multiplayer);
     virtual ~TrackObjectPresentationSound();
     void onTriggerItemApproached(int kart_id);
-    virtual void updateGraphics(float dt) OVERRIDE;
+    virtual void updateGraphics(float dt) override;
     virtual void move(const core::vector3df& xyz, const core::vector3df& hpr,
-        const core::vector3df& scale, bool isAbsoluteCoord) OVERRIDE;
+        const core::vector3df& scale, bool isAbsoluteCoord) override;
     void triggerSound(bool loop);
     void stopSound();
 
-    virtual void setEnable(bool enabled) OVERRIDE;
+    virtual void setEnable(bool enabled) override;
 
     // ------------------------------------------------------------------------
     /** Currently used for sound effects only, in cutscenes only atm */
@@ -327,7 +326,7 @@ public:
     TrackObjectPresentationBillboard(const XMLNode& xml_node,
                                      scene::ISceneNode* parent);
     virtual ~TrackObjectPresentationBillboard();
-    virtual void updateGraphics(float dt) OVERRIDE;
+    virtual void updateGraphics(float dt) override;
 };   // TrackObjectPresentationBillboard
 
 
@@ -351,7 +350,7 @@ public:
                                      scene::ISceneNode* parent);
     virtual ~TrackObjectPresentationParticles();
 
-    virtual void updateGraphics(float dt) OVERRIDE;
+    virtual void updateGraphics(float dt) override;
     void triggerParticles();
     void stop();
     void stopIn(double delay);
@@ -376,7 +375,7 @@ public:
                                  scene::ISceneNode* parent);
     virtual ~TrackObjectPresentationLight();
     float getEnergy() const { return m_energy; }
-    virtual void setEnable(bool enabled) OVERRIDE;
+    virtual void setEnable(bool enabled) override;
     void setEnergy(float energy);
 };   // TrackObjectPresentationLight
 
@@ -415,12 +414,12 @@ public:
     void onTriggerItemApproached(int kart_id);
     // ------------------------------------------------------------------------
     /** Reset the trigger (i.e. sets it to active again). */
-    virtual void reset() OVERRIDE 
+    virtual void reset() override 
                              { m_reenable_timeout = StkTime::getMonoTimeMs(); }
     // ------------------------------------------------------------------------
     /** Sets the trigger to be enabled or disabled. getMonoTimeMs is used to
      *  to avoid called update which duplicated in network rewinding. */
-    virtual void setEnable(bool status) OVERRIDE
+    virtual void setEnable(bool status) override
     {
         m_reenable_timeout = status ? StkTime::getMonoTimeMs() :
             std::numeric_limits<uint64_t>::max();

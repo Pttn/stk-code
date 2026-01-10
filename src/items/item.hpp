@@ -25,7 +25,6 @@
  */
 
 #include "karts/kart.hpp"
-#include "utils/cpp2011.hpp"
 #include "utils/leak_check.hpp"
 #include "utils/log.hpp"
 #include "utils/no_copy.hpp"
@@ -379,15 +378,15 @@ public:
                        scene::IMesh* mesh, scene::IMesh* lowres_mesh,
                        const std::string& icon, const Kart *owner);
     virtual       ~Item ();
-    virtual void  updateGraphics(float dt) OVERRIDE;
-    virtual void  reset() OVERRIDE;
+    virtual void  updateGraphics(float dt) override;
+    virtual void  reset() override;
 
     //-------------------------------------------------------------------------
     /** Is called when the item is hit by a kart.  It sets the flag that the
      *  item has been collected, and the time to return to the parameter.
      *  \param kart The kart that collected the item.
      */
-    virtual void collected(const Kart *kart)  OVERRIDE
+    virtual void collected(const Kart *kart)  override
     {
         ItemState::collected(kart);
     }   // isCollected
@@ -397,7 +396,7 @@ public:
      *  time). The return value is not actually used, but necessary in order
      *  to overwrite ItemState::switchBack()
      */
-    virtual bool switchBack() OVERRIDE
+    virtual bool switchBack() override
     {
         if (ItemState::switchBack())
             return true;
@@ -411,18 +410,18 @@ public:
      *  \param xyz Location of kart (avoiding to use kart->getXYZ() so that
      *         kart.hpp does not need to be included here).
      */
-    virtual bool hitKart(const Vec3 &xyz, const Kart *kart=NULL) const OVERRIDE;
+    virtual bool hitKart(const Vec3 &xyz, const Kart *kart=NULL) const override;
     // ------------------------------------------------------------------------
     bool rotating() const               { return !isBubblegum(); }
 
 public:
     // ------------------------------------------------------------------------
     /** Returns the index of the graph node this item is on. */
-    virtual int getGraphNode() const OVERRIDE { return m_graph_node; }
+    virtual int getGraphNode() const override { return m_graph_node; }
     // ------------------------------------------------------------------------
     /** Returns the distance from center: negative means left of center,
      *  positive means right of center. */
-    virtual float getDistanceFromCenter() const OVERRIDE
+    virtual float getDistanceFromCenter() const override
     {
         return m_distance_from_center;
     }   // getDistanceFromCenter
@@ -431,7 +430,7 @@ public:
      *  a collection of this item.
      *  \param left If true, return a point to the left, else a point to
      *         the right. */
-    virtual const Vec3 *getAvoidancePoint(bool left) const OVERRIDE
+    virtual const Vec3 *getAvoidancePoint(bool left) const override
     {
         if(left) return m_avoidance_points[0];
         return m_avoidance_points[1];

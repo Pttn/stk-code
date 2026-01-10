@@ -23,7 +23,6 @@
 #include "network/protocol.hpp"
 
 #include "input/input.hpp"                // for PlayerAction
-#include "utils/cpp2011.hpp"
 #include "utils/stk_process.hpp"
 
 #include <cstdlib>
@@ -105,8 +104,8 @@ public:
              GameProtocol();
     virtual ~GameProtocol();
 
-    virtual bool notifyEventAsynchronous(Event* event) OVERRIDE;
-    virtual void update(int ticks) OVERRIDE;
+    virtual bool notifyEventAsynchronous(Event* event) override;
+    virtual void update(int ticks) override;
     void sendActions();
     void controllerAction(int kart_id, PlayerAction action,
                           int value, int val_l, int val_r);
@@ -116,12 +115,12 @@ public:
     void finalizeState(std::vector<std::string>& cur_rewinder);
     void sendItemEventConfirmation(int ticks);
 
-    virtual void undo(BareNetworkString *buffer) OVERRIDE;
-    virtual void rewind(BareNetworkString *buffer) OVERRIDE;
+    virtual void undo(BareNetworkString *buffer) override;
+    virtual void rewind(BareNetworkString *buffer) override;
     // ------------------------------------------------------------------------
-    virtual void setup() OVERRIDE {};
+    virtual void setup() override {};
     // ------------------------------------------------------------------------
-    virtual void asynchronousUpdate() OVERRIDE {}
+    virtual void asynchronousUpdate() override {}
     // ------------------------------------------------------------------------
     static std::shared_ptr<GameProtocol> createInstance();
     // ------------------------------------------------------------------------

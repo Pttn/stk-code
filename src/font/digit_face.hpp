@@ -29,26 +29,26 @@ class FaceTTF;
 class DigitFace : public FontWithFace
 {
 private:
-    virtual bool supportLazyLoadChar() const OVERRIDE         { return false; }
+    virtual bool supportLazyLoadChar() const override         { return false; }
     // ------------------------------------------------------------------------
-    virtual unsigned int getGlyphPageSize() const OVERRIDE      { return 256; }
+    virtual unsigned int getGlyphPageSize() const override      { return 256; }
     // ------------------------------------------------------------------------
-    virtual float getScalingFactorOne() const OVERRIDE         { return 1.4f; }
+    virtual float getScalingFactorOne() const override         { return 1.4f; }
     // ------------------------------------------------------------------------
-    virtual unsigned int getScalingFactorTwo() const OVERRIDE    { return 40; }
+    virtual unsigned int getScalingFactorTwo() const override    { return 40; }
 
 public:
     LEAK_CHECK()
     // ------------------------------------------------------------------------
     DigitFace();
     // ------------------------------------------------------------------------
-    virtual void init() OVERRIDE;
+    virtual void init() override;
     // ------------------------------------------------------------------------
-    virtual void reset() OVERRIDE;
+    virtual void reset() override;
     // ------------------------------------------------------------------------
-    virtual bool disableTextShaping() const OVERRIDE           { return true; }
+    virtual bool disableTextShaping() const override           { return true; }
     // ------------------------------------------------------------------------
-    virtual float getNativeScalingFactor() const OVERRIDE      { return 0.5f; }
+    virtual float getNativeScalingFactor() const override      { return 0.5f; }
 };   // DigitFace
 
 #endif

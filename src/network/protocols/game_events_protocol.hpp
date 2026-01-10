@@ -2,7 +2,6 @@
 #define GAME_EVENTS_PROTOCOL_HPP
 
 #include "network/protocol.hpp"
-#include "utils/cpp2011.hpp"
 
 class Kart;
 
@@ -28,15 +27,15 @@ public:
              GameEventsProtocol();
     virtual ~GameEventsProtocol();
 
-    virtual bool notifyEvent(Event* event) OVERRIDE;
+    virtual bool notifyEvent(Event* event) override;
     void kartFinishedRace(Kart *kart, float time);
     void kartFinishedRace(const NetworkString &ns);
     void sendStartupBoost(uint8_t kart_id);
-    virtual void setup() OVERRIDE {}
-    virtual void update(int ticks) OVERRIDE;
-    virtual void asynchronousUpdate() OVERRIDE {}
+    virtual void setup() override {}
+    virtual void update(int ticks) override;
+    virtual void asynchronousUpdate() override {}
     // ------------------------------------------------------------------------
-    virtual bool notifyEventAsynchronous(Event* event) OVERRIDE
+    virtual bool notifyEventAsynchronous(Event* event) override
     {
         return false;
     }   // notifyEventAsynchronous

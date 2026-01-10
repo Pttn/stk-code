@@ -21,7 +21,6 @@
 #ifdef MOBILE_STK
 
 #include "guiengine/modaldialog.hpp"
-#include "utils/cpp2011.hpp"
 
 class DownloadAssetsRequest;
 namespace GUIEngine { class IconButtonWidget; class ProgressBarWidget; }
@@ -47,11 +46,11 @@ public:
     DownloadAssets();
     ~DownloadAssets();
 
-    virtual GUIEngine::EventPropagation processEvent(const std::string& event_source) OVERRIDE;
-    virtual void beforeAddingWidgets() OVERRIDE;
-    virtual void init() OVERRIDE;
-    void onUpdate(float delta) OVERRIDE;
-    virtual bool onEscapePressed() OVERRIDE;
+    virtual GUIEngine::EventPropagation processEvent(const std::string& event_source) override;
+    virtual void beforeAddingWidgets() override;
+    virtual void init() override;
+    void onUpdate(float delta) override;
+    virtual bool onEscapePressed() override;
 };   // DownloadAssets
 
 #endif

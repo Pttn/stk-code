@@ -20,7 +20,6 @@
 #define HEADER_XML_REQUEST_HPP
 
 #include "online/http_request.hpp"
-#include "utils/cpp2011.hpp"
 #include "utils/synchronised.hpp"
 
 #include <assert.h>
@@ -47,7 +46,7 @@ namespace Online
         /** True if the request was successful executed on the server. */
         bool m_success;
 
-        virtual void afterOperation() OVERRIDE;
+        virtual void afterOperation() override;
 
     public :
         XMLRequest(int priority = 1);

@@ -145,7 +145,7 @@ public:
     static KartSelectionScreen* getRunningInstance();
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void loadedFromFile() OVERRIDE;
+    virtual void loadedFromFile() override;
 
     void setMultiplayer(bool multiplayer);
 
@@ -166,22 +166,22 @@ public:
     virtual bool playerQuit(StateManager::ActivePlayer* player);
 
      /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void init() OVERRIDE;
+    virtual void init() override;
 
-    virtual void beforeAddingWidget() OVERRIDE;
+    virtual void beforeAddingWidget() override;
 
      /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void tearDown() OVERRIDE;
+    virtual void tearDown() override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
     virtual void eventCallback(GUIEngine::Widget* widget, const std::string& name,
-                               const int playerID) OVERRIDE;
+                               const int playerID) override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void onUpdate(float dt) OVERRIDE;
+    virtual void onUpdate(float dt) override;
 
     /** Rebuild the list of tracks based on search text */
-    virtual void onTextUpdated() OVERRIDE
+    virtual void onTextUpdated() override
     {
         setKartsFromCurrentGroup();
         // After setKartsFromCurrentGroup the m_search_box may be unfocused
@@ -191,17 +191,17 @@ public:
     }
 
     virtual void onFocusChanged(GUIEngine::Widget* previous,
-                                GUIEngine::Widget* focus, int playerID) OVERRIDE;
+                                GUIEngine::Widget* focus, int playerID) override;
 
     /** \brief implement optional callback from parent
      *  class GUIEngine::Screen */
-    virtual void unloaded() OVERRIDE;
+    virtual void unloaded() override;
 
     /** \brief implement optional callback from parent
      *  class GUIEngine::Screen */
-    virtual bool onEscapePressed() OVERRIDE;
+    virtual bool onEscapePressed() override;
 
-    virtual void onResize() OVERRIDE;
+    virtual void onResize() override;
 
 };   // KartSelectionScreen
 

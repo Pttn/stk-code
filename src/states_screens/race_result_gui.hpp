@@ -227,31 +227,31 @@ private:
 public:
 
                  RaceResultGUI();
-    virtual void renderGlobal(float dt) OVERRIDE;
+    virtual void renderGlobal(float dt) override;
 
     /** \brief Implement callback from parent class GUIEngine::Screen */
-    virtual void loadedFromFile() OVERRIDE {};
+    virtual void loadedFromFile() override {};
 
-    virtual void init() OVERRIDE;
-    virtual void tearDown() OVERRIDE;
-    virtual bool onEscapePressed() OVERRIDE;
-    virtual void unload() OVERRIDE;
+    virtual void init() override;
+    virtual void tearDown() override;
+    virtual bool onEscapePressed() override;
+    virtual void unload() override;
     virtual GUIEngine::EventPropagation
                  filterActions(PlayerAction action, int deviceID, const unsigned int value,
-                               Input::InputType type, int playerId) OVERRIDE;
+                               Input::InputType type, int playerId) override;
     void eventCallback(GUIEngine::Widget* widget, const std::string& name,
-                       const int playerID) OVERRIDE;
+                       const int playerID) override;
     friend class GUIEngine::ScreenSingleton<RaceResultGUI>;
 
     /** Should not be called anymore.  */
-    const core::dimension2du getMiniMapSize() const OVERRIDE
+    const core::dimension2du getMiniMapSize() const override
                   { return core::dimension2du(0, 0); }
 
     /** No kart specific view needs to be rendered in the result gui. */
-    virtual void renderPlayerView(const Camera *camera, float dt) OVERRIDE {}
+    virtual void renderPlayerView(const Camera *camera, float dt) override {}
 
-    virtual void onUpdate(float dt) OVERRIDE;
-    virtual void onDraw(float dt) OVERRIDE;
+    virtual void onUpdate(float dt) override;
+    virtual void onDraw(float dt) override;
 
     /** No more messages need to be displayed, but the function might still be
      *  called (e.g. 'new lap' message if the end controller is used for more
@@ -264,7 +264,7 @@ public:
                                 video::SColor(255, 255, 0, 255),
                             bool important=true,
                             bool big_font=false,
-                            bool outline=false) OVERRIDE { }
+                            bool outline=false) override { }
 
     void nextPhase();
 
@@ -280,9 +280,9 @@ public:
       */
     void setHighscore(int rank);
 
-    virtual void onConfirm() OVERRIDE;
+    virtual void onConfirm() override;
     void cleanupGPProgress();
-    virtual void onResize() OVERRIDE;
+    virtual void onResize() override;
 };   // RaceResultGUI
 
 #endif

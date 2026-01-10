@@ -26,7 +26,6 @@
 #include "karts/moveable.hpp"
 #include "network/rewinder.hpp"
 #include "tracks/terrain_info.hpp"
-#include "utils/cpp2011.hpp"
 
 #include <irrString.h>
 namespace irr
@@ -194,7 +193,7 @@ public:
     virtual     ~Flyable     ();
     static void  init        (const XMLNode &node, scene::IMesh *model,
                               PowerupManager::PowerupType type);
-    void                      updateGraphics(float dt) OVERRIDE;
+    void                      updateGraphics(float dt) override;
     virtual bool              updateAndDelete(int ticks);
     virtual void              setAnimation(AbstractKartAnimation *animation);
     virtual HitEffect*        getHitEffect() const;
@@ -230,7 +229,7 @@ public:
     void         setHasHit   () { m_has_hit_something = true; }
     // ------------------------------------------------------------------------
     /** Resets this flyable. */
-    void         reset() OVERRIDE { Moveable::reset();          }
+    void         reset() override { Moveable::reset();          }
     // ------------------------------------------------------------------------
     /** Returns the type of flyable. */
     PowerupManager::PowerupType getType() const {return m_type;}
@@ -249,20 +248,20 @@ public:
     // ------------------------------------------------------------------------
     void addForRewind(const std::string& uid);
     // ------------------------------------------------------------------------
-    virtual void undoEvent(BareNetworkString *buffer) OVERRIDE {}
+    virtual void undoEvent(BareNetworkString *buffer) override {}
     // ------------------------------------------------------------------------
-    virtual void rewindToEvent(BareNetworkString *buffer) OVERRIDE {}
+    virtual void rewindToEvent(BareNetworkString *buffer) override {}
     // ------------------------------------------------------------------------
-    virtual void undoState(BareNetworkString *buffer) OVERRIDE {}
+    virtual void undoState(BareNetworkString *buffer) override {}
     // ------------------------------------------------------------------------
-    virtual void saveTransform() OVERRIDE;
+    virtual void saveTransform() override;
     // ------------------------------------------------------------------------
-    virtual void computeError() OVERRIDE;
+    virtual void computeError() override;
     // ------------------------------------------------------------------------
     virtual BareNetworkString* saveState(std::vector<std::string>* ru)
-        OVERRIDE;
+        override;
     // ------------------------------------------------------------------------
-    virtual void restoreState(BareNetworkString *buffer, int count) OVERRIDE;
+    virtual void restoreState(BareNetworkString *buffer, int count) override;
     // ------------------------------------------------------------------------
     /* Return true if still in game state, or otherwise can be deleted. */
     bool hasServerState() const                  { return m_has_server_state; }

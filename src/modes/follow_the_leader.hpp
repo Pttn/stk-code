@@ -47,24 +47,24 @@ public:
     virtual ~FollowTheLeaderRace();
 
     // clock events
-    virtual void countdownReachedZero() OVERRIDE;
-    virtual int  getScoreForPosition(int p) OVERRIDE;
+    virtual void countdownReachedZero() override;
+    virtual int  getScoreForPosition(int p) override;
 
     // overriding World methods
-    virtual void reset(bool restart=false) OVERRIDE;
-    virtual const std::string& getIdent() const OVERRIDE;
-    virtual const btTransform &getStartTransform(int index) OVERRIDE;
+    virtual void reset(bool restart=false) override;
+    virtual const std::string& getIdent() const override;
+    virtual const btTransform &getStartTransform(int index) override;
     virtual void getKartsDisplayInfo(
-                 std::vector<RaceGUIBase::KartIconDisplayInfo> *info) OVERRIDE;
-    virtual void init() OVERRIDE;
-    virtual void terminateRace() OVERRIDE;
-    virtual bool isRaceOver() OVERRIDE;
+                 std::vector<RaceGUIBase::KartIconDisplayInfo> *info) override;
+    virtual void init() override;
+    virtual void terminateRace() override;
+    virtual bool isRaceOver() override;
     // ------------------------------------------------------------------------
     /** Returns if this type of race has laps. */
-    virtual bool raceHasLaps() OVERRIDE { return false; }
+    virtual bool raceHasLaps() override { return false; }
     // ------------------------------------------------------------------------
     /** Returns if faster music should be used at the end. */
-    virtual bool useFastMusicNearEnd() const OVERRIDE { return false; }
+    virtual bool useFastMusicNearEnd() const override { return false; }
 
     bool isLeader(int kart_id) { return (kart_id == 0); }
     void leaderHit();

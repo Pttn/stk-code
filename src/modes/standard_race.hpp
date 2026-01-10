@@ -29,7 +29,7 @@ class StandardRace : public LinearWorld
 {
 protected:
     // clock events
-    virtual bool  isRaceOver() OVERRIDE;
+    virtual bool  isRaceOver() override;
 
 public:
                   StandardRace();
@@ -37,11 +37,11 @@ public:
 
     // overriding World methods
     virtual void  getDefaultCollectibles(int *collectible_type,
-                                         int *amount) OVERRIDE;
-    virtual bool  haveBonusBoxes() OVERRIDE;
-    virtual const std::string& getIdent() const OVERRIDE;
+                                         int *amount) override;
+    virtual bool  haveBonusBoxes() override;
+    virtual const std::string& getIdent() const override;
 
-    virtual void  endRaceEarly() OVERRIDE;
+    virtual void  endRaceEarly() override;
 };
 
 #endif

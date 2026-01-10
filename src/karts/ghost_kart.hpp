@@ -21,7 +21,6 @@
 
 #include "karts/kart.hpp"
 #include "replay/replay_play.hpp"
-#include "utils/cpp2011.hpp"
 
 #include "LinearMath/btTransform.h"
 
@@ -63,15 +62,15 @@ public:
                   GhostKart(const std::string& ident, unsigned int world_kart_id,
                             int position, float color_hue,
                             const ReplayPlay::ReplayData& rd);
-    virtual void  update(int ticks) OVERRIDE;
-    virtual void  updateGraphics(float dt) OVERRIDE;
-    virtual void  reset() OVERRIDE;
+    virtual void  update(int ticks) override;
+    virtual void  updateGraphics(float dt) override;
+    virtual void  reset() override;
     // ------------------------------------------------------------------------
     /** No physics for ghost kart. */
-    virtual void  applyEngineForce (float force) OVERRIDE {};
+    virtual void  applyEngineForce (float force) override {};
     // ------------------------------------------------------------------------
     // Not needed to create any physics for a ghost kart.
-    virtual void  createPhysics() OVERRIDE {};
+    virtual void  createPhysics() override {};
     // ------------------------------------------------------------------------
     const float   getSuspensionLength(int index, int wheel) const
                { return m_all_physic_info[index].m_suspension_length[wheel]; }
@@ -83,23 +82,23 @@ public:
                                  const ReplayBase::KartReplayEvent &kre);
     // ------------------------------------------------------------------------
     /** Returns whether this kart is a ghost (replay) kart. */
-    virtual bool  isGhostKart() const OVERRIDE { return true; }
+    virtual bool  isGhostKart() const override { return true; }
     // ------------------------------------------------------------------------
     /** Ghost can't be hunted. */
-    virtual bool  isInvulnerable() const OVERRIDE { return true; }
+    virtual bool  isInvulnerable() const override { return true; }
     // ------------------------------------------------------------------------
     /** Ghost are not on the ground if flying. */
-    virtual bool  isOnGround() const OVERRIDE { return !m_flying; }
+    virtual bool  isOnGround() const override { return !m_flying; }
     // ------------------------------------------------------------------------
     /** Returns the speed of the kart in meters/second. */
-    virtual float getSpeed() const OVERRIDE;
+    virtual float getSpeed() const override;
     // ------------------------------------------------------------------------
     /** Returns the finished time for a ghost kart. */
     float  getGhostFinishTime();
     // ------------------------------------------------------------------------
     /** Returns the time at which the kart was at a given distance.
       * Returns -1.0f if none */
-    virtual float getTimeForDistance(float distance) OVERRIDE;
+    virtual float getTimeForDistance(float distance) override;
 
     // ----------------------------------------------------------------------------
     /** Returns the smallest time at which the kart had the required number of eggs
@@ -107,9 +106,9 @@ public:
     float getTimeForEggs(int egg_number);
 
     // ------------------------------------------------------------------------
-    virtual void kartIsInRestNow() OVERRIDE {}
+    virtual void kartIsInRestNow() override {}
     // ------------------------------------------------------------------------
-    virtual void makeKartRest() OVERRIDE {}
+    virtual void makeKartRest() override {}
     // ------------------------------------------------------------------------
     const ReplayPlay::ReplayData& getReplayData() const
                                                      { return m_replay_data; }

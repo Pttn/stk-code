@@ -20,7 +20,6 @@
 #define HEADER_ARENA_NODE_HPP
 
 #include "tracks/quad.hpp"
-#include "utils/cpp2011.hpp"
 
 #include <line3d.h>
 #include <vector>
@@ -62,7 +61,7 @@ public:
      */
     bool isNearEdge() const            { return m_adjacent_nodes.size() != 4; }
     // ------------------------------------------------------------------------
-    virtual float getDistance2FromPoint(const Vec3 &xyz) const OVERRIDE;
+    virtual float getDistance2FromPoint(const Vec3 &xyz) const override;
 
 };
 

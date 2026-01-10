@@ -36,11 +36,11 @@ public:
     {
     }   // ~NetworkPlayerController
     // ------------------------------------------------------------------------
-    virtual bool canGetAchievements() const OVERRIDE          { return false; }
+    virtual bool canGetAchievements() const override          { return false; }
     // ------------------------------------------------------------------------
     /** This player is not a local player. This affect e.g. special sfx and
      *  camera effects to be triggered. */
-    virtual bool isLocalPlayerController() const OVERRIDE
+    virtual bool isLocalPlayerController() const override
     {
         return false; 
     }   // isLocal
@@ -51,7 +51,7 @@ public:
      *  latency the predicted path will curve way too much. By automatically 
      *  reducing it, this error is reduced. And even if the player steers more
      *  the error is hopefully acceptable. */
-    virtual void update(int ticks) OVERRIDE
+    virtual void update(int ticks) override
     {
         PlayerController::update(ticks);
         if (NetworkConfig::get()->isClient())

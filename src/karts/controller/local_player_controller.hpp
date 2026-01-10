@@ -70,8 +70,8 @@ private:
     SFXBuffer   *m_unfull_sound;
 
 
-    virtual void steer(int) OVERRIDE;
-    virtual void displayPenaltyWarning() OVERRIDE;
+    virtual void steer(int) override;
+    virtual void displayPenaltyWarning() override;
     void         nitroNotFullSound();
 
     void doCrashHaptics();
@@ -82,31 +82,31 @@ public:
                                        const int local_player_id,
                                        HandicapLevel h);
                 ~LocalPlayerController();
-    void         update            (int ticks) OVERRIDE;
+    void         update            (int ticks) override;
     bool         action            (PlayerAction action, int value,
-                                    bool dry_run=false) OVERRIDE;
+                                    bool dry_run=false) override;
             void initParticleEmitter();
-    virtual void handleZipper      (bool play_sound) OVERRIDE;
+    virtual void handleZipper      (bool play_sound) override;
     void         collectedItem     (const ItemState &item,
-                                    float previous_energy=0) OVERRIDE;
-    virtual void setPosition       (int p) OVERRIDE;
-    virtual void reset             () OVERRIDE;
-    virtual void finishedRace      (float time) OVERRIDE;
-    virtual void resetInputState   () OVERRIDE;
-    virtual bool canGetAchievements() const OVERRIDE;
+                                    float previous_energy=0) override;
+    virtual void setPosition       (int p) override;
+    virtual void reset             () override;
+    virtual void finishedRace      (float time) override;
+    virtual void resetInputState   () override;
+    virtual bool canGetAchievements() const override;
 
-    virtual void crashed(const Kart *k) OVERRIDE;
-    virtual void crashed(const Material *m) OVERRIDE;
+    virtual void crashed(const Kart *k) override;
+    virtual void crashed(const Material *m) override;
 
-    virtual void rumble(float strength_low, float strength_high, uint16_t duration) OVERRIDE;
+    virtual void rumble(float strength_low, float strength_high, uint16_t duration) override;
 
     // ------------------------------------------------------------------------
-    virtual bool isPlayerController() const OVERRIDE {return true;}
+    virtual bool isPlayerController() const override {return true;}
     // ------------------------------------------------------------------------
-    virtual bool isLocalPlayerController() const OVERRIDE {return true;}
+    virtual bool isLocalPlayerController() const override {return true;}
     // ------------------------------------------------------------------------
     /** Returns the name of the player profile. */
-    core::stringw getName(bool include_handicap_string = true) const OVERRIDE;
+    core::stringw getName(bool include_handicap_string = true) const override;
 };   // LocalPlayerController
 
 #endif

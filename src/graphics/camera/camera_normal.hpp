@@ -23,7 +23,6 @@
 
 #include "graphics/camera/camera.hpp"
 
-#include "utils/cpp2011.hpp"
 
 /**
   * \brief Handles the normal racing camera
@@ -82,7 +81,7 @@ public:
     // ------------------------------------------------------------------------
     bool isFPS() { return false; }
     // ------------------------------------------------------------------------
-    virtual void update(float dt) OVERRIDE;
+    virtual void update(float dt) override;
     // ------------------------------------------------------------------------
     /** Sets the ambient light for this camera. */
     void setAmbientLight(const video::SColor &color) { m_ambient_light=color; }

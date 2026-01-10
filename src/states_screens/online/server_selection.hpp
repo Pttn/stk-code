@@ -96,31 +96,31 @@ private:
     std::shared_ptr<ServerList> m_server_list;
 public:
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void loadedFromFile() OVERRIDE;
+    virtual void loadedFromFile() override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
     virtual void eventCallback(GUIEngine::Widget* widget,
                                const std::string& name,
-                               const int playerID) OVERRIDE;
+                               const int playerID) override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void beforeAddingWidget() OVERRIDE;
+    virtual void beforeAddingWidget() override;
 
     virtual void onColumnClicked(int column_id, bool sort_desc,
-                                 bool sort_default) OVERRIDE;
+                                 bool sort_default) override;
 
-    virtual void init() OVERRIDE;
+    virtual void init() override;
 
-    virtual void tearDown() OVERRIDE;
+    virtual void tearDown() override;
 
-    virtual void unloaded() OVERRIDE;
+    virtual void unloaded() override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void onUpdate(float dt) OVERRIDE;
+    virtual void onUpdate(float dt) override;
 
-    virtual void onTextUpdated() OVERRIDE             { copyFromServerList(); }
+    virtual void onTextUpdated() override             { copyFromServerList(); }
 
-    virtual bool onEnterPressed(const irr::core::stringw& text) OVERRIDE
+    virtual bool onEnterPressed(const irr::core::stringw& text) override
                                                               { return false; }
 
     void copyFromServerList();

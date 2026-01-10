@@ -21,7 +21,6 @@
 
 #include "tracks/bounding_box_3d.hpp"
 #include "tracks/drive_node.hpp"
-#include "utils/cpp2011.hpp"
 
 #include <line3d.h>
 
@@ -43,16 +42,16 @@ public:
                 bool ai_ignore, bool ignored);
     // ------------------------------------------------------------------------
     virtual bool pointInside(const Vec3& p,
-                             bool ignore_vertical = false) const OVERRIDE
+                             bool ignore_vertical = false) const override
     {
         return BoundingBox3D::pointInside(p);
     }
     // ------------------------------------------------------------------------
-    virtual void getDistances(const Vec3 &xyz, Vec3 *result) const OVERRIDE;
+    virtual void getDistances(const Vec3 &xyz, Vec3 *result) const override;
     // ------------------------------------------------------------------------
-    virtual float getDistance2FromPoint(const Vec3 &xyz) const OVERRIDE;
+    virtual float getDistance2FromPoint(const Vec3 &xyz) const override;
     // ------------------------------------------------------------------------
-    virtual bool is3DQuad() const OVERRIDE                     { return true; }
+    virtual bool is3DQuad() const override                     { return true; }
 
 };
 #endif

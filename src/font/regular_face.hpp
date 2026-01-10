@@ -29,22 +29,22 @@ class FaceTTF;
 class RegularFace : public FontWithFace
 {
 private:
-    virtual unsigned int getGlyphPageSize() const OVERRIDE      { return 512; }
+    virtual unsigned int getGlyphPageSize() const override      { return 512; }
     // ------------------------------------------------------------------------
-    virtual float getScalingFactorOne() const OVERRIDE         { return 0.7f; }
+    virtual float getScalingFactorOne() const override         { return 0.7f; }
     // ------------------------------------------------------------------------
-    virtual unsigned int getScalingFactorTwo() const OVERRIDE    { return 27; }
+    virtual unsigned int getScalingFactorTwo() const override    { return 27; }
 
 public:
     LEAK_CHECK()
     // ------------------------------------------------------------------------
     RegularFace();
     // ------------------------------------------------------------------------
-    virtual void init() OVERRIDE;
+    virtual void init() override;
     // ------------------------------------------------------------------------
-    virtual void reset() OVERRIDE;
+    virtual void reset() override;
     // ------------------------------------------------------------------------
-    virtual bool useColorGlyphPage() const  OVERRIDE           { return true; }
+    virtual bool useColorGlyphPage() const  override           { return true; }
 
 };   // RegularFace
 

@@ -23,7 +23,6 @@
 
 #include "graphics/camera/camera_normal.hpp"
 
-#include "utils/cpp2011.hpp"
 
 /**
   * Handles the end race camera. It inherits from CameraNormal to make
@@ -107,7 +106,7 @@ public:
 
     static void readEndCamera(const XMLNode &root);
     static void clearEndCameras();
-    virtual void update(float dt) OVERRIDE;
+    virtual void update(float dt) override;
 };   // class CameraEnd
 
 #endif

@@ -79,10 +79,10 @@ public:
                                int position,
                                const btTransform& init_transform,
                                HandicapLevel handicap);
-    virtual void update(int ticks) OVERRIDE;
-    virtual void reset() OVERRIDE;
-    virtual void collectedItem(ItemState *item_state) OVERRIDE;
-    virtual void setKartAnimation(AbstractKartAnimation *ka) OVERRIDE;
+    virtual void update(int ticks) override;
+    virtual void reset() override;
+    virtual void collectedItem(ItemState *item_state) override;
+    virtual void setKartAnimation(AbstractKartAnimation *ka) override;
 
     /** Returns the top speed of this kart. */
     float getTopSpeed() const { return m_top_speed; }

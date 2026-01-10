@@ -19,7 +19,6 @@
 #define HEADER_ADDONS_PACK_HPP
 
 #include "guiengine/modaldialog.hpp"
-#include "utils/cpp2011.hpp"
 
 class AddonsPackRequest;
 namespace GUIEngine { class LabelWidget; class ProgressBarWidget; }
@@ -42,11 +41,11 @@ private:
     AddonsPack(const std::string& url);
     ~AddonsPack();
 public:
-    virtual GUIEngine::EventPropagation processEvent(const std::string& event_source) OVERRIDE;
-    virtual void beforeAddingWidgets() OVERRIDE;
-    virtual void init() OVERRIDE;
-    void onUpdate(float delta) OVERRIDE;
-    virtual bool onEscapePressed() OVERRIDE;
+    virtual GUIEngine::EventPropagation processEvent(const std::string& event_source) override;
+    virtual void beforeAddingWidgets() override;
+    virtual void init() override;
+    void onUpdate(float delta) override;
+    virtual bool onEscapePressed() override;
     static void install(const std::string& name);
     static void uninstall(const std::string& name, bool force_remove_skin = false);
     static void uninstallByName(const std::string& name, bool force_clear = false);

@@ -26,7 +26,6 @@
 #include <AL/al.h>
 #include "audio/sfx_base.hpp"
 #include "utils/leak_check.hpp"
-#include "utils/cpp2011.hpp"
 
 /**
   * \brief OpenAL implementation of the abstract SFXBase interface
@@ -78,43 +77,43 @@ public:
                         bool owns_buffer = false);
     virtual  ~SFXOpenAL();
 
-    virtual void      updatePlayingSFX(float dt) OVERRIDE;
-    virtual bool      init() OVERRIDE;
-    virtual void      play() OVERRIDE;
-    virtual void      reallyPlayNow(SFXBuffer* buffer = NULL) OVERRIDE;
-    virtual void      play(const Vec3 &xyz, SFXBuffer* buffer = NULL) OVERRIDE;
-    virtual void      reallyPlayNow(const Vec3 &xyz, SFXBuffer* buffer = NULL) OVERRIDE;
-    virtual void      setLoop(bool status) OVERRIDE;
-    virtual void      reallySetLoop(bool status) OVERRIDE;
-    virtual void      stop() OVERRIDE;
-    virtual void      reallyStopNow() OVERRIDE;
-    virtual void      pause() OVERRIDE;
-    virtual void      reallyPauseNow() OVERRIDE;
-    virtual void      resume() OVERRIDE;
-    virtual void      reallyResumeNow() OVERRIDE;
-    virtual void      deleteSFX() OVERRIDE;
-    virtual void      setSpeed(float factor) OVERRIDE;
-    virtual void      reallySetSpeed(float factor) OVERRIDE;
-    virtual void      setPosition(const Vec3 &position) OVERRIDE;
-    virtual void      reallySetPosition(const Vec3 &p) OVERRIDE;
-    virtual void      setSpeedPosition(float factor, const Vec3 &p) OVERRIDE;
-    virtual void      reallySetSpeedPosition(float f,const Vec3 &p) OVERRIDE;
-    virtual void      setVolume(float volume) OVERRIDE;
-    virtual void      reallySetVolume(float volume) OVERRIDE;
-    virtual void      setMasterVolume(float volume) OVERRIDE;
-    virtual void      reallySetMasterVolumeNow(float volue) OVERRIDE;
-    virtual void      onSoundEnabledBack(bool resume_later) OVERRIDE;
-    virtual void      setRolloff(float rolloff) OVERRIDE;
+    virtual void      updatePlayingSFX(float dt) override;
+    virtual bool      init() override;
+    virtual void      play() override;
+    virtual void      reallyPlayNow(SFXBuffer* buffer = NULL) override;
+    virtual void      play(const Vec3 &xyz, SFXBuffer* buffer = NULL) override;
+    virtual void      reallyPlayNow(const Vec3 &xyz, SFXBuffer* buffer = NULL) override;
+    virtual void      setLoop(bool status) override;
+    virtual void      reallySetLoop(bool status) override;
+    virtual void      stop() override;
+    virtual void      reallyStopNow() override;
+    virtual void      pause() override;
+    virtual void      reallyPauseNow() override;
+    virtual void      resume() override;
+    virtual void      reallyResumeNow() override;
+    virtual void      deleteSFX() override;
+    virtual void      setSpeed(float factor) override;
+    virtual void      reallySetSpeed(float factor) override;
+    virtual void      setPosition(const Vec3 &position) override;
+    virtual void      reallySetPosition(const Vec3 &p) override;
+    virtual void      setSpeedPosition(float factor, const Vec3 &p) override;
+    virtual void      reallySetSpeedPosition(float f,const Vec3 &p) override;
+    virtual void      setVolume(float volume) override;
+    virtual void      reallySetVolume(float volume) override;
+    virtual void      setMasterVolume(float volume) override;
+    virtual void      reallySetMasterVolumeNow(float volue) override;
+    virtual void      onSoundEnabledBack(bool resume_later) override;
+    virtual void      setRolloff(float rolloff) override;
     // ------------------------------------------------------------------------
     /** Returns if this sfx is looped or not. */
-    virtual bool      isLooped()  OVERRIDE { return m_loop; }
+    virtual bool      isLooped()  override { return m_loop; }
     // ------------------------------------------------------------------------
     /** Returns the status of this sfx. */
-    virtual SFXStatus getStatus()  OVERRIDE { return m_status; }
+    virtual SFXStatus getStatus()  override { return m_status; }
 
     // ------------------------------------------------------------------------
     /** Returns the buffer associated with this sfx. */
-    virtual SFXBuffer* getBuffer() const OVERRIDE
+    virtual SFXBuffer* getBuffer() const override
                                                      { return m_sound_buffer; }
 
 };   // SFXOpenAL

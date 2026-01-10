@@ -21,7 +21,6 @@
 
 #include "input/input.hpp"
 #include "network/protocols/lobby_protocol.hpp"
-#include "utils/cpp2011.hpp"
 
 #include <enet/enet.h>
 
@@ -162,20 +161,20 @@ public:
                                                   { return m_available_karts; }
     const std::set<std::string>& getAvailableTracks() const
                                                  { return m_available_tracks; }
-    virtual bool notifyEvent(Event* event) OVERRIDE;
-    virtual bool notifyEventAsynchronous(Event* event) OVERRIDE;
-    virtual void finishedLoadingWorld() OVERRIDE;
-    virtual void setup() OVERRIDE;
-    virtual void update(int ticks) OVERRIDE;
-    virtual void asynchronousUpdate() OVERRIDE {}
-    virtual bool allPlayersReady() const OVERRIDE
+    virtual bool notifyEvent(Event* event) override;
+    virtual bool notifyEventAsynchronous(Event* event) override;
+    virtual void finishedLoadingWorld() override;
+    virtual void setup() override;
+    virtual void update(int ticks) override;
+    virtual void asynchronousUpdate() override {}
+    virtual bool allPlayersReady() const override
                                            { return m_state.load() >= RACING; }
     bool waitingForServerRespond() const
                             { return m_state.load() == REQUESTING_CONNECTION; }
     bool isLobbyReady() const                      { return !m_first_connect; }
     bool isWaitingForGame() const                { return m_waiting_for_game; }
     bool isServerAutoGameTime() const       { return m_server_auto_game_time; }
-    virtual bool isRacing() const OVERRIDE { return m_state.load() == RACING; }
+    virtual bool isRacing() const override { return m_state.load() == RACING; }
     void requestKartInfo(uint8_t kart_id);
     void setSpectator(bool val)                          { m_spectator = val; }
     bool isSpectator() const

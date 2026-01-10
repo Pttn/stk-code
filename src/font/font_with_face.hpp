@@ -19,7 +19,6 @@
 #ifndef HEADER_FONT_WITH_FACE_HPP
 #define HEADER_FONT_WITH_FACE_HPP
 
-#include "utils/cpp2011.hpp"
 #include "utils/leak_check.hpp"
 #include "utils/no_copy.hpp"
 

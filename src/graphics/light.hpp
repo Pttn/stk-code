@@ -20,7 +20,6 @@
 #define HEADER_LIGHT_HPP
 
 #include <ISceneNode.h>
-#include <utils/cpp2011.hpp>
 #include <vector3d.h>
 #include <vector>
 
@@ -51,16 +50,16 @@ public:
     LightNode(scene::ISceneManager* mgr, scene::ISceneNode* parent, float energy, float d, float r, float g, float b);
     virtual ~LightNode();
 
-    virtual void render() OVERRIDE;
+    virtual void render() override;
 
-    virtual const core::aabbox3d<f32>& getBoundingBox() const OVERRIDE
+    virtual const core::aabbox3d<f32>& getBoundingBox() const override
     {
         return box;
     }
 
-    virtual void OnRegisterSceneNode() OVERRIDE;
+    virtual void OnRegisterSceneNode() override;
 
-    virtual u32 getMaterialCount() const OVERRIDE { return 1; }
+    virtual u32 getMaterialCount() const override { return 1; }
     virtual bool isPointLight() { return true; }
 
     float getRadius() const { return m_radius; }

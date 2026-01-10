@@ -46,23 +46,23 @@ private:
 public:
              GhostController(Kart *kart, core::stringw display_name);
     virtual ~GhostController() {};
-    virtual void reset() OVERRIDE;
-    virtual void update (int ticks) OVERRIDE;
-    virtual bool disableSlipstreamBonus() const OVERRIDE { return true; }
-    virtual void crashed(const Material *m) OVERRIDE {}
-    virtual void crashed(const Kart *k) OVERRIDE {}
-    virtual void handleZipper(bool play_sound) OVERRIDE {}
-    virtual void finishedRace(float time) OVERRIDE {}
-    virtual void setPosition(int p) OVERRIDE {}
-    virtual bool isPlayerController() const OVERRIDE { return false; }
-    virtual bool isLocalPlayerController() const OVERRIDE { return false; }
+    virtual void reset() override;
+    virtual void update (int ticks) override;
+    virtual bool disableSlipstreamBonus() const override { return true; }
+    virtual void crashed(const Material *m) override {}
+    virtual void crashed(const Kart *k) override {}
+    virtual void handleZipper(bool play_sound) override {}
+    virtual void finishedRace(float time) override {}
+    virtual void setPosition(int p) override {}
+    virtual bool isPlayerController() const override { return false; }
+    virtual bool isLocalPlayerController() const override { return false; }
     virtual bool action(PlayerAction action, int value,
-                        bool dry_run=false) OVERRIDE;
-    virtual void skidBonusTriggered() OVERRIDE {}
-    virtual void newLap(int lap) OVERRIDE {}
-    virtual bool saveState(BareNetworkString *buffer) const OVERRIDE
+                        bool dry_run=false) override;
+    virtual void skidBonusTriggered() override {}
+    virtual void newLap(int lap) override {}
+    virtual bool saveState(BareNetworkString *buffer) const override
                                                               { return false; }
-    virtual void rewindTo(BareNetworkString *buffer) OVERRIDE {}
+    virtual void rewindTo(BareNetworkString *buffer) override {}
 
     void         addReplayTime(float time);
     // ------------------------------------------------------------------------
@@ -88,7 +88,7 @@ public:
 
     // ------------------------------------------------------------------------
     /** Return the display name; if not set, use default display name (kart name) */
-    core::stringw getName(bool include_handicap_string = true) const OVERRIDE
+    core::stringw getName(bool include_handicap_string = true) const override
     {
         return m_display_name.empty() ?
             Controller::getName(include_handicap_string) : m_display_name;

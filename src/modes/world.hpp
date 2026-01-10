@@ -186,10 +186,10 @@ protected:
 
     bool m_ended_early;
 
-    virtual void  onGo() OVERRIDE;
+    virtual void  onGo() override;
     /** Returns true if the race is over. Must be defined by all modes. */
     virtual bool  isRaceOver() = 0;
-    virtual void  update(int ticks) OVERRIDE;
+    virtual void  update(int ticks) override;
     virtual void  createRaceGUI();
             void  updateTrack(int ticks);
     // ------------------------------------------------------------------------
@@ -282,10 +282,10 @@ public:
     // =================
     virtual void    init();
     virtual void    updateGraphics(float dt);
-    virtual void    terminateRace() OVERRIDE;
-    virtual void    reset(bool restart=false) OVERRIDE;
-    virtual void    pause(Phase phase) OVERRIDE;
-    virtual void    unpause() OVERRIDE;
+    virtual void    terminateRace() override;
+    virtual void    reset(bool restart=false) override;
+    virtual void    pause(Phase phase) override;
+    virtual void    unpause() override;
     virtual void    getDefaultCollectibles(int *collectible_type,
                                            int *amount );
     // ------------------------------------------------------------------------

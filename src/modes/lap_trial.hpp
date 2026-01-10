@@ -23,16 +23,16 @@
 class LapTrial : public LinearWorld
 {
 protected:
-    virtual bool isRaceOver() OVERRIDE;
+    virtual bool isRaceOver() override;
 public:
     LapTrial();
-    virtual void countdownReachedZero() OVERRIDE;
-    virtual void reset(bool restart = false) OVERRIDE;
-    virtual void update(int ticks) OVERRIDE;
-    virtual void terminateRace() OVERRIDE;
-    virtual const std::string& getIdent() const OVERRIDE { return IDENT_LAP_TRIAL; }
-    virtual bool showLapsTarget() OVERRIDE { return false; }
-    virtual void getKartsDisplayInfo(std::vector<RaceGUIBase::KartIconDisplayInfo>* icons) OVERRIDE;
+    virtual void countdownReachedZero() override;
+    virtual void reset(bool restart = false) override;
+    virtual void update(int ticks) override;
+    virtual void terminateRace() override;
+    virtual const std::string& getIdent() const override { return IDENT_LAP_TRIAL; }
+    virtual bool showLapsTarget() override { return false; }
+    virtual void getKartsDisplayInfo(std::vector<RaceGUIBase::KartIconDisplayInfo>* icons) override;
 private:
     bool m_count_down_reached_zero;
 };

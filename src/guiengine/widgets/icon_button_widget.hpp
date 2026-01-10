@@ -33,7 +33,6 @@ namespace irr
 
 #include "guiengine/widget.hpp"
 #include "utils/leak_check.hpp"
-#include "utils/cpp2011.hpp"
 
 namespace GUIEngine
 {
@@ -100,7 +99,7 @@ namespace GUIEngine
         virtual ~IconButtonWidget() {};
 
         /** \brief Implement callback from base class Widget */
-        virtual void add() OVERRIDE;
+        virtual void add() override;
 
         /**
           * \brief Call this if scale mode is SCALE_MODE_KEEP_CUSTOM_ASPECT_RATIO.
@@ -167,24 +166,24 @@ namespace GUIEngine
 
         // --------------------------------------------------------------------
         /** \brief override from base class */
-        virtual EventPropagation focused(const int playerID) OVERRIDE;
+        virtual EventPropagation focused(const int playerID) override;
 
         // --------------------------------------------------------------------
         /** \brief override from base class */
-        virtual void unfocused(const int playerID, Widget* new_focus) OVERRIDE;
+        virtual void unfocused(const int playerID, Widget* new_focus) override;
         // --------------------------------------------------------------------
         /** Returns the texture of this button. */
         const video::ITexture* getTexture();
         // --------------------------------------------------------------------
-        virtual void setVisible(bool visible) OVERRIDE;
+        virtual void setVisible(bool visible) override;
         // --------------------------------------------------------------------
-        virtual void elementRemoved() OVERRIDE
+        virtual void elementRemoved() override
         {
             Widget::elementRemoved();
             m_label = NULL;
         }
         // --------------------------------------------------------------------
-        virtual void resize() OVERRIDE;
+        virtual void resize() override;
         // --------------------------------------------------------------------
         const irr::core::rect<s32>& getListHeaderIconRect() const
         {

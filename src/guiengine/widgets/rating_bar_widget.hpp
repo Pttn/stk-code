@@ -26,7 +26,6 @@
 #include "guiengine/widget.hpp"
 #include "utils/leak_check.hpp"
 #include "utils/ptr_vector.hpp"
-#include "utils/cpp2011.hpp"
 
 namespace GUIEngine
 {
@@ -54,7 +53,7 @@ namespace GUIEngine
         RatingBarWidget();
         virtual ~RatingBarWidget() {}
 
-        void add() OVERRIDE;
+        void add() override;
         
         /** Change the rating value of the widget. */
         void setRating(float rating);
@@ -77,8 +76,8 @@ namespace GUIEngine
 
         void setStepValuesByMouse(const core::position2di & mouse_position, const core::recti & stars_rect);
 
-        virtual EventPropagation rightPressed(const int playerID=0) OVERRIDE;
-        virtual EventPropagation leftPressed (const int playerID=0) OVERRIDE;
+        virtual EventPropagation rightPressed(const int playerID=0) override;
+        virtual EventPropagation leftPressed (const int playerID=0) override;
 
         /** True if succeed, false if fail */
         bool updateRating();

@@ -151,7 +151,7 @@ private:
     // ------------------------------------------------------------------------
     void          useItems(const float dt);
     // ------------------------------------------------------------------------
-    virtual bool  canSkid(float steer_fraction) OVERRIDE
+    virtual bool  canSkid(float steer_fraction) override
                                                         { return m_mini_skid; }
     // ------------------------------------------------------------------------
     /** Find a suitable target for this frame, implemented by sub-class. */
@@ -186,11 +186,11 @@ public:
     // ------------------------------------------------------------------------
     virtual     ~ArenaAI() {}
     // ------------------------------------------------------------------------
-    virtual void update(int ticks) OVERRIDE;
+    virtual void update(int ticks) override;
     // ------------------------------------------------------------------------
-    virtual void reset() OVERRIDE;
+    virtual void reset() override;
     // ------------------------------------------------------------------------
-    virtual void newLap(int lap) OVERRIDE {}
+    virtual void newLap(int lap) override {}
 
 };
 

@@ -117,7 +117,7 @@ std::shared_ptr<ServerList> ServersManager::getWANRefreshRequest() const
             m_server_list = server_list;
         }
         // --------------------------------------------------------------------
-        virtual void afterOperation() OVERRIDE
+        virtual void afterOperation() override
         {
             Online::XMLRequest::afterOperation();
             // Wait at most 2 seconds for ip detection
@@ -214,11 +214,11 @@ std::shared_ptr<ServerList> ServersManager::getLANRefreshRequest() const
             return NULL;
         }   // getXMLData
         // --------------------------------------------------------------------
-        virtual void prepareOperation() OVERRIDE
+        virtual void prepareOperation() override
         {
         }   // prepareOperation
         // --------------------------------------------------------------------
-        virtual void operation() OVERRIDE
+        virtual void operation() override
         {
             auto server_list = m_server_list.lock();
             if (!server_list)
@@ -319,7 +319,7 @@ std::shared_ptr<ServerList> ServersManager::getLANRefreshRequest() const
         // --------------------------------------------------------------------
         /** This function is necessary, otherwise the XML- and HTTP-Request
          *  functions are called, which will cause a crash. */
-        virtual void afterOperation() OVERRIDE {}
+        virtual void afterOperation() override {}
         // --------------------------------------------------------------------
     };   // LANRefreshRequest
     // ========================================================================

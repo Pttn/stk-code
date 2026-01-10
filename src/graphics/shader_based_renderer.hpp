@@ -24,7 +24,6 @@
 #include "graphics/draw_calls.hpp"
 #include "graphics/lighting_passes.hpp"
 #include "graphics/shadow_matrices.hpp"
-#include "utils/cpp2011.hpp"
 #include <map>
 #include <string>
 
@@ -89,28 +88,28 @@ public:
     ShaderBasedRenderer();
     ~ShaderBasedRenderer();
     
-    void onLoadWorld() OVERRIDE;
-    void onUnloadWorld() OVERRIDE;
+    void onLoadWorld() override;
+    void onUnloadWorld() override;
     
-    void resetPostProcessing() OVERRIDE;
-    void giveBoost(unsigned int cam_index) OVERRIDE;
+    void resetPostProcessing() override;
+    void giveBoost(unsigned int cam_index) override;
 
     void addSkyBox(const std::vector<irr::video::IImage*> &texture,
                    const std::vector<irr::video::IImage*> &spherical_harmonics_textures);
-    void removeSkyBox() OVERRIDE;
-    const SHCoefficients* getSHCoefficients() const OVERRIDE;
-    GLuint getRenderTargetTexture(TypeRTT which) const OVERRIDE;
-    GLuint getDepthStencilTexture() const OVERRIDE;
+    void removeSkyBox() override;
+    const SHCoefficients* getSHCoefficients() const override;
+    GLuint getRenderTargetTexture(TypeRTT which) const override;
+    GLuint getDepthStencilTexture() const override;
     
     void                  setAmbientLight(const irr::video::SColorf &light,
-                                          bool force_SH_computation = true) OVERRIDE;
+                                          bool force_SH_computation = true) override;
 
-    void addSunLight(const irr::core::vector3df &pos) OVERRIDE;
+    void addSunLight(const irr::core::vector3df &pos) override;
 
-    void render(float dt, bool is_loading=false) OVERRIDE;
+    void render(float dt, bool is_loading=false) override;
 
     std::unique_ptr<RenderTarget> createRenderTarget(const irr::core::dimension2du &dimension,
-                                                     const std::string &name) OVERRIDE;
+                                                     const std::string &name) override;
     
     void renderToTexture(GL3RenderTarget *render_target,
                          irr::scene::ICameraSceneNode* camera,
@@ -122,7 +121,7 @@ public:
     ShadowMatrices* getShadowMatrices() { return &m_shadow_matrices; }
     PostProcessing* getPostProcessing() { return m_post_processing.get(); }
     void dumpRTT() { m_dump_rtt = true; }
-    void createPostProcessing() OVERRIDE;
+    void createPostProcessing() override;
     Skybox* getSkybox() const { return m_skybox; }
 };
 

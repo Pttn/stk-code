@@ -35,12 +35,12 @@ public:
       BoundingBox3D(p0, p1, p2, p3, normal) {}
     // ------------------------------------------------------------------------
     virtual bool pointInside(const Vec3& p,
-                             bool ignore_vertical = false) const OVERRIDE
+                             bool ignore_vertical = false) const override
     {
         return BoundingBox3D::pointInside(p);
     }
     // ------------------------------------------------------------------------
-    virtual bool is3DQuad() const OVERRIDE                     { return true; }
+    virtual bool is3DQuad() const override                     { return true; }
 
 };
 

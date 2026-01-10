@@ -54,31 +54,31 @@ protected:
     // ------------------------------------------------------------------------
     ~NetworkKartSelectionScreen() {}
     // ------------------------------------------------------------------------
-    virtual void allPlayersDone() OVERRIDE;
+    virtual void allPlayersDone() override;
 
 private:
     std::set<std::string> m_available_karts;
 
     // ------------------------------------------------------------------------
-    virtual bool isIgnored(const std::string& ident) const OVERRIDE;
+    virtual bool isIgnored(const std::string& ident) const override;
     // ------------------------------------------------------------------------
     void updateProgressBarText();
     // ------------------------------------------------------------------------
-    virtual void beforeAddingWidget() OVERRIDE;
+    virtual void beforeAddingWidget() override;
 
 public:
     /** \brief Implement per-frame callback. */
-    virtual void onUpdate(float dt) OVERRIDE;
+    virtual void onUpdate(float dt) override;
 
     // ------------------------------------------------------------------------
     void setAvailableKartsFromServer(const std::set<std::string>& k)
                                                      { m_available_karts = k; }
     // ------------------------------------------------------------------------
-    virtual void init() OVERRIDE;
+    virtual void init() override;
     // ------------------------------------------------------------------------
-    virtual bool onEscapePressed() OVERRIDE;
+    virtual bool onEscapePressed() override;
     // ------------------------------------------------------------------------
-    virtual bool playerQuit(StateManager::ActivePlayer* player) OVERRIDE
+    virtual bool playerQuit(StateManager::ActivePlayer* player) override
                                                                { return true; }
     // ------------------------------------------------------------------------
     void setLiveJoin(bool val)                           { m_live_join = val; }

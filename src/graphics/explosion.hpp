@@ -21,7 +21,6 @@
 #define HEADER_EXPLOSION_HPP
 
 #include "graphics/hit_sfx.hpp"
-#include "utils/cpp2011.hpp"
 #include "utils/no_copy.hpp"
 
 namespace irr
@@ -56,7 +55,7 @@ private:
 public:
          Explosion(const Vec3& coord, const char* explosion_sound, const char * particle_file );
         ~Explosion();
-    bool updateAndDelete(int ticks) OVERRIDE;
+    bool updateAndDelete(int ticks) override;
     bool hasEnded () 
     {
         return  m_remaining_ticks <= -m_explosion_ticks; 

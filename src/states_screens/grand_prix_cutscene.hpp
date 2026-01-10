@@ -37,9 +37,9 @@ protected:
     // implement callbacks from parent class GUIEngine::Screen
     void eventCallback(GUIEngine::Widget* widget,
                        const std::string& name,
-                       const int playerID) OVERRIDE;
-    bool onEscapePressed() OVERRIDE;
-    void tearDown() OVERRIDE;
+                       const int playerID) override;
+    bool onEscapePressed() override;
+    void tearDown() override;
 };
 
 #endif

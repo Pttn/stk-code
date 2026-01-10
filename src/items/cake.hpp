@@ -53,9 +53,9 @@ private:
 public:
                  Cake (Kart *kart);
     static  void init     (const XMLNode &node, scene::IMesh *cake_model);
-    virtual bool hit(Kart* kart, PhysicalObject* obj=NULL) OVERRIDE;
+    virtual bool hit(Kart* kart, PhysicalObject* obj=NULL) override;
     // ------------------------------------------------------------------------
-    virtual void hitTrack () OVERRIDE
+    virtual void hitTrack () override
     {
         if (!m_has_server_state)
             return;
@@ -65,7 +65,7 @@ public:
     /** Kinematic objects are not allowed to have a velocity (assertion in
      *  bullet), so we have to do our own velocity handling here. This
      *  function returns the velocity of this object. */
-    virtual const btVector3 &getVelocity() const OVERRIDE
+    virtual const btVector3 &getVelocity() const override
                                                  { return m_initial_velocity; }
     // ------------------------------------------------------------------------
     /** Kinematic objects are not allowed to have a velocity (assertion in
@@ -73,10 +73,10 @@ public:
      *  function sets the velocity of this object.
      *  \param v Linear velocity of this object.
      */
-    virtual void setVelocity(const btVector3& v) OVERRIDE
+    virtual void setVelocity(const btVector3& v) override
                                                     { m_initial_velocity = v; }
     // ------------------------------------------------------------------------
-    virtual void onFireFlyable(bool mini=false) OVERRIDE;
+    virtual void onFireFlyable(bool mini=false) override;
 };   // Cake
 
 #endif

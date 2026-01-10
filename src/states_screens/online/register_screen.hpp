@@ -40,7 +40,7 @@ private:
     void makeEntryFieldsVisible();
     void handleLocalName(const irr::core::stringw &local_name);
     void doRegister();
-    void init() OVERRIDE;
+    void init() override;
     RegisterScreen();
 
     /** Save the pointer to the info widget, it is widely used. */
@@ -75,20 +75,20 @@ private:
 public:
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void loadedFromFile() OVERRIDE {};
-    virtual void onUpdate(float dt) OVERRIDE;
-    virtual bool onEscapePressed() OVERRIDE;
-    virtual void onDialogClose() OVERRIDE;
+    virtual void loadedFromFile() override {};
+    virtual void onUpdate(float dt) override;
+    virtual bool onEscapePressed() override;
+    virtual void onDialogClose() override;
     virtual void onFocusChanged(GUIEngine::Widget *previous, 
                                 GUIEngine::Widget *focus,
-                                int playerID) OVERRIDE;
+                                int playerID) override;
     void setRename(PlayerProfile *player);
 
     void acceptTerms();
     /** \brief implement callback from parent class GUIEngine::Screen */
     virtual void eventCallback(GUIEngine::Widget* widget,
                                const std::string& name,
-                               const int playerID) OVERRIDE;
+                               const int playerID) override;
 
     // ------------------------------------------------------------------------
     /** Set the parent screen. */

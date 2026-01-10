@@ -38,18 +38,18 @@ private:
     int m_timer;
 
     // ------------------------------------------------------------------------
-    virtual void  findTarget() OVERRIDE;
+    virtual void  findTarget() override;
     // ------------------------------------------------------------------------
     void          findDefaultPath();
 
 public:
                  SpareTireAI(Kart *kart);
     // ------------------------------------------------------------------------
-    virtual void crashed(const Kart *k) OVERRIDE;
+    virtual void crashed(const Kart *k) override;
     // ------------------------------------------------------------------------
-    virtual void update(int ticks) OVERRIDE;
+    virtual void update(int ticks) override;
     // ------------------------------------------------------------------------
-    virtual void reset() OVERRIDE;
+    virtual void reset() override;
     // ------------------------------------------------------------------------
     void         spawn(int ticks_to_last);
     // ------------------------------------------------------------------------

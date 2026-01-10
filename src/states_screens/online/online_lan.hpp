@@ -40,15 +40,15 @@ public:
     friend class GUIEngine::ScreenSingleton<OnlineLanScreen>;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void loadedFromFile() OVERRIDE {}
+    virtual void loadedFromFile() override {}
 
     /** \brief implement callback from parent class GUIEngine::Screen */
     virtual void eventCallback(GUIEngine::Widget* widget, const std::string& name,
-                               const int playerID) OVERRIDE;
+                               const int playerID) override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void init() OVERRIDE;
-    virtual bool onEscapePressed() OVERRIDE;
+    virtual void init() override;
+    virtual bool onEscapePressed() override;
 
 };   // class OnlineProfileServers
 

@@ -20,7 +20,6 @@
 #define HEADER_DRIVE_NODE_2D_HPP
 
 #include "tracks/drive_node.hpp"
-#include "utils/cpp2011.hpp"
 
 #include <line2d.h>
 
@@ -47,9 +46,9 @@ public:
                 const Vec3 &normal, unsigned int node_index, bool invisible,
                 bool ai_ignore, bool ignored);
     // ------------------------------------------------------------------------
-    virtual void getDistances(const Vec3 &xyz, Vec3 *result) const OVERRIDE;
+    virtual void getDistances(const Vec3 &xyz, Vec3 *result) const override;
     // ------------------------------------------------------------------------
-    virtual float getDistance2FromPoint(const Vec3 &xyz) const OVERRIDE;
+    virtual float getDistance2FromPoint(const Vec3 &xyz) const override;
 
 };
 #endif

@@ -75,34 +75,34 @@ private:
     // ------------------------------------------------------------------------
     float rotateSlope(float old_slope, bool rotate_up);
     // ------------------------------------------------------------------------
-    virtual bool  canSkid(float steer_fraction) OVERRIDE
+    virtual bool  canSkid(float steer_fraction) override
                 { return m_mini_skid && !(m_overtake_ball || m_chasing_ball); }
     // ------------------------------------------------------------------------
     virtual void  findClosestKart(bool consider_difficulty,
-                                  bool find_sta) OVERRIDE;
+                                  bool find_sta) override;
     // ------------------------------------------------------------------------
-    virtual void  findTarget() OVERRIDE;
+    virtual void  findTarget() override;
     // ------------------------------------------------------------------------
-    virtual bool  forceBraking() OVERRIDE             { return m_force_brake; }
+    virtual bool  forceBraking() override             { return m_force_brake; }
     // ------------------------------------------------------------------------
-    virtual int   getCurrentNode() const OVERRIDE;
+    virtual int   getCurrentNode() const override;
     // ------------------------------------------------------------------------
-    virtual float getKartDistance(const Kart* kart) const OVERRIDE;
+    virtual float getKartDistance(const Kart* kart) const override;
     // ------------------------------------------------------------------------
-    virtual bool  ignorePathFinding() OVERRIDE
+    virtual bool  ignorePathFinding() override
                                  { return  m_overtake_ball || m_chasing_ball; }
     // ------------------------------------------------------------------------
-    virtual bool  isKartOnRoad() const OVERRIDE;
+    virtual bool  isKartOnRoad() const override;
     // ------------------------------------------------------------------------
-    virtual bool  isWaiting() const OVERRIDE;
+    virtual bool  isWaiting() const override;
     // ------------------------------------------------------------------------
-    virtual void  resetAfterStop() OVERRIDE        { m_overtake_ball = false; }
+    virtual void  resetAfterStop() override        { m_overtake_ball = false; }
 
 public:
                  SoccerAI(Kart *kart);
                 ~SoccerAI();
-    virtual void update (int ticks) OVERRIDE;
-    virtual void reset() OVERRIDE;
+    virtual void update (int ticks) override;
+    virtual void reset() override;
 
 };
 

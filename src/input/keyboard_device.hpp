@@ -22,7 +22,6 @@
 
 #include "input/input_device.hpp"
 
-#include "utils/cpp2011.hpp"
 
 class KeyboardConfig;
 
@@ -40,7 +39,7 @@ public:
     virtual bool processAndMapInput(Input::InputType type,  const int id,
                                     InputManager::InputDriverMode mode,
                                     PlayerAction *action, int* value = NULL
-                                    ) OVERRIDE;
+                                    ) override;
 
 };   // KeyboardDevice
 

@@ -20,7 +20,6 @@
 #define HEADER_CONFIRM_RES_DIALOG_HPP
 
 #include "guiengine/modaldialog.hpp"
-#include "utils/cpp2011.hpp"
 
 /**
  * \brief Dialog shown after a resolution switch so the user may confirm if
@@ -40,11 +39,11 @@ private:
 public:
 
     ConfirmResolutionDialog(bool unsupported_res);
-    void onEnterPressedInternal() OVERRIDE;
-    GUIEngine::EventPropagation processEvent(const std::string& eventSource) OVERRIDE;
+    void onEnterPressedInternal() override;
+    GUIEngine::EventPropagation processEvent(const std::string& eventSource) override;
     
-    virtual void onUpdate(float dt) OVERRIDE;
-    virtual bool onEscapePressed() OVERRIDE;
+    virtual void onUpdate(float dt) override;
+    virtual bool onEscapePressed() override;
 };
   
 

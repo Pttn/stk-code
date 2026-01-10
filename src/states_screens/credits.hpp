@@ -81,22 +81,22 @@ public:
     void reset();
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void loadedFromFile() OVERRIDE;
+    virtual void loadedFromFile() override;
 
     /** \brief implement optional callback from parent class
      *  GUIEngine::Screen */
-    void onDraw(float dt) OVERRIDE;
+    void onDraw(float dt) override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    void init() OVERRIDE;
+    void init() override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
     void eventCallback(GUIEngine::Widget* widget, const std::string& name,
-                       const int playerID) OVERRIDE;
+                       const int playerID) override;
 
     void setVictoryMusic(bool isVictory) { m_is_victory_music = isVictory; }
 
-    virtual MusicInformation* getMusic() const OVERRIDE
+    virtual MusicInformation* getMusic() const override
     {
         if (m_is_victory_music)
             return music_manager->getMusicInformation("win_theme.music");
@@ -104,7 +104,7 @@ public:
             return stk_config->m_title_music;
     }
 
-    virtual void onResize() OVERRIDE
+    virtual void onResize() override
     {
         Screen::onResize();
         updateAreaSize();

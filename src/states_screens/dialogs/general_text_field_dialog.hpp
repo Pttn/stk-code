@@ -19,7 +19,6 @@
 #define HEADER_GENERAL_TEXT_FIELD_DIALOG_HPP
 
 #include "guiengine/modaldialog.hpp"
-#include "utils/cpp2011.hpp"
 
 #include "irrString.h"
 
@@ -67,12 +66,12 @@ public:
     // ------------------------------------------------------------------------
     ~GeneralTextFieldDialog();
     // ------------------------------------------------------------------------
-    virtual void onEnterPressedInternal() OVERRIDE;
+    virtual void onEnterPressedInternal() override;
     // ------------------------------------------------------------------------
-    virtual void onUpdate(float dt) OVERRIDE;
+    virtual void onUpdate(float dt) override;
     // ------------------------------------------------------------------------
     GUIEngine::EventPropagation processEvent(const std::string& eventSource)
-        OVERRIDE;
+        override;
     // ------------------------------------------------------------------------
     GUIEngine::TextBoxWidget* getTextField() const     { return m_text_field; }
     // ------------------------------------------------------------------------

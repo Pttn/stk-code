@@ -25,7 +25,6 @@
 using namespace irr;
 
 #include "tracks/check_structure.hpp"
-#include "utils/cpp2011.hpp"
 
 class XMLNode;
 class CheckManager;
@@ -73,28 +72,28 @@ public:
                  CheckLine(const XMLNode &node, unsigned int index);
     virtual     ~CheckLine();
     virtual bool isTriggered(const Vec3 &old_pos, const Vec3 &new_pos,
-                             int indx) OVERRIDE;
-    virtual void reset(const Track &track) OVERRIDE;
-    virtual void resetAfterKartMove(unsigned int kart_index) OVERRIDE;
-    virtual void resetAfterRewind(unsigned int kart_index) OVERRIDE
+                             int indx) override;
+    virtual void reset(const Track &track) override;
+    virtual void resetAfterKartMove(unsigned int kart_index) override;
+    virtual void resetAfterRewind(unsigned int kart_index) override
                                             { resetAfterKartMove(kart_index); }
-    virtual void changeDebugColor(bool is_active, bool prevent_backwards = false) OVERRIDE;
-    virtual bool triggeringCheckline() const OVERRIDE { return true; }
+    virtual void changeDebugColor(bool is_active, bool prevent_backwards = false) override;
+    virtual bool triggeringCheckline() const override { return true; }
     // ------------------------------------------------------------------------
     /** Sets if this check line should not do a height test for testing
      *  if a line is crossed. Used for basket calls in cannon (the ball can
      *  be too heigh to otherwise trigger he cannon). */
     void setIgnoreHeight(bool b) { m_ignore_height = b;  }
     // ------------------------------------------------------------------------
-    virtual void saveCompleteState(BareNetworkString* bns) OVERRIDE;
+    virtual void saveCompleteState(BareNetworkString* bns) override;
     // ------------------------------------------------------------------------
-    virtual void restoreCompleteState(const BareNetworkString& b) OVERRIDE;
+    virtual void restoreCompleteState(const BareNetworkString& b) override;
     // ------------------------------------------------------------------------
     const Vec3 &getLeftPoint() const { return m_left_point;  }
     // ------------------------------------------------------------------------
     const Vec3 &getRightPoint() const { return m_right_point; }
     // ------------------------------------------------------------------------
-    virtual CheckStructure* clone() OVERRIDE
+    virtual CheckStructure* clone() override
     {
         CheckLine* cl = new CheckLine(*this);
         // Drop unneeded stuff

@@ -24,7 +24,6 @@
 
 #include "tracks/graph.hpp"
 #include "utils/aligned_array.hpp"
-#include "utils/cpp2011.hpp"
 
 #include "LinearMath/btTransform.h"
 
@@ -69,9 +68,9 @@ private:
     // ------------------------------------------------------------------------
     unsigned int getStartNode() const;
     // ------------------------------------------------------------------------
-    virtual bool hasLapLine() const OVERRIDE;
+    virtual bool hasLapLine() const override;
     // ------------------------------------------------------------------------
-    virtual void differentNodeColor(int n, video::SColor* c) const OVERRIDE;
+    virtual void differentNodeColor(int n, video::SColor* c) const override;
 
 public:
     static DriveGraph* get()     { return dynamic_cast<DriveGraph*>(m_graph); }

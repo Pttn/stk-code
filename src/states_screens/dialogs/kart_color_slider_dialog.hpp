@@ -20,7 +20,6 @@
 #define HEADER_KART_COLOR_SLIDER_HPP
 
 #include "guiengine/modaldialog.hpp"
-#include "utils/cpp2011.hpp"
 
 class PlayerProfile;
 namespace GUIEngine
@@ -53,9 +52,9 @@ public:
 
     ~KartColorSliderDialog();
 
-    virtual void beforeAddingWidgets() OVERRIDE;
+    virtual void beforeAddingWidgets() override;
 
-    GUIEngine::EventPropagation processEvent(const std::string& eventSource) OVERRIDE;
+    GUIEngine::EventPropagation processEvent(const std::string& eventSource) override;
 };
 
 

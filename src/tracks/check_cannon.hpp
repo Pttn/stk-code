@@ -21,7 +21,6 @@
 
 #include "animations/animation_base.hpp"
 #include "tracks/check_line.hpp"
-#include "utils/cpp2011.hpp"
 
 #include <set>
 
@@ -67,13 +66,13 @@ public:
     // ------------------------------------------------------------------------
     virtual ~CheckCannon();
     // ------------------------------------------------------------------------
-    virtual void trigger(unsigned int kart_index) OVERRIDE {}
+    virtual void trigger(unsigned int kart_index) override {}
     // ------------------------------------------------------------------------
-    virtual void changeDebugColor(bool is_active, bool prevent_backwards = false) OVERRIDE;
+    virtual void changeDebugColor(bool is_active, bool prevent_backwards = false) override;
     // ------------------------------------------------------------------------
-    virtual void update(float dt) OVERRIDE;
+    virtual void update(float dt) override;
     // ------------------------------------------------------------------------
-    virtual bool triggeringCheckline() const OVERRIDE         { return false; }
+    virtual bool triggeringCheckline() const override         { return false; }
     // ------------------------------------------------------------------------
     /** Adds a flyable to be tested for crossing a cannon checkline.
     *  \param flyable The flyable to be tested.
@@ -91,7 +90,7 @@ public:
     // ------------------------------------------------------------------------
     Ipo* getIpo() const                                     { return m_curve; }
     // ------------------------------------------------------------------------
-    virtual CheckStructure* clone() OVERRIDE;
+    virtual CheckStructure* clone() override;
 };   // CheckCannon
 
 #endif

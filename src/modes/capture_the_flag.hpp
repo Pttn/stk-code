@@ -67,7 +67,7 @@ private:
     // ------------------------------------------------------------------------
     void resetBlueFlagToOrigin();
     // ------------------------------------------------------------------------
-    virtual video::SColor getColor(unsigned int kart_id) const OVERRIDE;
+    virtual video::SColor getColor(unsigned int kart_id) const override;
 
     void checkScoring(FlagColor color);
 
@@ -77,23 +77,23 @@ public:
     // ------------------------------------------------------------------------
     virtual ~CaptureTheFlag();
     // ------------------------------------------------------------------------
-    virtual void init() OVERRIDE;
+    virtual void init() override;
     // ------------------------------------------------------------------------
-    virtual void reset(bool restart=false) OVERRIDE;
+    virtual void reset(bool restart=false) override;
     // ------------------------------------------------------------------------
-    virtual void update(int ticks) OVERRIDE;
+    virtual void update(int ticks) override;
     // ------------------------------------------------------------------------
-    virtual void updateGraphics(float dt) OVERRIDE;
+    virtual void updateGraphics(float dt) override;
     // ------------------------------------------------------------------------
-    virtual bool hasTeam() const OVERRIDE                      { return true; }
+    virtual bool hasTeam() const override                      { return true; }
     // ------------------------------------------------------------------------
-    virtual bool isRaceOver() OVERRIDE;
+    virtual bool isRaceOver() override;
     // ------------------------------------------------------------------------
-    virtual bool kartHit(int kart_id, int hitter = -1) OVERRIDE;
+    virtual bool kartHit(int kart_id, int hitter = -1) override;
     // ------------------------------------------------------------------------
-    virtual unsigned int getRescuePositionIndex(Kart *kart) OVERRIDE;
+    virtual unsigned int getRescuePositionIndex(Kart *kart) override;
     // ------------------------------------------------------------------------
-    virtual const std::string& getIdent() const OVERRIDE;
+    virtual const std::string& getIdent() const override;
     // ------------------------------------------------------------------------
     bool getKartCTFResult(unsigned int kart_id) const
     {
@@ -135,7 +135,7 @@ public:
                       { m_swatter_reset_kart_ticks[kart_id] = at_world_ticks; }
     // ------------------------------------------------------------------------
     virtual std::pair<uint32_t, uint32_t> getGameStartedProgress() const
-        OVERRIDE
+        override
     {
         std::pair<uint32_t, uint32_t> progress(
             std::numeric_limits<uint32_t>::max(),
@@ -158,9 +158,9 @@ public:
     }
     // ------------------------------------------------------------------------
     virtual void saveCompleteState(BareNetworkString* bns,
-                                   STKPeer* peer) OVERRIDE;
+                                   STKPeer* peer) override;
     // ------------------------------------------------------------------------
-    virtual void restoreCompleteState(const BareNetworkString& b) OVERRIDE;
+    virtual void restoreCompleteState(const BareNetworkString& b) override;
 };   // CaptureTheFlag
 
 #endif

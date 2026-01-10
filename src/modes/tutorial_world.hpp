@@ -27,7 +27,7 @@ class TutorialWorld : public StandardRace
 public:
 
     TutorialWorld();
-    virtual unsigned int getNumberOfRescuePositions() const OVERRIDE
+    virtual unsigned int getNumberOfRescuePositions() const override
     {
         // Don't use LinearWorld's function, but WorldWithRank, since the
         // latter is based on rescuing to start positions
@@ -35,17 +35,17 @@ public:
     }
     // ------------------------------------------------------------------------
     /** Determines the rescue position index of the specified kart. */
-    virtual unsigned int getRescuePositionIndex(Kart *kart) OVERRIDE;
+    virtual unsigned int getRescuePositionIndex(Kart *kart) override;
     // ------------------------------------------------------------------------
     /** Returns the bullet transformation for the specified rescue index. */
-    virtual btTransform getRescueTransform(unsigned int index) const OVERRIDE
+    virtual btTransform getRescueTransform(unsigned int index) const override
     {
         // Don't use LinearWorld's function, but WorldWithRank, since the
         // latter is based on rescuing to start positions
         return WorldWithRank::getRescueTransform(index);
     }
 
-    bool shouldDrawTimer() const OVERRIDE { return false; }
+    bool shouldDrawTimer() const override { return false; }
 
 
 };   // class TutorialWorld

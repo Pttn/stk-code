@@ -20,7 +20,6 @@
 
 #ifndef SERVER_ONLY
 #include "graphics/abstract_renderer.hpp"
-#include "utils/cpp2011.hpp"
 
 #include <map>
 
@@ -31,13 +30,13 @@ class FixedPipelineRenderer: public AbstractRenderer
 {  
 public:
     
-    void onLoadWorld() OVERRIDE;
-    void onUnloadWorld() OVERRIDE;
+    void onLoadWorld() override;
+    void onUnloadWorld() override;
 
-    void render(float dt, bool is_loading) OVERRIDE;
+    void render(float dt, bool is_loading) override;
 
     std::unique_ptr<RenderTarget> createRenderTarget(const irr::core::dimension2du &dimension,
-                                                     const std::string &name) OVERRIDE;
+                                                     const std::string &name) override;
 };
 
 #endif // !SERVER_ONLY

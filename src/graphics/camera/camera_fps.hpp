@@ -23,7 +23,6 @@
 
 #include "graphics/camera/camera.hpp"
 
-#include "utils/cpp2011.hpp"
 
 class Kart;
 
@@ -97,7 +96,7 @@ public:
     static bool isFPS() { return true; }
     // ------------------------------------------------------------------------
 
-    virtual void update(float dt) OVERRIDE;
+    virtual void update(float dt) override;
     // ------------------------------------------------------------------------
     /** Applies mouse movement to the first person camera. */
     void applyMouseMovement (float x, float y);

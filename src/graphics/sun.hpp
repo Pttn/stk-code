@@ -20,7 +20,6 @@
 #define HEADER_SUN_HPP
 
 #include "graphics/light.hpp"
-#include "utils/cpp2011.hpp"
 
 class ScreenQuad;
 
@@ -33,8 +32,8 @@ public:
             float r, float g, float b);
     virtual ~SunNode();
 
-    virtual void render() OVERRIDE;
-    virtual bool isPointLight() OVERRIDE { return false; }
+    virtual void render() override;
+    virtual bool isPointLight() override { return false; }
 
 };   // SunNode
 

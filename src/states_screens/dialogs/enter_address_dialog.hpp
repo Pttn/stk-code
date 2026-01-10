@@ -19,7 +19,6 @@
 #define HEADER_ENTER_ADDRESS_DIALOG_HPP
 
 #include "guiengine/modaldialog.hpp"
-#include "utils/cpp2011.hpp"
 #include <memory>
 
 class Server;
@@ -52,12 +51,12 @@ public:
     // ------------------------------------------------------------------------
     ~EnterAddressDialog();
     // ------------------------------------------------------------------------
-    virtual void onUpdate(float dt) OVERRIDE;
+    virtual void onUpdate(float dt) override;
     // ------------------------------------------------------------------------
-    virtual void onEnterPressedInternal() OVERRIDE;
+    virtual void onEnterPressedInternal() override;
     // ------------------------------------------------------------------------
     GUIEngine::EventPropagation processEvent(const std::string& event_source)
-        OVERRIDE;
+        override;
     // ------------------------------------------------------------------------
     GUIEngine::TextBoxWidget* getTextField() const     { return m_text_field; }
 };

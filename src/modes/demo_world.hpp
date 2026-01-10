@@ -53,13 +53,13 @@ private:
 public:
                           DemoWorld();
     virtual              ~DemoWorld();
-    virtual  bool        isRaceOver() OVERRIDE;
-    virtual  void        enterRaceOverState() OVERRIDE;
+    virtual  bool        isRaceOver() override;
+    virtual  void        enterRaceOverState() override;
     // ------------------------------------------------------------------------
     /** Returns identifier for this world. */
-    virtual  std::string getInternalCode() const OVERRIDE { return "DEMO"; }
+    virtual  std::string getInternalCode() const override { return "DEMO"; }
     // ------------------------------------------------------------------------
-    virtual void update(int ticks) OVERRIDE { ProfileWorld::update(ticks); }
+    virtual void update(int ticks) override { ProfileWorld::update(ticks); }
     // ------------------------------------------------------------------------
     static bool updateIdleTimeAndStartDemo(float dt);
     // ------------------------------------------------------------------------

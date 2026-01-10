@@ -43,8 +43,8 @@ class EditGPScreen :
 
          EditGPScreen();
 
-    void onConfirm() OVERRIDE;
-    void onCancel() OVERRIDE;
+    void onConfirm() override;
+    void onCancel() override;
 
     void loadList(const int selected);
     void setModified(const bool modified);
@@ -74,20 +74,20 @@ public:
     void         setSelectedGP(GrandPrixData* gp);
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void loadedFromFile() OVERRIDE;
+    virtual void loadedFromFile() override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
     virtual void eventCallback(GUIEngine::Widget* widget, const std::string& name,
-                               const int playerID) OVERRIDE;
+                               const int playerID) override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual bool onEscapePressed() OVERRIDE;
+    virtual bool onEscapePressed() override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void beforeAddingWidget() OVERRIDE;
+    virtual void beforeAddingWidget() override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void init() OVERRIDE;
+    virtual void init() override;
 };
 
 #endif

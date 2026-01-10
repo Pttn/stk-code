@@ -52,33 +52,33 @@ class SoccerSetupScreen : public GUIEngine::Screen,
 public:
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void loadedFromFile() OVERRIDE;
+    virtual void loadedFromFile() override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
     virtual void eventCallback(GUIEngine::Widget* widget, const std::string& name,
-                               const int playerID) OVERRIDE;
+                               const int playerID) override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void beforeAddingWidget() OVERRIDE;
+    virtual void beforeAddingWidget() override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void init() OVERRIDE;
+    virtual void init() override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void tearDown() OVERRIDE;
+    virtual void tearDown() override;
 
-    virtual void onUpdate(float delta) OVERRIDE;
+    virtual void onUpdate(float delta) override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
     virtual GUIEngine::EventPropagation filterActions( PlayerAction action,
                                                        int deviceID,
                                                        const unsigned int value,
                                                        Input::InputType type,
-                                                       int playerId) OVERRIDE;
+                                                       int playerId) override;
 
-    virtual bool onEscapePressed() OVERRIDE;
+    virtual bool onEscapePressed() override;
 
-    virtual void onResize() OVERRIDE
+    virtual void onResize() override
     {
         Screen::onResize();
         updateKartViewsLayout();

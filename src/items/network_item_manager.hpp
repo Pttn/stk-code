@@ -22,7 +22,6 @@
 #include "items/item_event_info.hpp"
 #include "items/item_manager.hpp"
 #include "network/rewinder.hpp"
-#include "utils/cpp2011.hpp"
 #include "utils/synchronised.hpp"
 
 #include <map>
@@ -72,28 +71,28 @@ public:
 
     NetworkItemManager();
     virtual ~NetworkItemManager();
-    virtual void reset() OVERRIDE;
+    virtual void reset() override;
     virtual void setItemConfirmationTime(std::weak_ptr<STKPeer> peer,
-                                         int ticks) OVERRIDE;
-    virtual void  collectedItem(ItemState *item, Kart *kart) OVERRIDE;
-    virtual void  switchItems() OVERRIDE;
+                                         int ticks) override;
+    virtual void  collectedItem(ItemState *item, Kart *kart) override;
+    virtual void  switchItems() override;
     virtual Item* dropNewItem(ItemState::ItemType type,
                               const Kart *kart,
                               const Vec3 *server_xyz = NULL,
-                              const Vec3 *server_normal = NULL) OVERRIDE;
+                              const Vec3 *server_normal = NULL) override;
     virtual BareNetworkString* saveState(std::vector<std::string>* ru)
-        OVERRIDE;
-    virtual void restoreState(BareNetworkString *buffer, int count) OVERRIDE;
+        override;
+    virtual void restoreState(BareNetworkString *buffer, int count) override;
     // ------------------------------------------------------------------------
-    virtual void rewindToEvent(BareNetworkString *bns) OVERRIDE {};
+    virtual void rewindToEvent(BareNetworkString *bns) override {};
     // ------------------------------------------------------------------------
-    virtual void saveTransform() OVERRIDE {};
+    virtual void saveTransform() override {};
     // ------------------------------------------------------------------------
-    virtual void computeError() OVERRIDE {};
+    virtual void computeError() override {};
     // ------------------------------------------------------------------------
-    virtual void undoState(BareNetworkString *buffer) OVERRIDE {};
+    virtual void undoState(BareNetworkString *buffer) override {};
     // ------------------------------------------------------------------------
-    virtual void undoEvent(BareNetworkString*) OVERRIDE {};
+    virtual void undoEvent(BareNetworkString*) override {};
     // ------------------------------------------------------------------------
     void addLiveJoinPeer(std::weak_ptr<STKPeer> peer)
     {

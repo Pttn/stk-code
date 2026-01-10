@@ -34,7 +34,6 @@
 #include "karts/moveable.hpp"
 #include "LinearMath/btTransform.h"
 #include "race/race_manager.hpp"
-#include "utils/cpp2011.hpp"
 #include "utils/no_copy.hpp"
 
 namespace irr
@@ -450,15 +449,15 @@ public:
      *  kart was loaded from). */
     virtual const std::string& getIdent() const;
     // ------------------------------------------------------------------------
-    virtual void   updateGraphics(float dt) OVERRIDE;
+    virtual void   updateGraphics(float dt) override;
     virtual void   createPhysics    ();
     // ------------------------------------------------------------------------
     /** Returns true if the kart is 'resting', i.e. (nearly) not moving. */
     virtual bool isInRest () const;
     virtual void   applyEngineForce (float force);
 
-    virtual void   flyUp() OVERRIDE;
-    virtual void   flyDown() OVERRIDE;
+    virtual void   flyUp() override;
+    virtual void   flyDown() override;
     // ------------------------------------------------------------------------
     /** Starts the engine sound effect. Called once the track intro phase is
      *  over. */
@@ -531,7 +530,7 @@ public:
     // ------------------------------------------------------------------------
     /** Returns the height of the terrain. we're currently above */
     virtual float  getHoT           () const;
-    virtual void   update           (int ticks) OVERRIDE;
+    virtual void   update           (int ticks) override;
     virtual void finishedRace (float time, bool from_server=false);
     // ------------------------------------------------------------------------
     /** Sets the position of this kart in the race. */
@@ -559,7 +558,7 @@ public:
      *  \param controller The new controller to use (atm it's always an
      *         end controller). */
     virtual void   setController(Controller *controller);
-    virtual void   setXYZ(const Vec3& a) OVERRIDE;
+    virtual void   setXYZ(const Vec3& a) override;
     // ========================================================================================
     // SPEED and speed-boost related functions
     // ----------------------------------------------------------------------------------------

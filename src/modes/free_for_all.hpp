@@ -44,31 +44,31 @@ public:
     // ------------------------------------------------------------------------
     virtual ~FreeForAll();
     // ------------------------------------------------------------------------
-    virtual void init() OVERRIDE;
+    virtual void init() override;
     // ------------------------------------------------------------------------
-    virtual bool isRaceOver() OVERRIDE;
+    virtual bool isRaceOver() override;
     // ------------------------------------------------------------------------
-    virtual void reset(bool restart=false) OVERRIDE;
+    virtual void reset(bool restart=false) override;
     // ------------------------------------------------------------------------
     virtual void getKartsDisplayInfo(
-                 std::vector<RaceGUIBase::KartIconDisplayInfo> *info) OVERRIDE;
+                 std::vector<RaceGUIBase::KartIconDisplayInfo> *info) override;
     // ------------------------------------------------------------------------
-    virtual bool raceHasLaps() OVERRIDE                       { return false; }
+    virtual bool raceHasLaps() override                       { return false; }
     // ------------------------------------------------------------------------
-    virtual bool shouldDrawSpeedometerDigit() const OVERRIDE   { return true; }
+    virtual bool shouldDrawSpeedometerDigit() const override   { return true; }
     // ------------------------------------------------------------------------
     virtual std::pair<int, video::SColor> 
-                getSpeedometerDigit(const Kart *kart) const OVERRIDE; 
+                getSpeedometerDigit(const Kart *kart) const override; 
     // ------------------------------------------------------------------------
-    virtual const std::string& getIdent() const OVERRIDE;
+    virtual const std::string& getIdent() const override;
     // ------------------------------------------------------------------------
-    virtual bool kartHit(int kart_id, int hitter = -1) OVERRIDE;
+    virtual bool kartHit(int kart_id, int hitter = -1) override;
     // ------------------------------------------------------------------------
-    virtual void update(int ticks) OVERRIDE;
+    virtual void update(int ticks) override;
     // ------------------------------------------------------------------------
-    virtual void countdownReachedZero() OVERRIDE;
+    virtual void countdownReachedZero() override;
     // ------------------------------------------------------------------------
-    virtual void terminateRace() OVERRIDE;
+    virtual void terminateRace() override;
     // ------------------------------------------------------------------------
     void setKartScoreFromServer(NetworkString& ns);
     // ------------------------------------------------------------------------
@@ -77,18 +77,18 @@ public:
     bool getKartFFAResult(int kart_id) const;
     // ------------------------------------------------------------------------
     virtual std::pair<uint32_t, uint32_t> getGameStartedProgress() const
-        OVERRIDE;
+        override;
     // ------------------------------------------------------------------------
-    virtual void addReservedKart(int kart_id) OVERRIDE
+    virtual void addReservedKart(int kart_id) override
     {
         WorldWithRank::addReservedKart(kart_id);
         m_scores.at(kart_id) = 0;
     }
     // ------------------------------------------------------------------------
     virtual void saveCompleteState(BareNetworkString* bns,
-                                   STKPeer* peer) OVERRIDE;
+                                   STKPeer* peer) override;
     // ------------------------------------------------------------------------
-    virtual void restoreCompleteState(const BareNetworkString& b) OVERRIDE;
+    virtual void restoreCompleteState(const BareNetworkString& b) override;
 };   // FreeForAll
 
 

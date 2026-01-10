@@ -74,24 +74,24 @@ public:
     friend class GUIEngine::ScreenSingleton<OptionsScreenDisplay>;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void loadedFromFile() OVERRIDE;
+    virtual void loadedFromFile() override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
     virtual void eventCallback(GUIEngine::Widget* widget, const std::string& name,
-                               const int playerID) OVERRIDE;
+                               const int playerID) override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void init() OVERRIDE;
+    virtual void init() override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void tearDown() OVERRIDE;
+    virtual void tearDown() override;
 
     /** \brief implement optional callback from parent class GUIEngine::Screen */
-    virtual void unloaded() OVERRIDE;
+    virtual void unloaded() override;
 
-    virtual bool onEscapePressed() OVERRIDE;
+    virtual bool onEscapePressed() override;
 
-    virtual void onResize() OVERRIDE;
+    virtual void onResize() override;
 
     void updateCamera();
 };

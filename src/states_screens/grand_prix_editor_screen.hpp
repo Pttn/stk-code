@@ -47,7 +47,7 @@ class GrandPrixEditorScreen :
     void enableButtons();
 
     void setNewGPWithName(const irr::core::stringw& newName);
-    void onConfirm() OVERRIDE;
+    void onConfirm() override;
 
     static const core::stringw getGroupName(enum GrandPrixData::GPGroupType group);
 
@@ -58,17 +58,17 @@ class GrandPrixEditorScreen :
 public:
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void beforeAddingWidget() OVERRIDE;
+    virtual void beforeAddingWidget() override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void loadedFromFile() OVERRIDE;
+    virtual void loadedFromFile() override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
     virtual void eventCallback(GUIEngine::Widget* widget, const std::string& name,
-                               const int playerID) OVERRIDE;
+                               const int playerID) override;
 
     /** \brief implement callback from parent class GUIEngine::Screen */
-    virtual void init() OVERRIDE;
+    virtual void init() override;
 
     /** \brief Global function to validate grand prix names. */
     static bool validateName(GUIEngine::LabelWidget*, GUIEngine::TextBoxWidget*);

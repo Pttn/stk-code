@@ -41,7 +41,7 @@ class AssetRequest : public Online::HTTPRequest {
 private:
     std::string* m_data;
     RichPresence* m_rpc;
-    virtual void callback() OVERRIDE
+    virtual void callback() override
     {
         if (UserConfigParams::m_rich_presence_debug)
             Log::info("RichPresence", "Got asset list!");

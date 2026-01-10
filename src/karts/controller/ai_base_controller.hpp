@@ -20,7 +20,6 @@
 #define HEADER_AI_BASE_CONTROLLER_HPP
 
 #include "karts/controller/controller.hpp"
-#include "utils/cpp2011.hpp"
 
 class AIProperties;
 class Track;
@@ -66,7 +65,7 @@ protected:
      *  for AI testing only. */
     static int m_test_ai;
 
-    void         setControllerName(const std::string &name) OVERRIDE;
+    void         setControllerName(const std::string &name) override;
     float        steerToPoint(const Vec3 &point);
     float        normalizeAngle(float angle);
     // ------------------------------------------------------------------------
@@ -84,29 +83,29 @@ protected:
 public:
              AIBaseController(Kart *kart);
     virtual ~AIBaseController() {};
-    virtual void reset() OVERRIDE;
-    virtual bool disableSlipstreamBonus() const OVERRIDE;
-    virtual void crashed(const Material *m) OVERRIDE;
+    virtual void reset() override;
+    virtual bool disableSlipstreamBonus() const override;
+    virtual void crashed(const Material *m) override;
     static  void enableDebug() {m_ai_debug = true; }
     static  void setTestAI(int n) {m_test_ai = n; }
     static  int  getTestAI() { return m_test_ai; }
-    virtual void crashed(const Kart *k) OVERRIDE {};
-    virtual void handleZipper(bool play_sound) OVERRIDE {};
-    virtual void finishedRace(float time) OVERRIDE {};
-    virtual void setPosition(int p) OVERRIDE {};
-    virtual bool isPlayerController() const OVERRIDE { return false; }
-    virtual bool isLocalPlayerController() const OVERRIDE { return false; }
-    virtual bool action(PlayerAction action, int value, bool dry_run=false) OVERRIDE
+    virtual void crashed(const Kart *k) override {};
+    virtual void handleZipper(bool play_sound) override {};
+    virtual void finishedRace(float time) override {};
+    virtual void setPosition(int p) override {};
+    virtual bool isPlayerController() const override { return false; }
+    virtual bool isLocalPlayerController() const override { return false; }
+    virtual bool action(PlayerAction action, int value, bool dry_run=false) override
     {
         return true;
     };
-    virtual void skidBonusTriggered() OVERRIDE {}
+    virtual void skidBonusTriggered() override {}
     // ------------------------------------------------------------------------
-    virtual bool saveState(BareNetworkString *buffer) const OVERRIDE;
-    virtual void rewindTo(BareNetworkString *buffer) OVERRIDE;
+    virtual bool saveState(BareNetworkString *buffer) const override;
+    virtual void rewindTo(BareNetworkString *buffer) override;
     void setNetworkAI(bool val)                 { m_enabled_network_ai = val; }
     // ------------------------------------------------------------------------
-    virtual void update(int ticks) OVERRIDE;
+    virtual void update(int ticks) override;
 
 };   // AIBaseController
 

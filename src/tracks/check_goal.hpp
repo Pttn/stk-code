@@ -20,7 +20,6 @@
 #define HEADER_CHECK_GOAL_HPP
 
 #include "tracks/check_structure.hpp"
-#include "utils/cpp2011.hpp"
 #include <line2d.h>
 using namespace irr;
 
@@ -62,11 +61,11 @@ private:
 public:
              CheckGoal(const XMLNode &node, unsigned int index);
     virtual ~CheckGoal() {}
-    virtual void update(float dt) OVERRIDE;
-    virtual void trigger(unsigned int kart_index) OVERRIDE;
+    virtual void update(float dt) override;
+    virtual void trigger(unsigned int kart_index) override;
     virtual bool isTriggered(const Vec3 &old_pos, const Vec3 &new_pos,
-                             int indx) OVERRIDE;
-    virtual void reset(const Track &track) OVERRIDE;
+                             int indx) override;
+    virtual void reset(const Track &track) override;
 
     // ------------------------------------------------------------------------
     bool getTeam() const                               { return m_first_goal; }
@@ -77,7 +76,7 @@ public:
             (point == POINT_CENTER ? m_p2 : m_p1));
     }
     // ------------------------------------------------------------------------
-    virtual CheckStructure* clone() OVERRIDE
+    virtual CheckStructure* clone() override
                                                { return new CheckGoal(*this); }
 };   // CheckGoal
 

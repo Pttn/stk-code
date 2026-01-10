@@ -71,13 +71,13 @@ public:
     /** call just after instanciating. can't be moved to the contructor as child
         classes must be instanciated, otherwise polymorphism will fail and the
         results will be incorrect */
-    virtual void  init() OVERRIDE;
-    virtual void  reset(bool restart=false) OVERRIDE;
+    virtual void  init() override;
+    virtual void  reset(bool restart=false) override;
 
-    virtual bool  shouldDrawSpeedometerDigit() const OVERRIDE 
+    virtual bool  shouldDrawSpeedometerDigit() const override 
                                                     { return m_display_rank; }
     virtual std::pair<int, video::SColor> 
-                  getSpeedometerDigit(const Kart *kart) const OVERRIDE;
+                  getSpeedometerDigit(const Kart *kart) const override;
 
     void          beginSetKartPositions();
     bool          setKartPosition(unsigned int kart_id,
@@ -89,7 +89,7 @@ public:
     virtual Kart* getKartAtDrawingPosition(unsigned int p) const
                                                { return getKartAtPosition(p); }
     virtual int   getScoreForPosition(int p);
-    virtual unsigned int getRescuePositionIndex(Kart *kart) OVERRIDE;
+    virtual unsigned int getRescuePositionIndex(Kart *kart) override;
     // ------------------------------------------------------------------------
     /** Returns the track_sector object for the specified kart.
      *  \param kart_index World index of the kart. */

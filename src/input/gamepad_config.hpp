@@ -22,7 +22,6 @@
 #include "input/binding.hpp"
 #include "input/device_config.hpp"
 #include "input/input.hpp"
-#include "utils/cpp2011.hpp"
 #include "utils/no_copy.hpp"
 
 #include <iosfwd>
@@ -80,22 +79,22 @@ public:
 
     core::stringw toString();
 
-    virtual void save(std::ofstream& stream) OVERRIDE;
+    virtual void save(std::ofstream& stream) override;
     void        setDefaultBinds     ();
-    virtual core::stringw getBindingAsString(const PlayerAction action) const OVERRIDE;
-    virtual bool load(const XMLNode *config) OVERRIDE;
+    virtual core::stringw getBindingAsString(const PlayerAction action) const override;
+    virtual bool load(const XMLNode *config) override;
     // ------------------------------------------------------------------------
     /** Returns if this device uses analog axes. */
-    virtual bool isAnalog(Input::InputType type, int id) const OVERRIDE;
+    virtual bool isAnalog(Input::InputType type, int id) const override;
 
     // ------------------------------------------------------------------------
     /** Returns true if this device should desensitize its input at values
      *  close to 0 (to avoid 'oversteering'). */
-    virtual bool desensitize() const OVERRIDE { return m_desensitize;}
+    virtual bool desensitize() const override { return m_desensitize;}
 
     // ------------------------------------------------------------------------
     /** Returns the number of buttons in this configuration. */
-    virtual int getNumberOfButtons() const OVERRIDE { return m_button_count; }
+    virtual int getNumberOfButtons() const override { return m_button_count; }
 
     // ------------------------------------------------------------------------
     /** Sets the number of buttons this device has. */
@@ -103,7 +102,7 @@ public:
 
     // ------------------------------------------------------------------------
     /** Returns the number of axis of this configufation. */
-    virtual int getNumberOfAxes() const OVERRIDE { return m_axis_count; }
+    virtual int getNumberOfAxes() const override { return m_axis_count; }
 
     // ------------------------------------------------------------------------
     /** Sets the number of axis this device has. */
@@ -113,9 +112,9 @@ public:
     /** Return deadzone of this configuration. */
     int getDeadzone() const { return m_deadzone; }
     // ------------------------------------------------------------------------
-    virtual bool isGamePad()  const OVERRIDE { return true; }
+    virtual bool isGamePad()  const override { return true; }
     // ------------------------------------------------------------------------
-    virtual bool isKeyboard() const OVERRIDE { return false; }
+    virtual bool isKeyboard() const override { return false; }
     // ------------------------------------------------------------------------
     void initSDLController(const std::string& mapping, int buttons, int axes,
                            int hats);
