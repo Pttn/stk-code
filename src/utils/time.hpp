@@ -29,12 +29,7 @@
 #ifdef WIN32
 #  define WIN32_LEAN_AND_MEAN
 #  include <windows.h>
-#else
-#  include <stdint.h>
-#  include <sys/time.h>
-#  include <unistd.h>
 #endif
-
 #include <time.h>
 #include <string>
 #include <thread>
