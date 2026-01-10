@@ -39,6 +39,8 @@
 #include <string>
 #include <stdio.h>
 
+using namespace std::chrono_literals;
+
 class StkTime
 {
 private:
