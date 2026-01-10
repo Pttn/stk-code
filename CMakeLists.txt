@@ -4,6 +4,8 @@ cmake_minimum_required(VERSION 3.12...4.0)
 project(SuperTuxKart)
 set(PROJECT_VERSION "2.0-git")
 
+set(CMAKE_CXX_STANDARD 23)
+
 add_definitions( -DSUPERTUXKART_VERSION="${PROJECT_VERSION}" )
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${PROJECT_SOURCE_DIR}/cmake")
