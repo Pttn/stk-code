@@ -62,7 +62,7 @@ std::shared_ptr<ProtocolManager> ProtocolManager::createInstance()
             {
                 pm->asynchronousUpdate();
                 PROFILER_PUSH_CPU_MARKER("sleep", 0, 255, 255);
-                StkTime::sleep(2);
+                StkTime::sleep(2ms);
                 PROFILER_POP_CPU_MARKER();
             }
         });

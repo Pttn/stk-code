@@ -176,7 +176,7 @@ int Network::receiveRawPacket(char *buffer, int buf_len,
     while(len < 0 && (count<max_tries || max_tries==-1) )
     {
         count++;
-        StkTime::sleep(1); // wait 1 millisecond between two checks
+        StkTime::sleep(1ms); // wait 1 millisecond between two checks
         len = recvfrom(m_host->socket, buffer, buf_len, 0,
                        (struct sockaddr*)(&addr), &from_len);
     }

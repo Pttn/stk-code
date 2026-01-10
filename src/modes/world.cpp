@@ -209,7 +209,7 @@ void World::init()
         ChildLoop* child_loop = STKHost::getByType(PT_MAIN)->getChildLoop();
         while (!child_loop->isAborted() && child_track == NULL)
         {
-            StkTime::sleep(1);
+            StkTime::sleep(1ms);
             child_track = Track::getCurrentTrack();
         }
         if (!child_loop->isAborted())

@@ -67,7 +67,7 @@ public:
                 Log::verbose("Thread", "Stop waiting %lf", StkTime::getRealTime());
                 return true;
             }
-            StkTime::sleep(10);
+            StkTime::sleep(10ms);
             if(StkTime::getRealTime() - start > waiting_time)
             {
                 Log::verbose("Thread", "Stop waiting %lf", StkTime::getRealTime());

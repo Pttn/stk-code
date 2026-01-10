@@ -1158,7 +1158,7 @@ int handleCmdLine(bool has_server_config, bool has_parent_process)
         while (PlayerManager::getCurrentOnlineState() != PlayerProfile::OS_SIGNED_IN)
         {
             Online::RequestManager::get()->update(0.0f);
-            StkTime::sleep(1);
+            StkTime::sleep(1ms);
             if (StkTime::getMonoTimeMs() > started_time + 20000)
             {
                 Log::error("Main",
@@ -1421,7 +1421,7 @@ int handleCmdLine(bool has_server_config, bool has_parent_process)
                 PlayerProfile::OS_SIGNED_IN)
             {
                 Online::RequestManager::get()->update(0.0f);
-                StkTime::sleep(1);
+                StkTime::sleep(1ms);
                 if (StkTime::getMonoTimeMs() > started_time + 20000)
                 {
                     Log::error("Main",
@@ -2141,7 +2141,7 @@ void debugLoop()
         {
             diagAbortWithResult(0);
         }
-        std::this_thread::sleep_for(std::chrono::milliseconds(50));
+        StkTime::sleep(50ms);
     }
 }
 #endif

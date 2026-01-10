@@ -190,7 +190,7 @@ void WiimoteManager::launchDetection(int timeout)
         wiiuse_rumble(wiimote_handle, 1);
     }
 
-    StkTime::sleep(200);
+    StkTime::sleep(200ms);
 
     for(unsigned int i=0 ; i < m_wiimotes.size(); i++)
     {
@@ -365,7 +365,7 @@ void WiimoteManager::threadFunc()
             }
         }
 
-        StkTime::sleep(1);  // 'cause come on, the whole CPU is not ours :)
+        StkTime::sleep(1ms);  // 'cause come on, the whole CPU is not ours :)
     } // end while
 }   // threadFunc
 

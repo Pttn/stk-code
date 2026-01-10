@@ -194,7 +194,7 @@ namespace Online
             // We pause the request manager thread when going into background in iOS
             // So this will only be evaluated a while
             if (me->m_paused.load())
-                StkTime::sleep(1);
+                StkTime::sleep(1ms);
             me->m_current_request = me->m_request_queue.getData().top();
             me->m_request_queue.getData().pop();
 

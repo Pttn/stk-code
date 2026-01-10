@@ -49,7 +49,7 @@ float ChildLoop::getLimitedDt()
         dt = (float)(m_curr_time - m_prev_time);
         while (dt == 0)
         {
-            StkTime::sleep(1);
+            StkTime::sleep(1ms);
             m_curr_time = StkTime::getMonoTimeMs();
             if (m_prev_time > m_curr_time)
             {
@@ -69,7 +69,7 @@ float ChildLoop::getLimitedDt()
         int wait_time = 1000 / max_fps - 1000 / current_fps;
         if (wait_time < 1) wait_time = 1;
 
-        StkTime::sleep(wait_time);
+        StkTime::sleep(std::chrono::milliseconds(wait_time));
     }   // while(1)
     dt *= 0.001f;
     return dt;

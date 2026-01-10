@@ -146,7 +146,7 @@ void ConnectToServer::getClientServerInfo()
         started = port != 0;
         if (started)
             break;
-        StkTime::sleep(1);
+        StkTime::sleep(1ms);
     }
     if (!started)
     {
@@ -195,7 +195,7 @@ void ConnectToServer::asynchronousUpdate()
                 {
                     if (ProtocolManager::lock()->isExiting())
                         return;
-                    StkTime::sleep(1);
+                    StkTime::sleep(1ms);
                 }
                 auto& servers = server_list->m_servers;
 
@@ -325,7 +325,7 @@ void ConnectToServer::asynchronousUpdate()
                     for (int i = 0; i < 5; i++)
                     {
                         STKHost::get()->sendRawPacket(message, addr);
-                        StkTime::sleep(1);
+                        StkTime::sleep(1ms);
                     }
                 }
             }

@@ -1047,7 +1047,7 @@ void ClientLobby::startGame(Event* event)
             }
             int sleep_time = (int)(start_time - cur_time);
             //Log::info("ClientLobby", "Start game after %dms", sleep_time);
-            StkTime::sleep(sleep_time);
+            StkTime::sleep(std::chrono::milliseconds(sleep_time));
             //Log::info("ClientLobby", "Started at %lf", StkTime::getRealTime());
             m_state.store(RACING);
         });

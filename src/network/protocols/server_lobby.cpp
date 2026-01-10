@@ -3701,7 +3701,7 @@ void ServerLobby::configPeersStartTime()
             assert(start_time > cur_time);
             int sleep_time = (int)(start_time - cur_time);
             //Log::info("ServerLobby", "Start game after %dms", sleep_time);
-            StkTime::sleep(sleep_time);
+            StkTime::sleep(std::chrono::milliseconds(sleep_time));
             //Log::info("ServerLobby", "Started at %lf", StkTime::getRealTime());
             m_state.store(RACING);
         });

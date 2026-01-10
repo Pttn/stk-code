@@ -37,6 +37,7 @@
 
 #include <time.h>
 #include <string>
+#include <thread>
 #include <stdio.h>
 
 using namespace std::chrono_literals;
@@ -118,13 +119,9 @@ public:
     /** Sleeps for the specified amount of time.
      *  \param msec Number of milliseconds to sleep.
      */
-    static void sleep(int msec)
+    static void sleep(std::chrono::duration<double> duration)
     {
-#ifdef WIN32
-        Sleep(msec);
-#else
-        usleep(msec*1000);
-#endif
+        std::this_thread::sleep_for(duration);
     }   // sleep
     // ------------------------------------------------------------------------
     /**

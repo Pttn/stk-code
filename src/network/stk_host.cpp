@@ -472,7 +472,7 @@ void STKHost::getIPFromStun(int socket, const std::string& stun_address,
         if (len > 0)
             break;
         count++;
-        StkTime::sleep(1);
+        StkTime::sleep(1ms);
     }
 
     if (len <= 0)

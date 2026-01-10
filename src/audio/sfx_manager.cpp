@@ -472,7 +472,7 @@ void SFXManager::mainLoop(void *obj)
             // Wait some time to let other threads run, then queue an
             // update event to keep music playing.
             uint64_t t = StkTime::getMonoTimeMs();
-            StkTime::sleep(1);
+            StkTime::sleep(1ms);
             t = StkTime::getMonoTimeMs() - t;
             me->queue(SFX_UPDATE, (SFXBase*)NULL, float(t / 1000.0));
         }

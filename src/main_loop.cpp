@@ -266,7 +266,7 @@ double MainLoop::getLimitedDt()
     // (minimum time that can be handled by the integer timer) delay here.
     while (dt == 0)
     {
-        StkTime::sleep(1);
+        StkTime::sleep(1ms);
         m_curr_time = std::chrono::steady_clock::now();
         if (m_prev_time > m_curr_time)
         {
