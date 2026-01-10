@@ -76,30 +76,8 @@ public:
      */
     static TimeType getTimeSinceEpoch()
     {
-#ifdef WIN32
-        FILETIME ft;
-        GetSystemTimeAsFileTime(&ft);
-        __int64 t = ft.dwHighDateTime;
-        t <<= 32;
-        t /= 10;
-        // The Unix epoch starts on Jan 1 1970.  Need to subtract
-        // the difference in seconds from Jan 1 1601.
-#       if defined(_MSC_VER) || defined(_MSC_EXTENSIONS)
-#           define DELTA_EPOCH_IN_MICROSECS  11644473600000000Ui64
-#       else
-#           define DELTA_EPOCH_IN_MICROSECS  11644473600000000ULL
-#       endif
-        t -= DELTA_EPOCH_IN_MICROSECS;
-
-        t |= ft.dwLowDateTime;
-        // Convert to seconds since epoch
-        t /= 1000000UL;
-        return t;
-#else
-        struct timeval tv;
-        gettimeofday(&tv, NULL);
-        return tv.tv_sec;
-#endif
+        // System_clock is guaranteed since C++20 to measure Unix Time.
+        return std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now().time_since_epoch()).count();
     };   // getTimeSinceEpoch
 
     // ------------------------------------------------------------------------
