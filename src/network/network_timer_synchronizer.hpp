@@ -22,7 +22,6 @@
 #include "network/stk_host.hpp"
 #include "utils/log.hpp"
 #include "utils/time.hpp"
-#include "utils/types.hpp"
 
 #include <atomic>
 #include <cstdlib>

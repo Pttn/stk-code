@@ -25,7 +25,6 @@
 #include <SDL_joystick.h>
 #include <IEventReceiver.h>
 #include <bitset>
-#include "utils/types.hpp"
 
 #include <SDL_version.h>
 #include <SDL_haptic.h>

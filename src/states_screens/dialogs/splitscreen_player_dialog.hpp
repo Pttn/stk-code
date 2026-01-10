@@ -20,7 +20,6 @@
 #define HEADER_SPLITSCREEN_PLAYER_DIALOG_HPP
 
 #include "guiengine/modaldialog.hpp"
-#include "utils/types.hpp"
 
 #include <irrString.h>
 #include <vector>

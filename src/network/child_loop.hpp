@@ -18,7 +18,6 @@
 #ifndef HEADER_SERVER_LOOP_HPP
 #define HEADER_SERVER_LOOP_HPP
 
-#include "utils/types.hpp"
 #include <atomic>
 #include <string>
 

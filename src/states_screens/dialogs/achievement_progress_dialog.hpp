@@ -21,7 +21,6 @@
 
 #include "achievements/achievement.hpp"
 #include "guiengine/modaldialog.hpp"
-#include "utils/types.hpp"
 
 #include <irrString.h>
 #include <vector>

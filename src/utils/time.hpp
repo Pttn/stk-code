@@ -24,7 +24,6 @@
 #include <chrono>
 #include <stdexcept>
 
-#include "utils/types.hpp"
 
 #ifdef WIN32
 #  define WIN32_LEAN_AND_MEAN

@@ -29,7 +29,6 @@
 #include "utils/singleton.hpp"
 #include "utils/stk_process.hpp"
 #include "utils/synchronised.hpp"
-#include "utils/types.hpp"
 
 #include <array>
 #include <atomic>

@@ -22,7 +22,6 @@
 #include "achievements/achievements_status.hpp"
 #include "achievements/web_achievements_status.hpp"
 
-#include "utils/types.hpp"
 #include "utils/ptr_vector.hpp"
 
 class AchievementInfo;

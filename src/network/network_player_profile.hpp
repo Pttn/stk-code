@@ -23,7 +23,6 @@
 #define HEADER_NETWORK_PLAYER_PROFILE
 
 #include "network/kart_data.hpp"
-#include "utils/types.hpp"
 
 #include "irrString.h"
 #include <atomic>

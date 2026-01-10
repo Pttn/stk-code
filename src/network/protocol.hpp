@@ -25,7 +25,6 @@
 
 #include "network/protocol_enum.hpp"
 #include "utils/no_copy.hpp"
-#include "utils/types.hpp"
 
 #include <memory>
 #include <stddef.h>

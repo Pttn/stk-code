@@ -19,8 +19,8 @@
 #define HEADER_CHECK_TRIGGER_HPP
 
 #include "tracks/check_structure.hpp"
-#include "utils/types.hpp"
 
+#include <cstdint>
 #include <functional>
 
 /** This class implements a check point like item, but used only for scripting

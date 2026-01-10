@@ -24,7 +24,6 @@
 #include "network/remote_kart_info.hpp"
 #include "utils/leak_check.hpp"
 #include "utils/no_copy.hpp"
-#include "utils/types.hpp"
 
 #include <irrString.h>
 using namespace irr;

@@ -24,7 +24,6 @@
 #include <vector>
 
 #include "input/input_device.hpp"
-#include "utils/types.hpp"
 #include "IEventReceiver.h"
 
 #define NUMBER_OF_MULTI_TOUCHES 10

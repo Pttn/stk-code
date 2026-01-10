@@ -19,7 +19,6 @@
 #ifndef HEADER_ONLINE_PROFILE_HPP
 #define HEADER_ONLINE_PROFILE_HPP
 
-#include "utils/types.hpp"
 #include "utils/ptr_vector.hpp"
 
 #include "irrString.h"

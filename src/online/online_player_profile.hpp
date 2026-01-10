@@ -21,7 +21,6 @@
 
 #include "config/player_profile.hpp"
 #include "utils/synchronised.hpp"
-#include "utils/types.hpp"
 
 #include <irrString.h>
 

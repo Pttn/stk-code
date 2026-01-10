@@ -19,7 +19,6 @@
 #ifndef HEADER_STORY_MODE_TIMER_HPP
 #define HEADER_STORY_MODE_TIMER_HPP
 
-#include "utils/types.hpp"
 #include <iomanip>
 
 class StoryModeTimer

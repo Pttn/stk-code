@@ -23,7 +23,6 @@
 #include "utils/log.hpp"
 #include "utils/no_copy.hpp"
 #include "utils/string_utils.hpp"
-#include "utils/types.hpp"
 
 #ifdef ANDROID
 #include "SDL_system.h"

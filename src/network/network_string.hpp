@@ -25,7 +25,6 @@
 
 #include "network/protocol_enum.hpp"
 #include "utils/leak_check.hpp"
-#include "utils/types.hpp"
 #include "utils/vec3.hpp"
 
 #include "LinearMath/btQuaternion.h"

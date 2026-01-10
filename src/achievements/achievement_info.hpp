@@ -20,7 +20,6 @@
 #ifndef HEADER_ACHIEVEMENT_INFO_HPP
 #define HEADER_ACHIEVEMENT_INFO_HPP
 
-#include "utils/types.hpp"
 
 #include <irrString.h>
 #include <string>

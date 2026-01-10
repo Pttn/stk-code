@@ -19,7 +19,7 @@
 #ifndef HEADER_KART_CONTROL_HPP
 #define HEADER_KART_CONTROL_HPP
 
-#include "utils/types.hpp"
+#include <cstdint>
 
 class BareNetworkString;
 

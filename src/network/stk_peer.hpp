@@ -25,7 +25,6 @@
 
 #include "utils/no_copy.hpp"
 #include "utils/time.hpp"
-#include "utils/types.hpp"
 
 #include <enet/enet.h>
 

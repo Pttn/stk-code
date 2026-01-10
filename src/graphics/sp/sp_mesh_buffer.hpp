@@ -22,7 +22,6 @@
 #include "graphics/sp/sp_base.hpp"
 #include "graphics/sp/sp_instanced_data.hpp"
 #include "graphics/sp/sp_per_object_uniform.hpp"
-#include "utils/types.hpp"
 
 #include <IMeshBuffer.h>
 #include <S3DVertex.h>

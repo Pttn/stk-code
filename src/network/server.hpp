@@ -25,7 +25,6 @@
   */
 
 #include "race/race_manager.hpp"
-#include "utils/types.hpp"
 
 #include <irrString.h>
 

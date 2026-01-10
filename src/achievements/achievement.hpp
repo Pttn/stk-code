@@ -21,7 +21,6 @@
 #define HEADER_ACHIEVEMENT_HPP
 
 #include "achievements/achievement_info.hpp"
-#include "utils/types.hpp"
 
 #include <irrString.h>
 #include <map>

@@ -19,7 +19,7 @@
 #ifndef HEADER_MAX_SPEED_HPP
 #define HEADER_MAX_SPEED_HPP
 
-#include "utils/types.hpp"
+#include <cstdint>
 #include <limits>
 
 /** \defgroup karts */

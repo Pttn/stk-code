@@ -21,7 +21,6 @@
 #ifndef HEADER_SOCKET_ADDRESS_HPP
 #define HEADER_SOCKET_ADDRESS_HPP
 
-#include "utils/types.hpp"
 
 #ifdef WIN32
 #  include <winsock2.h>

@@ -21,7 +21,6 @@
 #define HEADER_MAIN_LOOP_HPP
 
 #include "utils/synchronised.hpp"
-#include "utils/types.hpp"
 #include <atomic>
 #include <chrono>
 

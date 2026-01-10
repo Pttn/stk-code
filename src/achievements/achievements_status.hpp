@@ -22,7 +22,6 @@
 
 #undef SYNC_ACHIEVEMENTS
 
-#include "utils/types.hpp"
 
 #include <irrString.h>
 #include <map>

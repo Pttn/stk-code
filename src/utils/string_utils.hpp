@@ -21,7 +21,6 @@
 #ifndef HEADER_STRING_UTILS_HPP
 #define HEADER_STRING_UTILS_HPP
 
-#include "utils/types.hpp"
 #include <limits>
 #include <string>
 #include <vector>

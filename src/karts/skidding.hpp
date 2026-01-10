@@ -23,7 +23,6 @@
 #include "karts/kart_properties.hpp"
 #include "utils/leak_check.hpp"
 #include "utils/no_copy.hpp"
-#include "utils/types.hpp"
 
 class BareNetworkString;
 class Kart;

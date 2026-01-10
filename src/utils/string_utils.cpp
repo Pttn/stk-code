@@ -25,7 +25,6 @@
 #include "utils/log.hpp"
 #include "utils/time.hpp"
 #include "utils/translation.hpp"
-#include "utils/types.hpp"
 #include "utils/utf8.h"
 #include "irrArray.h"
 

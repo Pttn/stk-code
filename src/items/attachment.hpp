@@ -21,7 +21,8 @@
 
 #include "items/attachment_plugin.hpp"
 #include "utils/no_copy.hpp"
-#include "utils/types.hpp"
+
+#include <cstdint>
 
 using namespace irr;
 

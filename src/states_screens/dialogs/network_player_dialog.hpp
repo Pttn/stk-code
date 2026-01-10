@@ -20,7 +20,6 @@
 #define HEADER_NETWORK_USER_DIALOG_HPP
 
 #include "guiengine/modaldialog.hpp"
-#include "utils/types.hpp"
 
 #include <string>
 #include <irrString.h>

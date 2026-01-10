@@ -19,7 +19,6 @@
 #define HEADER_CTF_FLAG_HPP
 
 #include "network/rewinder.hpp"
-#include "utils/types.hpp"
 #include "utils/vec3.hpp"
 
 #include "LinearMath/btTransform.h"

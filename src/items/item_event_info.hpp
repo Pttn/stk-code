@@ -21,7 +21,6 @@
 
 #include "items/item.hpp"
 #include "utils/vec3.hpp"
-#include "utils/types.hpp"
 
 #include <assert.h>
 

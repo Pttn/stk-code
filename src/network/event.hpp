@@ -26,7 +26,6 @@
 
 #include "network/network_string.hpp"
 #include "utils/leak_check.hpp"
-#include "utils/types.hpp"
 
 #include "enet/enet.h"
 

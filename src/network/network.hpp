@@ -23,7 +23,6 @@
 #define HEADER_NETWORK_HPP
 
 #include "utils/synchronised.hpp"
-#include "utils/types.hpp"
 
 // enet.h includes win32.h, which without lean_and_mean includes
 // winspool.h, which defines MAX_PRIORITY as a macro, which then
