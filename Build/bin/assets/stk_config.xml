@@ -592,6 +592,6 @@
   <!-- List of replay files that may be used for benchmarking
     The files should be located in data/replay. -->
   <benchmark>
-    <file name="benchmark_black_forest.replay"/>
+    <file name="black_forest_20191027_1_126_872.replay"/>
   </benchmark>
 </config>
