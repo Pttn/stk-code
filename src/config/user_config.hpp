@@ -613,25 +613,25 @@ namespace UserConfigParams
         PARAM_DEFAULT( GroupUserConfigParam("Video", "Video Settings") );
 
     PARAM_PREFIX IntUserConfigParam         m_real_width
-            PARAM_DEFAULT(  IntUserConfigParam(1024, "real_width", &m_video_group,
+            PARAM_DEFAULT(  IntUserConfigParam(1280, "real_width", &m_video_group,
                                             "Screen/window real width in pixels before high dpi is applied") );
     PARAM_PREFIX IntUserConfigParam         m_real_height
-            PARAM_DEFAULT(  IntUserConfigParam(768, "real_height", &m_video_group,
+            PARAM_DEFAULT(  IntUserConfigParam(720, "real_height", &m_video_group,
                                            "Screen/window real height in pixels before high dpi is applied") );
     PARAM_PREFIX IntUserConfigParam         m_width
-            PARAM_DEFAULT(  IntUserConfigParam(1024, "width", &m_video_group,
+            PARAM_DEFAULT(  IntUserConfigParam(1280, "width", &m_video_group,
                                             "Screen/window width in pixels, this value should not be edited") );
     PARAM_PREFIX IntUserConfigParam         m_height
-            PARAM_DEFAULT(  IntUserConfigParam(768, "height", &m_video_group,
+            PARAM_DEFAULT(  IntUserConfigParam(720, "height", &m_video_group,
                                            "Screen/window height in pixels, this value should not be edited") );
     PARAM_PREFIX BoolUserConfigParam        m_fullscreen
             PARAM_DEFAULT(  BoolUserConfigParam(false, "fullscreen",
                                                 &m_video_group) );
     PARAM_PREFIX IntUserConfigParam         m_prev_real_width
-            PARAM_DEFAULT(  IntUserConfigParam(1024, "prev_real_width",
+            PARAM_DEFAULT(  IntUserConfigParam(1280, "prev_real_width",
                             &m_video_group, "Previous real screen/window width") );
     PARAM_PREFIX IntUserConfigParam         m_prev_real_height
-            PARAM_DEFAULT(  IntUserConfigParam(768, "prev_real_height",
+            PARAM_DEFAULT(  IntUserConfigParam(720, "prev_real_height",
                             &m_video_group,"Previous real screen/window height") );
     PARAM_PREFIX BoolUserConfigParam        m_prev_fullscreen
             PARAM_DEFAULT(  BoolUserConfigParam(false, "prev_fullscreen",
@@ -652,10 +652,10 @@ namespace UserConfigParams
             PARAM_DEFAULT(  BoolUserConfigParam(false, "show_fps",
                             &m_video_group, "Display frame per seconds") );
     PARAM_PREFIX BoolUserConfigParam        m_display_story_mode_timer
-            PARAM_DEFAULT(  BoolUserConfigParam(true, "show_story_mode_timer",
+            PARAM_DEFAULT(  BoolUserConfigParam(false, "show_story_mode_timer",
                             &m_video_group, "Display the story mode timer") );
     PARAM_PREFIX BoolUserConfigParam        m_speedrun_mode
-            PARAM_DEFAULT(  BoolUserConfigParam(false, "show_speedrun_timer",
+            PARAM_DEFAULT(  BoolUserConfigParam(true, "show_speedrun_timer",
                             &m_video_group, "Display the speedrun timer") );
     PARAM_PREFIX IntUserConfigParam         m_max_fps
             PARAM_DEFAULT(  IntUserConfigParam(120, "max_fps",
@@ -1266,7 +1266,7 @@ namespace UserConfigParams
                            "If debug logging should be enabled for rich presence") );
 
     PARAM_PREFIX StringUserConfigParam      m_skin_file
-            PARAM_DEFAULT(  StringUserConfigParam("classic", "skin_name",
+            PARAM_DEFAULT(  StringUserConfigParam("classic-coal", "skin_name",
                                                   "Name of the skin to use") );
 
     // ---- settings for minimap display
