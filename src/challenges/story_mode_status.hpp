@@ -65,9 +65,6 @@ private:
     int m_points_before; // used for unlocks
     int m_next_unlock_points;
 
-    /** Set to false after the initial stuff (intro, select kart, etc.) */
-    bool m_first_time;
-
     int m_easy_challenges;
     int m_medium_challenges;
     int m_hard_challenges;
@@ -81,12 +78,11 @@ private:
     bool m_valid_speedrun_finished;
 
     // It overflows at over 500 hours
-    int m_story_mode_milliseconds;
     int m_speedrun_milliseconds;
 
 public:
 
-     StoryModeStatus(const XMLNode *node=NULL);
+     StoryModeStatus();
     ~StoryModeStatus();
 
     void       computeActive     (bool first_call=false);
@@ -97,7 +93,6 @@ public:
                                   bool do_save=true);
     void       raceFinished      ();
     void       grandPrixFinished ();
-    void       save              (UTFWriter &out, bool current_player=false);
     void       addStatus(ChallengeStatus *cs);
     void       setCurrentChallenge(const std::string &challenge_id);
 
@@ -138,12 +133,6 @@ public:
     /** Returns the number of fulfilled challenges at best level. */
     int getNumBestTrophies  () const { return m_best_challenges;   }
     // ----------------------------------------------------------------------------------------
-    /** Sets if this is the first time the intro is shown. */
-    void setFirstTime(bool ft) { m_first_time = ft;   }
-    // ----------------------------------------------------------------------------------------
-    /** Returns if this is the first time the intro is shown. */
-    bool isFirstTime() const   { return m_first_time; }
-    // ----------------------------------------------------------------------------------------
     /** Sets if the player has beaten Nolock */
     void setFinished()  { m_story_mode_finished = true; }
     // ----------------------------------------------------------------------------------------
@@ -157,14 +146,6 @@ public:
     bool isSpeedrunFinished() const   { return m_valid_speedrun_finished; }
     // ----------------------------------------------------------------------------------------
     /** Sets the story mode timer */
-    void setStoryModeTimer(int milliseconds)  { m_story_mode_milliseconds = milliseconds; }
-    // ----------------------------------------------------------------------------------------
-    /** Gets the story mode timer
-      * This is designed to be used on loading and once story mode is completed ;
-      * it will return out-of-date values when the timer is running. */
-    int getStoryModeTimer()  { return  m_story_mode_milliseconds; }
-    // ----------------------------------------------------------------------------------------
-    /** Sets the story mode timer */
     void setSpeedrunTimer(int milliseconds)  { m_speedrun_milliseconds = milliseconds; }
     // ----------------------------------------------------------------------------------------
     /** Gets the speedrun timer
@@ -174,8 +155,10 @@ public:
     // ----------------------------------------------------------------------------------------
     const ChallengeStatus *getCurrentChallengeStatus() const { return m_current_challenge; }
     // ----------------------------------------------------------------------------------------
-    /** Returns a challenge given the challenge id.
-     */
+    /** Resets Story Mode (notably to start over Speedrun). */
+    void reset()  {*this = StoryModeStatus();}
+    // ----------------------------------------------------------------------------------------
+    /** Returns a challenge given the challenge id. */
     const ChallengeStatus* getChallengeStatus(const std::string& id) const
     {
         std::map<std::string, ChallengeStatus*>::const_iterator it =

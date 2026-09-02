@@ -1578,6 +1578,9 @@ namespace GUIEngine
                 x = ICON_MARGIN;
             }
         }
+
+        if (UserConfigParams::m_speedrun_mode && story_mode_timer->getSpeedrunTime() > 0)
+            irr_driver->displayStoryModeTimer();
 #endif
     } // renderLoading
 

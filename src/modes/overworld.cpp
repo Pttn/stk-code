@@ -105,11 +105,11 @@ void OverWorld::enterOverWorld()
     StateManager::get()->enterGameState();
     RaceManager::get()->setupPlayerKartInfo();
     RaceManager::get()->startNew(false);
-    if(RaceManager::get()->haveKartLastPositionOnOverworld()){
-            OverWorld *ow = (OverWorld*)World::getWorld();
-            ow->getKart(0)->setXYZ(RaceManager::get()->getKartLastPositionOnOverworld());
-            ow->moveKartAfterRescue(ow->getKart(0));
-        }
+    if (RaceManager::get()->haveKartLastPositionOnOverworld()) {
+        OverWorld *ow = (OverWorld*)World::getWorld();
+        ow->getKart(0)->setXYZ(RaceManager::get()->getKartLastPositionOnOverworld());
+        ow->moveKartAfterRescue(ow->getKart(0));
+    }
     irr_driver->showPointer(); // User should be able to click on the minimap
 
 }   // enterOverWorld

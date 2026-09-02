@@ -470,10 +470,8 @@ PlayerProfile *PlayerManager::getPlayer(const irr::core::stringw &name)
  */
 void PlayerManager::setCurrentPlayer(PlayerProfile *player)
 {
-    bool player_has_changed = false;
     if (m_current_player != player)
     {
-        player_has_changed = true;
         save();
         RaceManager::get()->clearKartLastPositionOnOverworld();
     }
@@ -483,7 +481,4 @@ void PlayerManager::setCurrentPlayer(PlayerProfile *player)
     {
         m_current_player->computeActive();
     }
-
-    if (player_has_changed)
-        story_mode_timer->playerHasChanged();
 }   // setCurrentPlayer

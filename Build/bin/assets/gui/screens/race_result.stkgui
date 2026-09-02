@@ -14,11 +14,12 @@
                          middle: 'Restart', 'Continue' (or invisible)
                          left: 'Abort GP', 'Back to the menu' (or invisible)
                          Setting text=" " is important, otherwise the height of the
-                         widget is incorrect.                             -->
+                         widget is incorrect.
+                         Left/Right inverted in Speedrunner Edition to reinstate the Challenge Completed Skip Bug -->
                 <buttonbar id="operations" width="75%" height="18%" align="center">
-                    <icon-button id="left" icon="gui/icons/green_check.png" width="fit" height="100" raw_text="Left" word_wrap="true"/>
-                    <icon-button id="middle" icon="gui/icons/green_check.png" width="fit" height="100" raw_text="Middle" word_wrap="true"/>
                     <icon-button id="right" icon="gui/icons/green_check.png" width="fit" height="100" raw_text="Right" word_wrap="true"/>
+                    <icon-button id="middle" icon="gui/icons/green_check.png" width="fit" height="100" raw_text="Middle" word_wrap="true"/>
+                    <icon-button id="left" icon="gui/icons/green_check.png" width="fit" height="100" raw_text="Left" word_wrap="true"/>
                 </buttonbar>
             </div>
         </roundedbox>

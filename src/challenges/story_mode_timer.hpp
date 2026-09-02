@@ -29,35 +29,22 @@ private:
     bool m_story_mode_started, m_story_mode_ended;
     bool m_speedrun_pause_active, m_story_mode_pause_active;
     bool m_loading_pause;
-    bool m_player_tested;
-    bool m_player_can_speedrun;
 
     //This stores the number of milliseconds to display with the counter
     int m_speedrun_milliseconds;
-    int m_story_mode_milliseconds;
-
     int m_stored_speedrun_milliseconds;
-    int m_stored_story_mode_milliseconds;
 
     uint64_t m_speedrun_start;
     uint64_t m_speedrun_end;
     uint64_t m_speedrun_pause_start;
 
-    uint64_t m_story_mode_start;
-    uint64_t m_story_mode_end;
-    uint64_t m_story_mode_pause_start;
-
     uint64_t m_speedrun_total_pause_time;
-    uint64_t m_story_mode_total_pause_time;
 
     void testPlayerRun();
 
     void pauseSpeedrunTimer();
-    void pauseStoryModeTimer();
     void unpauseSpeedrunTimer();
-    void unpauseStoryModeTimer();
     void updateSpeedrunTimer();
-    void updateStoryModeTimer();
 public:
 
     StoryModeTimer();
@@ -71,14 +58,10 @@ public:
     void updateTimer();
     void reset();
 
-    void playerHasChanged();
     std::string getTimerString();
-    bool playerLoaded() const { return m_player_tested; }
     bool isStoryModePaused() const { return m_story_mode_pause_active; }
-    bool playerCanRun() const { return m_player_can_speedrun; }
     bool isSpeedrunning() const { return m_valid_speedrun_started; }
     bool speedrunIsFinished() const { return m_valid_speedrun_ended; }
-    int getStoryModeTime() const { return m_story_mode_milliseconds; }
     int getSpeedrunTime() const { return m_speedrun_milliseconds; }
 };   // StoryModeTimer
 

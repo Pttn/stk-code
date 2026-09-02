@@ -211,12 +211,6 @@ void RaceGUIOverworld::renderGlobal(float dt)
         drawTrophyPoints();
     }
 
-    // Display the story mode timer if not in speedrun mode
-    // If in speedrun mode, it is taken care of in GUI engine
-    // as it must be displayed in all the game's screens
-    if (UserConfigParams::m_display_story_mode_timer && !UserConfigParams::m_speedrun_mode)
-        irr_driver->displayStoryModeTimer();
-
     drawGlobalMiniMap();
 #endif
 }   // renderGlobal
