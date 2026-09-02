@@ -6,7 +6,7 @@ kart_list_end
 reverse: 0
 difficulty: 3
 mode: time-trial
-track: volcano_island
+track: volcano_island_1.4
 laps: 2
 min_time: 99.750084
 replay_uid: 1090745651114854927

@@ -6,7 +6,7 @@ kart_list_end
 reverse: 1
 difficulty: 3
 mode: time-trial
-track: snowtuxpeak
+track: snowtuxpeak_1.4
 laps: 3
 min_time: 79.228348
 replay_uid: 358529534426706514

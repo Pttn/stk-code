@@ -6,7 +6,7 @@ kart_list_end
 reverse: 1
 difficulty: 3
 mode: time-trial
-track: zengarden
+track: zengarden_1.3
 laps: 4
 min_time: 69.279816
 replay_uid: 967157804588462866

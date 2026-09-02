@@ -6,7 +6,7 @@ kart_list_end
 reverse: 0
 difficulty: 3
 mode: time-trial
-track: hacienda
+track: hacienda_1.4
 laps: 3
 min_time: 89.446617
 replay_uid: 1627252896533522318

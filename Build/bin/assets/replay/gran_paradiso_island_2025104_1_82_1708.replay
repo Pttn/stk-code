@@ -6,7 +6,7 @@ kart_list_end
 reverse: 0
 difficulty: 3
 mode: time-trial
-track: gran_paradiso_island
+track: gran_paradiso_island_1.4
 laps: 3
 min_time: 82.170837
 replay_uid: 1430234330132403046
