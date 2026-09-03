@@ -1640,11 +1640,8 @@ int handleCmdLine(bool has_server_config, bool has_parent_process)
         }
     }   // if --kart
 
-    if(CommandLine::has("--ghost", &s))
-    {
-        ReplayPlay::get()->addReplayFile(s);
+    if (!stk_config->m_ghost.empty()) // For --ghost
         RaceManager::get()->setRaceGhostKarts(true);
-    }   // if --ghost
 
     if(CommandLine::has("--ai", &s))
     {
@@ -2273,6 +2270,9 @@ int main(int argc, char *argv[])
         // Client port depends on user config file and stk_config
         NetworkConfig::get()->initClientPort();
         bool no_graphics = !CommandLine::has("--graphical-server");
+
+        if (CommandLine::has("--ghost", &s))
+            stk_config->m_ghost = s;
 
         if (CommandLine::has( "--tas")) {
             UserConfigParams::m_check_debug = true;

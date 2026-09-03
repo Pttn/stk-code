@@ -268,6 +268,9 @@ public:
      *  version. */
     std::set<std::string> m_network_capabilities;
 
+    /** The currently selected IL Ghost file, if any. Will inhibit the Benchmark Ghost. */
+    std::string m_ghost;
+
     /** List of replays meant for use in benchmarking */
     std::vector<std::string> m_benchmark_files;
 

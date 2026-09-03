@@ -662,6 +662,13 @@ void STKConfig::getAllData(const XMLNode * root)
  */
 void STKConfig::validateBenchmarkReplays()
 {
+    if (!m_ghost.empty()) {
+        if (!ReplayPlay::get()->addReplayFile(m_ghost)) {
+            Log::error("StkConfig", "Replay %s is missing or invalid! It should be in the Local (not Asset) Replay folder.", m_ghost.c_str());
+            exit(-1);
+        }
+        return;
+    }
     for (auto it = m_benchmark_files.begin(); it != m_benchmark_files.end();)
     {
         std::string bench_file = *it;
