@@ -478,22 +478,27 @@ void MainMenuScreen::eventCallback(Widget* widget, const std::string& name,
         story_mode_timer->reset();
         UserConfigParams::m_speedrun_mode = true;
         story_mode_timer->startTimer();
-        CutsceneWorld::setUseDuration(true);
-        StateManager::get()->enterGameState();
-        RaceManager::get()->clearKartLastPositionOnOverworld();
-        RaceManager::get()->setMinorMode(RaceManager::MINOR_MODE_CUTSCENE);
-        RaceManager::get()->setNumKarts(0);
-        RaceManager::get()->setNumPlayers(0);
-        RaceManager::get()->startSingleRace("introcutscene", 999, false);
 
-        std::vector<std::string> parts;
-        parts.push_back("introcutscene");
-        parts.push_back("introcutscene2");
-        ((CutsceneWorld*)World::getWorld())->setParts(parts);
+        if (StringUtils::wideToUtf8(PlayerManager::getCurrentPlayer()->getName()) != "solved") {
+            CutsceneWorld::setUseDuration(true);
+            StateManager::get()->enterGameState();
+            RaceManager::get()->clearKartLastPositionOnOverworld();
+            RaceManager::get()->setMinorMode(RaceManager::MINOR_MODE_CUTSCENE);
+            RaceManager::get()->setNumKarts(0);
+            RaceManager::get()->setNumPlayers(0);
+            RaceManager::get()->startSingleRace("introcutscene", 999, false);
 
-        CutSceneGeneral* scene = CutSceneGeneral::getInstance();
-        scene->push();
-        return;
+            std::vector<std::string> parts;
+            parts.push_back("introcutscene");
+            parts.push_back("introcutscene2");
+            ((CutsceneWorld*)World::getWorld())->setParts(parts);
+
+            CutSceneGeneral* scene = CutSceneGeneral::getInstance();
+            scene->push();
+            return;
+        }
+
+        OverWorld::enterOverWorld();
     }
     else if (selection == "gpEditor")
     {

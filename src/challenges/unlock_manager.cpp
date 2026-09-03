@@ -212,12 +212,16 @@ StoryModeStatus* UnlockManager::createStoryModeStatus()
 {
 
     StoryModeStatus *status = new StoryModeStatus();
+    PlayerProfile *player = PlayerManager::getCurrentPlayer();
 
     for(AllChallengesType::iterator i = m_all_challenges.begin();
                                     i!=m_all_challenges.end();  i++)
     {
         ChallengeData* cd = i->second;
-        status->addStatus(new ChallengeStatus(cd));
+        ChallengeStatus* cs(new ChallengeStatus(cd));
+        if (player && StringUtils::wideToUtf8(player->getName()) == "solved")
+            cs->setSolved(RaceManager::DIFFICULTY_BEST);
+        status->addStatus(cs);
     }
 
     status->computeActive(/* first call*/ true);

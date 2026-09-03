@@ -25,6 +25,7 @@
 #include "network/remote_kart_info.hpp"
 #include "utils/leak_check.hpp"
 #include "utils/no_copy.hpp"
+#include "utils/string_utils.hpp"
 #include "utils/types.hpp"
 
 #include <irrString.h>
@@ -203,6 +204,8 @@ public:
     /** Returnes if the feature (kart, track) is locked. */
     bool isLocked(const std::string &feature) const
     {
+        if (StringUtils::wideToUtf8(m_local_name) == "solved")
+            return false;
         return m_story_mode_status->isLocked(feature) && story_mode_timer->isSpeedrunning() && !story_mode_timer->speedrunIsFinished() && m_story_mode_status->getOverworld() == "overworld";
     }   // isLocked
     // ----------------------------------------------------------------------------------------
