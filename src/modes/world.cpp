@@ -318,6 +318,8 @@ void World::init()
         initTeamArrows(m_karts[i].get());
 
     main_loop->renderGUI(7300);
+    if (RaceManager::get()->isWatchingReplay()) // Workaround to use Tas Checkpoints when Replaying Ghosts, see the Message of the Commit that introduced this for more Information.
+        Tas::get()->setCurrentTick(0);
 }   // init
 
 //-----------------------------------------------------------------------------

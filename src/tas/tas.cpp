@@ -222,6 +222,7 @@ void Tas::update(const double x, const double y, const double z, const double v)
 	
 	if (!m_is_enabled) return;
 	if (m_is_paused) {
+		if (RaceManager::get()->isWatchingReplay()) unpauseReplay(); // Workaround to use Tas Checkpoints when Replaying Ghosts.
 		if (isBruteForcing()) unpauseReplay();
 		else return;
 	}
