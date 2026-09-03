@@ -692,6 +692,7 @@ namespace GUIEngine
 #include "modes/cutscene_world.hpp"
 #include "modes/world.hpp"
 #include "states_screens/race_gui_overworld.hpp"
+#include "tas/tas.hpp"
 #include "tips/tips_manager.hpp"
 #include "utils/debug.hpp"
 #include "utils/string_utils.hpp"
@@ -1427,6 +1428,7 @@ namespace GUIEngine
         if ( UserConfigParams::m_speedrun_mode ) irr_driver->displayStoryModeTimer();
         // Update the story mode and speedrun timer (even if not enabled)
         story_mode_timer->unpauseTimer(/* exit loading pause */ true);
+        Tas::get()->unpauseReplay();
         story_mode_timer->updateTimer();
 
         g_driver->enableMaterial2D(false);
@@ -1608,6 +1610,7 @@ namespace GUIEngine
 
             //pause the timer during loading
             story_mode_timer->pauseTimer(true);
+            Tas::get()->pauseReplay();
         }
         else
         {

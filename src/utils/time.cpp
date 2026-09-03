@@ -19,6 +19,7 @@
 #include "utils/time.hpp"
 
 #include "graphics/irr_driver.hpp"
+#include "tas/tas.hpp"
 #include "utils/log.hpp"
 #include "utils/translation.hpp"
 
@@ -123,9 +124,21 @@ std::string StkTime::getDateFormat()
  */
 double StkTime::getRealTime(long startAt)
 {
+    if (Tas::get()->isEnabled())
+        return 1767225600. + static_cast<double>(Tas::get()->currentTick())/120.;
     assert(m_timer);
     return m_timer->getRealTime()/1000.0;
 }   // getTimeSinceEpoch
+
+uint64_t StkTime::getMonoTimeMs()
+{
+    if (Tas::get()->isEnabled())
+        return (1000ULL*Tas::get()->currentTick())/120ULL;
+    auto duration = std::chrono::steady_clock::now() - m_mono_start;
+    auto value =
+        std::chrono::duration_cast<std::chrono::milliseconds>(duration);
+    return value.count();
+}
 
 // ----------------------------------------------------------------------------
 /** Returns the current date.

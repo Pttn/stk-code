@@ -7,6 +7,8 @@
 #include "IrrCompileConfig.h"
 #include "irrMath.h"
 
+#include "../../../src/tas/tas.hpp"
+
 #if defined(_IRR_COMPILE_WITH_SDL_DEVICE_)
 	#include <SDL_endian.h>
 	#define bswap_16(X) SDL_Swap16(X)
@@ -75,7 +77,7 @@ namespace os
 #if defined (_WIN32_WCE )
 		core::stringw tmp(message);
 		tmp += L"\n";
-		OutputDebugStringW(tmp.c_str());
+		OutputDebugStringW (tmp.c_str());
 #else
 		core::stringc tmp(message);
 		tmp += "\n";
@@ -105,6 +107,8 @@ namespace os
 
 	u32 Timer::getRealTime()
 	{
+		if (Tas::get()->isEnabled())
+			return Tas::get()->currentTimeMs();
 		if (HighPerformanceTimerSupport)
 		{
 #if !defined(_WIN32_WCE) && !defined (_IRR_XBOX_PLATFORM_)
@@ -165,6 +169,8 @@ namespace os
 
 	u32 Timer::getRealTime()
 	{
+		if (Tas::get()->isEnabled())
+			return Tas::get()->currentTimeMs();
 		timeval tv;
 		gettimeofday(&tv, 0);
 		return (u32)(tv.tv_sec * 1000) + (tv.tv_usec / 1000);
@@ -285,6 +291,8 @@ namespace os
 	//! returns current virtual time
 	u32 Timer::getTime()
 	{
+		if (Tas::get()->isEnabled())
+			return Tas::get()->currentTimeMs();
 		if (isStopped())
 			return LastVirtualTime;
 
